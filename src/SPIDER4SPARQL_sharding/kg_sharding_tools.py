@@ -26,7 +26,11 @@ def _load_graph_resilient(kg_path: str) -> Graph:
 
 
 def analyze_kg(kg_path: str) -> dict:
-    """Extract classes and their triples from a KG."""
+    """Extract classes and their triples from a KG.
+
+    Returns the analysis dict plus a ``graph`` key holding the loaded rdflib
+    Graph so callers can reuse it without re-parsing the file.
+    """
     g = _load_graph_resilient(kg_path)
 
     subject_to_class = {}
@@ -50,18 +54,26 @@ def analyze_kg(kg_path: str) -> dict:
         "untyped": untyped_triples,
         "subject_to_class": subject_to_class,
         "total_triples": len(g),
+        "graph": g,
     }
 
 
-def shard_by_class(kg_path: str, output_dir: str) -> dict:
-    """Split a KG into class-based shards and return shard metadata."""
-    analysis = analyze_kg(kg_path)
+def shard_by_class(kg_path: str, output_dir: str, analysis: dict | None = None) -> dict:
+    """Split a KG into class-based shards and return shard metadata.
+
+    ``analysis`` can be passed in from a prior ``analyze_kg`` call to avoid
+    loading the KG a second time.  When omitted the KG is loaded from
+    ``kg_path`` as before.
+    """
+    if analysis is None:
+        analysis = analyze_kg(kg_path)
     shards = {}
 
     output_path = Path(output_dir)
     output_path.mkdir(parents=True, exist_ok=True)
 
-    original = _load_graph_resilient(kg_path)
+    # Reuse the already-loaded graph from analysis to avoid a second parse.
+    original = analysis.get("graph") or _load_graph_resilient(kg_path)
     namespace_bindings = list(original.namespaces())
 
     for cls_uri, triples in analysis["classes"].items():

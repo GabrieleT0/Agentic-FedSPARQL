@@ -351,10 +351,14 @@ def execute_federated_query_real(federated_sparql: str, timeout: float = 20.0):
 def validate_rewrite_real_federated(
     original_sparql: str,
     federated_sparql: str,
-    full_kg_path: str,
+    full_kg_path: str | None = None,
+    full_graph: Graph | None = None,
 ) -> dict:
-    full_graph = Graph()
-    full_graph.parse(full_kg_path)
+    if full_graph is None:
+        if not full_kg_path:
+            raise ValueError("Either full_kg_path or full_graph must be provided.")
+        full_graph = Graph()
+        full_graph.parse(full_kg_path)
 
     original = execute_query_local(full_graph, original_sparql)
     federated = execute_federated_query_real(federated_sparql)

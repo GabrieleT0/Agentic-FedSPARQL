@@ -1,4 +1,5 @@
 import argparse
+import gc
 import json
 from collections import defaultdict
 from pathlib import Path
@@ -69,6 +70,7 @@ def run_all(
     output_root: Path = OUTPUT_ROOT,
     splits: tuple = SPLITS,
     max_examples_per_split: int | None = MAX_EXAMPLES_PER_SPLIT,
+    max_kg_size_mb: int | None = None,
 ):
     dataset_root = dataset_root or _resolve_dataset_root()
     output_root.mkdir(parents=True, exist_ok=True)
@@ -88,6 +90,7 @@ def run_all(
             "num_failed_examples": 0,
             "num_failed_domains": 0,
             "num_missing_kg_domains": 0,
+            "num_skipped_large_kg_domains": 0,
         },
         "domains": [],
         "examples": [],
@@ -124,11 +127,26 @@ def run_all(
                         }
                     )
                     continue
+
+                if max_kg_size_mb is not None:
+                    kg_size_mb = kg_path.stat().st_size / (1024 * 1024)
+                    if kg_size_mb > max_kg_size_mb:
+                        benchmark["metadata"]["num_skipped_large_kg_domains"] += 1
+                        benchmark["domains"].append(
+                            {
+                                "split": split,
+                                "name": kg_name,
+                                "kg_path": str(kg_path),
+                                "error": f"Skipped large KG ({kg_size_mb:.1f} MB > limit {max_kg_size_mb} MB)",
+                            }
+                        )
+                        continue
+
                 shards_dir = output_root / "shards" / split / kg_name
 
                 try:
                     analysis = analyze_kg(str(kg_path))
-                    shards = shard_by_class(str(kg_path), str(shards_dir))
+                    shards = shard_by_class(str(kg_path), str(shards_dir), analysis=analysis)
                     shards_jsonable = _to_jsonable_shards(shards)
 
                     metadata_path = output_root / "shards" / split / kg_name / "shards_metadata.json"
@@ -193,7 +211,7 @@ def run_all(
                             validation = validate_rewrite_real_federated(
                                 original_sparql=original_query,
                                 federated_sparql=rewritten_query,
-                                full_kg_path=str(kg_path),
+                                full_graph=analysis.get("graph"),
                             )
                             is_valid = bool(validation.get("equivalent", False))
                             benchmark["metadata"]["num_federated_queries"] += 1
@@ -233,6 +251,12 @@ def run_all(
                         }
                     )
                     benchmark["metadata"]["num_examples"] += 1
+
+                # Release domain-level objects as soon as possible.
+                del deployed_shards
+                del shards
+                del analysis
+                gc.collect()
     finally:
         federation_server.close()
 
@@ -278,6 +302,12 @@ if __name__ == "__main__":
         help="Limit examples processed per split.",
     )
     parser.add_argument(
+        "--max-kg-size-mb",
+        type=int,
+        default=None,
+        help="Skip domains whose KG file size exceeds this threshold (MB).",
+    )
+    parser.add_argument(
         "--smoke-test",
         action="store_true",
         help="Run a quick validation on dev split with a few examples.",
@@ -297,4 +327,5 @@ if __name__ == "__main__":
         output_root=args.output_root,
         splits=splits,
         max_examples_per_split=max_examples,
+        max_kg_size_mb=args.max_kg_size_mb,
     )
