@@ -49,4 +49,4 @@ class FederatedSPARQLPipeline(dspy.Module):
                     refinement_attempts += 1
                     retry_from = 'schema'
         
-        return dspy.Prediction(success=False, query_results=None, sparql_query=None, json_ir=None)
+        return dspy.Prediction(success=False, query_results=None, sparql_query=None, json_ir=None, error_type=error)
