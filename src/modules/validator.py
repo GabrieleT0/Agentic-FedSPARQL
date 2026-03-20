@@ -9,7 +9,6 @@ class Validator(dspy.Module):
         super().__init__()
         self.diagnose = dspy.Predict(DiagnoseEmptyResult)
 
-
     def forward(self, question: str, sparql_query: str, candidate_endpoints: list, json_ir: dict) -> dspy.Prediction:
         query_results = sparql_utils.execute_sparql_query(sparql_query)
         if len(query_results) > 0:
