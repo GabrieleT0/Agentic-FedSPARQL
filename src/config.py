@@ -11,3 +11,4 @@ MAX_DISCOVERY_ATTEMPTS = 5 # Maximum number of attempts for the discovery phase
 ENDPOINTS_FILE_PATH = '../data/endpoints_metadata.json'
 FEDERATED_SPARQL_ENDPOINT = "http://host.docker.internal:3030/federated/sparql"
 BENCHMARK_DATA_PATH = '../data/fkgqa_benchmark/'
+MODE = 'benchmark'
