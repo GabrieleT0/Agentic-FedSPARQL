@@ -32,7 +32,9 @@ class QueryBuilder(dspy.Signature):
 class DiagnoseEmptyResult(dspy.Signature):
     """
     Given in input a natural language question, the generated SPARQL query, and the results obtained by probing the 
-    SPARQL endpoint to check if the different endpoints contain the relevant data, diagnose whether the empty result is due to wrong endpoints (i.e., the SPARQL query is correct but the endpoints do not contain the relevant data) or to a wrong schema (i.e., the SPARQL query is not correctly formulated according to the actual schema of the endpoints).
+    SPARQL endpoint to check if the different endpoints contain the relevant data, diagnose whether the empty result is due to 
+    wrong endpoints (i.e., the SPARQL query is correct but the endpoints do not contain the relevant data) or to a wrong schema 
+    (i.e., the SPARQL query is not correctly formulated according to the actual schema of the endpoints).
     """
     question: str = dspy.InputField()
     sparql_query: str = dspy.InputField()
