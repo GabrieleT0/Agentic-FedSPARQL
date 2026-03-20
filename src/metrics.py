@@ -1,7 +1,3 @@
-from config import BENCHMARK_DATA_PATH
-import sparql_utils
-import json
-
 def execution_accuracy(predicted: list, gold: list) -> float:
     """Calculate the execution accuracy between the predicted and gold answers."""
     predicted_set = {frozenset(row.items()) for row in predicted}
