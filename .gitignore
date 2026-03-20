@@ -208,3 +208,7 @@ __marimo__/
 .devcontainer/
 data/original_SPIDER4SPARQL/
 data/federated_output/
+data/fuseki
+.DS_Store
+.claude
+data/fkgqa_benchmark/shards/
