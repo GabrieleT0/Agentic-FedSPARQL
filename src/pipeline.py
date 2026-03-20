@@ -1,8 +1,6 @@
 from modules import Discovery, Schema, QueryBuilderAgent, Validator
 import dspy
-
-MAX_RETRIES = 5 # Maximum number of retries for the entire pipeline
-MAX_DISCOVERY_ATTEMPTS = 5 # Maximum number of attempts for the discovery phase
+from config import MAX_RETRIES, MAX_DISCOVERY_ATTEMPTS
 
 class FederatedSPARQLPipeline(dspy.Module):
     def __init__(self):
@@ -49,4 +47,4 @@ class FederatedSPARQLPipeline(dspy.Module):
                     refinement_attempts += 1
                     retry_from = 'schema'
         
-        return dspy.Prediction(success=False, query_results=None, sparql_query=None, json_ir=None, error_type=error)
+        return dspy.Prediction(success=False, query_results=None, sparql_query=None, json_ir=None, error_type=error, candidate_endpoints=candidate_endpoints)

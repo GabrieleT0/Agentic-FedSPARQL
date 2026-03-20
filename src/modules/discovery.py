@@ -2,6 +2,7 @@ import dspy
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import json
+from config import ENDPOINTS_FILE_PATH
 
 # Agent 1: Discovery Agent
 class Discovery(dspy.Module):
@@ -9,7 +10,7 @@ class Discovery(dspy.Module):
         super().__init__()
         self.model = SentenceTransformer(model_name)
         self.index = {}
-        with open('./endpoints.json', 'r') as f:
+        with open(ENDPOINTS_FILE_PATH, 'r') as f:
             self.endpoints = json.load(f)
         self._build_index()
 
