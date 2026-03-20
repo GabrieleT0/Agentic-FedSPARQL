@@ -1,5 +1,7 @@
 import requests
 
+FEDERATED_ENDPOINT = "http://host.docker.internal:3030/sparql"
+
 def execute_sparql_on_endpoint(endpoint_url: str, query: str) -> list:
     """Execute a SPARQL query on a given endpoint and return the results."""
     headers = {
@@ -57,3 +59,7 @@ def probe_property(endpoint_url: str, property_uri: str) -> list:
         """
     results = execute_sparql_on_endpoint(endpoint_url, query)
     return results
+
+def execute_sparql_query(query: str) -> list:
+    """Execute a federated SPARQL query on the local Fuseki federation endpoint."""
+    return execute_sparql_on_endpoint(FEDERATED_ENDPOINT, query)
