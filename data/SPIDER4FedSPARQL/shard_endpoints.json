@@ -1,0 +1,4629 @@
+[
+  {
+    "kg_name": "activity_1",
+    "class": "http://valuenet/ontop/participates_in",
+    "class_name": "participates_in",
+    "endpoint_name": "activity_1__participates_in",
+    "endpoint_url": "http://host.docker.internal:3030/activity_1__participates_in/sparql"
+  },
+  {
+    "kg_name": "activity_1",
+    "class": "http://valuenet/ontop/faculty_participates_in",
+    "class_name": "faculty_participates_in",
+    "endpoint_name": "activity_1__faculty_participates_in",
+    "endpoint_url": "http://host.docker.internal:3030/activity_1__faculty_participates_in/sparql"
+  },
+  {
+    "kg_name": "activity_1",
+    "class": "http://valuenet/ontop/faculty",
+    "class_name": "faculty",
+    "endpoint_name": "activity_1__faculty",
+    "endpoint_url": "http://host.docker.internal:3030/activity_1__faculty/sparql"
+  },
+  {
+    "kg_name": "activity_1",
+    "class": "http://valuenet/ontop/student",
+    "class_name": "student",
+    "endpoint_name": "activity_1__student",
+    "endpoint_url": "http://host.docker.internal:3030/activity_1__student/sparql"
+  },
+  {
+    "kg_name": "activity_1",
+    "class": "http://valuenet/ontop/activity",
+    "class_name": "activity",
+    "endpoint_name": "activity_1__activity",
+    "endpoint_url": "http://host.docker.internal:3030/activity_1__activity/sparql"
+  },
+  {
+    "kg_name": "aircraft",
+    "class": "http://valuenet/ontop/match",
+    "class_name": "match",
+    "endpoint_name": "aircraft__match",
+    "endpoint_url": "http://host.docker.internal:3030/aircraft__match/sparql"
+  },
+  {
+    "kg_name": "aircraft",
+    "class": "http://valuenet/ontop/airport",
+    "class_name": "airport",
+    "endpoint_name": "aircraft__airport",
+    "endpoint_url": "http://host.docker.internal:3030/aircraft__airport/sparql"
+  },
+  {
+    "kg_name": "aircraft",
+    "class": "http://valuenet/ontop/airport_aircraft",
+    "class_name": "airport_aircraft",
+    "endpoint_name": "aircraft__airport_aircraft",
+    "endpoint_url": "http://host.docker.internal:3030/aircraft__airport_aircraft/sparql"
+  },
+  {
+    "kg_name": "aircraft",
+    "class": "http://valuenet/ontop/pilot",
+    "class_name": "pilot",
+    "endpoint_name": "aircraft__pilot",
+    "endpoint_url": "http://host.docker.internal:3030/aircraft__pilot/sparql"
+  },
+  {
+    "kg_name": "aircraft",
+    "class": "http://valuenet/ontop/aircraft",
+    "class_name": "aircraft",
+    "endpoint_name": "aircraft__aircraft",
+    "endpoint_url": "http://host.docker.internal:3030/aircraft__aircraft/sparql"
+  },
+  {
+    "kg_name": "allergy_1",
+    "class": "http://valuenet/ontop/student",
+    "class_name": "student",
+    "endpoint_name": "allergy_1__student",
+    "endpoint_url": "http://host.docker.internal:3030/allergy_1__student/sparql"
+  },
+  {
+    "kg_name": "allergy_1",
+    "class": "http://valuenet/ontop/has_allergy",
+    "class_name": "has_allergy",
+    "endpoint_name": "allergy_1__has_allergy",
+    "endpoint_url": "http://host.docker.internal:3030/allergy_1__has_allergy/sparql"
+  },
+  {
+    "kg_name": "allergy_1",
+    "class": "http://valuenet/ontop/allergy_type",
+    "class_name": "allergy_type",
+    "endpoint_name": "allergy_1__allergy_type",
+    "endpoint_url": "http://host.docker.internal:3030/allergy_1__allergy_type/sparql"
+  },
+  {
+    "kg_name": "apartment_rentals",
+    "class": "http://valuenet/ontop/apartment_bookings",
+    "class_name": "apartment_bookings",
+    "endpoint_name": "apartment_rentals__apartment_bookings",
+    "endpoint_url": "http://host.docker.internal:3030/apartment_rentals__apartment_bookings/sparql"
+  },
+  {
+    "kg_name": "apartment_rentals",
+    "class": "http://valuenet/ontop/apartment_buildings",
+    "class_name": "apartment_buildings",
+    "endpoint_name": "apartment_rentals__apartment_buildings",
+    "endpoint_url": "http://host.docker.internal:3030/apartment_rentals__apartment_buildings/sparql"
+  },
+  {
+    "kg_name": "apartment_rentals",
+    "class": "http://valuenet/ontop/view_unit_status",
+    "class_name": "view_unit_status",
+    "endpoint_name": "apartment_rentals__view_unit_status",
+    "endpoint_url": "http://host.docker.internal:3030/apartment_rentals__view_unit_status/sparql"
+  },
+  {
+    "kg_name": "apartment_rentals",
+    "class": "http://valuenet/ontop/apartments",
+    "class_name": "apartments",
+    "endpoint_name": "apartment_rentals__apartments",
+    "endpoint_url": "http://host.docker.internal:3030/apartment_rentals__apartments/sparql"
+  },
+  {
+    "kg_name": "apartment_rentals",
+    "class": "http://valuenet/ontop/apartment_facilities",
+    "class_name": "apartment_facilities",
+    "endpoint_name": "apartment_rentals__apartment_facilities",
+    "endpoint_url": "http://host.docker.internal:3030/apartment_rentals__apartment_facilities/sparql"
+  },
+  {
+    "kg_name": "apartment_rentals",
+    "class": "http://valuenet/ontop/guests",
+    "class_name": "guests",
+    "endpoint_name": "apartment_rentals__guests",
+    "endpoint_url": "http://host.docker.internal:3030/apartment_rentals__guests/sparql"
+  },
+  {
+    "kg_name": "architecture",
+    "class": "http://valuenet/ontop/bridge",
+    "class_name": "bridge",
+    "endpoint_name": "architecture__bridge",
+    "endpoint_url": "http://host.docker.internal:3030/architecture__bridge/sparql"
+  },
+  {
+    "kg_name": "architecture",
+    "class": "http://valuenet/ontop/mill",
+    "class_name": "mill",
+    "endpoint_name": "architecture__mill",
+    "endpoint_url": "http://host.docker.internal:3030/architecture__mill/sparql"
+  },
+  {
+    "kg_name": "architecture",
+    "class": "http://valuenet/ontop/architect",
+    "class_name": "architect",
+    "endpoint_name": "architecture__architect",
+    "endpoint_url": "http://host.docker.internal:3030/architecture__architect/sparql"
+  },
+  {
+    "kg_name": "assets_maintenance",
+    "class": "http://valuenet/ontop/third_party_companies",
+    "class_name": "third_party_companies",
+    "endpoint_name": "assets_maintenance__third_party_companies",
+    "endpoint_url": "http://host.docker.internal:3030/assets_maintenance__third_party_companies/sparql"
+  },
+  {
+    "kg_name": "assets_maintenance",
+    "class": "http://valuenet/ontop/maintenance_engineers",
+    "class_name": "maintenance_engineers",
+    "endpoint_name": "assets_maintenance__maintenance_engineers",
+    "endpoint_url": "http://host.docker.internal:3030/assets_maintenance__maintenance_engineers/sparql"
+  },
+  {
+    "kg_name": "assets_maintenance",
+    "class": "http://valuenet/ontop/engineer_skills",
+    "class_name": "engineer_skills",
+    "endpoint_name": "assets_maintenance__engineer_skills",
+    "endpoint_url": "http://host.docker.internal:3030/assets_maintenance__engineer_skills/sparql"
+  },
+  {
+    "kg_name": "assets_maintenance",
+    "class": "http://valuenet/ontop/skills",
+    "class_name": "skills",
+    "endpoint_name": "assets_maintenance__skills",
+    "endpoint_url": "http://host.docker.internal:3030/assets_maintenance__skills/sparql"
+  },
+  {
+    "kg_name": "assets_maintenance",
+    "class": "http://valuenet/ontop/part_faults",
+    "class_name": "part_faults",
+    "endpoint_name": "assets_maintenance__part_faults",
+    "endpoint_url": "http://host.docker.internal:3030/assets_maintenance__part_faults/sparql"
+  },
+  {
+    "kg_name": "assets_maintenance",
+    "class": "http://valuenet/ontop/asset_parts",
+    "class_name": "asset_parts",
+    "endpoint_name": "assets_maintenance__asset_parts",
+    "endpoint_url": "http://host.docker.internal:3030/assets_maintenance__asset_parts/sparql"
+  },
+  {
+    "kg_name": "assets_maintenance",
+    "class": "http://valuenet/ontop/maintenance_contracts",
+    "class_name": "maintenance_contracts",
+    "endpoint_name": "assets_maintenance__maintenance_contracts",
+    "endpoint_url": "http://host.docker.internal:3030/assets_maintenance__maintenance_contracts/sparql"
+  },
+  {
+    "kg_name": "assets_maintenance",
+    "class": "http://valuenet/ontop/fault_log",
+    "class_name": "fault_log",
+    "endpoint_name": "assets_maintenance__fault_log",
+    "endpoint_url": "http://host.docker.internal:3030/assets_maintenance__fault_log/sparql"
+  },
+  {
+    "kg_name": "assets_maintenance",
+    "class": "http://valuenet/ontop/assets",
+    "class_name": "assets",
+    "endpoint_name": "assets_maintenance__assets",
+    "endpoint_url": "http://host.docker.internal:3030/assets_maintenance__assets/sparql"
+  },
+  {
+    "kg_name": "assets_maintenance",
+    "class": "http://valuenet/ontop/staff",
+    "class_name": "staff",
+    "endpoint_name": "assets_maintenance__staff",
+    "endpoint_url": "http://host.docker.internal:3030/assets_maintenance__staff/sparql"
+  },
+  {
+    "kg_name": "assets_maintenance",
+    "class": "http://valuenet/ontop/fault_log_parts",
+    "class_name": "fault_log_parts",
+    "endpoint_name": "assets_maintenance__fault_log_parts",
+    "endpoint_url": "http://host.docker.internal:3030/assets_maintenance__fault_log_parts/sparql"
+  },
+  {
+    "kg_name": "assets_maintenance",
+    "class": "http://valuenet/ontop/engineer_visits",
+    "class_name": "engineer_visits",
+    "endpoint_name": "assets_maintenance__engineer_visits",
+    "endpoint_url": "http://host.docker.internal:3030/assets_maintenance__engineer_visits/sparql"
+  },
+  {
+    "kg_name": "assets_maintenance",
+    "class": "http://valuenet/ontop/skills_required_to_fix",
+    "class_name": "skills_required_to_fix",
+    "endpoint_name": "assets_maintenance__skills_required_to_fix",
+    "endpoint_url": "http://host.docker.internal:3030/assets_maintenance__skills_required_to_fix/sparql"
+  },
+  {
+    "kg_name": "assets_maintenance",
+    "class": "http://valuenet/ontop/parts",
+    "class_name": "parts",
+    "endpoint_name": "assets_maintenance__parts",
+    "endpoint_url": "http://host.docker.internal:3030/assets_maintenance__parts/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/college",
+    "class_name": "college",
+    "endpoint_name": "baseball_1__college",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__college/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/team",
+    "class_name": "team",
+    "endpoint_name": "baseball_1__team",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__team/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/fielding_outfield",
+    "class_name": "fielding_outfield",
+    "endpoint_name": "baseball_1__fielding_outfield",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__fielding_outfield/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/team_half",
+    "class_name": "team_half",
+    "endpoint_name": "baseball_1__team_half",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__team_half/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/manager_award",
+    "class_name": "manager_award",
+    "endpoint_name": "baseball_1__manager_award",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__manager_award/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/appearances",
+    "class_name": "appearances",
+    "endpoint_name": "baseball_1__appearances",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__appearances/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/fielding_postseason",
+    "class_name": "fielding_postseason",
+    "endpoint_name": "baseball_1__fielding_postseason",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__fielding_postseason/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/manager_award_vote",
+    "class_name": "manager_award_vote",
+    "endpoint_name": "baseball_1__manager_award_vote",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__manager_award_vote/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/player",
+    "class_name": "player",
+    "endpoint_name": "baseball_1__player",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__player/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/player_college",
+    "class_name": "player_college",
+    "endpoint_name": "baseball_1__player_college",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__player_college/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/player_award",
+    "class_name": "player_award",
+    "endpoint_name": "baseball_1__player_award",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__player_award/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/manager_half",
+    "class_name": "manager_half",
+    "endpoint_name": "baseball_1__manager_half",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__manager_half/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/hall_of_fame",
+    "class_name": "hall_of_fame",
+    "endpoint_name": "baseball_1__hall_of_fame",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__hall_of_fame/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/postseason",
+    "class_name": "postseason",
+    "endpoint_name": "baseball_1__postseason",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__postseason/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/salary",
+    "class_name": "salary",
+    "endpoint_name": "baseball_1__salary",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__salary/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/batting_postseason",
+    "class_name": "batting_postseason",
+    "endpoint_name": "baseball_1__batting_postseason",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__batting_postseason/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/batting",
+    "class_name": "batting",
+    "endpoint_name": "baseball_1__batting",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__batting/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/park",
+    "class_name": "park",
+    "endpoint_name": "baseball_1__park",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__park/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/pitching_postseason",
+    "class_name": "pitching_postseason",
+    "endpoint_name": "baseball_1__pitching_postseason",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__pitching_postseason/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/pitching",
+    "class_name": "pitching",
+    "endpoint_name": "baseball_1__pitching",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__pitching/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/all_star",
+    "class_name": "all_star",
+    "endpoint_name": "baseball_1__all_star",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__all_star/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/player_award_vote",
+    "class_name": "player_award_vote",
+    "endpoint_name": "baseball_1__player_award_vote",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__player_award_vote/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/team_franchise",
+    "class_name": "team_franchise",
+    "endpoint_name": "baseball_1__team_franchise",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__team_franchise/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/fielding",
+    "class_name": "fielding",
+    "endpoint_name": "baseball_1__fielding",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__fielding/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/manager",
+    "class_name": "manager",
+    "endpoint_name": "baseball_1__manager",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__manager/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "http://valuenet/ontop/home_game",
+    "class_name": "home_game",
+    "endpoint_name": "baseball_1__home_game",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__home_game/sparql"
+  },
+  {
+    "kg_name": "baseball_1",
+    "class": "_shared",
+    "class_name": "_shared",
+    "endpoint_name": "baseball_1__shared",
+    "endpoint_url": "http://host.docker.internal:3030/baseball_1__shared/sparql"
+  },
+  {
+    "kg_name": "battle_death",
+    "class": "http://valuenet/ontop/ship",
+    "class_name": "ship",
+    "endpoint_name": "battle_death__ship",
+    "endpoint_url": "http://host.docker.internal:3030/battle_death__ship/sparql"
+  },
+  {
+    "kg_name": "battle_death",
+    "class": "http://valuenet/ontop/death",
+    "class_name": "death",
+    "endpoint_name": "battle_death__death",
+    "endpoint_url": "http://host.docker.internal:3030/battle_death__death/sparql"
+  },
+  {
+    "kg_name": "battle_death",
+    "class": "http://valuenet/ontop/battle",
+    "class_name": "battle",
+    "endpoint_name": "battle_death__battle",
+    "endpoint_url": "http://host.docker.internal:3030/battle_death__battle/sparql"
+  },
+  {
+    "kg_name": "body_builder",
+    "class": "http://valuenet/ontop/people",
+    "class_name": "people",
+    "endpoint_name": "body_builder__people",
+    "endpoint_url": "http://host.docker.internal:3030/body_builder__people/sparql"
+  },
+  {
+    "kg_name": "body_builder",
+    "class": "http://valuenet/ontop/body_builder",
+    "class_name": "body_builder",
+    "endpoint_name": "body_builder__body_builder",
+    "endpoint_url": "http://host.docker.internal:3030/body_builder__body_builder/sparql"
+  },
+  {
+    "kg_name": "book_2",
+    "class": "http://valuenet/ontop/publication",
+    "class_name": "publication",
+    "endpoint_name": "book_2__publication",
+    "endpoint_url": "http://host.docker.internal:3030/book_2__publication/sparql"
+  },
+  {
+    "kg_name": "book_2",
+    "class": "http://valuenet/ontop/book",
+    "class_name": "book",
+    "endpoint_name": "book_2__book",
+    "endpoint_url": "http://host.docker.internal:3030/book_2__book/sparql"
+  },
+  {
+    "kg_name": "browser_web",
+    "class": "http://valuenet/ontop/web_client_accelerator",
+    "class_name": "web_client_accelerator",
+    "endpoint_name": "browser_web__web_client_accelerator",
+    "endpoint_url": "http://host.docker.internal:3030/browser_web__web_client_accelerator/sparql"
+  },
+  {
+    "kg_name": "browser_web",
+    "class": "http://valuenet/ontop/accelerator_compatible_browser",
+    "class_name": "accelerator_compatible_browser",
+    "endpoint_name": "browser_web__accelerator_compatible_browser",
+    "endpoint_url": "http://host.docker.internal:3030/browser_web__accelerator_compatible_browser/sparql"
+  },
+  {
+    "kg_name": "browser_web",
+    "class": "http://valuenet/ontop/browser",
+    "class_name": "browser",
+    "endpoint_name": "browser_web__browser",
+    "endpoint_url": "http://host.docker.internal:3030/browser_web__browser/sparql"
+  },
+  {
+    "kg_name": "candidate_poll",
+    "class": "http://valuenet/ontop/people",
+    "class_name": "people",
+    "endpoint_name": "candidate_poll__people",
+    "endpoint_url": "http://host.docker.internal:3030/candidate_poll__people/sparql"
+  },
+  {
+    "kg_name": "candidate_poll",
+    "class": "http://valuenet/ontop/candidate",
+    "class_name": "candidate",
+    "endpoint_name": "candidate_poll__candidate",
+    "endpoint_url": "http://host.docker.internal:3030/candidate_poll__candidate/sparql"
+  },
+  {
+    "kg_name": "car_1",
+    "class": "http://valuenet/ontop/cars_data",
+    "class_name": "cars_data",
+    "endpoint_name": "car_1__cars_data",
+    "endpoint_url": "http://host.docker.internal:3030/car_1__cars_data/sparql"
+  },
+  {
+    "kg_name": "car_1",
+    "class": "http://valuenet/ontop/car_names",
+    "class_name": "car_names",
+    "endpoint_name": "car_1__car_names",
+    "endpoint_url": "http://host.docker.internal:3030/car_1__car_names/sparql"
+  },
+  {
+    "kg_name": "car_1",
+    "class": "http://valuenet/ontop/model_list",
+    "class_name": "model_list",
+    "endpoint_name": "car_1__model_list",
+    "endpoint_url": "http://host.docker.internal:3030/car_1__model_list/sparql"
+  },
+  {
+    "kg_name": "car_1",
+    "class": "http://valuenet/ontop/countries",
+    "class_name": "countries",
+    "endpoint_name": "car_1__countries",
+    "endpoint_url": "http://host.docker.internal:3030/car_1__countries/sparql"
+  },
+  {
+    "kg_name": "car_1",
+    "class": "http://valuenet/ontop/car_makers",
+    "class_name": "car_makers",
+    "endpoint_name": "car_1__car_makers",
+    "endpoint_url": "http://host.docker.internal:3030/car_1__car_makers/sparql"
+  },
+  {
+    "kg_name": "car_1",
+    "class": "http://valuenet/ontop/continents",
+    "class_name": "continents",
+    "endpoint_name": "car_1__continents",
+    "endpoint_url": "http://host.docker.internal:3030/car_1__continents/sparql"
+  },
+  {
+    "kg_name": "cinema",
+    "class": "http://valuenet/ontop/cinema",
+    "class_name": "cinema",
+    "endpoint_name": "cinema__cinema",
+    "endpoint_url": "http://host.docker.internal:3030/cinema__cinema/sparql"
+  },
+  {
+    "kg_name": "cinema",
+    "class": "http://valuenet/ontop/schedule",
+    "class_name": "schedule",
+    "endpoint_name": "cinema__schedule",
+    "endpoint_url": "http://host.docker.internal:3030/cinema__schedule/sparql"
+  },
+  {
+    "kg_name": "cinema",
+    "class": "http://valuenet/ontop/film",
+    "class_name": "film",
+    "endpoint_name": "cinema__film",
+    "endpoint_url": "http://host.docker.internal:3030/cinema__film/sparql"
+  },
+  {
+    "kg_name": "city_record",
+    "class": "http://valuenet/ontop/temperature",
+    "class_name": "temperature",
+    "endpoint_name": "city_record__temperature",
+    "endpoint_url": "http://host.docker.internal:3030/city_record__temperature/sparql"
+  },
+  {
+    "kg_name": "city_record",
+    "class": "http://valuenet/ontop/city",
+    "class_name": "city",
+    "endpoint_name": "city_record__city",
+    "endpoint_url": "http://host.docker.internal:3030/city_record__city/sparql"
+  },
+  {
+    "kg_name": "city_record",
+    "class": "http://valuenet/ontop/hosting_city",
+    "class_name": "hosting_city",
+    "endpoint_name": "city_record__hosting_city",
+    "endpoint_url": "http://host.docker.internal:3030/city_record__hosting_city/sparql"
+  },
+  {
+    "kg_name": "city_record",
+    "class": "http://valuenet/ontop/match",
+    "class_name": "match",
+    "endpoint_name": "city_record__match",
+    "endpoint_url": "http://host.docker.internal:3030/city_record__match/sparql"
+  },
+  {
+    "kg_name": "climbing",
+    "class": "http://valuenet/ontop/mountain",
+    "class_name": "mountain",
+    "endpoint_name": "climbing__mountain",
+    "endpoint_url": "http://host.docker.internal:3030/climbing__mountain/sparql"
+  },
+  {
+    "kg_name": "climbing",
+    "class": "http://valuenet/ontop/climber",
+    "class_name": "climber",
+    "endpoint_name": "climbing__climber",
+    "endpoint_url": "http://host.docker.internal:3030/climbing__climber/sparql"
+  },
+  {
+    "kg_name": "club_1",
+    "class": "http://valuenet/ontop/student",
+    "class_name": "student",
+    "endpoint_name": "club_1__student",
+    "endpoint_url": "http://host.docker.internal:3030/club_1__student/sparql"
+  },
+  {
+    "kg_name": "club_1",
+    "class": "http://valuenet/ontop/club",
+    "class_name": "club",
+    "endpoint_name": "club_1__club",
+    "endpoint_url": "http://host.docker.internal:3030/club_1__club/sparql"
+  },
+  {
+    "kg_name": "club_1",
+    "class": "http://valuenet/ontop/member_of_club",
+    "class_name": "member_of_club",
+    "endpoint_name": "club_1__member_of_club",
+    "endpoint_url": "http://host.docker.internal:3030/club_1__member_of_club/sparql"
+  },
+  {
+    "kg_name": "coffee_shop",
+    "class": "http://valuenet/ontop/shop",
+    "class_name": "shop",
+    "endpoint_name": "coffee_shop__shop",
+    "endpoint_url": "http://host.docker.internal:3030/coffee_shop__shop/sparql"
+  },
+  {
+    "kg_name": "coffee_shop",
+    "class": "http://valuenet/ontop/member",
+    "class_name": "member",
+    "endpoint_name": "coffee_shop__member",
+    "endpoint_url": "http://host.docker.internal:3030/coffee_shop__member/sparql"
+  },
+  {
+    "kg_name": "coffee_shop",
+    "class": "http://valuenet/ontop/happy_hour",
+    "class_name": "happy_hour",
+    "endpoint_name": "coffee_shop__happy_hour",
+    "endpoint_url": "http://host.docker.internal:3030/coffee_shop__happy_hour/sparql"
+  },
+  {
+    "kg_name": "coffee_shop",
+    "class": "http://valuenet/ontop/happy_hour_member",
+    "class_name": "happy_hour_member",
+    "endpoint_name": "coffee_shop__happy_hour_member",
+    "endpoint_url": "http://host.docker.internal:3030/coffee_shop__happy_hour_member/sparql"
+  },
+  {
+    "kg_name": "college_1",
+    "class": "http://valuenet/ontop/professor",
+    "class_name": "professor",
+    "endpoint_name": "college_1__professor",
+    "endpoint_url": "http://host.docker.internal:3030/college_1__professor/sparql"
+  },
+  {
+    "kg_name": "college_1",
+    "class": "http://valuenet/ontop/department",
+    "class_name": "department",
+    "endpoint_name": "college_1__department",
+    "endpoint_url": "http://host.docker.internal:3030/college_1__department/sparql"
+  },
+  {
+    "kg_name": "college_1",
+    "class": "http://valuenet/ontop/course",
+    "class_name": "course",
+    "endpoint_name": "college_1__course",
+    "endpoint_url": "http://host.docker.internal:3030/college_1__course/sparql"
+  },
+  {
+    "kg_name": "college_1",
+    "class": "http://valuenet/ontop/class",
+    "class_name": "class",
+    "endpoint_name": "college_1__class",
+    "endpoint_url": "http://host.docker.internal:3030/college_1__class/sparql"
+  },
+  {
+    "kg_name": "college_1",
+    "class": "http://valuenet/ontop/employee",
+    "class_name": "employee",
+    "endpoint_name": "college_1__employee",
+    "endpoint_url": "http://host.docker.internal:3030/college_1__employee/sparql"
+  },
+  {
+    "kg_name": "college_1",
+    "class": "http://valuenet/ontop/enroll",
+    "class_name": "enroll",
+    "endpoint_name": "college_1__enroll",
+    "endpoint_url": "http://host.docker.internal:3030/college_1__enroll/sparql"
+  },
+  {
+    "kg_name": "college_1",
+    "class": "http://valuenet/ontop/student",
+    "class_name": "student",
+    "endpoint_name": "college_1__student",
+    "endpoint_url": "http://host.docker.internal:3030/college_1__student/sparql"
+  },
+  {
+    "kg_name": "college_2",
+    "class": "http://valuenet/ontop/takes",
+    "class_name": "takes",
+    "endpoint_name": "college_2__takes",
+    "endpoint_url": "http://host.docker.internal:3030/college_2__takes/sparql"
+  },
+  {
+    "kg_name": "college_2",
+    "class": "http://valuenet/ontop/student",
+    "class_name": "student",
+    "endpoint_name": "college_2__student",
+    "endpoint_url": "http://host.docker.internal:3030/college_2__student/sparql"
+  },
+  {
+    "kg_name": "college_2",
+    "class": "http://valuenet/ontop/advisor",
+    "class_name": "advisor",
+    "endpoint_name": "college_2__advisor",
+    "endpoint_url": "http://host.docker.internal:3030/college_2__advisor/sparql"
+  },
+  {
+    "kg_name": "college_2",
+    "class": "http://valuenet/ontop/section",
+    "class_name": "section",
+    "endpoint_name": "college_2__section",
+    "endpoint_url": "http://host.docker.internal:3030/college_2__section/sparql"
+  },
+  {
+    "kg_name": "college_2",
+    "class": "http://valuenet/ontop/teaches",
+    "class_name": "teaches",
+    "endpoint_name": "college_2__teaches",
+    "endpoint_url": "http://host.docker.internal:3030/college_2__teaches/sparql"
+  },
+  {
+    "kg_name": "college_2",
+    "class": "http://valuenet/ontop/course",
+    "class_name": "course",
+    "endpoint_name": "college_2__course",
+    "endpoint_url": "http://host.docker.internal:3030/college_2__course/sparql"
+  },
+  {
+    "kg_name": "college_2",
+    "class": "http://valuenet/ontop/instructor",
+    "class_name": "instructor",
+    "endpoint_name": "college_2__instructor",
+    "endpoint_url": "http://host.docker.internal:3030/college_2__instructor/sparql"
+  },
+  {
+    "kg_name": "college_2",
+    "class": "http://valuenet/ontop/classroom",
+    "class_name": "classroom",
+    "endpoint_name": "college_2__classroom",
+    "endpoint_url": "http://host.docker.internal:3030/college_2__classroom/sparql"
+  },
+  {
+    "kg_name": "college_2",
+    "class": "http://valuenet/ontop/prereq",
+    "class_name": "prereq",
+    "endpoint_name": "college_2__prereq",
+    "endpoint_url": "http://host.docker.internal:3030/college_2__prereq/sparql"
+  },
+  {
+    "kg_name": "college_2",
+    "class": "http://valuenet/ontop/time_slot",
+    "class_name": "time_slot",
+    "endpoint_name": "college_2__time_slot",
+    "endpoint_url": "http://host.docker.internal:3030/college_2__time_slot/sparql"
+  },
+  {
+    "kg_name": "college_2",
+    "class": "http://valuenet/ontop/department",
+    "class_name": "department",
+    "endpoint_name": "college_2__department",
+    "endpoint_url": "http://host.docker.internal:3030/college_2__department/sparql"
+  },
+  {
+    "kg_name": "college_3",
+    "class": "http://valuenet/ontop/enrolled_in",
+    "class_name": "enrolled_in",
+    "endpoint_name": "college_3__enrolled_in",
+    "endpoint_url": "http://host.docker.internal:3030/college_3__enrolled_in/sparql"
+  },
+  {
+    "kg_name": "college_3",
+    "class": "http://valuenet/ontop/member_of",
+    "class_name": "member_of",
+    "endpoint_name": "college_3__member_of",
+    "endpoint_url": "http://host.docker.internal:3030/college_3__member_of/sparql"
+  },
+  {
+    "kg_name": "college_3",
+    "class": "http://valuenet/ontop/course",
+    "class_name": "course",
+    "endpoint_name": "college_3__course",
+    "endpoint_url": "http://host.docker.internal:3030/college_3__course/sparql"
+  },
+  {
+    "kg_name": "college_3",
+    "class": "http://valuenet/ontop/student",
+    "class_name": "student",
+    "endpoint_name": "college_3__student",
+    "endpoint_url": "http://host.docker.internal:3030/college_3__student/sparql"
+  },
+  {
+    "kg_name": "college_3",
+    "class": "http://valuenet/ontop/department",
+    "class_name": "department",
+    "endpoint_name": "college_3__department",
+    "endpoint_url": "http://host.docker.internal:3030/college_3__department/sparql"
+  },
+  {
+    "kg_name": "college_3",
+    "class": "http://valuenet/ontop/faculty",
+    "class_name": "faculty",
+    "endpoint_name": "college_3__faculty",
+    "endpoint_url": "http://host.docker.internal:3030/college_3__faculty/sparql"
+  },
+  {
+    "kg_name": "college_3",
+    "class": "http://valuenet/ontop/minor_in",
+    "class_name": "minor_in",
+    "endpoint_name": "college_3__minor_in",
+    "endpoint_url": "http://host.docker.internal:3030/college_3__minor_in/sparql"
+  },
+  {
+    "kg_name": "college_3",
+    "class": "http://valuenet/ontop/gradeconversion",
+    "class_name": "gradeconversion",
+    "endpoint_name": "college_3__gradeconversion",
+    "endpoint_url": "http://host.docker.internal:3030/college_3__gradeconversion/sparql"
+  },
+  {
+    "kg_name": "company_1",
+    "class": "http://valuenet/ontop/employee",
+    "class_name": "employee",
+    "endpoint_name": "company_1__employee",
+    "endpoint_url": "http://host.docker.internal:3030/company_1__employee/sparql"
+  },
+  {
+    "kg_name": "company_1",
+    "class": "http://valuenet/ontop/dependent",
+    "class_name": "dependent",
+    "endpoint_name": "company_1__dependent",
+    "endpoint_url": "http://host.docker.internal:3030/company_1__dependent/sparql"
+  },
+  {
+    "kg_name": "company_1",
+    "class": "http://valuenet/ontop/works_on",
+    "class_name": "works_on",
+    "endpoint_name": "company_1__works_on",
+    "endpoint_url": "http://host.docker.internal:3030/company_1__works_on/sparql"
+  },
+  {
+    "kg_name": "company_1",
+    "class": "http://valuenet/ontop/department",
+    "class_name": "department",
+    "endpoint_name": "company_1__department",
+    "endpoint_url": "http://host.docker.internal:3030/company_1__department/sparql"
+  },
+  {
+    "kg_name": "company_1",
+    "class": "http://valuenet/ontop/project",
+    "class_name": "project",
+    "endpoint_name": "company_1__project",
+    "endpoint_url": "http://host.docker.internal:3030/company_1__project/sparql"
+  },
+  {
+    "kg_name": "company_1",
+    "class": "http://valuenet/ontop/dept_locations",
+    "class_name": "dept_locations",
+    "endpoint_name": "company_1__dept_locations",
+    "endpoint_url": "http://host.docker.internal:3030/company_1__dept_locations/sparql"
+  },
+  {
+    "kg_name": "company_employee",
+    "class": "http://valuenet/ontop/company",
+    "class_name": "company",
+    "endpoint_name": "company_employee__company",
+    "endpoint_url": "http://host.docker.internal:3030/company_employee__company/sparql"
+  },
+  {
+    "kg_name": "company_employee",
+    "class": "http://valuenet/ontop/people",
+    "class_name": "people",
+    "endpoint_name": "company_employee__people",
+    "endpoint_url": "http://host.docker.internal:3030/company_employee__people/sparql"
+  },
+  {
+    "kg_name": "company_employee",
+    "class": "http://valuenet/ontop/employment",
+    "class_name": "employment",
+    "endpoint_name": "company_employee__employment",
+    "endpoint_url": "http://host.docker.internal:3030/company_employee__employment/sparql"
+  },
+  {
+    "kg_name": "company_office",
+    "class": "http://valuenet/ontop/buildings",
+    "class_name": "buildings",
+    "endpoint_name": "company_office__buildings",
+    "endpoint_url": "http://host.docker.internal:3030/company_office__buildings/sparql"
+  },
+  {
+    "kg_name": "company_office",
+    "class": "http://valuenet/ontop/companies",
+    "class_name": "companies",
+    "endpoint_name": "company_office__companies",
+    "endpoint_url": "http://host.docker.internal:3030/company_office__companies/sparql"
+  },
+  {
+    "kg_name": "company_office",
+    "class": "http://valuenet/ontop/office_locations",
+    "class_name": "office_locations",
+    "endpoint_name": "company_office__office_locations",
+    "endpoint_url": "http://host.docker.internal:3030/company_office__office_locations/sparql"
+  },
+  {
+    "kg_name": "concert_singer",
+    "class": "http://valuenet/ontop/singer_in_concert",
+    "class_name": "singer_in_concert",
+    "endpoint_name": "concert_singer__singer_in_concert",
+    "endpoint_url": "http://host.docker.internal:3030/concert_singer__singer_in_concert/sparql"
+  },
+  {
+    "kg_name": "concert_singer",
+    "class": "http://valuenet/ontop/singer",
+    "class_name": "singer",
+    "endpoint_name": "concert_singer__singer",
+    "endpoint_url": "http://host.docker.internal:3030/concert_singer__singer/sparql"
+  },
+  {
+    "kg_name": "concert_singer",
+    "class": "http://valuenet/ontop/stadium",
+    "class_name": "stadium",
+    "endpoint_name": "concert_singer__stadium",
+    "endpoint_url": "http://host.docker.internal:3030/concert_singer__stadium/sparql"
+  },
+  {
+    "kg_name": "concert_singer",
+    "class": "http://valuenet/ontop/concert",
+    "class_name": "concert",
+    "endpoint_name": "concert_singer__concert",
+    "endpoint_url": "http://host.docker.internal:3030/concert_singer__concert/sparql"
+  },
+  {
+    "kg_name": "county_public_safety",
+    "class": "http://valuenet/ontop/county_public_safety",
+    "class_name": "county_public_safety",
+    "endpoint_name": "county_public_safety__county_public_safety",
+    "endpoint_url": "http://host.docker.internal:3030/county_public_safety__county_public_safety/sparql"
+  },
+  {
+    "kg_name": "county_public_safety",
+    "class": "http://valuenet/ontop/city",
+    "class_name": "city",
+    "endpoint_name": "county_public_safety__city",
+    "endpoint_url": "http://host.docker.internal:3030/county_public_safety__city/sparql"
+  },
+  {
+    "kg_name": "course_teach",
+    "class": "http://valuenet/ontop/teacher",
+    "class_name": "teacher",
+    "endpoint_name": "course_teach__teacher",
+    "endpoint_url": "http://host.docker.internal:3030/course_teach__teacher/sparql"
+  },
+  {
+    "kg_name": "course_teach",
+    "class": "http://valuenet/ontop/course",
+    "class_name": "course",
+    "endpoint_name": "course_teach__course",
+    "endpoint_url": "http://host.docker.internal:3030/course_teach__course/sparql"
+  },
+  {
+    "kg_name": "course_teach",
+    "class": "http://valuenet/ontop/course_arrange",
+    "class_name": "course_arrange",
+    "endpoint_name": "course_teach__course_arrange",
+    "endpoint_url": "http://host.docker.internal:3030/course_teach__course_arrange/sparql"
+  },
+  {
+    "kg_name": "cre_Doc_Template_Mgt",
+    "class": "http://valuenet/ontop/documents",
+    "class_name": "documents",
+    "endpoint_name": "cre_Doc_Template_Mgt__documents",
+    "endpoint_url": "http://host.docker.internal:3030/cre_Doc_Template_Mgt__documents/sparql"
+  },
+  {
+    "kg_name": "cre_Doc_Template_Mgt",
+    "class": "http://valuenet/ontop/templates",
+    "class_name": "templates",
+    "endpoint_name": "cre_Doc_Template_Mgt__templates",
+    "endpoint_url": "http://host.docker.internal:3030/cre_Doc_Template_Mgt__templates/sparql"
+  },
+  {
+    "kg_name": "cre_Doc_Template_Mgt",
+    "class": "http://valuenet/ontop/paragraphs",
+    "class_name": "paragraphs",
+    "endpoint_name": "cre_Doc_Template_Mgt__paragraphs",
+    "endpoint_url": "http://host.docker.internal:3030/cre_Doc_Template_Mgt__paragraphs/sparql"
+  },
+  {
+    "kg_name": "cre_Doc_Template_Mgt",
+    "class": "http://valuenet/ontop/ref_template_types",
+    "class_name": "ref_template_types",
+    "endpoint_name": "cre_Doc_Template_Mgt__ref_template_types",
+    "endpoint_url": "http://host.docker.internal:3030/cre_Doc_Template_Mgt__ref_template_types/sparql"
+  },
+  {
+    "kg_name": "cre_doc_control_systems",
+    "class": "http://valuenet/ontop/document_drafts",
+    "class_name": "document_drafts",
+    "endpoint_name": "cre_doc_control_systems__document_drafts",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_control_systems__document_drafts/sparql"
+  },
+  {
+    "kg_name": "cre_doc_control_systems",
+    "class": "http://valuenet/ontop/documents",
+    "class_name": "documents",
+    "endpoint_name": "cre_doc_control_systems__documents",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_control_systems__documents/sparql"
+  },
+  {
+    "kg_name": "cre_doc_control_systems",
+    "class": "http://valuenet/ontop/ref_document_types",
+    "class_name": "ref_document_types",
+    "endpoint_name": "cre_doc_control_systems__ref_document_types",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_control_systems__ref_document_types/sparql"
+  },
+  {
+    "kg_name": "cre_doc_control_systems",
+    "class": "http://valuenet/ontop/ref_shipping_agents",
+    "class_name": "ref_shipping_agents",
+    "endpoint_name": "cre_doc_control_systems__ref_shipping_agents",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_control_systems__ref_shipping_agents/sparql"
+  },
+  {
+    "kg_name": "cre_doc_control_systems",
+    "class": "http://valuenet/ontop/circulation_history",
+    "class_name": "circulation_history",
+    "endpoint_name": "cre_doc_control_systems__circulation_history",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_control_systems__circulation_history/sparql"
+  },
+  {
+    "kg_name": "cre_doc_control_systems",
+    "class": "http://valuenet/ontop/documents_mailed",
+    "class_name": "documents_mailed",
+    "endpoint_name": "cre_doc_control_systems__documents_mailed",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_control_systems__documents_mailed/sparql"
+  },
+  {
+    "kg_name": "cre_doc_control_systems",
+    "class": "http://valuenet/ontop/draft_copies",
+    "class_name": "draft_copies",
+    "endpoint_name": "cre_doc_control_systems__draft_copies",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_control_systems__draft_copies/sparql"
+  },
+  {
+    "kg_name": "cre_doc_control_systems",
+    "class": "http://valuenet/ontop/addresses",
+    "class_name": "addresses",
+    "endpoint_name": "cre_doc_control_systems__addresses",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_control_systems__addresses/sparql"
+  },
+  {
+    "kg_name": "cre_doc_control_systems",
+    "class": "http://valuenet/ontop/roles",
+    "class_name": "roles",
+    "endpoint_name": "cre_doc_control_systems__roles",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_control_systems__roles/sparql"
+  },
+  {
+    "kg_name": "cre_doc_control_systems",
+    "class": "http://valuenet/ontop/employees",
+    "class_name": "employees",
+    "endpoint_name": "cre_doc_control_systems__employees",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_control_systems__employees/sparql"
+  },
+  {
+    "kg_name": "cre_doc_control_systems",
+    "class": "http://valuenet/ontop/ref_document_status",
+    "class_name": "ref_document_status",
+    "endpoint_name": "cre_doc_control_systems__ref_document_status",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_control_systems__ref_document_status/sparql"
+  },
+  {
+    "kg_name": "cre_doc_tracking_db",
+    "class": "http://valuenet/ontop/documents_to_be_destroyed",
+    "class_name": "documents_to_be_destroyed",
+    "endpoint_name": "cre_doc_tracking_db__documents_to_be_destroyed",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_tracking_db__documents_to_be_destroyed/sparql"
+  },
+  {
+    "kg_name": "cre_doc_tracking_db",
+    "class": "http://valuenet/ontop/document_locations",
+    "class_name": "document_locations",
+    "endpoint_name": "cre_doc_tracking_db__document_locations",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_tracking_db__document_locations/sparql"
+  },
+  {
+    "kg_name": "cre_doc_tracking_db",
+    "class": "http://valuenet/ontop/employees",
+    "class_name": "employees",
+    "endpoint_name": "cre_doc_tracking_db__employees",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_tracking_db__employees/sparql"
+  },
+  {
+    "kg_name": "cre_doc_tracking_db",
+    "class": "http://valuenet/ontop/all_documents",
+    "class_name": "all_documents",
+    "endpoint_name": "cre_doc_tracking_db__all_documents",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_tracking_db__all_documents/sparql"
+  },
+  {
+    "kg_name": "cre_doc_tracking_db",
+    "class": "http://valuenet/ontop/roles",
+    "class_name": "roles",
+    "endpoint_name": "cre_doc_tracking_db__roles",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_tracking_db__roles/sparql"
+  },
+  {
+    "kg_name": "cre_doc_tracking_db",
+    "class": "http://valuenet/ontop/ref_calendar",
+    "class_name": "ref_calendar",
+    "endpoint_name": "cre_doc_tracking_db__ref_calendar",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_tracking_db__ref_calendar/sparql"
+  },
+  {
+    "kg_name": "cre_doc_tracking_db",
+    "class": "http://valuenet/ontop/ref_locations",
+    "class_name": "ref_locations",
+    "endpoint_name": "cre_doc_tracking_db__ref_locations",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_tracking_db__ref_locations/sparql"
+  },
+  {
+    "kg_name": "cre_doc_tracking_db",
+    "class": "http://valuenet/ontop/ref_document_types",
+    "class_name": "ref_document_types",
+    "endpoint_name": "cre_doc_tracking_db__ref_document_types",
+    "endpoint_url": "http://host.docker.internal:3030/cre_doc_tracking_db__ref_document_types/sparql"
+  },
+  {
+    "kg_name": "cre_docs_and_epenses",
+    "class": "http://valuenet/ontop/documents",
+    "class_name": "documents",
+    "endpoint_name": "cre_docs_and_epenses__documents",
+    "endpoint_url": "http://host.docker.internal:3030/cre_docs_and_epenses__documents/sparql"
+  },
+  {
+    "kg_name": "cre_docs_and_epenses",
+    "class": "http://valuenet/ontop/accounts",
+    "class_name": "accounts",
+    "endpoint_name": "cre_docs_and_epenses__accounts",
+    "endpoint_url": "http://host.docker.internal:3030/cre_docs_and_epenses__accounts/sparql"
+  },
+  {
+    "kg_name": "cre_docs_and_epenses",
+    "class": "http://valuenet/ontop/ref_document_types",
+    "class_name": "ref_document_types",
+    "endpoint_name": "cre_docs_and_epenses__ref_document_types",
+    "endpoint_url": "http://host.docker.internal:3030/cre_docs_and_epenses__ref_document_types/sparql"
+  },
+  {
+    "kg_name": "cre_docs_and_epenses",
+    "class": "http://valuenet/ontop/documents_with_expenses",
+    "class_name": "documents_with_expenses",
+    "endpoint_name": "cre_docs_and_epenses__documents_with_expenses",
+    "endpoint_url": "http://host.docker.internal:3030/cre_docs_and_epenses__documents_with_expenses/sparql"
+  },
+  {
+    "kg_name": "cre_docs_and_epenses",
+    "class": "http://valuenet/ontop/ref_budget_codes",
+    "class_name": "ref_budget_codes",
+    "endpoint_name": "cre_docs_and_epenses__ref_budget_codes",
+    "endpoint_url": "http://host.docker.internal:3030/cre_docs_and_epenses__ref_budget_codes/sparql"
+  },
+  {
+    "kg_name": "cre_docs_and_epenses",
+    "class": "http://valuenet/ontop/statements",
+    "class_name": "statements",
+    "endpoint_name": "cre_docs_and_epenses__statements",
+    "endpoint_url": "http://host.docker.internal:3030/cre_docs_and_epenses__statements/sparql"
+  },
+  {
+    "kg_name": "cre_docs_and_epenses",
+    "class": "http://valuenet/ontop/projects",
+    "class_name": "projects",
+    "endpoint_name": "cre_docs_and_epenses__projects",
+    "endpoint_url": "http://host.docker.internal:3030/cre_docs_and_epenses__projects/sparql"
+  },
+  {
+    "kg_name": "cre_drama_workshop_groups",
+    "class": "http://valuenet/ontop/addresses",
+    "class_name": "addresses",
+    "endpoint_name": "cre_drama_workshop_groups__addresses",
+    "endpoint_url": "http://host.docker.internal:3030/cre_drama_workshop_groups__addresses/sparql"
+  },
+  {
+    "kg_name": "cre_drama_workshop_groups",
+    "class": "http://valuenet/ontop/customers",
+    "class_name": "customers",
+    "endpoint_name": "cre_drama_workshop_groups__customers",
+    "endpoint_url": "http://host.docker.internal:3030/cre_drama_workshop_groups__customers/sparql"
+  },
+  {
+    "kg_name": "cre_drama_workshop_groups",
+    "class": "http://valuenet/ontop/bookings",
+    "class_name": "bookings",
+    "endpoint_name": "cre_drama_workshop_groups__bookings",
+    "endpoint_url": "http://host.docker.internal:3030/cre_drama_workshop_groups__bookings/sparql"
+  },
+  {
+    "kg_name": "cre_drama_workshop_groups",
+    "class": "http://valuenet/ontop/clients",
+    "class_name": "clients",
+    "endpoint_name": "cre_drama_workshop_groups__clients",
+    "endpoint_url": "http://host.docker.internal:3030/cre_drama_workshop_groups__clients/sparql"
+  },
+  {
+    "kg_name": "cre_drama_workshop_groups",
+    "class": "http://valuenet/ontop/drama_workshop_groups",
+    "class_name": "drama_workshop_groups",
+    "endpoint_name": "cre_drama_workshop_groups__drama_workshop_groups",
+    "endpoint_url": "http://host.docker.internal:3030/cre_drama_workshop_groups__drama_workshop_groups/sparql"
+  },
+  {
+    "kg_name": "cre_drama_workshop_groups",
+    "class": "http://valuenet/ontop/invoices",
+    "class_name": "invoices",
+    "endpoint_name": "cre_drama_workshop_groups__invoices",
+    "endpoint_url": "http://host.docker.internal:3030/cre_drama_workshop_groups__invoices/sparql"
+  },
+  {
+    "kg_name": "cre_drama_workshop_groups",
+    "class": "http://valuenet/ontop/services",
+    "class_name": "services",
+    "endpoint_name": "cre_drama_workshop_groups__services",
+    "endpoint_url": "http://host.docker.internal:3030/cre_drama_workshop_groups__services/sparql"
+  },
+  {
+    "kg_name": "cre_drama_workshop_groups",
+    "class": "http://valuenet/ontop/performers_in_bookings",
+    "class_name": "performers_in_bookings",
+    "endpoint_name": "cre_drama_workshop_groups__performers_in_bookings",
+    "endpoint_url": "http://host.docker.internal:3030/cre_drama_workshop_groups__performers_in_bookings/sparql"
+  },
+  {
+    "kg_name": "cre_drama_workshop_groups",
+    "class": "http://valuenet/ontop/performers",
+    "class_name": "performers",
+    "endpoint_name": "cre_drama_workshop_groups__performers",
+    "endpoint_url": "http://host.docker.internal:3030/cre_drama_workshop_groups__performers/sparql"
+  },
+  {
+    "kg_name": "cre_drama_workshop_groups",
+    "class": "http://valuenet/ontop/bookings_services",
+    "class_name": "bookings_services",
+    "endpoint_name": "cre_drama_workshop_groups__bookings_services",
+    "endpoint_url": "http://host.docker.internal:3030/cre_drama_workshop_groups__bookings_services/sparql"
+  },
+  {
+    "kg_name": "cre_drama_workshop_groups",
+    "class": "http://valuenet/ontop/products",
+    "class_name": "products",
+    "endpoint_name": "cre_drama_workshop_groups__products",
+    "endpoint_url": "http://host.docker.internal:3030/cre_drama_workshop_groups__products/sparql"
+  },
+  {
+    "kg_name": "cre_drama_workshop_groups",
+    "class": "http://valuenet/ontop/stores",
+    "class_name": "stores",
+    "endpoint_name": "cre_drama_workshop_groups__stores",
+    "endpoint_url": "http://host.docker.internal:3030/cre_drama_workshop_groups__stores/sparql"
+  },
+  {
+    "kg_name": "cre_drama_workshop_groups",
+    "class": "http://valuenet/ontop/ref_service_types",
+    "class_name": "ref_service_types",
+    "endpoint_name": "cre_drama_workshop_groups__ref_service_types",
+    "endpoint_url": "http://host.docker.internal:3030/cre_drama_workshop_groups__ref_service_types/sparql"
+  },
+  {
+    "kg_name": "cre_drama_workshop_groups",
+    "class": "http://valuenet/ontop/marketing_regions",
+    "class_name": "marketing_regions",
+    "endpoint_name": "cre_drama_workshop_groups__marketing_regions",
+    "endpoint_url": "http://host.docker.internal:3030/cre_drama_workshop_groups__marketing_regions/sparql"
+  },
+  {
+    "kg_name": "cre_drama_workshop_groups",
+    "class": "http://valuenet/ontop/order_items",
+    "class_name": "order_items",
+    "endpoint_name": "cre_drama_workshop_groups__order_items",
+    "endpoint_url": "http://host.docker.internal:3030/cre_drama_workshop_groups__order_items/sparql"
+  },
+  {
+    "kg_name": "cre_drama_workshop_groups",
+    "class": "http://valuenet/ontop/customer_orders",
+    "class_name": "customer_orders",
+    "endpoint_name": "cre_drama_workshop_groups__customer_orders",
+    "endpoint_url": "http://host.docker.internal:3030/cre_drama_workshop_groups__customer_orders/sparql"
+  },
+  {
+    "kg_name": "cre_drama_workshop_groups",
+    "class": "http://valuenet/ontop/invoice_items",
+    "class_name": "invoice_items",
+    "endpoint_name": "cre_drama_workshop_groups__invoice_items",
+    "endpoint_url": "http://host.docker.internal:3030/cre_drama_workshop_groups__invoice_items/sparql"
+  },
+  {
+    "kg_name": "cre_drama_workshop_groups",
+    "class": "http://valuenet/ontop/ref_payment_methods",
+    "class_name": "ref_payment_methods",
+    "endpoint_name": "cre_drama_workshop_groups__ref_payment_methods",
+    "endpoint_url": "http://host.docker.internal:3030/cre_drama_workshop_groups__ref_payment_methods/sparql"
+  },
+  {
+    "kg_name": "cre_theme_park",
+    "class": "http://valuenet/ontop/locations",
+    "class_name": "locations",
+    "endpoint_name": "cre_theme_park__locations",
+    "endpoint_url": "http://host.docker.internal:3030/cre_theme_park__locations/sparql"
+  },
+  {
+    "kg_name": "cre_theme_park",
+    "class": "http://valuenet/ontop/hotels",
+    "class_name": "hotels",
+    "endpoint_name": "cre_theme_park__hotels",
+    "endpoint_url": "http://host.docker.internal:3030/cre_theme_park__hotels/sparql"
+  },
+  {
+    "kg_name": "cre_theme_park",
+    "class": "http://valuenet/ontop/visits",
+    "class_name": "visits",
+    "endpoint_name": "cre_theme_park__visits",
+    "endpoint_url": "http://host.docker.internal:3030/cre_theme_park__visits/sparql"
+  },
+  {
+    "kg_name": "cre_theme_park",
+    "class": "http://valuenet/ontop/tourist_attractions",
+    "class_name": "tourist_attractions",
+    "endpoint_name": "cre_theme_park__tourist_attractions",
+    "endpoint_url": "http://host.docker.internal:3030/cre_theme_park__tourist_attractions/sparql"
+  },
+  {
+    "kg_name": "cre_theme_park",
+    "class": "http://valuenet/ontop/visitors",
+    "class_name": "visitors",
+    "endpoint_name": "cre_theme_park__visitors",
+    "endpoint_url": "http://host.docker.internal:3030/cre_theme_park__visitors/sparql"
+  },
+  {
+    "kg_name": "cre_theme_park",
+    "class": "http://valuenet/ontop/ref_attraction_types",
+    "class_name": "ref_attraction_types",
+    "endpoint_name": "cre_theme_park__ref_attraction_types",
+    "endpoint_url": "http://host.docker.internal:3030/cre_theme_park__ref_attraction_types/sparql"
+  },
+  {
+    "kg_name": "cre_theme_park",
+    "class": "http://valuenet/ontop/photos",
+    "class_name": "photos",
+    "endpoint_name": "cre_theme_park__photos",
+    "endpoint_url": "http://host.docker.internal:3030/cre_theme_park__photos/sparql"
+  },
+  {
+    "kg_name": "cre_theme_park",
+    "class": "http://valuenet/ontop/staff",
+    "class_name": "staff",
+    "endpoint_name": "cre_theme_park__staff",
+    "endpoint_url": "http://host.docker.internal:3030/cre_theme_park__staff/sparql"
+  },
+  {
+    "kg_name": "cre_theme_park",
+    "class": "http://valuenet/ontop/ref_hotel_star_ratings",
+    "class_name": "ref_hotel_star_ratings",
+    "endpoint_name": "cre_theme_park__ref_hotel_star_ratings",
+    "endpoint_url": "http://host.docker.internal:3030/cre_theme_park__ref_hotel_star_ratings/sparql"
+  },
+  {
+    "kg_name": "cre_theme_park",
+    "class": "http://valuenet/ontop/tourist_attraction_features",
+    "class_name": "tourist_attraction_features",
+    "endpoint_name": "cre_theme_park__tourist_attraction_features",
+    "endpoint_url": "http://host.docker.internal:3030/cre_theme_park__tourist_attraction_features/sparql"
+  },
+  {
+    "kg_name": "cre_theme_park",
+    "class": "http://valuenet/ontop/features",
+    "class_name": "features",
+    "endpoint_name": "cre_theme_park__features",
+    "endpoint_url": "http://host.docker.internal:3030/cre_theme_park__features/sparql"
+  },
+  {
+    "kg_name": "cre_theme_park",
+    "class": "http://valuenet/ontop/theme_parks",
+    "class_name": "theme_parks",
+    "endpoint_name": "cre_theme_park__theme_parks",
+    "endpoint_url": "http://host.docker.internal:3030/cre_theme_park__theme_parks/sparql"
+  },
+  {
+    "kg_name": "cre_theme_park",
+    "class": "http://valuenet/ontop/shops",
+    "class_name": "shops",
+    "endpoint_name": "cre_theme_park__shops",
+    "endpoint_url": "http://host.docker.internal:3030/cre_theme_park__shops/sparql"
+  },
+  {
+    "kg_name": "cre_theme_park",
+    "class": "http://valuenet/ontop/museums",
+    "class_name": "museums",
+    "endpoint_name": "cre_theme_park__museums",
+    "endpoint_url": "http://host.docker.internal:3030/cre_theme_park__museums/sparql"
+  },
+  {
+    "kg_name": "cre_theme_park",
+    "class": "http://valuenet/ontop/street_markets",
+    "class_name": "street_markets",
+    "endpoint_name": "cre_theme_park__street_markets",
+    "endpoint_url": "http://host.docker.internal:3030/cre_theme_park__street_markets/sparql"
+  },
+  {
+    "kg_name": "cre_theme_park",
+    "class": "http://valuenet/ontop/royal_family",
+    "class_name": "royal_family",
+    "endpoint_name": "cre_theme_park__royal_family",
+    "endpoint_url": "http://host.docker.internal:3030/cre_theme_park__royal_family/sparql"
+  },
+  {
+    "kg_name": "csu_1",
+    "class": "http://valuenet/ontop/enrollments",
+    "class_name": "enrollments",
+    "endpoint_name": "csu_1__enrollments",
+    "endpoint_url": "http://host.docker.internal:3030/csu_1__enrollments/sparql"
+  },
+  {
+    "kg_name": "csu_1",
+    "class": "http://valuenet/ontop/discipline_enrollments",
+    "class_name": "discipline_enrollments",
+    "endpoint_name": "csu_1__discipline_enrollments",
+    "endpoint_url": "http://host.docker.internal:3030/csu_1__discipline_enrollments/sparql"
+  },
+  {
+    "kg_name": "csu_1",
+    "class": "http://valuenet/ontop/faculty",
+    "class_name": "faculty",
+    "endpoint_name": "csu_1__faculty",
+    "endpoint_url": "http://host.docker.internal:3030/csu_1__faculty/sparql"
+  },
+  {
+    "kg_name": "csu_1",
+    "class": "http://valuenet/ontop/csu_fees",
+    "class_name": "csu_fees",
+    "endpoint_name": "csu_1__csu_fees",
+    "endpoint_url": "http://host.docker.internal:3030/csu_1__csu_fees/sparql"
+  },
+  {
+    "kg_name": "csu_1",
+    "class": "http://valuenet/ontop/degrees",
+    "class_name": "degrees",
+    "endpoint_name": "csu_1__degrees",
+    "endpoint_url": "http://host.docker.internal:3030/csu_1__degrees/sparql"
+  },
+  {
+    "kg_name": "csu_1",
+    "class": "http://valuenet/ontop/campuses",
+    "class_name": "campuses",
+    "endpoint_name": "csu_1__campuses",
+    "endpoint_url": "http://host.docker.internal:3030/csu_1__campuses/sparql"
+  },
+  {
+    "kg_name": "culture_company",
+    "class": "http://valuenet/ontop/culture_company",
+    "class_name": "culture_company",
+    "endpoint_name": "culture_company__culture_company",
+    "endpoint_url": "http://host.docker.internal:3030/culture_company__culture_company/sparql"
+  },
+  {
+    "kg_name": "culture_company",
+    "class": "http://valuenet/ontop/movie",
+    "class_name": "movie",
+    "endpoint_name": "culture_company__movie",
+    "endpoint_url": "http://host.docker.internal:3030/culture_company__movie/sparql"
+  },
+  {
+    "kg_name": "culture_company",
+    "class": "http://valuenet/ontop/book_club",
+    "class_name": "book_club",
+    "endpoint_name": "culture_company__book_club",
+    "endpoint_url": "http://host.docker.internal:3030/culture_company__book_club/sparql"
+  },
+  {
+    "kg_name": "debate",
+    "class": "http://valuenet/ontop/people",
+    "class_name": "people",
+    "endpoint_name": "debate__people",
+    "endpoint_url": "http://host.docker.internal:3030/debate__people/sparql"
+  },
+  {
+    "kg_name": "debate",
+    "class": "http://valuenet/ontop/debate_people",
+    "class_name": "debate_people",
+    "endpoint_name": "debate__debate_people",
+    "endpoint_url": "http://host.docker.internal:3030/debate__debate_people/sparql"
+  },
+  {
+    "kg_name": "debate",
+    "class": "http://valuenet/ontop/debate",
+    "class_name": "debate",
+    "endpoint_name": "debate__debate",
+    "endpoint_url": "http://host.docker.internal:3030/debate__debate/sparql"
+  },
+  {
+    "kg_name": "decoration_competition",
+    "class": "http://valuenet/ontop/round",
+    "class_name": "round",
+    "endpoint_name": "decoration_competition__round",
+    "endpoint_url": "http://host.docker.internal:3030/decoration_competition__round/sparql"
+  },
+  {
+    "kg_name": "decoration_competition",
+    "class": "http://valuenet/ontop/college",
+    "class_name": "college",
+    "endpoint_name": "decoration_competition__college",
+    "endpoint_url": "http://host.docker.internal:3030/decoration_competition__college/sparql"
+  },
+  {
+    "kg_name": "decoration_competition",
+    "class": "http://valuenet/ontop/member",
+    "class_name": "member",
+    "endpoint_name": "decoration_competition__member",
+    "endpoint_url": "http://host.docker.internal:3030/decoration_competition__member/sparql"
+  },
+  {
+    "kg_name": "department_management",
+    "class": "http://valuenet/ontop/head",
+    "class_name": "head",
+    "endpoint_name": "department_management__head",
+    "endpoint_url": "http://host.docker.internal:3030/department_management__head/sparql"
+  },
+  {
+    "kg_name": "department_management",
+    "class": "http://valuenet/ontop/department",
+    "class_name": "department",
+    "endpoint_name": "department_management__department",
+    "endpoint_url": "http://host.docker.internal:3030/department_management__department/sparql"
+  },
+  {
+    "kg_name": "department_management",
+    "class": "http://valuenet/ontop/management",
+    "class_name": "management",
+    "endpoint_name": "department_management__management",
+    "endpoint_url": "http://host.docker.internal:3030/department_management__management/sparql"
+  },
+  {
+    "kg_name": "department_store",
+    "class": "http://valuenet/ontop/addresses",
+    "class_name": "addresses",
+    "endpoint_name": "department_store__addresses",
+    "endpoint_url": "http://host.docker.internal:3030/department_store__addresses/sparql"
+  },
+  {
+    "kg_name": "department_store",
+    "class": "http://valuenet/ontop/product_suppliers",
+    "class_name": "product_suppliers",
+    "endpoint_name": "department_store__product_suppliers",
+    "endpoint_url": "http://host.docker.internal:3030/department_store__product_suppliers/sparql"
+  },
+  {
+    "kg_name": "department_store",
+    "class": "http://valuenet/ontop/staff_department_assignments",
+    "class_name": "staff_department_assignments",
+    "endpoint_name": "department_store__staff_department_assignments",
+    "endpoint_url": "http://host.docker.internal:3030/department_store__staff_department_assignments/sparql"
+  },
+  {
+    "kg_name": "department_store",
+    "class": "http://valuenet/ontop/customer_orders",
+    "class_name": "customer_orders",
+    "endpoint_name": "department_store__customer_orders",
+    "endpoint_url": "http://host.docker.internal:3030/department_store__customer_orders/sparql"
+  },
+  {
+    "kg_name": "department_store",
+    "class": "http://valuenet/ontop/department_stores",
+    "class_name": "department_stores",
+    "endpoint_name": "department_store__department_stores",
+    "endpoint_url": "http://host.docker.internal:3030/department_store__department_stores/sparql"
+  },
+  {
+    "kg_name": "department_store",
+    "class": "http://valuenet/ontop/customer_addresses",
+    "class_name": "customer_addresses",
+    "endpoint_name": "department_store__customer_addresses",
+    "endpoint_url": "http://host.docker.internal:3030/department_store__customer_addresses/sparql"
+  },
+  {
+    "kg_name": "department_store",
+    "class": "http://valuenet/ontop/suppliers",
+    "class_name": "suppliers",
+    "endpoint_name": "department_store__suppliers",
+    "endpoint_url": "http://host.docker.internal:3030/department_store__suppliers/sparql"
+  },
+  {
+    "kg_name": "department_store",
+    "class": "http://valuenet/ontop/customers",
+    "class_name": "customers",
+    "endpoint_name": "department_store__customers",
+    "endpoint_url": "http://host.docker.internal:3030/department_store__customers/sparql"
+  },
+  {
+    "kg_name": "department_store",
+    "class": "http://valuenet/ontop/products",
+    "class_name": "products",
+    "endpoint_name": "department_store__products",
+    "endpoint_url": "http://host.docker.internal:3030/department_store__products/sparql"
+  },
+  {
+    "kg_name": "department_store",
+    "class": "http://valuenet/ontop/order_items",
+    "class_name": "order_items",
+    "endpoint_name": "department_store__order_items",
+    "endpoint_url": "http://host.docker.internal:3030/department_store__order_items/sparql"
+  },
+  {
+    "kg_name": "department_store",
+    "class": "http://valuenet/ontop/staff",
+    "class_name": "staff",
+    "endpoint_name": "department_store__staff",
+    "endpoint_url": "http://host.docker.internal:3030/department_store__staff/sparql"
+  },
+  {
+    "kg_name": "department_store",
+    "class": "http://valuenet/ontop/supplier_addresses",
+    "class_name": "supplier_addresses",
+    "endpoint_name": "department_store__supplier_addresses",
+    "endpoint_url": "http://host.docker.internal:3030/department_store__supplier_addresses/sparql"
+  },
+  {
+    "kg_name": "department_store",
+    "class": "http://valuenet/ontop/department_store_chain",
+    "class_name": "department_store_chain",
+    "endpoint_name": "department_store__department_store_chain",
+    "endpoint_url": "http://host.docker.internal:3030/department_store__department_store_chain/sparql"
+  },
+  {
+    "kg_name": "department_store",
+    "class": "http://valuenet/ontop/departments",
+    "class_name": "departments",
+    "endpoint_name": "department_store__departments",
+    "endpoint_url": "http://host.docker.internal:3030/department_store__departments/sparql"
+  },
+  {
+    "kg_name": "device",
+    "class": "http://valuenet/ontop/shop",
+    "class_name": "shop",
+    "endpoint_name": "device__shop",
+    "endpoint_url": "http://host.docker.internal:3030/device__shop/sparql"
+  },
+  {
+    "kg_name": "device",
+    "class": "http://valuenet/ontop/stock",
+    "class_name": "stock",
+    "endpoint_name": "device__stock",
+    "endpoint_url": "http://host.docker.internal:3030/device__stock/sparql"
+  },
+  {
+    "kg_name": "device",
+    "class": "http://valuenet/ontop/device",
+    "class_name": "device",
+    "endpoint_name": "device__device",
+    "endpoint_url": "http://host.docker.internal:3030/device__device/sparql"
+  },
+  {
+    "kg_name": "document_management",
+    "class": "http://valuenet/ontop/document_sections",
+    "class_name": "document_sections",
+    "endpoint_name": "document_management__document_sections",
+    "endpoint_url": "http://host.docker.internal:3030/document_management__document_sections/sparql"
+  },
+  {
+    "kg_name": "document_management",
+    "class": "http://valuenet/ontop/document_structures",
+    "class_name": "document_structures",
+    "endpoint_name": "document_management__document_structures",
+    "endpoint_url": "http://host.docker.internal:3030/document_management__document_structures/sparql"
+  },
+  {
+    "kg_name": "document_management",
+    "class": "http://valuenet/ontop/users",
+    "class_name": "users",
+    "endpoint_name": "document_management__users",
+    "endpoint_url": "http://host.docker.internal:3030/document_management__users/sparql"
+  },
+  {
+    "kg_name": "document_management",
+    "class": "http://valuenet/ontop/documents",
+    "class_name": "documents",
+    "endpoint_name": "document_management__documents",
+    "endpoint_url": "http://host.docker.internal:3030/document_management__documents/sparql"
+  },
+  {
+    "kg_name": "document_management",
+    "class": "http://valuenet/ontop/images",
+    "class_name": "images",
+    "endpoint_name": "document_management__images",
+    "endpoint_url": "http://host.docker.internal:3030/document_management__images/sparql"
+  },
+  {
+    "kg_name": "document_management",
+    "class": "http://valuenet/ontop/document_functional_areas",
+    "class_name": "document_functional_areas",
+    "endpoint_name": "document_management__document_functional_areas",
+    "endpoint_url": "http://host.docker.internal:3030/document_management__document_functional_areas/sparql"
+  },
+  {
+    "kg_name": "document_management",
+    "class": "http://valuenet/ontop/document_sections_images",
+    "class_name": "document_sections_images",
+    "endpoint_name": "document_management__document_sections_images",
+    "endpoint_url": "http://host.docker.internal:3030/document_management__document_sections_images/sparql"
+  },
+  {
+    "kg_name": "document_management",
+    "class": "http://valuenet/ontop/functional_areas",
+    "class_name": "functional_areas",
+    "endpoint_name": "document_management__functional_areas",
+    "endpoint_url": "http://host.docker.internal:3030/document_management__functional_areas/sparql"
+  },
+  {
+    "kg_name": "document_management",
+    "class": "http://valuenet/ontop/roles",
+    "class_name": "roles",
+    "endpoint_name": "document_management__roles",
+    "endpoint_url": "http://host.docker.internal:3030/document_management__roles/sparql"
+  },
+  {
+    "kg_name": "dog_kennels",
+    "class": "http://valuenet/ontop/treatments",
+    "class_name": "treatments",
+    "endpoint_name": "dog_kennels__treatments",
+    "endpoint_url": "http://host.docker.internal:3030/dog_kennels__treatments/sparql"
+  },
+  {
+    "kg_name": "dog_kennels",
+    "class": "http://valuenet/ontop/sizes",
+    "class_name": "sizes",
+    "endpoint_name": "dog_kennels__sizes",
+    "endpoint_url": "http://host.docker.internal:3030/dog_kennels__sizes/sparql"
+  },
+  {
+    "kg_name": "dog_kennels",
+    "class": "http://valuenet/ontop/charges",
+    "class_name": "charges",
+    "endpoint_name": "dog_kennels__charges",
+    "endpoint_url": "http://host.docker.internal:3030/dog_kennels__charges/sparql"
+  },
+  {
+    "kg_name": "dog_kennels",
+    "class": "http://valuenet/ontop/professionals",
+    "class_name": "professionals",
+    "endpoint_name": "dog_kennels__professionals",
+    "endpoint_url": "http://host.docker.internal:3030/dog_kennels__professionals/sparql"
+  },
+  {
+    "kg_name": "dog_kennels",
+    "class": "http://valuenet/ontop/owners",
+    "class_name": "owners",
+    "endpoint_name": "dog_kennels__owners",
+    "endpoint_url": "http://host.docker.internal:3030/dog_kennels__owners/sparql"
+  },
+  {
+    "kg_name": "dog_kennels",
+    "class": "http://valuenet/ontop/dogs",
+    "class_name": "dogs",
+    "endpoint_name": "dog_kennels__dogs",
+    "endpoint_url": "http://host.docker.internal:3030/dog_kennels__dogs/sparql"
+  },
+  {
+    "kg_name": "dog_kennels",
+    "class": "http://valuenet/ontop/breeds",
+    "class_name": "breeds",
+    "endpoint_name": "dog_kennels__breeds",
+    "endpoint_url": "http://host.docker.internal:3030/dog_kennels__breeds/sparql"
+  },
+  {
+    "kg_name": "dog_kennels",
+    "class": "http://valuenet/ontop/treatment_types",
+    "class_name": "treatment_types",
+    "endpoint_name": "dog_kennels__treatment_types",
+    "endpoint_url": "http://host.docker.internal:3030/dog_kennels__treatment_types/sparql"
+  },
+  {
+    "kg_name": "dorm_1",
+    "class": "http://valuenet/ontop/student",
+    "class_name": "student",
+    "endpoint_name": "dorm_1__student",
+    "endpoint_url": "http://host.docker.internal:3030/dorm_1__student/sparql"
+  },
+  {
+    "kg_name": "dorm_1",
+    "class": "http://valuenet/ontop/has_amenity",
+    "class_name": "has_amenity",
+    "endpoint_name": "dorm_1__has_amenity",
+    "endpoint_url": "http://host.docker.internal:3030/dorm_1__has_amenity/sparql"
+  },
+  {
+    "kg_name": "dorm_1",
+    "class": "http://valuenet/ontop/lives_in",
+    "class_name": "lives_in",
+    "endpoint_name": "dorm_1__lives_in",
+    "endpoint_url": "http://host.docker.internal:3030/dorm_1__lives_in/sparql"
+  },
+  {
+    "kg_name": "dorm_1",
+    "class": "http://valuenet/ontop/dorm_amenity",
+    "class_name": "dorm_amenity",
+    "endpoint_name": "dorm_1__dorm_amenity",
+    "endpoint_url": "http://host.docker.internal:3030/dorm_1__dorm_amenity/sparql"
+  },
+  {
+    "kg_name": "dorm_1",
+    "class": "http://valuenet/ontop/dorm",
+    "class_name": "dorm",
+    "endpoint_name": "dorm_1__dorm",
+    "endpoint_url": "http://host.docker.internal:3030/dorm_1__dorm/sparql"
+  },
+  {
+    "kg_name": "driving_school",
+    "class": "http://valuenet/ontop/staff",
+    "class_name": "staff",
+    "endpoint_name": "driving_school__staff",
+    "endpoint_url": "http://host.docker.internal:3030/driving_school__staff/sparql"
+  },
+  {
+    "kg_name": "driving_school",
+    "class": "http://valuenet/ontop/customers",
+    "class_name": "customers",
+    "endpoint_name": "driving_school__customers",
+    "endpoint_url": "http://host.docker.internal:3030/driving_school__customers/sparql"
+  },
+  {
+    "kg_name": "driving_school",
+    "class": "http://valuenet/ontop/customer_payments",
+    "class_name": "customer_payments",
+    "endpoint_name": "driving_school__customer_payments",
+    "endpoint_url": "http://host.docker.internal:3030/driving_school__customer_payments/sparql"
+  },
+  {
+    "kg_name": "driving_school",
+    "class": "http://valuenet/ontop/addresses",
+    "class_name": "addresses",
+    "endpoint_name": "driving_school__addresses",
+    "endpoint_url": "http://host.docker.internal:3030/driving_school__addresses/sparql"
+  },
+  {
+    "kg_name": "driving_school",
+    "class": "http://valuenet/ontop/lessons",
+    "class_name": "lessons",
+    "endpoint_name": "driving_school__lessons",
+    "endpoint_url": "http://host.docker.internal:3030/driving_school__lessons/sparql"
+  },
+  {
+    "kg_name": "driving_school",
+    "class": "http://valuenet/ontop/vehicles",
+    "class_name": "vehicles",
+    "endpoint_name": "driving_school__vehicles",
+    "endpoint_url": "http://host.docker.internal:3030/driving_school__vehicles/sparql"
+  },
+  {
+    "kg_name": "e_learning",
+    "class": "http://valuenet/ontop/student_course_enrolment",
+    "class_name": "student_course_enrolment",
+    "endpoint_name": "e_learning__student_course_enrolment",
+    "endpoint_url": "http://host.docker.internal:3030/e_learning__student_course_enrolment/sparql"
+  },
+  {
+    "kg_name": "e_learning",
+    "class": "http://valuenet/ontop/students",
+    "class_name": "students",
+    "endpoint_name": "e_learning__students",
+    "endpoint_url": "http://host.docker.internal:3030/e_learning__students/sparql"
+  },
+  {
+    "kg_name": "e_learning",
+    "class": "http://valuenet/ontop/course_authors_and_tutors",
+    "class_name": "course_authors_and_tutors",
+    "endpoint_name": "e_learning__course_authors_and_tutors",
+    "endpoint_url": "http://host.docker.internal:3030/e_learning__course_authors_and_tutors/sparql"
+  },
+  {
+    "kg_name": "e_learning",
+    "class": "http://valuenet/ontop/courses",
+    "class_name": "courses",
+    "endpoint_name": "e_learning__courses",
+    "endpoint_url": "http://host.docker.internal:3030/e_learning__courses/sparql"
+  },
+  {
+    "kg_name": "e_learning",
+    "class": "http://valuenet/ontop/student_tests_taken",
+    "class_name": "student_tests_taken",
+    "endpoint_name": "e_learning__student_tests_taken",
+    "endpoint_url": "http://host.docker.internal:3030/e_learning__student_tests_taken/sparql"
+  },
+  {
+    "kg_name": "e_learning",
+    "class": "http://valuenet/ontop/subjects",
+    "class_name": "subjects",
+    "endpoint_name": "e_learning__subjects",
+    "endpoint_url": "http://host.docker.internal:3030/e_learning__subjects/sparql"
+  },
+  {
+    "kg_name": "election",
+    "class": "http://valuenet/ontop/election",
+    "class_name": "election",
+    "endpoint_name": "election__election",
+    "endpoint_url": "http://host.docker.internal:3030/election__election/sparql"
+  },
+  {
+    "kg_name": "election",
+    "class": "http://valuenet/ontop/party",
+    "class_name": "party",
+    "endpoint_name": "election__party",
+    "endpoint_url": "http://host.docker.internal:3030/election__party/sparql"
+  },
+  {
+    "kg_name": "election",
+    "class": "http://valuenet/ontop/county",
+    "class_name": "county",
+    "endpoint_name": "election__county",
+    "endpoint_url": "http://host.docker.internal:3030/election__county/sparql"
+  },
+  {
+    "kg_name": "election_representative",
+    "class": "http://valuenet/ontop/representative",
+    "class_name": "representative",
+    "endpoint_name": "election_representative__representative",
+    "endpoint_url": "http://host.docker.internal:3030/election_representative__representative/sparql"
+  },
+  {
+    "kg_name": "election_representative",
+    "class": "http://valuenet/ontop/election",
+    "class_name": "election",
+    "endpoint_name": "election_representative__election",
+    "endpoint_url": "http://host.docker.internal:3030/election_representative__election/sparql"
+  },
+  {
+    "kg_name": "employee_hire_evaluation",
+    "class": "http://valuenet/ontop/shop",
+    "class_name": "shop",
+    "endpoint_name": "employee_hire_evaluation__shop",
+    "endpoint_url": "http://host.docker.internal:3030/employee_hire_evaluation__shop/sparql"
+  },
+  {
+    "kg_name": "employee_hire_evaluation",
+    "class": "http://valuenet/ontop/evaluation",
+    "class_name": "evaluation",
+    "endpoint_name": "employee_hire_evaluation__evaluation",
+    "endpoint_url": "http://host.docker.internal:3030/employee_hire_evaluation__evaluation/sparql"
+  },
+  {
+    "kg_name": "employee_hire_evaluation",
+    "class": "http://valuenet/ontop/employee",
+    "class_name": "employee",
+    "endpoint_name": "employee_hire_evaluation__employee",
+    "endpoint_url": "http://host.docker.internal:3030/employee_hire_evaluation__employee/sparql"
+  },
+  {
+    "kg_name": "employee_hire_evaluation",
+    "class": "http://valuenet/ontop/hiring",
+    "class_name": "hiring",
+    "endpoint_name": "employee_hire_evaluation__hiring",
+    "endpoint_url": "http://host.docker.internal:3030/employee_hire_evaluation__hiring/sparql"
+  },
+  {
+    "kg_name": "entertainment_awards",
+    "class": "http://valuenet/ontop/nomination",
+    "class_name": "nomination",
+    "endpoint_name": "entertainment_awards__nomination",
+    "endpoint_url": "http://host.docker.internal:3030/entertainment_awards__nomination/sparql"
+  },
+  {
+    "kg_name": "entertainment_awards",
+    "class": "http://valuenet/ontop/artwork",
+    "class_name": "artwork",
+    "endpoint_name": "entertainment_awards__artwork",
+    "endpoint_url": "http://host.docker.internal:3030/entertainment_awards__artwork/sparql"
+  },
+  {
+    "kg_name": "entertainment_awards",
+    "class": "http://valuenet/ontop/festival_detail",
+    "class_name": "festival_detail",
+    "endpoint_name": "entertainment_awards__festival_detail",
+    "endpoint_url": "http://host.docker.internal:3030/entertainment_awards__festival_detail/sparql"
+  },
+  {
+    "kg_name": "entrepreneur",
+    "class": "http://valuenet/ontop/entrepreneur",
+    "class_name": "entrepreneur",
+    "endpoint_name": "entrepreneur__entrepreneur",
+    "endpoint_url": "http://host.docker.internal:3030/entrepreneur__entrepreneur/sparql"
+  },
+  {
+    "kg_name": "entrepreneur",
+    "class": "http://valuenet/ontop/people",
+    "class_name": "people",
+    "endpoint_name": "entrepreneur__people",
+    "endpoint_url": "http://host.docker.internal:3030/entrepreneur__people/sparql"
+  },
+  {
+    "kg_name": "epinions_1",
+    "class": "http://valuenet/ontop/useracct",
+    "class_name": "useracct",
+    "endpoint_name": "epinions_1__useracct",
+    "endpoint_url": "http://host.docker.internal:3030/epinions_1__useracct/sparql"
+  },
+  {
+    "kg_name": "epinions_1",
+    "class": "http://valuenet/ontop/item",
+    "class_name": "item",
+    "endpoint_name": "epinions_1__item",
+    "endpoint_url": "http://host.docker.internal:3030/epinions_1__item/sparql"
+  },
+  {
+    "kg_name": "epinions_1",
+    "class": "http://valuenet/ontop/trust",
+    "class_name": "trust",
+    "endpoint_name": "epinions_1__trust",
+    "endpoint_url": "http://host.docker.internal:3030/epinions_1__trust/sparql"
+  },
+  {
+    "kg_name": "epinions_1",
+    "class": "http://valuenet/ontop/review",
+    "class_name": "review",
+    "endpoint_name": "epinions_1__review",
+    "endpoint_url": "http://host.docker.internal:3030/epinions_1__review/sparql"
+  },
+  {
+    "kg_name": "farm",
+    "class": "http://valuenet/ontop/competition_record",
+    "class_name": "competition_record",
+    "endpoint_name": "farm__competition_record",
+    "endpoint_url": "http://host.docker.internal:3030/farm__competition_record/sparql"
+  },
+  {
+    "kg_name": "farm",
+    "class": "http://valuenet/ontop/city",
+    "class_name": "city",
+    "endpoint_name": "farm__city",
+    "endpoint_url": "http://host.docker.internal:3030/farm__city/sparql"
+  },
+  {
+    "kg_name": "farm",
+    "class": "http://valuenet/ontop/farm",
+    "class_name": "farm",
+    "endpoint_name": "farm__farm",
+    "endpoint_url": "http://host.docker.internal:3030/farm__farm/sparql"
+  },
+  {
+    "kg_name": "farm",
+    "class": "http://valuenet/ontop/farm_competition",
+    "class_name": "farm_competition",
+    "endpoint_name": "farm__farm_competition",
+    "endpoint_url": "http://host.docker.internal:3030/farm__farm_competition/sparql"
+  },
+  {
+    "kg_name": "film_rank",
+    "class": "http://valuenet/ontop/film_market_estimation",
+    "class_name": "film_market_estimation",
+    "endpoint_name": "film_rank__film_market_estimation",
+    "endpoint_url": "http://host.docker.internal:3030/film_rank__film_market_estimation/sparql"
+  },
+  {
+    "kg_name": "film_rank",
+    "class": "http://valuenet/ontop/market",
+    "class_name": "market",
+    "endpoint_name": "film_rank__market",
+    "endpoint_url": "http://host.docker.internal:3030/film_rank__market/sparql"
+  },
+  {
+    "kg_name": "film_rank",
+    "class": "http://valuenet/ontop/film",
+    "class_name": "film",
+    "endpoint_name": "film_rank__film",
+    "endpoint_url": "http://host.docker.internal:3030/film_rank__film/sparql"
+  },
+  {
+    "kg_name": "flight_2",
+    "class": "http://valuenet/ontop/flights",
+    "class_name": "flights",
+    "endpoint_name": "flight_2__flights",
+    "endpoint_url": "http://host.docker.internal:3030/flight_2__flights/sparql"
+  },
+  {
+    "kg_name": "flight_2",
+    "class": "http://valuenet/ontop/airports",
+    "class_name": "airports",
+    "endpoint_name": "flight_2__airports",
+    "endpoint_url": "http://host.docker.internal:3030/flight_2__airports/sparql"
+  },
+  {
+    "kg_name": "flight_2",
+    "class": "http://valuenet/ontop/airlines",
+    "class_name": "airlines",
+    "endpoint_name": "flight_2__airlines",
+    "endpoint_url": "http://host.docker.internal:3030/flight_2__airlines/sparql"
+  },
+  {
+    "kg_name": "flight_4",
+    "class": "http://valuenet/ontop/airlines",
+    "class_name": "airlines",
+    "endpoint_name": "flight_4__airlines",
+    "endpoint_url": "http://host.docker.internal:3030/flight_4__airlines/sparql"
+  },
+  {
+    "kg_name": "flight_4",
+    "class": "http://valuenet/ontop/routes",
+    "class_name": "routes",
+    "endpoint_name": "flight_4__routes",
+    "endpoint_url": "http://host.docker.internal:3030/flight_4__routes/sparql"
+  },
+  {
+    "kg_name": "flight_4",
+    "class": "http://valuenet/ontop/airports",
+    "class_name": "airports",
+    "endpoint_name": "flight_4__airports",
+    "endpoint_url": "http://host.docker.internal:3030/flight_4__airports/sparql"
+  },
+  {
+    "kg_name": "flight_company",
+    "class": "http://valuenet/ontop/flight",
+    "class_name": "flight",
+    "endpoint_name": "flight_company__flight",
+    "endpoint_url": "http://host.docker.internal:3030/flight_company__flight/sparql"
+  },
+  {
+    "kg_name": "flight_company",
+    "class": "http://valuenet/ontop/airport",
+    "class_name": "airport",
+    "endpoint_name": "flight_company__airport",
+    "endpoint_url": "http://host.docker.internal:3030/flight_company__airport/sparql"
+  },
+  {
+    "kg_name": "flight_company",
+    "class": "http://valuenet/ontop/operate_company",
+    "class_name": "operate_company",
+    "endpoint_name": "flight_company__operate_company",
+    "endpoint_url": "http://host.docker.internal:3030/flight_company__operate_company/sparql"
+  },
+  {
+    "kg_name": "formula_1",
+    "class": "http://valuenet/ontop/results",
+    "class_name": "results",
+    "endpoint_name": "formula_1__results",
+    "endpoint_url": "http://host.docker.internal:3030/formula_1__results/sparql"
+  },
+  {
+    "kg_name": "formula_1",
+    "class": "http://valuenet/ontop/races",
+    "class_name": "races",
+    "endpoint_name": "formula_1__races",
+    "endpoint_url": "http://host.docker.internal:3030/formula_1__races/sparql"
+  },
+  {
+    "kg_name": "formula_1",
+    "class": "http://valuenet/ontop/constructors",
+    "class_name": "constructors",
+    "endpoint_name": "formula_1__constructors",
+    "endpoint_url": "http://host.docker.internal:3030/formula_1__constructors/sparql"
+  },
+  {
+    "kg_name": "formula_1",
+    "class": "http://valuenet/ontop/circuits",
+    "class_name": "circuits",
+    "endpoint_name": "formula_1__circuits",
+    "endpoint_url": "http://host.docker.internal:3030/formula_1__circuits/sparql"
+  },
+  {
+    "kg_name": "formula_1",
+    "class": "http://valuenet/ontop/seasons",
+    "class_name": "seasons",
+    "endpoint_name": "formula_1__seasons",
+    "endpoint_url": "http://host.docker.internal:3030/formula_1__seasons/sparql"
+  },
+  {
+    "kg_name": "formula_1",
+    "class": "http://valuenet/ontop/constructorstandings",
+    "class_name": "constructorstandings",
+    "endpoint_name": "formula_1__constructorstandings",
+    "endpoint_url": "http://host.docker.internal:3030/formula_1__constructorstandings/sparql"
+  },
+  {
+    "kg_name": "formula_1",
+    "class": "http://valuenet/ontop/drivers",
+    "class_name": "drivers",
+    "endpoint_name": "formula_1__drivers",
+    "endpoint_url": "http://host.docker.internal:3030/formula_1__drivers/sparql"
+  },
+  {
+    "kg_name": "formula_1",
+    "class": "http://valuenet/ontop/constructorresults",
+    "class_name": "constructorresults",
+    "endpoint_name": "formula_1__constructorresults",
+    "endpoint_url": "http://host.docker.internal:3030/formula_1__constructorresults/sparql"
+  },
+  {
+    "kg_name": "formula_1",
+    "class": "http://valuenet/ontop/status",
+    "class_name": "status",
+    "endpoint_name": "formula_1__status",
+    "endpoint_url": "http://host.docker.internal:3030/formula_1__status/sparql"
+  },
+  {
+    "kg_name": "formula_1",
+    "class": "http://valuenet/ontop/driverstandings",
+    "class_name": "driverstandings",
+    "endpoint_name": "formula_1__driverstandings",
+    "endpoint_url": "http://host.docker.internal:3030/formula_1__driverstandings/sparql"
+  },
+  {
+    "kg_name": "formula_1",
+    "class": "http://valuenet/ontop/qualifying",
+    "class_name": "qualifying",
+    "endpoint_name": "formula_1__qualifying",
+    "endpoint_url": "http://host.docker.internal:3030/formula_1__qualifying/sparql"
+  },
+  {
+    "kg_name": "game_1",
+    "class": "http://valuenet/ontop/sportsinfo",
+    "class_name": "sportsinfo",
+    "endpoint_name": "game_1__sportsinfo",
+    "endpoint_url": "http://host.docker.internal:3030/game_1__sportsinfo/sparql"
+  },
+  {
+    "kg_name": "game_1",
+    "class": "http://valuenet/ontop/student",
+    "class_name": "student",
+    "endpoint_name": "game_1__student",
+    "endpoint_url": "http://host.docker.internal:3030/game_1__student/sparql"
+  },
+  {
+    "kg_name": "game_1",
+    "class": "http://valuenet/ontop/plays_games",
+    "class_name": "plays_games",
+    "endpoint_name": "game_1__plays_games",
+    "endpoint_url": "http://host.docker.internal:3030/game_1__plays_games/sparql"
+  },
+  {
+    "kg_name": "game_1",
+    "class": "http://valuenet/ontop/video_games",
+    "class_name": "video_games",
+    "endpoint_name": "game_1__video_games",
+    "endpoint_url": "http://host.docker.internal:3030/game_1__video_games/sparql"
+  },
+  {
+    "kg_name": "game_injury",
+    "class": "http://valuenet/ontop/injury_accident",
+    "class_name": "injury_accident",
+    "endpoint_name": "game_injury__injury_accident",
+    "endpoint_url": "http://host.docker.internal:3030/game_injury__injury_accident/sparql"
+  },
+  {
+    "kg_name": "game_injury",
+    "class": "http://valuenet/ontop/game",
+    "class_name": "game",
+    "endpoint_name": "game_injury__game",
+    "endpoint_url": "http://host.docker.internal:3030/game_injury__game/sparql"
+  },
+  {
+    "kg_name": "game_injury",
+    "class": "http://valuenet/ontop/stadium",
+    "class_name": "stadium",
+    "endpoint_name": "game_injury__stadium",
+    "endpoint_url": "http://host.docker.internal:3030/game_injury__stadium/sparql"
+  },
+  {
+    "kg_name": "gas_company",
+    "class": "http://valuenet/ontop/company",
+    "class_name": "company",
+    "endpoint_name": "gas_company__company",
+    "endpoint_url": "http://host.docker.internal:3030/gas_company__company/sparql"
+  },
+  {
+    "kg_name": "gas_company",
+    "class": "http://valuenet/ontop/gas_station",
+    "class_name": "gas_station",
+    "endpoint_name": "gas_company__gas_station",
+    "endpoint_url": "http://host.docker.internal:3030/gas_company__gas_station/sparql"
+  },
+  {
+    "kg_name": "gas_company",
+    "class": "http://valuenet/ontop/station_company",
+    "class_name": "station_company",
+    "endpoint_name": "gas_company__station_company",
+    "endpoint_url": "http://host.docker.internal:3030/gas_company__station_company/sparql"
+  },
+  {
+    "kg_name": "gymnast",
+    "class": "http://valuenet/ontop/gymnast",
+    "class_name": "gymnast",
+    "endpoint_name": "gymnast__gymnast",
+    "endpoint_url": "http://host.docker.internal:3030/gymnast__gymnast/sparql"
+  },
+  {
+    "kg_name": "gymnast",
+    "class": "http://valuenet/ontop/people",
+    "class_name": "people",
+    "endpoint_name": "gymnast__people",
+    "endpoint_url": "http://host.docker.internal:3030/gymnast__people/sparql"
+  },
+  {
+    "kg_name": "hospital_1",
+    "class": "http://valuenet/ontop/appointment",
+    "class_name": "appointment",
+    "endpoint_name": "hospital_1__appointment",
+    "endpoint_url": "http://host.docker.internal:3030/hospital_1__appointment/sparql"
+  },
+  {
+    "kg_name": "hospital_1",
+    "class": "http://valuenet/ontop/affiliated_with",
+    "class_name": "affiliated_with",
+    "endpoint_name": "hospital_1__affiliated_with",
+    "endpoint_url": "http://host.docker.internal:3030/hospital_1__affiliated_with/sparql"
+  },
+  {
+    "kg_name": "hospital_1",
+    "class": "http://valuenet/ontop/undergoes",
+    "class_name": "undergoes",
+    "endpoint_name": "hospital_1__undergoes",
+    "endpoint_url": "http://host.docker.internal:3030/hospital_1__undergoes/sparql"
+  },
+  {
+    "kg_name": "hospital_1",
+    "class": "http://valuenet/ontop/patient",
+    "class_name": "patient",
+    "endpoint_name": "hospital_1__patient",
+    "endpoint_url": "http://host.docker.internal:3030/hospital_1__patient/sparql"
+  },
+  {
+    "kg_name": "hospital_1",
+    "class": "http://valuenet/ontop/trained_in",
+    "class_name": "trained_in",
+    "endpoint_name": "hospital_1__trained_in",
+    "endpoint_url": "http://host.docker.internal:3030/hospital_1__trained_in/sparql"
+  },
+  {
+    "kg_name": "hospital_1",
+    "class": "http://valuenet/ontop/room",
+    "class_name": "room",
+    "endpoint_name": "hospital_1__room",
+    "endpoint_url": "http://host.docker.internal:3030/hospital_1__room/sparql"
+  },
+  {
+    "kg_name": "hospital_1",
+    "class": "http://valuenet/ontop/medication",
+    "class_name": "medication",
+    "endpoint_name": "hospital_1__medication",
+    "endpoint_url": "http://host.docker.internal:3030/hospital_1__medication/sparql"
+  },
+  {
+    "kg_name": "hospital_1",
+    "class": "http://valuenet/ontop/physician",
+    "class_name": "physician",
+    "endpoint_name": "hospital_1__physician",
+    "endpoint_url": "http://host.docker.internal:3030/hospital_1__physician/sparql"
+  },
+  {
+    "kg_name": "hospital_1",
+    "class": "http://valuenet/ontop/on_call",
+    "class_name": "on_call",
+    "endpoint_name": "hospital_1__on_call",
+    "endpoint_url": "http://host.docker.internal:3030/hospital_1__on_call/sparql"
+  },
+  {
+    "kg_name": "hospital_1",
+    "class": "http://valuenet/ontop/stay",
+    "class_name": "stay",
+    "endpoint_name": "hospital_1__stay",
+    "endpoint_url": "http://host.docker.internal:3030/hospital_1__stay/sparql"
+  },
+  {
+    "kg_name": "hospital_1",
+    "class": "http://valuenet/ontop/procedures",
+    "class_name": "procedures",
+    "endpoint_name": "hospital_1__procedures",
+    "endpoint_url": "http://host.docker.internal:3030/hospital_1__procedures/sparql"
+  },
+  {
+    "kg_name": "hospital_1",
+    "class": "http://valuenet/ontop/prescribes",
+    "class_name": "prescribes",
+    "endpoint_name": "hospital_1__prescribes",
+    "endpoint_url": "http://host.docker.internal:3030/hospital_1__prescribes/sparql"
+  },
+  {
+    "kg_name": "hospital_1",
+    "class": "http://valuenet/ontop/department",
+    "class_name": "department",
+    "endpoint_name": "hospital_1__department",
+    "endpoint_url": "http://host.docker.internal:3030/hospital_1__department/sparql"
+  },
+  {
+    "kg_name": "hospital_1",
+    "class": "http://valuenet/ontop/nurse",
+    "class_name": "nurse",
+    "endpoint_name": "hospital_1__nurse",
+    "endpoint_url": "http://host.docker.internal:3030/hospital_1__nurse/sparql"
+  },
+  {
+    "kg_name": "hospital_1",
+    "class": "http://valuenet/ontop/block",
+    "class_name": "block",
+    "endpoint_name": "hospital_1__block",
+    "endpoint_url": "http://host.docker.internal:3030/hospital_1__block/sparql"
+  },
+  {
+    "kg_name": "hr_1",
+    "class": "http://valuenet/ontop/employees",
+    "class_name": "employees",
+    "endpoint_name": "hr_1__employees",
+    "endpoint_url": "http://host.docker.internal:3030/hr_1__employees/sparql"
+  },
+  {
+    "kg_name": "hr_1",
+    "class": "http://valuenet/ontop/locations",
+    "class_name": "locations",
+    "endpoint_name": "hr_1__locations",
+    "endpoint_url": "http://host.docker.internal:3030/hr_1__locations/sparql"
+  },
+  {
+    "kg_name": "hr_1",
+    "class": "http://valuenet/ontop/countries",
+    "class_name": "countries",
+    "endpoint_name": "hr_1__countries",
+    "endpoint_url": "http://host.docker.internal:3030/hr_1__countries/sparql"
+  },
+  {
+    "kg_name": "hr_1",
+    "class": "http://valuenet/ontop/departments",
+    "class_name": "departments",
+    "endpoint_name": "hr_1__departments",
+    "endpoint_url": "http://host.docker.internal:3030/hr_1__departments/sparql"
+  },
+  {
+    "kg_name": "hr_1",
+    "class": "http://valuenet/ontop/jobs",
+    "class_name": "jobs",
+    "endpoint_name": "hr_1__jobs",
+    "endpoint_url": "http://host.docker.internal:3030/hr_1__jobs/sparql"
+  },
+  {
+    "kg_name": "hr_1",
+    "class": "http://valuenet/ontop/regions",
+    "class_name": "regions",
+    "endpoint_name": "hr_1__regions",
+    "endpoint_url": "http://host.docker.internal:3030/hr_1__regions/sparql"
+  },
+  {
+    "kg_name": "icfp_1",
+    "class": "http://valuenet/ontop/authors",
+    "class_name": "authors",
+    "endpoint_name": "icfp_1__authors",
+    "endpoint_url": "http://host.docker.internal:3030/icfp_1__authors/sparql"
+  },
+  {
+    "kg_name": "icfp_1",
+    "class": "http://valuenet/ontop/authorship",
+    "class_name": "authorship",
+    "endpoint_name": "icfp_1__authorship",
+    "endpoint_url": "http://host.docker.internal:3030/icfp_1__authorship/sparql"
+  },
+  {
+    "kg_name": "icfp_1",
+    "class": "http://valuenet/ontop/inst",
+    "class_name": "inst",
+    "endpoint_name": "icfp_1__inst",
+    "endpoint_url": "http://host.docker.internal:3030/icfp_1__inst/sparql"
+  },
+  {
+    "kg_name": "icfp_1",
+    "class": "http://valuenet/ontop/papers",
+    "class_name": "papers",
+    "endpoint_name": "icfp_1__papers",
+    "endpoint_url": "http://host.docker.internal:3030/icfp_1__papers/sparql"
+  },
+  {
+    "kg_name": "inn_1",
+    "class": "http://valuenet/ontop/reservations",
+    "class_name": "reservations",
+    "endpoint_name": "inn_1__reservations",
+    "endpoint_url": "http://host.docker.internal:3030/inn_1__reservations/sparql"
+  },
+  {
+    "kg_name": "inn_1",
+    "class": "http://valuenet/ontop/rooms",
+    "class_name": "rooms",
+    "endpoint_name": "inn_1__rooms",
+    "endpoint_url": "http://host.docker.internal:3030/inn_1__rooms/sparql"
+  },
+  {
+    "kg_name": "insurance_and_eclaims",
+    "class": "http://valuenet/ontop/policies",
+    "class_name": "policies",
+    "endpoint_name": "insurance_and_eclaims__policies",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_and_eclaims__policies/sparql"
+  },
+  {
+    "kg_name": "insurance_and_eclaims",
+    "class": "http://valuenet/ontop/claim_headers",
+    "class_name": "claim_headers",
+    "endpoint_name": "insurance_and_eclaims__claim_headers",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_and_eclaims__claim_headers/sparql"
+  },
+  {
+    "kg_name": "insurance_and_eclaims",
+    "class": "http://valuenet/ontop/claims_processing",
+    "class_name": "claims_processing",
+    "endpoint_name": "insurance_and_eclaims__claims_processing",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_and_eclaims__claims_processing/sparql"
+  },
+  {
+    "kg_name": "insurance_and_eclaims",
+    "class": "http://valuenet/ontop/claims_documents",
+    "class_name": "claims_documents",
+    "endpoint_name": "insurance_and_eclaims__claims_documents",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_and_eclaims__claims_documents/sparql"
+  },
+  {
+    "kg_name": "insurance_and_eclaims",
+    "class": "http://valuenet/ontop/customers",
+    "class_name": "customers",
+    "endpoint_name": "insurance_and_eclaims__customers",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_and_eclaims__customers/sparql"
+  },
+  {
+    "kg_name": "insurance_and_eclaims",
+    "class": "http://valuenet/ontop/claims_processing_stages",
+    "class_name": "claims_processing_stages",
+    "endpoint_name": "insurance_and_eclaims__claims_processing_stages",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_and_eclaims__claims_processing_stages/sparql"
+  },
+  {
+    "kg_name": "insurance_and_eclaims",
+    "class": "http://valuenet/ontop/staff",
+    "class_name": "staff",
+    "endpoint_name": "insurance_and_eclaims__staff",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_and_eclaims__staff/sparql"
+  },
+  {
+    "kg_name": "insurance_fnol",
+    "class": "http://valuenet/ontop/first_notification_of_loss",
+    "class_name": "first_notification_of_loss",
+    "endpoint_name": "insurance_fnol__first_notification_of_loss",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_fnol__first_notification_of_loss/sparql"
+  },
+  {
+    "kg_name": "insurance_fnol",
+    "class": "http://valuenet/ontop/customers_policies",
+    "class_name": "customers_policies",
+    "endpoint_name": "insurance_fnol__customers_policies",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_fnol__customers_policies/sparql"
+  },
+  {
+    "kg_name": "insurance_fnol",
+    "class": "http://valuenet/ontop/available_policies",
+    "class_name": "available_policies",
+    "endpoint_name": "insurance_fnol__available_policies",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_fnol__available_policies/sparql"
+  },
+  {
+    "kg_name": "insurance_fnol",
+    "class": "http://valuenet/ontop/customers",
+    "class_name": "customers",
+    "endpoint_name": "insurance_fnol__customers",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_fnol__customers/sparql"
+  },
+  {
+    "kg_name": "insurance_fnol",
+    "class": "http://valuenet/ontop/settlements",
+    "class_name": "settlements",
+    "endpoint_name": "insurance_fnol__settlements",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_fnol__settlements/sparql"
+  },
+  {
+    "kg_name": "insurance_fnol",
+    "class": "http://valuenet/ontop/claims",
+    "class_name": "claims",
+    "endpoint_name": "insurance_fnol__claims",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_fnol__claims/sparql"
+  },
+  {
+    "kg_name": "insurance_fnol",
+    "class": "http://valuenet/ontop/services",
+    "class_name": "services",
+    "endpoint_name": "insurance_fnol__services",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_fnol__services/sparql"
+  },
+  {
+    "kg_name": "insurance_policies",
+    "class": "http://valuenet/ontop/customer_policies",
+    "class_name": "customer_policies",
+    "endpoint_name": "insurance_policies__customer_policies",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_policies__customer_policies/sparql"
+  },
+  {
+    "kg_name": "insurance_policies",
+    "class": "http://valuenet/ontop/claims",
+    "class_name": "claims",
+    "endpoint_name": "insurance_policies__claims",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_policies__claims/sparql"
+  },
+  {
+    "kg_name": "insurance_policies",
+    "class": "http://valuenet/ontop/payments",
+    "class_name": "payments",
+    "endpoint_name": "insurance_policies__payments",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_policies__payments/sparql"
+  },
+  {
+    "kg_name": "insurance_policies",
+    "class": "http://valuenet/ontop/settlements",
+    "class_name": "settlements",
+    "endpoint_name": "insurance_policies__settlements",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_policies__settlements/sparql"
+  },
+  {
+    "kg_name": "insurance_policies",
+    "class": "http://valuenet/ontop/customers",
+    "class_name": "customers",
+    "endpoint_name": "insurance_policies__customers",
+    "endpoint_url": "http://host.docker.internal:3030/insurance_policies__customers/sparql"
+  },
+  {
+    "kg_name": "journal_committee",
+    "class": "http://valuenet/ontop/editor",
+    "class_name": "editor",
+    "endpoint_name": "journal_committee__editor",
+    "endpoint_url": "http://host.docker.internal:3030/journal_committee__editor/sparql"
+  },
+  {
+    "kg_name": "journal_committee",
+    "class": "http://valuenet/ontop/journal_committee",
+    "class_name": "journal_committee",
+    "endpoint_name": "journal_committee__journal_committee",
+    "endpoint_url": "http://host.docker.internal:3030/journal_committee__journal_committee/sparql"
+  },
+  {
+    "kg_name": "journal_committee",
+    "class": "http://valuenet/ontop/journal",
+    "class_name": "journal",
+    "endpoint_name": "journal_committee__journal",
+    "endpoint_url": "http://host.docker.internal:3030/journal_committee__journal/sparql"
+  },
+  {
+    "kg_name": "loan_1",
+    "class": "http://valuenet/ontop/bank",
+    "class_name": "bank",
+    "endpoint_name": "loan_1__bank",
+    "endpoint_url": "http://host.docker.internal:3030/loan_1__bank/sparql"
+  },
+  {
+    "kg_name": "loan_1",
+    "class": "http://valuenet/ontop/customer",
+    "class_name": "customer",
+    "endpoint_name": "loan_1__customer",
+    "endpoint_url": "http://host.docker.internal:3030/loan_1__customer/sparql"
+  },
+  {
+    "kg_name": "loan_1",
+    "class": "http://valuenet/ontop/loan",
+    "class_name": "loan",
+    "endpoint_name": "loan_1__loan",
+    "endpoint_url": "http://host.docker.internal:3030/loan_1__loan/sparql"
+  },
+  {
+    "kg_name": "local_govt_and_lot",
+    "class": "http://valuenet/ontop/residents_services",
+    "class_name": "residents_services",
+    "endpoint_name": "local_govt_and_lot__residents_services",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_and_lot__residents_services/sparql"
+  },
+  {
+    "kg_name": "local_govt_and_lot",
+    "class": "http://valuenet/ontop/organizations",
+    "class_name": "organizations",
+    "endpoint_name": "local_govt_and_lot__organizations",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_and_lot__organizations/sparql"
+  },
+  {
+    "kg_name": "local_govt_and_lot",
+    "class": "http://valuenet/ontop/timed_locations_of_things",
+    "class_name": "timed_locations_of_things",
+    "endpoint_name": "local_govt_and_lot__timed_locations_of_things",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_and_lot__timed_locations_of_things/sparql"
+  },
+  {
+    "kg_name": "local_govt_and_lot",
+    "class": "http://valuenet/ontop/customer_event_notes",
+    "class_name": "customer_event_notes",
+    "endpoint_name": "local_govt_and_lot__customer_event_notes",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_and_lot__customer_event_notes/sparql"
+  },
+  {
+    "kg_name": "local_govt_and_lot",
+    "class": "http://valuenet/ontop/services",
+    "class_name": "services",
+    "endpoint_name": "local_govt_and_lot__services",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_and_lot__services/sparql"
+  },
+  {
+    "kg_name": "local_govt_and_lot",
+    "class": "http://valuenet/ontop/things",
+    "class_name": "things",
+    "endpoint_name": "local_govt_and_lot__things",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_and_lot__things/sparql"
+  },
+  {
+    "kg_name": "local_govt_and_lot",
+    "class": "http://valuenet/ontop/timed_status_of_things",
+    "class_name": "timed_status_of_things",
+    "endpoint_name": "local_govt_and_lot__timed_status_of_things",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_and_lot__timed_status_of_things/sparql"
+  },
+  {
+    "kg_name": "local_govt_and_lot",
+    "class": "http://valuenet/ontop/customer_events",
+    "class_name": "customer_events",
+    "endpoint_name": "local_govt_and_lot__customer_events",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_and_lot__customer_events/sparql"
+  },
+  {
+    "kg_name": "local_govt_and_lot",
+    "class": "http://valuenet/ontop/properties",
+    "class_name": "properties",
+    "endpoint_name": "local_govt_and_lot__properties",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_and_lot__properties/sparql"
+  },
+  {
+    "kg_name": "local_govt_and_lot",
+    "class": "http://valuenet/ontop/customers",
+    "class_name": "customers",
+    "endpoint_name": "local_govt_and_lot__customers",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_and_lot__customers/sparql"
+  },
+  {
+    "kg_name": "local_govt_and_lot",
+    "class": "http://valuenet/ontop/residents",
+    "class_name": "residents",
+    "endpoint_name": "local_govt_and_lot__residents",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_and_lot__residents/sparql"
+  },
+  {
+    "kg_name": "local_govt_in_alabama",
+    "class": "http://valuenet/ontop/participants_in_events",
+    "class_name": "participants_in_events",
+    "endpoint_name": "local_govt_in_alabama__participants_in_events",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_in_alabama__participants_in_events/sparql"
+  },
+  {
+    "kg_name": "local_govt_in_alabama",
+    "class": "http://valuenet/ontop/events",
+    "class_name": "events",
+    "endpoint_name": "local_govt_in_alabama__events",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_in_alabama__events/sparql"
+  },
+  {
+    "kg_name": "local_govt_in_alabama",
+    "class": "http://valuenet/ontop/participants",
+    "class_name": "participants",
+    "endpoint_name": "local_govt_in_alabama__participants",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_in_alabama__participants/sparql"
+  },
+  {
+    "kg_name": "local_govt_in_alabama",
+    "class": "http://valuenet/ontop/services",
+    "class_name": "services",
+    "endpoint_name": "local_govt_in_alabama__services",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_in_alabama__services/sparql"
+  },
+  {
+    "kg_name": "local_govt_mdm",
+    "class": "http://valuenet/ontop/cmi_cross_references",
+    "class_name": "cmi_cross_references",
+    "endpoint_name": "local_govt_mdm__cmi_cross_references",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_mdm__cmi_cross_references/sparql"
+  },
+  {
+    "kg_name": "local_govt_mdm",
+    "class": "http://valuenet/ontop/business_rates",
+    "class_name": "business_rates",
+    "endpoint_name": "local_govt_mdm__business_rates",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_mdm__business_rates/sparql"
+  },
+  {
+    "kg_name": "local_govt_mdm",
+    "class": "http://valuenet/ontop/council_tax",
+    "class_name": "council_tax",
+    "endpoint_name": "local_govt_mdm__council_tax",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_mdm__council_tax/sparql"
+  },
+  {
+    "kg_name": "local_govt_mdm",
+    "class": "http://valuenet/ontop/electoral_register",
+    "class_name": "electoral_register",
+    "endpoint_name": "local_govt_mdm__electoral_register",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_mdm__electoral_register/sparql"
+  },
+  {
+    "kg_name": "local_govt_mdm",
+    "class": "http://valuenet/ontop/benefits_overpayments",
+    "class_name": "benefits_overpayments",
+    "endpoint_name": "local_govt_mdm__benefits_overpayments",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_mdm__benefits_overpayments/sparql"
+  },
+  {
+    "kg_name": "local_govt_mdm",
+    "class": "http://valuenet/ontop/customer_master_index",
+    "class_name": "customer_master_index",
+    "endpoint_name": "local_govt_mdm__customer_master_index",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_mdm__customer_master_index/sparql"
+  },
+  {
+    "kg_name": "local_govt_mdm",
+    "class": "http://valuenet/ontop/rent_arrears",
+    "class_name": "rent_arrears",
+    "endpoint_name": "local_govt_mdm__rent_arrears",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_mdm__rent_arrears/sparql"
+  },
+  {
+    "kg_name": "local_govt_mdm",
+    "class": "http://valuenet/ontop/parking_fines",
+    "class_name": "parking_fines",
+    "endpoint_name": "local_govt_mdm__parking_fines",
+    "endpoint_url": "http://host.docker.internal:3030/local_govt_mdm__parking_fines/sparql"
+  },
+  {
+    "kg_name": "machine_repair",
+    "class": "http://valuenet/ontop/repair_assignment",
+    "class_name": "repair_assignment",
+    "endpoint_name": "machine_repair__repair_assignment",
+    "endpoint_url": "http://host.docker.internal:3030/machine_repair__repair_assignment/sparql"
+  },
+  {
+    "kg_name": "machine_repair",
+    "class": "http://valuenet/ontop/machine",
+    "class_name": "machine",
+    "endpoint_name": "machine_repair__machine",
+    "endpoint_url": "http://host.docker.internal:3030/machine_repair__machine/sparql"
+  },
+  {
+    "kg_name": "machine_repair",
+    "class": "http://valuenet/ontop/technician",
+    "class_name": "technician",
+    "endpoint_name": "machine_repair__technician",
+    "endpoint_url": "http://host.docker.internal:3030/machine_repair__technician/sparql"
+  },
+  {
+    "kg_name": "machine_repair",
+    "class": "http://valuenet/ontop/repair",
+    "class_name": "repair",
+    "endpoint_name": "machine_repair__repair",
+    "endpoint_url": "http://host.docker.internal:3030/machine_repair__repair/sparql"
+  },
+  {
+    "kg_name": "manufactory_1",
+    "class": "http://valuenet/ontop/products",
+    "class_name": "products",
+    "endpoint_name": "manufactory_1__products",
+    "endpoint_url": "http://host.docker.internal:3030/manufactory_1__products/sparql"
+  },
+  {
+    "kg_name": "manufactory_1",
+    "class": "http://valuenet/ontop/manufacturers",
+    "class_name": "manufacturers",
+    "endpoint_name": "manufactory_1__manufacturers",
+    "endpoint_url": "http://host.docker.internal:3030/manufactory_1__manufacturers/sparql"
+  },
+  {
+    "kg_name": "manufacturer",
+    "class": "http://valuenet/ontop/furniture",
+    "class_name": "furniture",
+    "endpoint_name": "manufacturer__furniture",
+    "endpoint_url": "http://host.docker.internal:3030/manufacturer__furniture/sparql"
+  },
+  {
+    "kg_name": "manufacturer",
+    "class": "http://valuenet/ontop/furniture_manufacte",
+    "class_name": "furniture_manufacte",
+    "endpoint_name": "manufacturer__furniture_manufacte",
+    "endpoint_url": "http://host.docker.internal:3030/manufacturer__furniture_manufacte/sparql"
+  },
+  {
+    "kg_name": "manufacturer",
+    "class": "http://valuenet/ontop/manufacturer",
+    "class_name": "manufacturer",
+    "endpoint_name": "manufacturer__manufacturer",
+    "endpoint_url": "http://host.docker.internal:3030/manufacturer__manufacturer/sparql"
+  },
+  {
+    "kg_name": "match_season",
+    "class": "http://valuenet/ontop/country",
+    "class_name": "country",
+    "endpoint_name": "match_season__country",
+    "endpoint_url": "http://host.docker.internal:3030/match_season__country/sparql"
+  },
+  {
+    "kg_name": "match_season",
+    "class": "http://valuenet/ontop/player",
+    "class_name": "player",
+    "endpoint_name": "match_season__player",
+    "endpoint_url": "http://host.docker.internal:3030/match_season__player/sparql"
+  },
+  {
+    "kg_name": "match_season",
+    "class": "http://valuenet/ontop/match_season",
+    "class_name": "match_season",
+    "endpoint_name": "match_season__match_season",
+    "endpoint_url": "http://host.docker.internal:3030/match_season__match_season/sparql"
+  },
+  {
+    "kg_name": "match_season",
+    "class": "http://valuenet/ontop/team",
+    "class_name": "team",
+    "endpoint_name": "match_season__team",
+    "endpoint_url": "http://host.docker.internal:3030/match_season__team/sparql"
+  },
+  {
+    "kg_name": "medicine_enzyme_interaction",
+    "class": "http://valuenet/ontop/medicine",
+    "class_name": "medicine",
+    "endpoint_name": "medicine_enzyme_interaction__medicine",
+    "endpoint_url": "http://host.docker.internal:3030/medicine_enzyme_interaction__medicine/sparql"
+  },
+  {
+    "kg_name": "medicine_enzyme_interaction",
+    "class": "http://valuenet/ontop/medicine_enzyme_interaction",
+    "class_name": "medicine_enzyme_interaction",
+    "endpoint_name": "medicine_enzyme_interaction__medicine_enzyme_interaction",
+    "endpoint_url": "http://host.docker.internal:3030/medicine_enzyme_interaction__medicine_enzyme_interaction/sparql"
+  },
+  {
+    "kg_name": "medicine_enzyme_interaction",
+    "class": "http://valuenet/ontop/enzyme",
+    "class_name": "enzyme",
+    "endpoint_name": "medicine_enzyme_interaction__enzyme",
+    "endpoint_url": "http://host.docker.internal:3030/medicine_enzyme_interaction__enzyme/sparql"
+  },
+  {
+    "kg_name": "mountain_photos",
+    "class": "http://valuenet/ontop/mountain",
+    "class_name": "mountain",
+    "endpoint_name": "mountain_photos__mountain",
+    "endpoint_url": "http://host.docker.internal:3030/mountain_photos__mountain/sparql"
+  },
+  {
+    "kg_name": "mountain_photos",
+    "class": "http://valuenet/ontop/photos",
+    "class_name": "photos",
+    "endpoint_name": "mountain_photos__photos",
+    "endpoint_url": "http://host.docker.internal:3030/mountain_photos__photos/sparql"
+  },
+  {
+    "kg_name": "mountain_photos",
+    "class": "http://valuenet/ontop/camera_lens",
+    "class_name": "camera_lens",
+    "endpoint_name": "mountain_photos__camera_lens",
+    "endpoint_url": "http://host.docker.internal:3030/mountain_photos__camera_lens/sparql"
+  },
+  {
+    "kg_name": "museum_visit",
+    "class": "http://valuenet/ontop/museum",
+    "class_name": "museum",
+    "endpoint_name": "museum_visit__museum",
+    "endpoint_url": "http://host.docker.internal:3030/museum_visit__museum/sparql"
+  },
+  {
+    "kg_name": "museum_visit",
+    "class": "http://valuenet/ontop/visitor",
+    "class_name": "visitor",
+    "endpoint_name": "museum_visit__visitor",
+    "endpoint_url": "http://host.docker.internal:3030/museum_visit__visitor/sparql"
+  },
+  {
+    "kg_name": "museum_visit",
+    "class": "http://valuenet/ontop/visit",
+    "class_name": "visit",
+    "endpoint_name": "museum_visit__visit",
+    "endpoint_url": "http://host.docker.internal:3030/museum_visit__visit/sparql"
+  },
+  {
+    "kg_name": "music_1",
+    "class": "http://valuenet/ontop/song",
+    "class_name": "song",
+    "endpoint_name": "music_1__song",
+    "endpoint_url": "http://host.docker.internal:3030/music_1__song/sparql"
+  },
+  {
+    "kg_name": "music_1",
+    "class": "http://valuenet/ontop/files",
+    "class_name": "files",
+    "endpoint_name": "music_1__files",
+    "endpoint_url": "http://host.docker.internal:3030/music_1__files/sparql"
+  },
+  {
+    "kg_name": "music_1",
+    "class": "http://valuenet/ontop/artist",
+    "class_name": "artist",
+    "endpoint_name": "music_1__artist",
+    "endpoint_url": "http://host.docker.internal:3030/music_1__artist/sparql"
+  },
+  {
+    "kg_name": "music_1",
+    "class": "http://valuenet/ontop/genre",
+    "class_name": "genre",
+    "endpoint_name": "music_1__genre",
+    "endpoint_url": "http://host.docker.internal:3030/music_1__genre/sparql"
+  },
+  {
+    "kg_name": "music_4",
+    "class": "http://valuenet/ontop/artist",
+    "class_name": "artist",
+    "endpoint_name": "music_4__artist",
+    "endpoint_url": "http://host.docker.internal:3030/music_4__artist/sparql"
+  },
+  {
+    "kg_name": "music_4",
+    "class": "http://valuenet/ontop/music_festival",
+    "class_name": "music_festival",
+    "endpoint_name": "music_4__music_festival",
+    "endpoint_url": "http://host.docker.internal:3030/music_4__music_festival/sparql"
+  },
+  {
+    "kg_name": "music_4",
+    "class": "http://valuenet/ontop/volume",
+    "class_name": "volume",
+    "endpoint_name": "music_4__volume",
+    "endpoint_url": "http://host.docker.internal:3030/music_4__volume/sparql"
+  },
+  {
+    "kg_name": "network_1",
+    "class": "http://valuenet/ontop/highschooler",
+    "class_name": "highschooler",
+    "endpoint_name": "network_1__highschooler",
+    "endpoint_url": "http://host.docker.internal:3030/network_1__highschooler/sparql"
+  },
+  {
+    "kg_name": "network_1",
+    "class": "http://valuenet/ontop/friend",
+    "class_name": "friend",
+    "endpoint_name": "network_1__friend",
+    "endpoint_url": "http://host.docker.internal:3030/network_1__friend/sparql"
+  },
+  {
+    "kg_name": "network_1",
+    "class": "http://valuenet/ontop/likes",
+    "class_name": "likes",
+    "endpoint_name": "network_1__likes",
+    "endpoint_url": "http://host.docker.internal:3030/network_1__likes/sparql"
+  },
+  {
+    "kg_name": "network_2",
+    "class": "http://valuenet/ontop/personfriend",
+    "class_name": "personfriend",
+    "endpoint_name": "network_2__personfriend",
+    "endpoint_url": "http://host.docker.internal:3030/network_2__personfriend/sparql"
+  },
+  {
+    "kg_name": "network_2",
+    "class": "http://valuenet/ontop/person",
+    "class_name": "person",
+    "endpoint_name": "network_2__person",
+    "endpoint_url": "http://host.docker.internal:3030/network_2__person/sparql"
+  },
+  {
+    "kg_name": "news_report",
+    "class": "http://valuenet/ontop/journalist",
+    "class_name": "journalist",
+    "endpoint_name": "news_report__journalist",
+    "endpoint_url": "http://host.docker.internal:3030/news_report__journalist/sparql"
+  },
+  {
+    "kg_name": "news_report",
+    "class": "http://valuenet/ontop/news_report",
+    "class_name": "news_report",
+    "endpoint_name": "news_report__news_report",
+    "endpoint_url": "http://host.docker.internal:3030/news_report__news_report/sparql"
+  },
+  {
+    "kg_name": "news_report",
+    "class": "http://valuenet/ontop/event",
+    "class_name": "event",
+    "endpoint_name": "news_report__event",
+    "endpoint_url": "http://host.docker.internal:3030/news_report__event/sparql"
+  },
+  {
+    "kg_name": "party_host",
+    "class": "http://valuenet/ontop/host",
+    "class_name": "host",
+    "endpoint_name": "party_host__host",
+    "endpoint_url": "http://host.docker.internal:3030/party_host__host/sparql"
+  },
+  {
+    "kg_name": "party_host",
+    "class": "http://valuenet/ontop/party",
+    "class_name": "party",
+    "endpoint_name": "party_host__party",
+    "endpoint_url": "http://host.docker.internal:3030/party_host__party/sparql"
+  },
+  {
+    "kg_name": "party_host",
+    "class": "http://valuenet/ontop/party_host",
+    "class_name": "party_host",
+    "endpoint_name": "party_host__party_host",
+    "endpoint_url": "http://host.docker.internal:3030/party_host__party_host/sparql"
+  },
+  {
+    "kg_name": "party_people",
+    "class": "http://valuenet/ontop/party_events",
+    "class_name": "party_events",
+    "endpoint_name": "party_people__party_events",
+    "endpoint_url": "http://host.docker.internal:3030/party_people__party_events/sparql"
+  },
+  {
+    "kg_name": "party_people",
+    "class": "http://valuenet/ontop/party",
+    "class_name": "party",
+    "endpoint_name": "party_people__party",
+    "endpoint_url": "http://host.docker.internal:3030/party_people__party/sparql"
+  },
+  {
+    "kg_name": "party_people",
+    "class": "http://valuenet/ontop/region",
+    "class_name": "region",
+    "endpoint_name": "party_people__region",
+    "endpoint_url": "http://host.docker.internal:3030/party_people__region/sparql"
+  },
+  {
+    "kg_name": "party_people",
+    "class": "http://valuenet/ontop/member",
+    "class_name": "member",
+    "endpoint_name": "party_people__member",
+    "endpoint_url": "http://host.docker.internal:3030/party_people__member/sparql"
+  },
+  {
+    "kg_name": "performance_attendance",
+    "class": "http://valuenet/ontop/member_attendance",
+    "class_name": "member_attendance",
+    "endpoint_name": "performance_attendance__member_attendance",
+    "endpoint_url": "http://host.docker.internal:3030/performance_attendance__member_attendance/sparql"
+  },
+  {
+    "kg_name": "performance_attendance",
+    "class": "http://valuenet/ontop/performance",
+    "class_name": "performance",
+    "endpoint_name": "performance_attendance__performance",
+    "endpoint_url": "http://host.docker.internal:3030/performance_attendance__performance/sparql"
+  },
+  {
+    "kg_name": "performance_attendance",
+    "class": "http://valuenet/ontop/member",
+    "class_name": "member",
+    "endpoint_name": "performance_attendance__member",
+    "endpoint_url": "http://host.docker.internal:3030/performance_attendance__member/sparql"
+  },
+  {
+    "kg_name": "perpetrator",
+    "class": "http://valuenet/ontop/people",
+    "class_name": "people",
+    "endpoint_name": "perpetrator__people",
+    "endpoint_url": "http://host.docker.internal:3030/perpetrator__people/sparql"
+  },
+  {
+    "kg_name": "perpetrator",
+    "class": "http://valuenet/ontop/perpetrator",
+    "class_name": "perpetrator",
+    "endpoint_name": "perpetrator__perpetrator",
+    "endpoint_url": "http://host.docker.internal:3030/perpetrator__perpetrator/sparql"
+  },
+  {
+    "kg_name": "pets_1",
+    "class": "http://valuenet/ontop/student",
+    "class_name": "student",
+    "endpoint_name": "pets_1__student",
+    "endpoint_url": "http://host.docker.internal:3030/pets_1__student/sparql"
+  },
+  {
+    "kg_name": "pets_1",
+    "class": "http://valuenet/ontop/has_pet",
+    "class_name": "has_pet",
+    "endpoint_name": "pets_1__has_pet",
+    "endpoint_url": "http://host.docker.internal:3030/pets_1__has_pet/sparql"
+  },
+  {
+    "kg_name": "pets_1",
+    "class": "http://valuenet/ontop/pets",
+    "class_name": "pets",
+    "endpoint_name": "pets_1__pets",
+    "endpoint_url": "http://host.docker.internal:3030/pets_1__pets/sparql"
+  },
+  {
+    "kg_name": "phone_1",
+    "class": "http://valuenet/ontop/chip_model",
+    "class_name": "chip_model",
+    "endpoint_name": "phone_1__chip_model",
+    "endpoint_url": "http://host.docker.internal:3030/phone_1__chip_model/sparql"
+  },
+  {
+    "kg_name": "phone_1",
+    "class": "http://valuenet/ontop/phone",
+    "class_name": "phone",
+    "endpoint_name": "phone_1__phone",
+    "endpoint_url": "http://host.docker.internal:3030/phone_1__phone/sparql"
+  },
+  {
+    "kg_name": "phone_1",
+    "class": "http://valuenet/ontop/screen_mode",
+    "class_name": "screen_mode",
+    "endpoint_name": "phone_1__screen_mode",
+    "endpoint_url": "http://host.docker.internal:3030/phone_1__screen_mode/sparql"
+  },
+  {
+    "kg_name": "phone_market",
+    "class": "http://valuenet/ontop/phone_market",
+    "class_name": "phone_market",
+    "endpoint_name": "phone_market__phone_market",
+    "endpoint_url": "http://host.docker.internal:3030/phone_market__phone_market/sparql"
+  },
+  {
+    "kg_name": "phone_market",
+    "class": "http://valuenet/ontop/phone",
+    "class_name": "phone",
+    "endpoint_name": "phone_market__phone",
+    "endpoint_url": "http://host.docker.internal:3030/phone_market__phone/sparql"
+  },
+  {
+    "kg_name": "phone_market",
+    "class": "http://valuenet/ontop/market",
+    "class_name": "market",
+    "endpoint_name": "phone_market__market",
+    "endpoint_url": "http://host.docker.internal:3030/phone_market__market/sparql"
+  },
+  {
+    "kg_name": "poker_player",
+    "class": "http://valuenet/ontop/people",
+    "class_name": "people",
+    "endpoint_name": "poker_player__people",
+    "endpoint_url": "http://host.docker.internal:3030/poker_player__people/sparql"
+  },
+  {
+    "kg_name": "poker_player",
+    "class": "http://valuenet/ontop/poker_player",
+    "class_name": "poker_player",
+    "endpoint_name": "poker_player__poker_player",
+    "endpoint_url": "http://host.docker.internal:3030/poker_player__poker_player/sparql"
+  },
+  {
+    "kg_name": "product_catalog",
+    "class": "http://valuenet/ontop/catalog_contents",
+    "class_name": "catalog_contents",
+    "endpoint_name": "product_catalog__catalog_contents",
+    "endpoint_url": "http://host.docker.internal:3030/product_catalog__catalog_contents/sparql"
+  },
+  {
+    "kg_name": "product_catalog",
+    "class": "http://valuenet/ontop/catalog_contents_additional_attributes",
+    "class_name": "catalog_contents_additional_attributes",
+    "endpoint_name": "product_catalog__catalog_contents_additional_attributes",
+    "endpoint_url": "http://host.docker.internal:3030/product_catalog__catalog_contents_additional_attributes/sparql"
+  },
+  {
+    "kg_name": "product_catalog",
+    "class": "http://valuenet/ontop/catalog_structure",
+    "class_name": "catalog_structure",
+    "endpoint_name": "product_catalog__catalog_structure",
+    "endpoint_url": "http://host.docker.internal:3030/product_catalog__catalog_structure/sparql"
+  },
+  {
+    "kg_name": "product_catalog",
+    "class": "http://valuenet/ontop/attribute_definitions",
+    "class_name": "attribute_definitions",
+    "endpoint_name": "product_catalog__attribute_definitions",
+    "endpoint_url": "http://host.docker.internal:3030/product_catalog__attribute_definitions/sparql"
+  },
+  {
+    "kg_name": "product_catalog",
+    "class": "http://valuenet/ontop/catalogs",
+    "class_name": "catalogs",
+    "endpoint_name": "product_catalog__catalogs",
+    "endpoint_url": "http://host.docker.internal:3030/product_catalog__catalogs/sparql"
+  },
+  {
+    "kg_name": "products_for_hire",
+    "class": "http://valuenet/ontop/discount_coupons",
+    "class_name": "discount_coupons",
+    "endpoint_name": "products_for_hire__discount_coupons",
+    "endpoint_url": "http://host.docker.internal:3030/products_for_hire__discount_coupons/sparql"
+  },
+  {
+    "kg_name": "products_for_hire",
+    "class": "http://valuenet/ontop/payments",
+    "class_name": "payments",
+    "endpoint_name": "products_for_hire__payments",
+    "endpoint_url": "http://host.docker.internal:3030/products_for_hire__payments/sparql"
+  },
+  {
+    "kg_name": "products_for_hire",
+    "class": "http://valuenet/ontop/bookings",
+    "class_name": "bookings",
+    "endpoint_name": "products_for_hire__bookings",
+    "endpoint_url": "http://host.docker.internal:3030/products_for_hire__bookings/sparql"
+  },
+  {
+    "kg_name": "products_for_hire",
+    "class": "http://valuenet/ontop/products_for_hire",
+    "class_name": "products_for_hire",
+    "endpoint_name": "products_for_hire__products_for_hire",
+    "endpoint_url": "http://host.docker.internal:3030/products_for_hire__products_for_hire/sparql"
+  },
+  {
+    "kg_name": "products_for_hire",
+    "class": "http://valuenet/ontop/customers",
+    "class_name": "customers",
+    "endpoint_name": "products_for_hire__customers",
+    "endpoint_url": "http://host.docker.internal:3030/products_for_hire__customers/sparql"
+  },
+  {
+    "kg_name": "products_for_hire",
+    "class": "http://valuenet/ontop/products_booked",
+    "class_name": "products_booked",
+    "endpoint_name": "products_for_hire__products_booked",
+    "endpoint_url": "http://host.docker.internal:3030/products_for_hire__products_booked/sparql"
+  },
+  {
+    "kg_name": "products_for_hire",
+    "class": "http://valuenet/ontop/view_product_availability",
+    "class_name": "view_product_availability",
+    "endpoint_name": "products_for_hire__view_product_availability",
+    "endpoint_url": "http://host.docker.internal:3030/products_for_hire__view_product_availability/sparql"
+  },
+  {
+    "kg_name": "products_gen_characteristics",
+    "class": "http://valuenet/ontop/products",
+    "class_name": "products",
+    "endpoint_name": "products_gen_characteristics__products",
+    "endpoint_url": "http://host.docker.internal:3030/products_gen_characteristics__products/sparql"
+  },
+  {
+    "kg_name": "products_gen_characteristics",
+    "class": "http://valuenet/ontop/product_characteristics",
+    "class_name": "product_characteristics",
+    "endpoint_name": "products_gen_characteristics__product_characteristics",
+    "endpoint_url": "http://host.docker.internal:3030/products_gen_characteristics__product_characteristics/sparql"
+  },
+  {
+    "kg_name": "products_gen_characteristics",
+    "class": "http://valuenet/ontop/characteristics",
+    "class_name": "characteristics",
+    "endpoint_name": "products_gen_characteristics__characteristics",
+    "endpoint_url": "http://host.docker.internal:3030/products_gen_characteristics__characteristics/sparql"
+  },
+  {
+    "kg_name": "products_gen_characteristics",
+    "class": "http://valuenet/ontop/ref_colors",
+    "class_name": "ref_colors",
+    "endpoint_name": "products_gen_characteristics__ref_colors",
+    "endpoint_url": "http://host.docker.internal:3030/products_gen_characteristics__ref_colors/sparql"
+  },
+  {
+    "kg_name": "products_gen_characteristics",
+    "class": "http://valuenet/ontop/ref_characteristic_types",
+    "class_name": "ref_characteristic_types",
+    "endpoint_name": "products_gen_characteristics__ref_characteristic_types",
+    "endpoint_url": "http://host.docker.internal:3030/products_gen_characteristics__ref_characteristic_types/sparql"
+  },
+  {
+    "kg_name": "products_gen_characteristics",
+    "class": "http://valuenet/ontop/ref_product_categories",
+    "class_name": "ref_product_categories",
+    "endpoint_name": "products_gen_characteristics__ref_product_categories",
+    "endpoint_url": "http://host.docker.internal:3030/products_gen_characteristics__ref_product_categories/sparql"
+  },
+  {
+    "kg_name": "program_share",
+    "class": "http://valuenet/ontop/broadcast_share",
+    "class_name": "broadcast_share",
+    "endpoint_name": "program_share__broadcast_share",
+    "endpoint_url": "http://host.docker.internal:3030/program_share__broadcast_share/sparql"
+  },
+  {
+    "kg_name": "program_share",
+    "class": "http://valuenet/ontop/program",
+    "class_name": "program",
+    "endpoint_name": "program_share__program",
+    "endpoint_url": "http://host.docker.internal:3030/program_share__program/sparql"
+  },
+  {
+    "kg_name": "program_share",
+    "class": "http://valuenet/ontop/broadcast",
+    "class_name": "broadcast",
+    "endpoint_name": "program_share__broadcast",
+    "endpoint_url": "http://host.docker.internal:3030/program_share__broadcast/sparql"
+  },
+  {
+    "kg_name": "program_share",
+    "class": "http://valuenet/ontop/channel",
+    "class_name": "channel",
+    "endpoint_name": "program_share__channel",
+    "endpoint_url": "http://host.docker.internal:3030/program_share__channel/sparql"
+  },
+  {
+    "kg_name": "protein_institute",
+    "class": "http://valuenet/ontop/building",
+    "class_name": "building",
+    "endpoint_name": "protein_institute__building",
+    "endpoint_url": "http://host.docker.internal:3030/protein_institute__building/sparql"
+  },
+  {
+    "kg_name": "protein_institute",
+    "class": "http://valuenet/ontop/institution",
+    "class_name": "institution",
+    "endpoint_name": "protein_institute__institution",
+    "endpoint_url": "http://host.docker.internal:3030/protein_institute__institution/sparql"
+  },
+  {
+    "kg_name": "protein_institute",
+    "class": "http://valuenet/ontop/protein",
+    "class_name": "protein",
+    "endpoint_name": "protein_institute__protein",
+    "endpoint_url": "http://host.docker.internal:3030/protein_institute__protein/sparql"
+  },
+  {
+    "kg_name": "race_track",
+    "class": "http://valuenet/ontop/track",
+    "class_name": "track",
+    "endpoint_name": "race_track__track",
+    "endpoint_url": "http://host.docker.internal:3030/race_track__track/sparql"
+  },
+  {
+    "kg_name": "race_track",
+    "class": "http://valuenet/ontop/race",
+    "class_name": "race",
+    "endpoint_name": "race_track__race",
+    "endpoint_url": "http://host.docker.internal:3030/race_track__race/sparql"
+  },
+  {
+    "kg_name": "railway",
+    "class": "http://valuenet/ontop/railway_manage",
+    "class_name": "railway_manage",
+    "endpoint_name": "railway__railway_manage",
+    "endpoint_url": "http://host.docker.internal:3030/railway__railway_manage/sparql"
+  },
+  {
+    "kg_name": "railway",
+    "class": "http://valuenet/ontop/train",
+    "class_name": "train",
+    "endpoint_name": "railway__train",
+    "endpoint_url": "http://host.docker.internal:3030/railway__train/sparql"
+  },
+  {
+    "kg_name": "railway",
+    "class": "http://valuenet/ontop/railway",
+    "class_name": "railway",
+    "endpoint_name": "railway__railway",
+    "endpoint_url": "http://host.docker.internal:3030/railway__railway/sparql"
+  },
+  {
+    "kg_name": "railway",
+    "class": "http://valuenet/ontop/manager",
+    "class_name": "manager",
+    "endpoint_name": "railway__manager",
+    "endpoint_url": "http://host.docker.internal:3030/railway__manager/sparql"
+  },
+  {
+    "kg_name": "real_estate_properties",
+    "class": "http://valuenet/ontop/properties",
+    "class_name": "properties",
+    "endpoint_name": "real_estate_properties__properties",
+    "endpoint_url": "http://host.docker.internal:3030/real_estate_properties__properties/sparql"
+  },
+  {
+    "kg_name": "real_estate_properties",
+    "class": "http://valuenet/ontop/other_property_features",
+    "class_name": "other_property_features",
+    "endpoint_name": "real_estate_properties__other_property_features",
+    "endpoint_url": "http://host.docker.internal:3030/real_estate_properties__other_property_features/sparql"
+  },
+  {
+    "kg_name": "real_estate_properties",
+    "class": "http://valuenet/ontop/ref_property_types",
+    "class_name": "ref_property_types",
+    "endpoint_name": "real_estate_properties__ref_property_types",
+    "endpoint_url": "http://host.docker.internal:3030/real_estate_properties__ref_property_types/sparql"
+  },
+  {
+    "kg_name": "real_estate_properties",
+    "class": "http://valuenet/ontop/other_available_features",
+    "class_name": "other_available_features",
+    "endpoint_name": "real_estate_properties__other_available_features",
+    "endpoint_url": "http://host.docker.internal:3030/real_estate_properties__other_available_features/sparql"
+  },
+  {
+    "kg_name": "real_estate_properties",
+    "class": "http://valuenet/ontop/ref_feature_types",
+    "class_name": "ref_feature_types",
+    "endpoint_name": "real_estate_properties__ref_feature_types",
+    "endpoint_url": "http://host.docker.internal:3030/real_estate_properties__ref_feature_types/sparql"
+  },
+  {
+    "kg_name": "riding_club",
+    "class": "http://valuenet/ontop/club",
+    "class_name": "club",
+    "endpoint_name": "riding_club__club",
+    "endpoint_url": "http://host.docker.internal:3030/riding_club__club/sparql"
+  },
+  {
+    "kg_name": "riding_club",
+    "class": "http://valuenet/ontop/match_result",
+    "class_name": "match_result",
+    "endpoint_name": "riding_club__match_result",
+    "endpoint_url": "http://host.docker.internal:3030/riding_club__match_result/sparql"
+  },
+  {
+    "kg_name": "riding_club",
+    "class": "http://valuenet/ontop/player",
+    "class_name": "player",
+    "endpoint_name": "riding_club__player",
+    "endpoint_url": "http://host.docker.internal:3030/riding_club__player/sparql"
+  },
+  {
+    "kg_name": "riding_club",
+    "class": "http://valuenet/ontop/coach",
+    "class_name": "coach",
+    "endpoint_name": "riding_club__coach",
+    "endpoint_url": "http://host.docker.internal:3030/riding_club__coach/sparql"
+  },
+  {
+    "kg_name": "riding_club",
+    "class": "http://valuenet/ontop/player_coach",
+    "class_name": "player_coach",
+    "endpoint_name": "riding_club__player_coach",
+    "endpoint_url": "http://host.docker.internal:3030/riding_club__player_coach/sparql"
+  },
+  {
+    "kg_name": "sakila_1",
+    "class": "http://valuenet/ontop/film_actor",
+    "class_name": "film_actor",
+    "endpoint_name": "sakila_1__film_actor",
+    "endpoint_url": "http://host.docker.internal:3030/sakila_1__film_actor/sparql"
+  },
+  {
+    "kg_name": "sakila_1",
+    "class": "http://valuenet/ontop/country",
+    "class_name": "country",
+    "endpoint_name": "sakila_1__country",
+    "endpoint_url": "http://host.docker.internal:3030/sakila_1__country/sparql"
+  },
+  {
+    "kg_name": "sakila_1",
+    "class": "http://valuenet/ontop/payment",
+    "class_name": "payment",
+    "endpoint_name": "sakila_1__payment",
+    "endpoint_url": "http://host.docker.internal:3030/sakila_1__payment/sparql"
+  },
+  {
+    "kg_name": "sakila_1",
+    "class": "http://valuenet/ontop/customer",
+    "class_name": "customer",
+    "endpoint_name": "sakila_1__customer",
+    "endpoint_url": "http://host.docker.internal:3030/sakila_1__customer/sparql"
+  },
+  {
+    "kg_name": "sakila_1",
+    "class": "http://valuenet/ontop/inventory",
+    "class_name": "inventory",
+    "endpoint_name": "sakila_1__inventory",
+    "endpoint_url": "http://host.docker.internal:3030/sakila_1__inventory/sparql"
+  },
+  {
+    "kg_name": "sakila_1",
+    "class": "http://valuenet/ontop/category",
+    "class_name": "category",
+    "endpoint_name": "sakila_1__category",
+    "endpoint_url": "http://host.docker.internal:3030/sakila_1__category/sparql"
+  },
+  {
+    "kg_name": "sakila_1",
+    "class": "http://valuenet/ontop/film_category",
+    "class_name": "film_category",
+    "endpoint_name": "sakila_1__film_category",
+    "endpoint_url": "http://host.docker.internal:3030/sakila_1__film_category/sparql"
+  },
+  {
+    "kg_name": "sakila_1",
+    "class": "http://valuenet/ontop/rental",
+    "class_name": "rental",
+    "endpoint_name": "sakila_1__rental",
+    "endpoint_url": "http://host.docker.internal:3030/sakila_1__rental/sparql"
+  },
+  {
+    "kg_name": "sakila_1",
+    "class": "http://valuenet/ontop/city",
+    "class_name": "city",
+    "endpoint_name": "sakila_1__city",
+    "endpoint_url": "http://host.docker.internal:3030/sakila_1__city/sparql"
+  },
+  {
+    "kg_name": "sakila_1",
+    "class": "http://valuenet/ontop/actor",
+    "class_name": "actor",
+    "endpoint_name": "sakila_1__actor",
+    "endpoint_url": "http://host.docker.internal:3030/sakila_1__actor/sparql"
+  },
+  {
+    "kg_name": "sakila_1",
+    "class": "http://valuenet/ontop/film",
+    "class_name": "film",
+    "endpoint_name": "sakila_1__film",
+    "endpoint_url": "http://host.docker.internal:3030/sakila_1__film/sparql"
+  },
+  {
+    "kg_name": "sakila_1",
+    "class": "http://valuenet/ontop/address",
+    "class_name": "address",
+    "endpoint_name": "sakila_1__address",
+    "endpoint_url": "http://host.docker.internal:3030/sakila_1__address/sparql"
+  },
+  {
+    "kg_name": "school_bus",
+    "class": "http://valuenet/ontop/school_bus",
+    "class_name": "school_bus",
+    "endpoint_name": "school_bus__school_bus",
+    "endpoint_url": "http://host.docker.internal:3030/school_bus__school_bus/sparql"
+  },
+  {
+    "kg_name": "school_bus",
+    "class": "http://valuenet/ontop/school",
+    "class_name": "school",
+    "endpoint_name": "school_bus__school",
+    "endpoint_url": "http://host.docker.internal:3030/school_bus__school/sparql"
+  },
+  {
+    "kg_name": "school_bus",
+    "class": "http://valuenet/ontop/driver",
+    "class_name": "driver",
+    "endpoint_name": "school_bus__driver",
+    "endpoint_url": "http://host.docker.internal:3030/school_bus__driver/sparql"
+  },
+  {
+    "kg_name": "school_finance",
+    "class": "http://valuenet/ontop/school",
+    "class_name": "school",
+    "endpoint_name": "school_finance__school",
+    "endpoint_url": "http://host.docker.internal:3030/school_finance__school/sparql"
+  },
+  {
+    "kg_name": "school_finance",
+    "class": "http://valuenet/ontop/budget",
+    "class_name": "budget",
+    "endpoint_name": "school_finance__budget",
+    "endpoint_url": "http://host.docker.internal:3030/school_finance__budget/sparql"
+  },
+  {
+    "kg_name": "school_finance",
+    "class": "http://valuenet/ontop/endowment",
+    "class_name": "endowment",
+    "endpoint_name": "school_finance__endowment",
+    "endpoint_url": "http://host.docker.internal:3030/school_finance__endowment/sparql"
+  },
+  {
+    "kg_name": "school_player",
+    "class": "http://valuenet/ontop/player",
+    "class_name": "player",
+    "endpoint_name": "school_player__player",
+    "endpoint_url": "http://host.docker.internal:3030/school_player__player/sparql"
+  },
+  {
+    "kg_name": "school_player",
+    "class": "http://valuenet/ontop/school",
+    "class_name": "school",
+    "endpoint_name": "school_player__school",
+    "endpoint_url": "http://host.docker.internal:3030/school_player__school/sparql"
+  },
+  {
+    "kg_name": "school_player",
+    "class": "http://valuenet/ontop/school_performance",
+    "class_name": "school_performance",
+    "endpoint_name": "school_player__school_performance",
+    "endpoint_url": "http://host.docker.internal:3030/school_player__school_performance/sparql"
+  },
+  {
+    "kg_name": "school_player",
+    "class": "http://valuenet/ontop/school_details",
+    "class_name": "school_details",
+    "endpoint_name": "school_player__school_details",
+    "endpoint_url": "http://host.docker.internal:3030/school_player__school_details/sparql"
+  },
+  {
+    "kg_name": "scientist_1",
+    "class": "http://valuenet/ontop/projects",
+    "class_name": "projects",
+    "endpoint_name": "scientist_1__projects",
+    "endpoint_url": "http://host.docker.internal:3030/scientist_1__projects/sparql"
+  },
+  {
+    "kg_name": "scientist_1",
+    "class": "http://valuenet/ontop/assignedto",
+    "class_name": "assignedto",
+    "endpoint_name": "scientist_1__assignedto",
+    "endpoint_url": "http://host.docker.internal:3030/scientist_1__assignedto/sparql"
+  },
+  {
+    "kg_name": "scientist_1",
+    "class": "http://valuenet/ontop/scientists",
+    "class_name": "scientists",
+    "endpoint_name": "scientist_1__scientists",
+    "endpoint_url": "http://host.docker.internal:3030/scientist_1__scientists/sparql"
+  },
+  {
+    "kg_name": "ship_1",
+    "class": "http://valuenet/ontop/captain",
+    "class_name": "captain",
+    "endpoint_name": "ship_1__captain",
+    "endpoint_url": "http://host.docker.internal:3030/ship_1__captain/sparql"
+  },
+  {
+    "kg_name": "ship_1",
+    "class": "http://valuenet/ontop/ship",
+    "class_name": "ship",
+    "endpoint_name": "ship_1__ship",
+    "endpoint_url": "http://host.docker.internal:3030/ship_1__ship/sparql"
+  },
+  {
+    "kg_name": "ship_mission",
+    "class": "http://valuenet/ontop/mission",
+    "class_name": "mission",
+    "endpoint_name": "ship_mission__mission",
+    "endpoint_url": "http://host.docker.internal:3030/ship_mission__mission/sparql"
+  },
+  {
+    "kg_name": "ship_mission",
+    "class": "http://valuenet/ontop/ship",
+    "class_name": "ship",
+    "endpoint_name": "ship_mission__ship",
+    "endpoint_url": "http://host.docker.internal:3030/ship_mission__ship/sparql"
+  },
+  {
+    "kg_name": "shop_membership",
+    "class": "http://valuenet/ontop/member",
+    "class_name": "member",
+    "endpoint_name": "shop_membership__member",
+    "endpoint_url": "http://host.docker.internal:3030/shop_membership__member/sparql"
+  },
+  {
+    "kg_name": "shop_membership",
+    "class": "http://valuenet/ontop/membership_register_branch",
+    "class_name": "membership_register_branch",
+    "endpoint_name": "shop_membership__membership_register_branch",
+    "endpoint_url": "http://host.docker.internal:3030/shop_membership__membership_register_branch/sparql"
+  },
+  {
+    "kg_name": "shop_membership",
+    "class": "http://valuenet/ontop/branch",
+    "class_name": "branch",
+    "endpoint_name": "shop_membership__branch",
+    "endpoint_url": "http://host.docker.internal:3030/shop_membership__branch/sparql"
+  },
+  {
+    "kg_name": "shop_membership",
+    "class": "http://valuenet/ontop/purchase",
+    "class_name": "purchase",
+    "endpoint_name": "shop_membership__purchase",
+    "endpoint_url": "http://host.docker.internal:3030/shop_membership__purchase/sparql"
+  },
+  {
+    "kg_name": "singer",
+    "class": "http://valuenet/ontop/singer",
+    "class_name": "singer",
+    "endpoint_name": "singer__singer",
+    "endpoint_url": "http://host.docker.internal:3030/singer__singer/sparql"
+  },
+  {
+    "kg_name": "singer",
+    "class": "http://valuenet/ontop/song",
+    "class_name": "song",
+    "endpoint_name": "singer__song",
+    "endpoint_url": "http://host.docker.internal:3030/singer__song/sparql"
+  },
+  {
+    "kg_name": "small_bank_1",
+    "class": "http://valuenet/ontop/accounts",
+    "class_name": "accounts",
+    "endpoint_name": "small_bank_1__accounts",
+    "endpoint_url": "http://host.docker.internal:3030/small_bank_1__accounts/sparql"
+  },
+  {
+    "kg_name": "small_bank_1",
+    "class": "http://valuenet/ontop/savings",
+    "class_name": "savings",
+    "endpoint_name": "small_bank_1__savings",
+    "endpoint_url": "http://host.docker.internal:3030/small_bank_1__savings/sparql"
+  },
+  {
+    "kg_name": "small_bank_1",
+    "class": "http://valuenet/ontop/checking",
+    "class_name": "checking",
+    "endpoint_name": "small_bank_1__checking",
+    "endpoint_url": "http://host.docker.internal:3030/small_bank_1__checking/sparql"
+  },
+  {
+    "kg_name": "soccer_1",
+    "class": "http://valuenet/ontop/country",
+    "class_name": "country",
+    "endpoint_name": "soccer_1__country",
+    "endpoint_url": "http://host.docker.internal:3030/soccer_1__country/sparql"
+  },
+  {
+    "kg_name": "soccer_1",
+    "class": "http://valuenet/ontop/team",
+    "class_name": "team",
+    "endpoint_name": "soccer_1__team",
+    "endpoint_url": "http://host.docker.internal:3030/soccer_1__team/sparql"
+  },
+  {
+    "kg_name": "soccer_1",
+    "class": "http://valuenet/ontop/player_attributes",
+    "class_name": "player_attributes",
+    "endpoint_name": "soccer_1__player_attributes",
+    "endpoint_url": "http://host.docker.internal:3030/soccer_1__player_attributes/sparql"
+  },
+  {
+    "kg_name": "soccer_1",
+    "class": "http://valuenet/ontop/team_attributes",
+    "class_name": "team_attributes",
+    "endpoint_name": "soccer_1__team_attributes",
+    "endpoint_url": "http://host.docker.internal:3030/soccer_1__team_attributes/sparql"
+  },
+  {
+    "kg_name": "soccer_1",
+    "class": "http://valuenet/ontop/player",
+    "class_name": "player",
+    "endpoint_name": "soccer_1__player",
+    "endpoint_url": "http://host.docker.internal:3030/soccer_1__player/sparql"
+  },
+  {
+    "kg_name": "soccer_1",
+    "class": "http://valuenet/ontop/league",
+    "class_name": "league",
+    "endpoint_name": "soccer_1__league",
+    "endpoint_url": "http://host.docker.internal:3030/soccer_1__league/sparql"
+  },
+  {
+    "kg_name": "soccer_2",
+    "class": "http://valuenet/ontop/player",
+    "class_name": "player",
+    "endpoint_name": "soccer_2__player",
+    "endpoint_url": "http://host.docker.internal:3030/soccer_2__player/sparql"
+  },
+  {
+    "kg_name": "soccer_2",
+    "class": "http://valuenet/ontop/tryout",
+    "class_name": "tryout",
+    "endpoint_name": "soccer_2__tryout",
+    "endpoint_url": "http://host.docker.internal:3030/soccer_2__tryout/sparql"
+  },
+  {
+    "kg_name": "soccer_2",
+    "class": "http://valuenet/ontop/college",
+    "class_name": "college",
+    "endpoint_name": "soccer_2__college",
+    "endpoint_url": "http://host.docker.internal:3030/soccer_2__college/sparql"
+  },
+  {
+    "kg_name": "solvency_ii",
+    "class": "http://valuenet/ontop/finances",
+    "class_name": "finances",
+    "endpoint_name": "solvency_ii__finances",
+    "endpoint_url": "http://host.docker.internal:3030/solvency_ii__finances/sparql"
+  },
+  {
+    "kg_name": "solvency_ii",
+    "class": "http://valuenet/ontop/products_in_events",
+    "class_name": "products_in_events",
+    "endpoint_name": "solvency_ii__products_in_events",
+    "endpoint_url": "http://host.docker.internal:3030/solvency_ii__products_in_events/sparql"
+  },
+  {
+    "kg_name": "solvency_ii",
+    "class": "http://valuenet/ontop/assets_in_events",
+    "class_name": "assets_in_events",
+    "endpoint_name": "solvency_ii__assets_in_events",
+    "endpoint_url": "http://host.docker.internal:3030/solvency_ii__assets_in_events/sparql"
+  },
+  {
+    "kg_name": "solvency_ii",
+    "class": "http://valuenet/ontop/addresses",
+    "class_name": "addresses",
+    "endpoint_name": "solvency_ii__addresses",
+    "endpoint_url": "http://host.docker.internal:3030/solvency_ii__addresses/sparql"
+  },
+  {
+    "kg_name": "solvency_ii",
+    "class": "http://valuenet/ontop/events",
+    "class_name": "events",
+    "endpoint_name": "solvency_ii__events",
+    "endpoint_url": "http://host.docker.internal:3030/solvency_ii__events/sparql"
+  },
+  {
+    "kg_name": "solvency_ii",
+    "class": "http://valuenet/ontop/agreements",
+    "class_name": "agreements",
+    "endpoint_name": "solvency_ii__agreements",
+    "endpoint_url": "http://host.docker.internal:3030/solvency_ii__agreements/sparql"
+  },
+  {
+    "kg_name": "solvency_ii",
+    "class": "http://valuenet/ontop/locations",
+    "class_name": "locations",
+    "endpoint_name": "solvency_ii__locations",
+    "endpoint_url": "http://host.docker.internal:3030/solvency_ii__locations/sparql"
+  },
+  {
+    "kg_name": "solvency_ii",
+    "class": "http://valuenet/ontop/parties_in_events",
+    "class_name": "parties_in_events",
+    "endpoint_name": "solvency_ii__parties_in_events",
+    "endpoint_url": "http://host.docker.internal:3030/solvency_ii__parties_in_events/sparql"
+  },
+  {
+    "kg_name": "solvency_ii",
+    "class": "http://valuenet/ontop/products",
+    "class_name": "products",
+    "endpoint_name": "solvency_ii__products",
+    "endpoint_url": "http://host.docker.internal:3030/solvency_ii__products/sparql"
+  },
+  {
+    "kg_name": "solvency_ii",
+    "class": "http://valuenet/ontop/channels",
+    "class_name": "channels",
+    "endpoint_name": "solvency_ii__channels",
+    "endpoint_url": "http://host.docker.internal:3030/solvency_ii__channels/sparql"
+  },
+  {
+    "kg_name": "solvency_ii",
+    "class": "http://valuenet/ontop/parties",
+    "class_name": "parties",
+    "endpoint_name": "solvency_ii__parties",
+    "endpoint_url": "http://host.docker.internal:3030/solvency_ii__parties/sparql"
+  },
+  {
+    "kg_name": "solvency_ii",
+    "class": "http://valuenet/ontop/assets",
+    "class_name": "assets",
+    "endpoint_name": "solvency_ii__assets",
+    "endpoint_url": "http://host.docker.internal:3030/solvency_ii__assets/sparql"
+  },
+  {
+    "kg_name": "sports_competition",
+    "class": "http://valuenet/ontop/player",
+    "class_name": "player",
+    "endpoint_name": "sports_competition__player",
+    "endpoint_url": "http://host.docker.internal:3030/sports_competition__player/sparql"
+  },
+  {
+    "kg_name": "sports_competition",
+    "class": "http://valuenet/ontop/competition_result",
+    "class_name": "competition_result",
+    "endpoint_name": "sports_competition__competition_result",
+    "endpoint_url": "http://host.docker.internal:3030/sports_competition__competition_result/sparql"
+  },
+  {
+    "kg_name": "sports_competition",
+    "class": "http://valuenet/ontop/club",
+    "class_name": "club",
+    "endpoint_name": "sports_competition__club",
+    "endpoint_url": "http://host.docker.internal:3030/sports_competition__club/sparql"
+  },
+  {
+    "kg_name": "sports_competition",
+    "class": "http://valuenet/ontop/competition",
+    "class_name": "competition",
+    "endpoint_name": "sports_competition__competition",
+    "endpoint_url": "http://host.docker.internal:3030/sports_competition__competition/sparql"
+  },
+  {
+    "kg_name": "sports_competition",
+    "class": "http://valuenet/ontop/club_rank",
+    "class_name": "club_rank",
+    "endpoint_name": "sports_competition__club_rank",
+    "endpoint_url": "http://host.docker.internal:3030/sports_competition__club_rank/sparql"
+  },
+  {
+    "kg_name": "station_weather",
+    "class": "http://valuenet/ontop/route",
+    "class_name": "route",
+    "endpoint_name": "station_weather__route",
+    "endpoint_url": "http://host.docker.internal:3030/station_weather__route/sparql"
+  },
+  {
+    "kg_name": "station_weather",
+    "class": "http://valuenet/ontop/weekly_weather",
+    "class_name": "weekly_weather",
+    "endpoint_name": "station_weather__weekly_weather",
+    "endpoint_url": "http://host.docker.internal:3030/station_weather__weekly_weather/sparql"
+  },
+  {
+    "kg_name": "station_weather",
+    "class": "http://valuenet/ontop/train",
+    "class_name": "train",
+    "endpoint_name": "station_weather__train",
+    "endpoint_url": "http://host.docker.internal:3030/station_weather__train/sparql"
+  },
+  {
+    "kg_name": "station_weather",
+    "class": "http://valuenet/ontop/station",
+    "class_name": "station",
+    "endpoint_name": "station_weather__station",
+    "endpoint_url": "http://host.docker.internal:3030/station_weather__station/sparql"
+  },
+  {
+    "kg_name": "store_product",
+    "class": "http://valuenet/ontop/product",
+    "class_name": "product",
+    "endpoint_name": "store_product__product",
+    "endpoint_url": "http://host.docker.internal:3030/store_product__product/sparql"
+  },
+  {
+    "kg_name": "store_product",
+    "class": "http://valuenet/ontop/store_product",
+    "class_name": "store_product",
+    "endpoint_name": "store_product__store_product",
+    "endpoint_url": "http://host.docker.internal:3030/store_product__store_product/sparql"
+  },
+  {
+    "kg_name": "store_product",
+    "class": "http://valuenet/ontop/district",
+    "class_name": "district",
+    "endpoint_name": "store_product__district",
+    "endpoint_url": "http://host.docker.internal:3030/store_product__district/sparql"
+  },
+  {
+    "kg_name": "store_product",
+    "class": "http://valuenet/ontop/store",
+    "class_name": "store",
+    "endpoint_name": "store_product__store",
+    "endpoint_url": "http://host.docker.internal:3030/store_product__store/sparql"
+  },
+  {
+    "kg_name": "store_product",
+    "class": "http://valuenet/ontop/store_district",
+    "class_name": "store_district",
+    "endpoint_name": "store_product__store_district",
+    "endpoint_url": "http://host.docker.internal:3030/store_product__store_district/sparql"
+  },
+  {
+    "kg_name": "storm_record",
+    "class": "http://valuenet/ontop/affected_region",
+    "class_name": "affected_region",
+    "endpoint_name": "storm_record__affected_region",
+    "endpoint_url": "http://host.docker.internal:3030/storm_record__affected_region/sparql"
+  },
+  {
+    "kg_name": "storm_record",
+    "class": "http://valuenet/ontop/storm",
+    "class_name": "storm",
+    "endpoint_name": "storm_record__storm",
+    "endpoint_url": "http://host.docker.internal:3030/storm_record__storm/sparql"
+  },
+  {
+    "kg_name": "storm_record",
+    "class": "http://valuenet/ontop/region",
+    "class_name": "region",
+    "endpoint_name": "storm_record__region",
+    "endpoint_url": "http://host.docker.internal:3030/storm_record__region/sparql"
+  },
+  {
+    "kg_name": "student_1",
+    "class": "http://valuenet/ontop/list",
+    "class_name": "list",
+    "endpoint_name": "student_1__list",
+    "endpoint_url": "http://host.docker.internal:3030/student_1__list/sparql"
+  },
+  {
+    "kg_name": "student_1",
+    "class": "http://valuenet/ontop/teachers",
+    "class_name": "teachers",
+    "endpoint_name": "student_1__teachers",
+    "endpoint_url": "http://host.docker.internal:3030/student_1__teachers/sparql"
+  },
+  {
+    "kg_name": "student_assessment",
+    "class": "http://valuenet/ontop/candidate_assessments",
+    "class_name": "candidate_assessments",
+    "endpoint_name": "student_assessment__candidate_assessments",
+    "endpoint_url": "http://host.docker.internal:3030/student_assessment__candidate_assessments/sparql"
+  },
+  {
+    "kg_name": "student_assessment",
+    "class": "http://valuenet/ontop/people",
+    "class_name": "people",
+    "endpoint_name": "student_assessment__people",
+    "endpoint_url": "http://host.docker.internal:3030/student_assessment__people/sparql"
+  },
+  {
+    "kg_name": "student_assessment",
+    "class": "http://valuenet/ontop/courses",
+    "class_name": "courses",
+    "endpoint_name": "student_assessment__courses",
+    "endpoint_url": "http://host.docker.internal:3030/student_assessment__courses/sparql"
+  },
+  {
+    "kg_name": "student_assessment",
+    "class": "http://valuenet/ontop/addresses",
+    "class_name": "addresses",
+    "endpoint_name": "student_assessment__addresses",
+    "endpoint_url": "http://host.docker.internal:3030/student_assessment__addresses/sparql"
+  },
+  {
+    "kg_name": "student_assessment",
+    "class": "http://valuenet/ontop/student_course_attendance",
+    "class_name": "student_course_attendance",
+    "endpoint_name": "student_assessment__student_course_attendance",
+    "endpoint_url": "http://host.docker.internal:3030/student_assessment__student_course_attendance/sparql"
+  },
+  {
+    "kg_name": "student_assessment",
+    "class": "http://valuenet/ontop/student_course_registrations",
+    "class_name": "student_course_registrations",
+    "endpoint_name": "student_assessment__student_course_registrations",
+    "endpoint_url": "http://host.docker.internal:3030/student_assessment__student_course_registrations/sparql"
+  },
+  {
+    "kg_name": "student_assessment",
+    "class": "http://valuenet/ontop/people_addresses",
+    "class_name": "people_addresses",
+    "endpoint_name": "student_assessment__people_addresses",
+    "endpoint_url": "http://host.docker.internal:3030/student_assessment__people_addresses/sparql"
+  },
+  {
+    "kg_name": "student_assessment",
+    "class": "http://valuenet/ontop/candidates",
+    "class_name": "candidates",
+    "endpoint_name": "student_assessment__candidates",
+    "endpoint_url": "http://host.docker.internal:3030/student_assessment__candidates/sparql"
+  },
+  {
+    "kg_name": "student_assessment",
+    "class": "http://valuenet/ontop/students",
+    "class_name": "students",
+    "endpoint_name": "student_assessment__students",
+    "endpoint_url": "http://host.docker.internal:3030/student_assessment__students/sparql"
+  },
+  {
+    "kg_name": "student_transcripts_tracking",
+    "class": "http://valuenet/ontop/departments",
+    "class_name": "departments",
+    "endpoint_name": "student_transcripts_tracking__departments",
+    "endpoint_url": "http://host.docker.internal:3030/student_transcripts_tracking__departments/sparql"
+  },
+  {
+    "kg_name": "student_transcripts_tracking",
+    "class": "http://valuenet/ontop/addresses",
+    "class_name": "addresses",
+    "endpoint_name": "student_transcripts_tracking__addresses",
+    "endpoint_url": "http://host.docker.internal:3030/student_transcripts_tracking__addresses/sparql"
+  },
+  {
+    "kg_name": "student_transcripts_tracking",
+    "class": "http://valuenet/ontop/sections",
+    "class_name": "sections",
+    "endpoint_name": "student_transcripts_tracking__sections",
+    "endpoint_url": "http://host.docker.internal:3030/student_transcripts_tracking__sections/sparql"
+  },
+  {
+    "kg_name": "student_transcripts_tracking",
+    "class": "http://valuenet/ontop/courses",
+    "class_name": "courses",
+    "endpoint_name": "student_transcripts_tracking__courses",
+    "endpoint_url": "http://host.docker.internal:3030/student_transcripts_tracking__courses/sparql"
+  },
+  {
+    "kg_name": "student_transcripts_tracking",
+    "class": "http://valuenet/ontop/degree_programs",
+    "class_name": "degree_programs",
+    "endpoint_name": "student_transcripts_tracking__degree_programs",
+    "endpoint_url": "http://host.docker.internal:3030/student_transcripts_tracking__degree_programs/sparql"
+  },
+  {
+    "kg_name": "student_transcripts_tracking",
+    "class": "http://valuenet/ontop/students",
+    "class_name": "students",
+    "endpoint_name": "student_transcripts_tracking__students",
+    "endpoint_url": "http://host.docker.internal:3030/student_transcripts_tracking__students/sparql"
+  },
+  {
+    "kg_name": "student_transcripts_tracking",
+    "class": "http://valuenet/ontop/student_enrolment_courses",
+    "class_name": "student_enrolment_courses",
+    "endpoint_name": "student_transcripts_tracking__student_enrolment_courses",
+    "endpoint_url": "http://host.docker.internal:3030/student_transcripts_tracking__student_enrolment_courses/sparql"
+  },
+  {
+    "kg_name": "student_transcripts_tracking",
+    "class": "http://valuenet/ontop/student_enrolment",
+    "class_name": "student_enrolment",
+    "endpoint_name": "student_transcripts_tracking__student_enrolment",
+    "endpoint_url": "http://host.docker.internal:3030/student_transcripts_tracking__student_enrolment/sparql"
+  },
+  {
+    "kg_name": "student_transcripts_tracking",
+    "class": "http://valuenet/ontop/transcripts",
+    "class_name": "transcripts",
+    "endpoint_name": "student_transcripts_tracking__transcripts",
+    "endpoint_url": "http://host.docker.internal:3030/student_transcripts_tracking__transcripts/sparql"
+  },
+  {
+    "kg_name": "student_transcripts_tracking",
+    "class": "http://valuenet/ontop/transcript_contents",
+    "class_name": "transcript_contents",
+    "endpoint_name": "student_transcripts_tracking__transcript_contents",
+    "endpoint_url": "http://host.docker.internal:3030/student_transcripts_tracking__transcript_contents/sparql"
+  },
+  {
+    "kg_name": "student_transcripts_tracking",
+    "class": "http://valuenet/ontop/semesters",
+    "class_name": "semesters",
+    "endpoint_name": "student_transcripts_tracking__semesters",
+    "endpoint_url": "http://host.docker.internal:3030/student_transcripts_tracking__semesters/sparql"
+  },
+  {
+    "kg_name": "swimming",
+    "class": "http://valuenet/ontop/swimmer",
+    "class_name": "swimmer",
+    "endpoint_name": "swimming__swimmer",
+    "endpoint_url": "http://host.docker.internal:3030/swimming__swimmer/sparql"
+  },
+  {
+    "kg_name": "swimming",
+    "class": "http://valuenet/ontop/event",
+    "class_name": "event",
+    "endpoint_name": "swimming__event",
+    "endpoint_url": "http://host.docker.internal:3030/swimming__event/sparql"
+  },
+  {
+    "kg_name": "swimming",
+    "class": "http://valuenet/ontop/stadium",
+    "class_name": "stadium",
+    "endpoint_name": "swimming__stadium",
+    "endpoint_url": "http://host.docker.internal:3030/swimming__stadium/sparql"
+  },
+  {
+    "kg_name": "swimming",
+    "class": "http://valuenet/ontop/record",
+    "class_name": "record",
+    "endpoint_name": "swimming__record",
+    "endpoint_url": "http://host.docker.internal:3030/swimming__record/sparql"
+  },
+  {
+    "kg_name": "theme_gallery",
+    "class": "http://valuenet/ontop/artist",
+    "class_name": "artist",
+    "endpoint_name": "theme_gallery__artist",
+    "endpoint_url": "http://host.docker.internal:3030/theme_gallery__artist/sparql"
+  },
+  {
+    "kg_name": "theme_gallery",
+    "class": "http://valuenet/ontop/exhibition_record",
+    "class_name": "exhibition_record",
+    "endpoint_name": "theme_gallery__exhibition_record",
+    "endpoint_url": "http://host.docker.internal:3030/theme_gallery__exhibition_record/sparql"
+  },
+  {
+    "kg_name": "theme_gallery",
+    "class": "http://valuenet/ontop/exhibition",
+    "class_name": "exhibition",
+    "endpoint_name": "theme_gallery__exhibition",
+    "endpoint_url": "http://host.docker.internal:3030/theme_gallery__exhibition/sparql"
+  },
+  {
+    "kg_name": "tracking_grants_for_research",
+    "class": "http://valuenet/ontop/tasks",
+    "class_name": "tasks",
+    "endpoint_name": "tracking_grants_for_research__tasks",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_grants_for_research__tasks/sparql"
+  },
+  {
+    "kg_name": "tracking_grants_for_research",
+    "class": "http://valuenet/ontop/projects",
+    "class_name": "projects",
+    "endpoint_name": "tracking_grants_for_research__projects",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_grants_for_research__projects/sparql"
+  },
+  {
+    "kg_name": "tracking_grants_for_research",
+    "class": "http://valuenet/ontop/research_staff",
+    "class_name": "research_staff",
+    "endpoint_name": "tracking_grants_for_research__research_staff",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_grants_for_research__research_staff/sparql"
+  },
+  {
+    "kg_name": "tracking_grants_for_research",
+    "class": "http://valuenet/ontop/documents",
+    "class_name": "documents",
+    "endpoint_name": "tracking_grants_for_research__documents",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_grants_for_research__documents/sparql"
+  },
+  {
+    "kg_name": "tracking_grants_for_research",
+    "class": "http://valuenet/ontop/project_staff",
+    "class_name": "project_staff",
+    "endpoint_name": "tracking_grants_for_research__project_staff",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_grants_for_research__project_staff/sparql"
+  },
+  {
+    "kg_name": "tracking_grants_for_research",
+    "class": "http://valuenet/ontop/organisation_types",
+    "class_name": "organisation_types",
+    "endpoint_name": "tracking_grants_for_research__organisation_types",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_grants_for_research__organisation_types/sparql"
+  },
+  {
+    "kg_name": "tracking_grants_for_research",
+    "class": "http://valuenet/ontop/staff_roles",
+    "class_name": "staff_roles",
+    "endpoint_name": "tracking_grants_for_research__staff_roles",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_grants_for_research__staff_roles/sparql"
+  },
+  {
+    "kg_name": "tracking_grants_for_research",
+    "class": "http://valuenet/ontop/grants",
+    "class_name": "grants",
+    "endpoint_name": "tracking_grants_for_research__grants",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_grants_for_research__grants/sparql"
+  },
+  {
+    "kg_name": "tracking_grants_for_research",
+    "class": "http://valuenet/ontop/organisations",
+    "class_name": "organisations",
+    "endpoint_name": "tracking_grants_for_research__organisations",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_grants_for_research__organisations/sparql"
+  },
+  {
+    "kg_name": "tracking_grants_for_research",
+    "class": "http://valuenet/ontop/project_outcomes",
+    "class_name": "project_outcomes",
+    "endpoint_name": "tracking_grants_for_research__project_outcomes",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_grants_for_research__project_outcomes/sparql"
+  },
+  {
+    "kg_name": "tracking_grants_for_research",
+    "class": "http://valuenet/ontop/document_types",
+    "class_name": "document_types",
+    "endpoint_name": "tracking_grants_for_research__document_types",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_grants_for_research__document_types/sparql"
+  },
+  {
+    "kg_name": "tracking_grants_for_research",
+    "class": "http://valuenet/ontop/research_outcomes",
+    "class_name": "research_outcomes",
+    "endpoint_name": "tracking_grants_for_research__research_outcomes",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_grants_for_research__research_outcomes/sparql"
+  },
+  {
+    "kg_name": "tracking_orders",
+    "class": "http://valuenet/ontop/shipment_items",
+    "class_name": "shipment_items",
+    "endpoint_name": "tracking_orders__shipment_items",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_orders__shipment_items/sparql"
+  },
+  {
+    "kg_name": "tracking_orders",
+    "class": "http://valuenet/ontop/order_items",
+    "class_name": "order_items",
+    "endpoint_name": "tracking_orders__order_items",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_orders__order_items/sparql"
+  },
+  {
+    "kg_name": "tracking_orders",
+    "class": "http://valuenet/ontop/orders",
+    "class_name": "orders",
+    "endpoint_name": "tracking_orders__orders",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_orders__orders/sparql"
+  },
+  {
+    "kg_name": "tracking_orders",
+    "class": "http://valuenet/ontop/products",
+    "class_name": "products",
+    "endpoint_name": "tracking_orders__products",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_orders__products/sparql"
+  },
+  {
+    "kg_name": "tracking_orders",
+    "class": "http://valuenet/ontop/customers",
+    "class_name": "customers",
+    "endpoint_name": "tracking_orders__customers",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_orders__customers/sparql"
+  },
+  {
+    "kg_name": "tracking_orders",
+    "class": "http://valuenet/ontop/shipments",
+    "class_name": "shipments",
+    "endpoint_name": "tracking_orders__shipments",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_orders__shipments/sparql"
+  },
+  {
+    "kg_name": "tracking_orders",
+    "class": "http://valuenet/ontop/invoices",
+    "class_name": "invoices",
+    "endpoint_name": "tracking_orders__invoices",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_orders__invoices/sparql"
+  },
+  {
+    "kg_name": "tracking_share_transactions",
+    "class": "http://valuenet/ontop/purchases",
+    "class_name": "purchases",
+    "endpoint_name": "tracking_share_transactions__purchases",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_share_transactions__purchases/sparql"
+  },
+  {
+    "kg_name": "tracking_share_transactions",
+    "class": "http://valuenet/ontop/transactions_lots",
+    "class_name": "transactions_lots",
+    "endpoint_name": "tracking_share_transactions__transactions_lots",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_share_transactions__transactions_lots/sparql"
+  },
+  {
+    "kg_name": "tracking_share_transactions",
+    "class": "http://valuenet/ontop/lots",
+    "class_name": "lots",
+    "endpoint_name": "tracking_share_transactions__lots",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_share_transactions__lots/sparql"
+  },
+  {
+    "kg_name": "tracking_share_transactions",
+    "class": "http://valuenet/ontop/sales",
+    "class_name": "sales",
+    "endpoint_name": "tracking_share_transactions__sales",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_share_transactions__sales/sparql"
+  },
+  {
+    "kg_name": "tracking_share_transactions",
+    "class": "http://valuenet/ontop/ref_transaction_types",
+    "class_name": "ref_transaction_types",
+    "endpoint_name": "tracking_share_transactions__ref_transaction_types",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_share_transactions__ref_transaction_types/sparql"
+  },
+  {
+    "kg_name": "tracking_share_transactions",
+    "class": "http://valuenet/ontop/transactions",
+    "class_name": "transactions",
+    "endpoint_name": "tracking_share_transactions__transactions",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_share_transactions__transactions/sparql"
+  },
+  {
+    "kg_name": "tracking_share_transactions",
+    "class": "http://valuenet/ontop/investors",
+    "class_name": "investors",
+    "endpoint_name": "tracking_share_transactions__investors",
+    "endpoint_url": "http://host.docker.internal:3030/tracking_share_transactions__investors/sparql"
+  },
+  {
+    "kg_name": "tvshow",
+    "class": "http://valuenet/ontop/tv_series",
+    "class_name": "tv_series",
+    "endpoint_name": "tvshow__tv_series",
+    "endpoint_url": "http://host.docker.internal:3030/tvshow__tv_series/sparql"
+  },
+  {
+    "kg_name": "tvshow",
+    "class": "http://valuenet/ontop/tv_channel",
+    "class_name": "tv_channel",
+    "endpoint_name": "tvshow__tv_channel",
+    "endpoint_url": "http://host.docker.internal:3030/tvshow__tv_channel/sparql"
+  },
+  {
+    "kg_name": "tvshow",
+    "class": "http://valuenet/ontop/cartoon",
+    "class_name": "cartoon",
+    "endpoint_name": "tvshow__cartoon",
+    "endpoint_url": "http://host.docker.internal:3030/tvshow__cartoon/sparql"
+  },
+  {
+    "kg_name": "twitter_1",
+    "class": "http://valuenet/ontop/tweets",
+    "class_name": "tweets",
+    "endpoint_name": "twitter_1__tweets",
+    "endpoint_url": "http://host.docker.internal:3030/twitter_1__tweets/sparql"
+  },
+  {
+    "kg_name": "twitter_1",
+    "class": "http://valuenet/ontop/user_profiles",
+    "class_name": "user_profiles",
+    "endpoint_name": "twitter_1__user_profiles",
+    "endpoint_url": "http://host.docker.internal:3030/twitter_1__user_profiles/sparql"
+  },
+  {
+    "kg_name": "twitter_1",
+    "class": "http://valuenet/ontop/follows",
+    "class_name": "follows",
+    "endpoint_name": "twitter_1__follows",
+    "endpoint_url": "http://host.docker.internal:3030/twitter_1__follows/sparql"
+  },
+  {
+    "kg_name": "voter_1",
+    "class": "http://valuenet/ontop/area_code_state",
+    "class_name": "area_code_state",
+    "endpoint_name": "voter_1__area_code_state",
+    "endpoint_url": "http://host.docker.internal:3030/voter_1__area_code_state/sparql"
+  },
+  {
+    "kg_name": "voter_1",
+    "class": "http://valuenet/ontop/contestants",
+    "class_name": "contestants",
+    "endpoint_name": "voter_1__contestants",
+    "endpoint_url": "http://host.docker.internal:3030/voter_1__contestants/sparql"
+  },
+  {
+    "kg_name": "voter_1",
+    "class": "http://valuenet/ontop/votes",
+    "class_name": "votes",
+    "endpoint_name": "voter_1__votes",
+    "endpoint_url": "http://host.docker.internal:3030/voter_1__votes/sparql"
+  },
+  {
+    "kg_name": "wedding",
+    "class": "http://valuenet/ontop/people",
+    "class_name": "people",
+    "endpoint_name": "wedding__people",
+    "endpoint_url": "http://host.docker.internal:3030/wedding__people/sparql"
+  },
+  {
+    "kg_name": "wedding",
+    "class": "http://valuenet/ontop/church",
+    "class_name": "church",
+    "endpoint_name": "wedding__church",
+    "endpoint_url": "http://host.docker.internal:3030/wedding__church/sparql"
+  },
+  {
+    "kg_name": "wedding",
+    "class": "http://valuenet/ontop/wedding",
+    "class_name": "wedding",
+    "endpoint_name": "wedding__wedding",
+    "endpoint_url": "http://host.docker.internal:3030/wedding__wedding/sparql"
+  },
+  {
+    "kg_name": "workshop_paper",
+    "class": "http://valuenet/ontop/workshop",
+    "class_name": "workshop",
+    "endpoint_name": "workshop_paper__workshop",
+    "endpoint_url": "http://host.docker.internal:3030/workshop_paper__workshop/sparql"
+  },
+  {
+    "kg_name": "workshop_paper",
+    "class": "http://valuenet/ontop/acceptance",
+    "class_name": "acceptance",
+    "endpoint_name": "workshop_paper__acceptance",
+    "endpoint_url": "http://host.docker.internal:3030/workshop_paper__acceptance/sparql"
+  },
+  {
+    "kg_name": "workshop_paper",
+    "class": "http://valuenet/ontop/submission",
+    "class_name": "submission",
+    "endpoint_name": "workshop_paper__submission",
+    "endpoint_url": "http://host.docker.internal:3030/workshop_paper__submission/sparql"
+  },
+  {
+    "kg_name": "world_1",
+    "class": "http://valuenet/ontop/city",
+    "class_name": "city",
+    "endpoint_name": "world_1__city",
+    "endpoint_url": "http://host.docker.internal:3030/world_1__city/sparql"
+  },
+  {
+    "kg_name": "world_1",
+    "class": "http://valuenet/ontop/country",
+    "class_name": "country",
+    "endpoint_name": "world_1__country",
+    "endpoint_url": "http://host.docker.internal:3030/world_1__country/sparql"
+  },
+  {
+    "kg_name": "world_1",
+    "class": "http://valuenet/ontop/countrylanguage",
+    "class_name": "countrylanguage",
+    "endpoint_name": "world_1__countrylanguage",
+    "endpoint_url": "http://host.docker.internal:3030/world_1__countrylanguage/sparql"
+  },
+  {
+    "kg_name": "wrestler",
+    "class": "http://valuenet/ontop/wrestler",
+    "class_name": "wrestler",
+    "endpoint_name": "wrestler__wrestler",
+    "endpoint_url": "http://host.docker.internal:3030/wrestler__wrestler/sparql"
+  },
+  {
+    "kg_name": "wrestler",
+    "class": "http://valuenet/ontop/elimination",
+    "class_name": "elimination",
+    "endpoint_name": "wrestler__elimination",
+    "endpoint_url": "http://host.docker.internal:3030/wrestler__elimination/sparql"
+  }
+]
