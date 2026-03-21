@@ -206,9 +206,9 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 .devcontainer/
-data/original_SPIDER4SPARQL/
+data/SPIDER4SPARQL/
 data/federated_output/
 data/fuseki
 .DS_Store
 .claude
-data/fkgqa_benchmark/shards/
+data/SPIDER4FedSPARQL/shards/
