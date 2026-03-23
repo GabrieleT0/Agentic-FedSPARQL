@@ -1,4 +1,7 @@
-from modules import Discovery, Schema, QueryBuilderAgent, Validator
+from modules.discovery import Discovery
+from modules.schema import Schema
+from modules.query_builder import QueryBuilderAgent
+from modules.validator import Validator
 import dspy
 from config import MAX_RETRIES, MAX_DISCOVERY_ATTEMPTS
 
@@ -14,7 +17,7 @@ class FederatedSPARQLPipeline(dspy.Module):
         discovery_attempts = 0
         refinement_attempts = 0
         retry_from = "discovery"
-        error = 'none'
+        error = None
         while refinement_attempts <= MAX_RETRIES:
 
             if retry_from == "discovery":
@@ -32,6 +35,7 @@ class FederatedSPARQLPipeline(dspy.Module):
             if not query_builder_result.success:
                 refinement_attempts += 1
                 retry_from = 'query_builder'
+                error = query_builder_result.error_type
                 continue
 
             validator_result = self.validator(question=question, sparql_query=query_builder_result.sparql_query, candidate_endpoints=candidate_endpoints, json_ir=query_builder_result.json_ir)
