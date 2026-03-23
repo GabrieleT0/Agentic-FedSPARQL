@@ -3,8 +3,7 @@ from config import MODE, BENCHMARK_DATA_PATH
 from evaluate import evaluate
 
 questions = [
-    "What are the names of the movies directed by Christopher Nolan and starring Leonardo DiCaprio?",
-    "Which actors have won an Oscar for Best Actor in a Leading Role and have also starred in a movie directed by Quentin Tarantino?",
+    "Find the first names of the faculty members who are playing Canoeing or Kayaking.",
 ]
 
 pipeline = FederatedSPARQLPipeline()
