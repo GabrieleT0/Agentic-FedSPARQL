@@ -4,7 +4,6 @@ from modules.query_builder import QueryBuilderAgent
 from modules.validator import Validator
 import dspy
 from config import MAX_RETRIES, MAX_DISCOVERY_ATTEMPTS
-
 class FederatedSPARQLPipeline(dspy.Module):
     def __init__(self):
         super().__init__()
