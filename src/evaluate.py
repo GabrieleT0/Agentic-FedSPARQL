@@ -12,32 +12,36 @@ def evaluate(pipeline, benchmark_path: str, mode: str = 'full'):
     results = []
 
     for example in examples:
-        question = example['question']
-        gold_endpoints = list()
-        endpoints_list = example['endpoints']
-        for endpoint in endpoints_list:
-            gold_endpoints.append(endpoint['url'])
-        gold_answers = sparql_utils.execute_sparql_query(example['federated_sparql'])
+        if example['validation']['valid'] == True:
+            question = example['question']
+            gold_endpoints = list()
+            endpoints_list = example['endpoints']
+            for endpoint in endpoints_list:
+                gold_endpoints.append(endpoint['url'])
 
-        prediction = pipeline(question=question)
-        predicted_endpoints = prediction.candidate_endpoints or []
-        predicted_answers = prediction.query_results or []
-        predicted_sparql = prediction.sparql_query
+            gold_sparql = example['federated_sparql']
+            gold_answers = sparql_utils.execute_sparql_query(gold_sparql)
 
-        discovery_acc = discovery_accuracy(predicted_endpoints, gold_endpoints)
-        exec_acc = execution_accuracy(predicted_answers, gold_answers)
-        f1 = f1_score(predicted_answers, gold_answers)
-        results.append({
-            "question": question,
-            "predicted_endpoints": predicted_endpoints,
-            "gold_endpoints": gold_endpoints,
-            "predicted_sparql": predicted_sparql,
-            "gold_answers": gold_answers,
-            "predicted_answers": predicted_answers,
-            "discovery_accuracy": discovery_acc,
-            "execution_accuracy": exec_acc,
-            "f1_score": f1
-        })
+            prediction = pipeline(question=question)
+            predicted_endpoints = prediction.candidate_endpoints or []
+            predicted_answers = prediction.query_results or []
+            predicted_sparql = prediction.sparql_query
+
+            discovery_acc = discovery_accuracy(predicted_endpoints, gold_endpoints)
+            exec_acc = execution_accuracy(predicted_answers, gold_answers)
+            f1 = f1_score(predicted_answers, gold_answers)
+            results.append({
+                "question": question,
+                "predicted_endpoints": predicted_endpoints,
+                "gold_endpoints": gold_endpoints,
+                "predicted_sparql": predicted_sparql,
+                "gold:sparql": gold_sparql,
+                "predicted_answers": predicted_answers,
+                "gold_answers": gold_answers,
+                "discovery_accuracy": discovery_acc,
+                "execution_accuracy": exec_acc,
+                "f1_score": f1
+            })
     
     print(f"Average Discovery Accuracy: {sum(r['discovery_accuracy'] for r in results) / len(results):.4f}")
     print(f"Average Accuracy: {sum(r['execution_accuracy'] for r in results) / len(results):.4f}")
