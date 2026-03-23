@@ -30,15 +30,32 @@ def validate_ir(ir: dict, schema_summary: dict) -> tuple[bool, Optional[str]]:
     
     return True, None
 
+def _sparql_term(token: str) -> str:
+    """Normalize a token to valid SPARQL syntax.
+    Variables (?x) and literals ("...") are returned as-is.
+    Full URIs (http/https) are wrapped in <> if not already.
+    Prefixed names (prefix:local) and keywords (a) are returned as-is.
+    """
+    if token.startswith("?") or token.startswith('"') or token.startswith("'"):
+        return token
+    if token.startswith("<") and token.endswith(">"):
+        return token  # already wrapped
+    if token.startswith("http://") or token.startswith("https://"):
+        return f"<{token}>"
+    return token  # prefixed name, keyword like 'a', or literal
+
 def compile_ir_to_sparql(ir: dict) -> str:
     """Compile the intermediate representation (IR) into a SPARQL query string."""
+    prefix_clauses = "\n".join(f"PREFIX {alias}: <{uri.strip('<>')}>" for alias, uri in ir.get("prefixes", {}).items())
     select_clause = "SELECT " + " ".join(ir.get("select", []))
     service_clauses = []
-    
+
     for endpoint in ir.get("endpoints", []):
         patterns = endpoint.get("patterns", [])
         if patterns:
-            service_clauses.append(f"SERVICE <{endpoint['url']}> {{ " + " . ".join(f"{p['subject']} {p['predicate']} {p['object']}" for p in patterns) + " }")
+            url = endpoint['url'].strip("<>")
+            triples = " . ".join(f"{_sparql_term(p['subject'])} {_sparql_term(p['predicate'])} {_sparql_term(p['object'])}" for p in patterns)
+            service_clauses.append(f"SERVICE <{url}> {{ {triples} }}")
     
     filters = "\n  ".join(f"FILTER({f})" for f in ir.get("filters", []))
     order_by = f"ORDER BY {ir['order_by']}" if ir.get("order_by") else ""
@@ -48,6 +65,8 @@ def compile_ir_to_sparql(ir: dict) -> str:
         where_body += "\n  " + filters
 
     query = f"{select_clause} WHERE {{\n  {where_body}\n}}"
+    if prefix_clauses:
+        query = prefix_clauses + "\n" + query
     if order_by:
         query += f"\n{order_by}"
     if limit:
