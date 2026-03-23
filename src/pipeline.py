@@ -33,9 +33,14 @@ class FederatedSPARQLPipeline(dspy.Module):
                 query_builder_result = self.query_builder(question=question, schema_summary=schema_result.schema_summary, join_candidates=schema_result.join_candidates, previous_error=error)
 
             if not query_builder_result.success:
-                refinement_attempts += 1
-                retry_from = 'query_builder'
                 error = query_builder_result.error_type
+                if error == "IR must contain at least one endpoint.":
+                    retry_from = 'discovery'
+                    discovery_attempts += 1
+                    refinement_attempts += 1
+                else:
+                    refinement_attempts += 1
+                    retry_from = 'query_builder'
                 continue
 
             validator_result = self.validator(question=question, sparql_query=query_builder_result.sparql_query, candidate_endpoints=candidate_endpoints, json_ir=query_builder_result.json_ir)
@@ -50,5 +55,7 @@ class FederatedSPARQLPipeline(dspy.Module):
                 elif error == "wrong_schema":
                     refinement_attempts += 1
                     retry_from = 'schema'
-        
+            print(f"Refinement attempt {refinement_attempts} failed with error: {error}")
+            print("Generated SPARQL Query Results:")
+            print(validator_result.query_results)
         return dspy.Prediction(success=False, query_results=None, sparql_query=None, json_ir=None, error_type=error, candidate_endpoints=candidate_endpoints)
