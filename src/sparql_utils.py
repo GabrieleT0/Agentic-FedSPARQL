@@ -1,14 +1,20 @@
 import requests
 
-FEDERATED_ENDPOINT = "http://host.docker.internal:3030/sparql"
+FEDERATED_ENDPOINT = "http://host.docker.internal:3030/fkgqa_federation/sparql"
 
 def execute_sparql_on_endpoint(endpoint_url: str, query: str) -> list:
     """Execute a SPARQL query on a given endpoint and return the results."""
     headers = {
-        "Accept": "application/sparql-results+json"
+        "Accept": "application/sparql-results+json",
+        "Content-Type": "application/x-www-form-urlencoded"
     }
     try:
-        response = requests.post(endpoint_url, data={"query": query}, headers=headers, timeout=1000)
+        response = requests.post(
+            endpoint_url, 
+            data={"query": query}, 
+            headers=headers, 
+            timeout=1000
+        )
         response.raise_for_status()
         response_json = response.json()
         bindings = response_json.get("results", {}).get("bindings", [])
@@ -16,11 +22,14 @@ def execute_sparql_on_endpoint(endpoint_url: str, query: str) -> list:
         return [{k: v["value"] for k, v in row.items()} for row in bindings]
     except requests.exceptions.RequestException as e:
         print(f"Error executing SPARQL query on endpoint {endpoint_url}: {e}")
+        print(f"Response status: {e.response.status_code if hasattr(e, 'response') else 'N/A'}")
+        print(f"Response text: {e.response.text if hasattr(e, 'response') else 'N/A'}")
         return []
     
 def get_void_description(endpoint_url: str) -> dict:
     """Get the VoID description of a SPARQL endpoint."""
     query = """
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
             SELECT DISTINCT ?class ?property WHERE {
                 { ?s a ?class }
                 UNION
@@ -40,6 +49,7 @@ def get_void_description(endpoint_url: str) -> dict:
 
 def probe_class(endpoint_url: str, class_uri: str) -> int:
     """Probe a SPARQL endpoint to check how many instances of a given class it contains."""
+    class_uri = class_uri.strip("<>")
     query = f"""
             SELECT (COUNT(?s) AS ?count) WHERE {{
                 ?s a <{class_uri}> .
@@ -52,6 +62,7 @@ def probe_class(endpoint_url: str, class_uri: str) -> int:
 
 def probe_property(endpoint_url: str, property_uri: str) -> list:
     """Probe a SPARQL endpoint to check if it contains a given property."""
+    property_uri = property_uri.strip("<>")
     query = f"""
                 SELECT DISTINCT ?val WHERE {{
                     ?s <{property_uri}> ?val .
