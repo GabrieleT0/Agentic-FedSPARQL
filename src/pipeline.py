@@ -36,7 +36,7 @@ class FederatedSPARQLPipeline(dspy.Module):
 
             validator_result = self.validator(question=question, sparql_query=query_builder_result.sparql_query, candidate_endpoints=candidate_endpoints, json_ir=query_builder_result.json_ir)
             if validator_result.is_valid:
-                return dspy.Prediction(success=True, query_results=validator_result.query_results, sparql_query=query_builder_result.sparql_query, json_ir=query_builder_result.json_ir)
+                return dspy.Prediction(success=True, query_results=validator_result.query_results, sparql_query=query_builder_result.sparql_query, json_ir=query_builder_result.json_ir, error_type=None, candidate_endpoints=candidate_endpoints)
             else:
                 error = validator_result.diagnosis
                 if error == "wrong_endpoints":
