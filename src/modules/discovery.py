@@ -5,7 +5,6 @@ import json
 from config import ENDPOINTS_FILE_PATH, BATCH_SIZE
 from signatures import EvaluateEndpoints
 
-
 # Agent 1: Discovery Agent
 class Discovery(dspy.Module):
     def __init__(self, model_name: str = 'multi-qa-MiniLM-L6-cos-v1'):
@@ -13,10 +12,10 @@ class Discovery(dspy.Module):
         self.model = SentenceTransformer(model_name, device='cpu')
         self.index = {}
         self.static_descriptions = {}
+        self.evaluate = dspy.ChainOfThought(EvaluateEndpoints)
         with open(ENDPOINTS_FILE_PATH, 'r') as f:
             self.endpoints = json.load(f)
         self._build_index()
-        self.evaluate = dspy.ChainOfThought(EvaluateEndpoints)
 
     def forward(self, question: str, discovery_attempts: int = 0) -> dspy.Prediction:
         question_embedding = self.model.encode(question)
@@ -48,7 +47,7 @@ class Discovery(dspy.Module):
 
             if eval_result.is_sufficient:
                 break
-        print("Selected endpoints:", selected)
+
         # Fallback: if LLM filtered everything out, return the top batch
         return dspy.Prediction(candidate_endpoints=selected if selected else sorted_endpoints[:BATCH_SIZE])
 
