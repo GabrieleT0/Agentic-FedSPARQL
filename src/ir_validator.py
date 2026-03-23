@@ -47,7 +47,8 @@ def _sparql_term(token: str) -> str:
 def compile_ir_to_sparql(ir: dict) -> str:
     """Compile the intermediate representation (IR) into a SPARQL query string."""
     prefix_clauses = "\n".join(f"PREFIX {alias}: <{uri.strip('<>')}>" for alias, uri in ir.get("prefixes", {}).items())
-    select_clause = "SELECT " + " ".join(ir.get("select", []))
+    distinct = "DISTINCT " if ir.get("distinct") else ""
+    select_clause = "SELECT " + distinct + " ".join(ir.get("select", []))
     service_clauses = []
 
     for endpoint in ir.get("endpoints", []):
