@@ -17,12 +17,14 @@ class IdentifyJoins(dspy.Signature):
 
 class QueryBuilder(dspy.Signature):
     """Given a natural language question, the relevant classes and properties for each
-       SPARQL endpoint, and the identified join candidates, create a JSON string with all information needed to build the final SPARQL query."""
+       SPARQL endpoint, and the identified join candidates, create a JSON string with all information needed to build the final federated SPARQL query, include also the used prefixes."""
     question: str = dspy.InputField()
     schema_summary: str = dspy.InputField(desc="Same structure as input: {endpoint: {classes: [class1, class2, ...], properties: [property1, property2, ...]}}")
     join_candidates: str = dspy.InputField(desc='JSON string structured as: [{"endpoint_a": "", "endpoint_b": "", "property_a": "", "property_b": "", "join_variable": ""}...]')
     previous_error: str = dspy.InputField(desc="Error message from the previous execution of the generated SPARQL query, if any. \"none\" otherwise.")
-    query_plan: str = dspy.OutputField(desc="""{"select": ["?var1", "?var2"],"endpoints": [{"url": "...", "patterns": [{"subject": "", "predicate": "", "object": ""}]}],
+    query_plan: str = dspy.OutputField(desc="""{"prefixes": {"foaf": "http://xmlns.com/foaf/0.1/", "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"},
+                                        "select": ["?var1", "?var2"],
+                                        "endpoints": [{"url": "...", "patterns": [{"subject": "", "predicate": "", "object": ""}]}],
                                         "join_variables": ["?var"],
                                         "filters": [],
                                         "order_by": null,
