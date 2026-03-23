@@ -1,5 +1,7 @@
 import dspy
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 lm = dspy.LM(model="openai/gpt-oss-20b",
     api_key=os.getenv("LIGHTNING_API_KEY"),
