@@ -176,14 +176,21 @@
   },
   {
     "url": "http://host.docker.internal:3030/aircraft__pilot/sparql",
-    "classes": [],
+    "classes": [
+      "http://valuenet/ontop/pilot"
+    ],
     "properties": [
       "http://valuenet/ontop/pilot#age",
       "http://valuenet/ontop/pilot#name",
       "http://valuenet/ontop/pilot#pilot_id",
       "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
     ],
-    "examples": []
+    "examples": [
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/pilot> .\n  ?s <http://valuenet/ontop/pilot#age> ?o\n} LIMIT 10",
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/pilot> .\n  ?s <http://valuenet/ontop/pilot#name> ?o\n} LIMIT 10",
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/pilot> .\n  ?s <http://valuenet/ontop/pilot#pilot_id> ?o\n} LIMIT 10",
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/pilot> .\n  ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?o\n} LIMIT 10"
+    ]
   },
   {
     "url": "http://host.docker.internal:3030/aircraft__aircraft/sparql",
@@ -514,7 +521,13 @@
     "classes": [
       "http://valuenet/ontop/engineer_skills"
     ],
-    "properties": [],
+    "properties": [
+      "http://valuenet/ontop/engineer_skills#engineer_id",
+      "http://valuenet/ontop/engineer_skills#ref-engineer_id",
+      "http://valuenet/ontop/engineer_skills#ref-skill_id",
+      "http://valuenet/ontop/engineer_skills#skill_id",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+    ],
     "examples": [
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/engineer_skills> .\n  ?s <http://valuenet/ontop/engineer_skills#engineer_id> ?o\n} LIMIT 10",
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/engineer_skills> .\n  ?s <http://valuenet/ontop/engineer_skills#ref-engineer_id> ?o\n} LIMIT 10",
@@ -1879,9 +1892,7 @@
   },
   {
     "url": "http://host.docker.internal:3030/college_1__employee/sparql",
-    "classes": [
-      "http://valuenet/ontop/employee"
-    ],
+    "classes": [],
     "properties": [
       "http://valuenet/ontop/employee#emp_dob",
       "http://valuenet/ontop/employee#emp_fname",
@@ -1892,13 +1903,7 @@
       "http://valuenet/ontop/employee#emp_num",
       "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
     ],
-    "examples": [
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/employee> .\n  ?s <http://valuenet/ontop/employee#emp_dob> ?o\n} LIMIT 10",
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/employee> .\n  ?s <http://valuenet/ontop/employee#emp_fname> ?o\n} LIMIT 10",
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/employee> .\n  ?s <http://valuenet/ontop/employee#emp_hiredate> ?o\n} LIMIT 10",
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/employee> .\n  ?s <http://valuenet/ontop/employee#emp_initial> ?o\n} LIMIT 10",
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/employee> .\n  ?s <http://valuenet/ontop/employee#emp_jobcode> ?o\n} LIMIT 10"
-    ]
+    "examples": []
   },
   {
     "url": "http://host.docker.internal:3030/college_1__enroll/sparql",
@@ -4179,13 +4184,7 @@
       "http://valuenet/ontop/csu_fees#year",
       "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
     ],
-    "examples": [
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/csu_fees> .\n  ?s <http://valuenet/ontop/csu_fees#campus> ?o\n} LIMIT 10",
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/csu_fees> .\n  ?s <http://valuenet/ontop/csu_fees#campusfee> ?o\n} LIMIT 10",
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/csu_fees> .\n  ?s <http://valuenet/ontop/csu_fees#ref-campus> ?o\n} LIMIT 10",
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/csu_fees> .\n  ?s <http://valuenet/ontop/csu_fees#year> ?o\n} LIMIT 10",
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/csu_fees> .\n  ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?o\n} LIMIT 10"
-    ]
+    "examples": []
   },
   {
     "url": "http://host.docker.internal:3030/csu_1__degrees/sparql",
@@ -4496,7 +4495,11 @@
       "http://valuenet/ontop/addresses#address_id",
       "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
     ],
-    "examples": []
+    "examples": [
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/addresses> .\n  ?s <http://valuenet/ontop/addresses#address_details> ?o\n} LIMIT 10",
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/addresses> .\n  ?s <http://valuenet/ontop/addresses#address_id> ?o\n} LIMIT 10",
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/addresses> .\n  ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?o\n} LIMIT 10"
+    ]
   },
   {
     "url": "http://host.docker.internal:3030/department_store__product_suppliers/sparql",
@@ -5708,9 +5711,11 @@
       "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
     ],
     "examples": [
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/evaluation> .\n  ?s <http://valuenet/ontop/evaluation#bonus> ?o\n} LIMIT 10",
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/evaluation> .\n  ?s <http://valuenet/ontop/evaluation#employee_id> ?o\n} LIMIT 10",
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/evaluation> .\n  ?s <http://valuenet/ontop/evaluation#ref-employee_id> ?o\n} LIMIT 10",
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/evaluation> .\n  ?s <http://valuenet/ontop/evaluation#year_awarded> ?o\n} LIMIT 10"
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/evaluation> .\n  ?s <http://valuenet/ontop/evaluation#year_awarded> ?o\n} LIMIT 10",
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/evaluation> .\n  ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?o\n} LIMIT 10"
     ]
   },
   {
@@ -7524,9 +7529,7 @@
   },
   {
     "url": "http://host.docker.internal:3030/insurance_and_eclaims__claims_processing_stages/sparql",
-    "classes": [
-      "http://valuenet/ontop/claims_processing_stages"
-    ],
+    "classes": [],
     "properties": [
       "http://valuenet/ontop/claims_processing_stages#claim_stage_id",
       "http://valuenet/ontop/claims_processing_stages#claim_status_description",
@@ -7534,13 +7537,7 @@
       "http://valuenet/ontop/claims_processing_stages#next_claim_stage_id",
       "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
     ],
-    "examples": [
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/claims_processing_stages> .\n  ?s <http://valuenet/ontop/claims_processing_stages#claim_stage_id> ?o\n} LIMIT 10",
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/claims_processing_stages> .\n  ?s <http://valuenet/ontop/claims_processing_stages#claim_status_description> ?o\n} LIMIT 10",
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/claims_processing_stages> .\n  ?s <http://valuenet/ontop/claims_processing_stages#claim_status_name> ?o\n} LIMIT 10",
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/claims_processing_stages> .\n  ?s <http://valuenet/ontop/claims_processing_stages#next_claim_stage_id> ?o\n} LIMIT 10",
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/claims_processing_stages> .\n  ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?o\n} LIMIT 10"
-    ]
+    "examples": []
   },
   {
     "url": "http://host.docker.internal:3030/insurance_and_eclaims__staff/sparql",
@@ -8666,7 +8663,13 @@
       "http://valuenet/ontop/medicine#trade_name",
       "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
     ],
-    "examples": []
+    "examples": [
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/medicine> .\n  ?s <http://valuenet/ontop/medicine#fda_approved> ?o\n} LIMIT 10",
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/medicine> .\n  ?s <http://valuenet/ontop/medicine#id> ?o\n} LIMIT 10",
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/medicine> .\n  ?s <http://valuenet/ontop/medicine#name> ?o\n} LIMIT 10",
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/medicine> .\n  ?s <http://valuenet/ontop/medicine#trade_name> ?o\n} LIMIT 10",
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/medicine> .\n  ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?o\n} LIMIT 10"
+    ]
   },
   {
     "url": "http://host.docker.internal:3030/medicine_enzyme_interaction__medicine_enzyme_interaction/sparql",
@@ -9526,8 +9529,7 @@
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/phone> .\n  ?s <http://valuenet/ontop/phone#accreditation_level> ?o\n} LIMIT 10",
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/phone> .\n  ?s <http://valuenet/ontop/phone#accreditation_type> ?o\n} LIMIT 10",
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/phone> .\n  ?s <http://valuenet/ontop/phone#chip_model> ?o\n} LIMIT 10",
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/phone> .\n  ?s <http://valuenet/ontop/phone#company_name> ?o\n} LIMIT 10",
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/phone> .\n  ?s <http://valuenet/ontop/phone#date> ?o\n} LIMIT 10"
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/phone> .\n  ?s <http://valuenet/ontop/phone#company_name> ?o\n} LIMIT 10"
     ]
   },
   {
@@ -10267,7 +10269,6 @@
       "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
     ],
     "examples": [
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/railway_manage> .\n  ?s <http://valuenet/ontop/railway_manage#from_year> ?o\n} LIMIT 10",
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/railway_manage> .\n  ?s <http://valuenet/ontop/railway_manage#manager_id> ?o\n} LIMIT 10",
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/railway_manage> .\n  ?s <http://valuenet/ontop/railway_manage#railway_id> ?o\n} LIMIT 10",
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/railway_manage> .\n  ?s <http://valuenet/ontop/railway_manage#ref-manager_id> ?o\n} LIMIT 10",
@@ -10908,6 +10909,7 @@
     "examples": [
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/school> .\n  ?s <http://valuenet/ontop/school#county> ?o\n} LIMIT 10",
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/school> .\n  ?s <http://valuenet/ontop/school#enrollment> ?o\n} LIMIT 10",
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/school> .\n  ?s <http://valuenet/ontop/school#ihsaa_class> ?o\n} LIMIT 10",
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/school> .\n  ?s <http://valuenet/ontop/school#ihsaa_football_class> ?o\n} LIMIT 10",
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/school> .\n  ?s <http://valuenet/ontop/school#location> ?o\n} LIMIT 10"
     ]
@@ -12143,7 +12145,14 @@
     "classes": [
       "http://valuenet/ontop/affected_region"
     ],
-    "properties": [],
+    "properties": [
+      "http://valuenet/ontop/affected_region#number_city_affected",
+      "http://valuenet/ontop/affected_region#ref-region_id",
+      "http://valuenet/ontop/affected_region#ref-storm_id",
+      "http://valuenet/ontop/affected_region#region_id",
+      "http://valuenet/ontop/affected_region#storm_id",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+    ],
     "examples": [
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/affected_region> .\n  ?s <http://valuenet/ontop/affected_region#number_city_affected> ?o\n} LIMIT 10",
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/affected_region> .\n  ?s <http://valuenet/ontop/affected_region#ref-region_id> ?o\n} LIMIT 10",
@@ -12987,7 +12996,13 @@
     "classes": [
       "http://valuenet/ontop/project_outcomes"
     ],
-    "properties": [],
+    "properties": [
+      "http://valuenet/ontop/project_outcomes#outcome_code",
+      "http://valuenet/ontop/project_outcomes#project_id",
+      "http://valuenet/ontop/project_outcomes#ref-outcome_code",
+      "http://valuenet/ontop/project_outcomes#ref-project_id",
+      "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+    ],
     "examples": [
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/project_outcomes> .\n  ?s <http://valuenet/ontop/project_outcomes#outcome_code> ?o\n} LIMIT 10",
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/project_outcomes> .\n  ?s <http://valuenet/ontop/project_outcomes#project_id> ?o\n} LIMIT 10",
@@ -13685,6 +13700,7 @@
     ],
     "examples": [
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/countrylanguage> .\n  ?s <http://valuenet/ontop/countrylanguage#countrycode> ?o\n} LIMIT 10",
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/countrylanguage> .\n  ?s <http://valuenet/ontop/countrylanguage#isofficial> ?o\n} LIMIT 10",
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/countrylanguage> .\n  ?s <http://valuenet/ontop/countrylanguage#language> ?o\n} LIMIT 10",
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/countrylanguage> .\n  ?s <http://valuenet/ontop/countrylanguage#percentage> ?o\n} LIMIT 10",
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/countrylanguage> .\n  ?s <http://valuenet/ontop/countrylanguage#ref-countrycode> ?o\n} LIMIT 10"
@@ -13707,9 +13723,7 @@
     "examples": [
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/wrestler> .\n  ?s <http://valuenet/ontop/wrestler#days_held> ?o\n} LIMIT 10",
       "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/wrestler> .\n  ?s <http://valuenet/ontop/wrestler#event> ?o\n} LIMIT 10",
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/wrestler> .\n  ?s <http://valuenet/ontop/wrestler#location> ?o\n} LIMIT 10",
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/wrestler> .\n  ?s <http://valuenet/ontop/wrestler#name> ?o\n} LIMIT 10",
-      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/wrestler> .\n  ?s <http://valuenet/ontop/wrestler#reign> ?o\n} LIMIT 10"
+      "SELECT ?s ?o WHERE {\n  ?s a <http://valuenet/ontop/wrestler> .\n  ?s <http://valuenet/ontop/wrestler#name> ?o\n} LIMIT 10"
     ]
   },
   {
