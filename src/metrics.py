@@ -1,13 +1,17 @@
+def _row_key(row: dict) -> tuple:
+    """Normalize a result row to its values only, ignoring variable names."""
+    return tuple(row.values())
+
 def execution_accuracy(predicted: list, gold: list) -> float:
     """Calculate the execution accuracy between the predicted and gold answers."""
-    predicted_set = {frozenset(row.items()) for row in predicted}
-    gold_set = {frozenset(row.items()) for row in gold}
+    predicted_set = {_row_key(row) for row in predicted}
+    gold_set = {_row_key(row) for row in gold}
     return 1.0 if predicted_set == gold_set else 0.0
 
 def f1_score(predicted: list, gold: list) -> float:
     """Calculate the F1 score between the predicted and gold answers."""
-    predicted_set = {frozenset(row.items()) for row in predicted}
-    gold_set = {frozenset(row.items()) for row in gold}
+    predicted_set = {_row_key(row) for row in predicted}
+    gold_set = {_row_key(row) for row in gold}
     
     if not predicted_set and not gold_set:
         return 1.0  # Both are empty, perfect match
