@@ -1,4 +1,6 @@
 import json
+import math
+import os
 import sparql_utils
 from metrics import execution_accuracy, f1_score, discovery_accuracy
 
@@ -7,18 +9,29 @@ def load_benchmark(benchmark_path: str) -> list:
     with open(benchmark_path, 'r') as f:
         return json.load(f)
 
-def evaluate(pipeline, benchmark_path: str, mode: str = 'full'):
+def load_existing_results(output_path: str) -> tuple[list, set]:
+    """Load previously saved results and return them with a set of already-processed questions."""
+    if os.path.exists(output_path):
+        with open(output_path, 'r') as f:
+            results = json.load(f)
+        processed = {r['question'] for r in results}
+        print(f"Resuming: found {len(results)} previously processed question(s), skipping them.")
+        return results, processed
+    return [], set()
+
+def evaluate(pipeline, benchmark_path: str, mode: str = 'full', output_path: str = 'evaluation_results.json'):
     examples = load_benchmark(benchmark_path)
-    results = []
+    results, processed_questions = load_existing_results(output_path)
 
     for example in examples:
         if example['validation']['valid'] == True:
             question = example['question']
-            gold_endpoints = list()
-            endpoints_list = example['endpoints']
-            for endpoint in endpoints_list:
-                gold_endpoints.append(endpoint['url'])
 
+            if question in processed_questions:
+                continue
+
+            manually_check = False
+            gold_endpoints = [ep['url'] for ep in example['endpoints']]
             gold_sparql = example['federated_sparql']
             gold_answers = sparql_utils.execute_sparql_query(gold_sparql)
 
@@ -26,11 +39,19 @@ def evaluate(pipeline, benchmark_path: str, mode: str = 'full'):
             predicted_endpoints = prediction.candidate_endpoints or []
             predicted_answers = prediction.query_results or []
             predicted_sparql = prediction.sparql_query
+            refinement_attempts = prediction.refinement_attempts or 0
+            discovery_attempts = prediction.discovery_attempts or 0
+
+            # I.e. the case of first name instead of last name, to check if
+            # there's error in the benchmark or if the LLM is making a mistake in the query generation
+            if len(predicted_answers) == len(gold_answers):
+                manually_check = True
 
             discovery_acc = discovery_accuracy(predicted_endpoints, gold_endpoints)
             exec_acc = execution_accuracy(predicted_answers, gold_answers)
             f1 = f1_score(predicted_answers, gold_answers)
-            results.append({
+                                                                    
+            result = {
                 "question": question,
                 "predicted_endpoints": predicted_endpoints,
                 "gold_endpoints": gold_endpoints,
@@ -40,13 +61,33 @@ def evaluate(pipeline, benchmark_path: str, mode: str = 'full'):
                 "gold_answers": gold_answers,
                 "discovery_accuracy": discovery_acc,
                 "execution_accuracy": exec_acc,
-                "f1_score": f1
-            })
-    
-    print(f"Average Discovery Accuracy: {sum(r['discovery_accuracy'] for r in results) / len(results):.4f}")
-    print(f"Average Accuracy: {sum(r['execution_accuracy'] for r in results) / len(results):.4f}")
-    print(f"Average F1 Score: {sum(r['f1_score'] for r in results) / len(results):.4f}")
+                "f1_score": f1,
+                "manually_check": manually_check,
+                "refinement_attempts": refinement_attempts,
+                "discovery_attempts": discovery_attempts,
+            }
+            results.append(result)
+            processed_questions.add(question)
 
-    with open('evaluation_results.json', 'w') as f:
-        json.dump(results, f, indent=2)
+            # Save incrementally after each question
+            with open(output_path, 'w') as f:
+                json.dump(results, f, indent=2)
+            print(f"[{len(results)}] Saved result for: {question[:80]}")
+
+    if results:
+        n = len(results)
+
+        def mean(key):
+            return sum(r[key] for r in results) / n
+
+        def std(key):
+            m = mean(key)
+            return math.sqrt(sum((r[key] - m) ** 2 for r in results) / n)
+
+        print(f"Average Discovery Accuracy: {mean('discovery_accuracy'):.4f}")
+        print(f"Average Execution Accuracy: {mean('execution_accuracy'):.4f}")
+        print(f"Average F1 Score:           {mean('f1_score'):.4f}")
+        print(f"Avg Refinement Attempts:    {mean('refinement_attempts'):.4f}  (std: {std('refinement_attempts'):.4f})")
+        print(f"Avg Discovery Attempts:     {mean('discovery_attempts'):.4f}  (std: {std('discovery_attempts'):.4f})")
+
     return results
