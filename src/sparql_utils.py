@@ -22,8 +22,8 @@ def execute_sparql_on_endpoint(endpoint_url: str, query: str) -> list:
         return [{k: v["value"] for k, v in row.items()} for row in bindings]
     except requests.exceptions.RequestException as e:
         print(f"Error executing SPARQL query on endpoint {endpoint_url}: {e}")
-        print(f"Response status: {e.response.status_code if hasattr(e, 'response') else 'N/A'}")
-        print(f"Response text: {e.response.text if hasattr(e, 'response') else 'N/A'}")
+        print(f"Response status: {e.response.status_code if getattr(e, 'response', None) is not None else 'N/A'}")
+        print(f"Response text: {e.response.text if getattr(e, 'response', None) is not None else 'N/A'}")
         return []
     
 def get_void_description(endpoint_url: str) -> dict:
