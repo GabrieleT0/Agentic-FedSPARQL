@@ -2,6 +2,7 @@ import dspy
 from signatures import FilterSchema, IdentifyJoins
 import sparql_utils
 import json
+from config import SCHEMA_SUMMARY_RETRY_LIMIT
 
 # Agent 2: Schema Agent
 class Schema(dspy.Module):
@@ -16,7 +17,25 @@ class Schema(dspy.Module):
         for endpoint in candidate_endpoints:
             void_descriptions[endpoint] = sparql_utils.get_void_description(endpoint)
 
-        schema_summary = self.filter(question=question, void_descriptions=json.dumps(void_descriptions))
-        identified_joins = self.identify_joins(question=question, schema_summary=schema_summary.schema_summary)
-        
-        return dspy.Prediction(schema_summary=schema_summary.schema_summary, join_candidates=identified_joins.join_candidates)
+        void_descriptions_str = json.dumps(void_descriptions)
+        schema_summary_str = None
+        for attempt in range(SCHEMA_SUMMARY_RETRY_LIMIT):
+            result = self.filter(question=question, void_descriptions=void_descriptions_str)
+            raw = result.schema_summary.strip()
+            if raw.startswith("```"):
+                raw = raw.split("```")[1]
+                if raw.startswith("json"):
+                    raw = raw[4:]
+            try:
+                json.JSONDecoder().raw_decode(raw.strip())
+                schema_summary_str = result.schema_summary
+                break
+            except (json.JSONDecodeError, ValueError) as e:
+                print(f"Schema agent attempt {attempt + 1}/3: invalid JSON in schema_summary ({e}), retrying...")
+
+        if schema_summary_str is None:
+            raise ValueError("Schema agent failed to produce valid JSON schema_summary after 3 attempts.")
+
+        identified_joins = self.identify_joins(question=question, schema_summary=schema_summary_str)
+
+        return dspy.Prediction(schema_summary=schema_summary_str, join_candidates=identified_joins.join_candidates)
