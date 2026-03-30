@@ -38,14 +38,7 @@ class QueryBuilderAgent(dspy.Module):
                 print(f"JSON decoding error: {e}")
                 previous_error = "Invalid JSON format in the generated query plan."
                 continue
-            schema_summary_raw = schema_summary.strip()
-            if schema_summary_raw.startswith("```"):
-                schema_summary_raw = schema_summary_raw.split("```")[1]
-                if schema_summary_raw.startswith("json"):
-                    schema_summary_raw = schema_summary_raw[4:]
-            # Use a decoder that stops at the first valid JSON object (handles trailing data)
-            schema_summary_parsed, _ = json.JSONDecoder().raw_decode(schema_summary_raw.strip())
-            is_valid, error_message = ir_validator.validate_ir(json_ir, schema_summary_parsed)
+            is_valid, error_message = ir_validator.validate_ir(json_ir, schema_summary)
             if is_valid:
                 compiled_query = ir_validator.compile_ir_to_sparql(json_ir)
                 return dspy.Prediction(sparql_query=compiled_query, json_ir=json_ir, success=True)
