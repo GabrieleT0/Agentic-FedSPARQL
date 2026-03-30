@@ -12,6 +12,8 @@ def validate_ir(ir: dict, schema_summary: dict) -> tuple[bool, Optional[str]]:
             return False, f"Endpoint {url} in IR is not in the schema summary." # Hallucinated endpoint
 
         for pattern in endpoint.get("patterns", []):
+            if not isinstance(pattern, dict):
+                return False, "Each pattern must be a dict with 'subject', 'predicate', and 'object' keys."
             for token in [pattern["subject"], pattern["object"]]:
                 if token.startswith("?"):
                     all_pattern_vars.add(token)
@@ -23,7 +25,7 @@ def validate_ir(ir: dict, schema_summary: dict) -> tuple[bool, Optional[str]]:
     for join_var in ir.get("join_variables", []):
         appearances = sum(
             1 for ep in ir["endpoints"]
-            if any(join_var in [p["subject"], p["object"]] for p in ep.get("patterns", []))
+            if any(isinstance(p, dict) and join_var in [p["subject"], p["object"]] for p in ep.get("patterns", []))
         )
         if appearances < 2:
             return False, f"Join variable {join_var} appears in only one endpoint."
@@ -59,6 +61,8 @@ def compile_ir_to_sparql(ir: dict) -> str:
             service_clauses.append(f"SERVICE <{url}> {{ {triples} }}")
     
     filters = "\n  ".join(f"FILTER({f})" for f in ir.get("filters", []))
+    group_by = f"GROUP BY {' '.join(ir['group_by'])}" if ir.get("group_by") else ""
+    having = "HAVING (" + " && ".join(ir["having"]) + ")" if ir.get("having") else ""
     order_by = f"ORDER BY {ir['order_by']}" if ir.get("order_by") else ""
     limit = f"LIMIT {ir['limit']}" if ir.get("limit") else ""
     where_body = "\n  ".join(service_clauses)
@@ -68,6 +72,10 @@ def compile_ir_to_sparql(ir: dict) -> str:
     query = f"{select_clause} WHERE {{\n  {where_body}\n}}"
     if prefix_clauses:
         query = prefix_clauses + "\n" + query
+    if group_by:
+        query += f"\n{group_by}"
+    if having:
+        query += f"\n{having}"
     if order_by:
         query += f"\n{order_by}"
     if limit:
