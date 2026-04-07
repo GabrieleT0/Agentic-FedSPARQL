@@ -4,7 +4,7 @@ def validate_ir(ir: dict, schema_summary: dict) -> tuple[bool, Optional[str]]:
     """Validate the intermediate representation (IR) of a SPARQL query against the schema summary of the endpoints."""
     if not ir.get("endpoints"):
         return False, "IR must contain at least one endpoint."
-    
+
     all_pattern_vars = set()
     for endpoint in ir["endpoints"]:
         url = endpoint.get("url")
@@ -14,22 +14,24 @@ def validate_ir(ir: dict, schema_summary: dict) -> tuple[bool, Optional[str]]:
         for pattern in endpoint.get("patterns", []):
             if not isinstance(pattern, dict):
                 return False, "Each pattern must be a dict with 'subject', 'predicate', and 'object' keys."
+            if not all(k in pattern for k in ("subject", "predicate", "object")):
+                return False, f"Pattern is missing required keys ('subject', 'predicate', 'object'): {pattern}"
             for token in [pattern["subject"], pattern["object"]]:
                 if token.startswith("?"):
                     all_pattern_vars.add(token)
-        
+
     for select_var in ir.get("select", []):
         if select_var not in all_pattern_vars:
             return False, f"Selected variable {select_var} is not used in any triple pattern." # Unused variable
-        
+
     for join_var in ir.get("join_variables", []):
         appearances = sum(
             1 for ep in ir["endpoints"]
-            if any(isinstance(p, dict) and join_var in [p["subject"], p["object"]] for p in ep.get("patterns", []))
+            if any(isinstance(p, dict) and join_var in [p.get("subject"), p.get("object")] for p in ep.get("patterns", []))
         )
         if appearances < 2:
             return False, f"Join variable {join_var} appears in only one endpoint."
-    
+
     return True, None
 
 def _sparql_term(token: str) -> str:
@@ -59,7 +61,7 @@ def compile_ir_to_sparql(ir: dict) -> str:
             url = endpoint['url'].strip("<>")
             triples = " . ".join(f"{_sparql_term(p['subject'])} {_sparql_term(p['predicate'])} {_sparql_term(p['object'])}" for p in patterns)
             service_clauses.append(f"SERVICE <{url}> {{ {triples} }}")
-    
+
     filters = "\n  ".join(f"FILTER({f})" for f in ir.get("filters", []))
     group_by = f"GROUP BY {' '.join(ir['group_by'])}" if ir.get("group_by") else ""
     having = "HAVING (" + " && ".join(ir["having"]) + ")" if ir.get("having") else ""
@@ -82,4 +84,4 @@ def compile_ir_to_sparql(ir: dict) -> str:
         query += f"\n{limit}"
 
     return query
-    
+
