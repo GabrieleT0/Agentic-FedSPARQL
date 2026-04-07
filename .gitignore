@@ -212,3 +212,4 @@ data/fuseki
 .DS_Store
 .claude
 data/SPIDER4FedSPARQL/shards/
+shards/
