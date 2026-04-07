@@ -31,10 +31,10 @@ class Schema(dspy.Module):
                 schema_summary_str = result.schema_summary
                 break
             except (json.JSONDecodeError, ValueError) as e:
-                print(f"Schema agent attempt {attempt + 1}/3: invalid JSON in schema_summary ({e}), retrying...")
+                print(f"Schema agent attempt {attempt + 1}/{SCHEMA_SUMMARY_RETRY_LIMIT}: invalid JSON in schema_summary ({e}), retrying...")
 
         if schema_summary_str is None:
-            raise ValueError("Schema agent failed to produce valid JSON schema_summary after 3 attempts.")
+            raise ValueError(f"Schema agent failed to produce valid JSON schema_summary after {SCHEMA_SUMMARY_RETRY_LIMIT} attempts.")
 
         identified_joins = self.identify_joins(question=question, schema_summary=schema_summary_str)
 
