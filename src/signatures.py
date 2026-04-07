@@ -1,7 +1,6 @@
 import dspy
 from typing import Literal
 
-
 class EvaluateEndpoints(dspy.Signature):
     """Given a natural language question, a set of new SPARQL endpoint descriptions to evaluate, and the endpoints
     already selected in previous iterations, determine which new endpoints are relevant and whether the full set
@@ -49,6 +48,8 @@ class QueryBuilder(dspy.Signature):
                                         "endpoints": [{"url": "...", "patterns": [{"subject": "", "predicate": "", "object": ""}]}],
                                         "join_variables": ["?var"],
                                         "filters": ["?fname = \\"Michael\\" && ?lname = \\"Goodrich\\""],
+                                        "group_by": ["?var1"],
+                                        "having": ["COUNT(*) >= 2"],
                                         "order_by": null,
                                         "limit": null
                                         }""")
@@ -56,11 +57,11 @@ class QueryBuilder(dspy.Signature):
 class DiagnoseEmptyResult(dspy.Signature):
     """
     Given in input a natural language question, the generated SPARQL query, and the results obtained by probing the 
-    SPARQL endpoint to check if the different endpoints contain the relevant data, diagnose whether the empty result is due to 
-    wrong endpoints (i.e., the SPARQL query is correct but the endpoints do not contain the relevant data) or to a wrong schema 
-    (i.e., the SPARQL query is not correctly formulated according to the actual schema of the endpoints).
+    SPARQL endpoint to check if the different endpoints contain the relevant data, diagnose whether the empty result is due to wrong endpoints (i.e., the SPARQL query is correct but the endpoints do not contain the relevant data) 
+    or to a wrong schema (i.e., the SPARQL query is not correctly formulated according to the actual schema of the endpoints). In the case of wrong endpoints, returns also the list of endpoints that are likely wrong and should be replaced in the next discovery iteration.
     """
     question: str = dspy.InputField()
     sparql_query: str = dspy.InputField()
     probe_results: str = dspy.InputField(desc='{"endpoint_url": {"classes": {"ClassName": 42}, "properties": {"propName": true}}}')
     diagnosis: Literal['wrong_endpoints', 'wrong_schema'] = dspy.OutputField()
+    wrong_endpoints: list = dspy.OutputField(desc="List of objects [{\"url\": \"http://...\", \"confidence\": 0.95}] for endpoints likely wrong and to be replaced in the next discovery iteration. confidence is a float 0.0–1.0 reflecting how clearly the probe results support excluding that endpoint. Empty list if diagnosis is 'wrong_schema'.")
