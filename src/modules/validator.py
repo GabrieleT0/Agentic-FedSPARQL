@@ -28,7 +28,12 @@ class Validator(dspy.Module):
                                 probe_results[endpoint]["classes"][pattern['object']] = sparql_utils.probe_class(endpoint, pattern['object'])
                             else:
                                 probe_results[endpoint]["properties"][pattern['predicate']] = len(sparql_utils.probe_property(endpoint, pattern['predicate'])) > 0
-        diagnosis = self.diagnose(question=question, sparql_query=sparql_query, probe_results=json.dumps(probe_results)).diagnosis
-        
-        return dspy.Prediction(is_valid=False, diagnosis=diagnosis, query_results=None)
+        validator_output = self.diagnose(question=question, sparql_query=sparql_query, probe_results=json.dumps(probe_results))
+        diagnosis = validator_output.diagnosis
+        raw_wrong = validator_output.wrong_endpoints or []
+        print("Raw wrong endpoints from diagnosis:", raw_wrong)
+        # Only blacklist endpoints where the LLM is confident enough
+        confident_wrong = [e["url"] for e in raw_wrong if isinstance(e, dict) and e.get("confidence", 0) >= 0.8]
+
+        return dspy.Prediction(is_valid=False, diagnosis=diagnosis, query_results=None, wrong_endpoints=confident_wrong)
     
