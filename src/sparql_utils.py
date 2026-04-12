@@ -2,17 +2,28 @@ import requests
 
 FEDERATED_ENDPOINT = "http://host.docker.internal:3030/fkgqa_federation/sparql"
 
+class SPARQLExecutionError(Exception):
+    """Raised when a SPARQL endpoint returns an error response (e.g. 400 parse error)."""
+    def __init__(self, message: str, status_code: int = None):
+        super().__init__(message)
+        self.status_code = status_code
+
+
 def execute_sparql_on_endpoint(endpoint_url: str, query: str) -> list:
-    """Execute a SPARQL query on a given endpoint and return the results."""
+    """Execute a SPARQL query on a given endpoint and return the results.
+
+    Returns an empty list when the query succeeds but has no results.
+    Raises SPARQLExecutionError on HTTP errors (e.g. 400 parse errors).
+    """
     headers = {
         "Accept": "application/sparql-results+json",
         "Content-Type": "application/x-www-form-urlencoded"
     }
     try:
         response = requests.post(
-            endpoint_url, 
-            data={"query": query}, 
-            headers=headers, 
+            endpoint_url,
+            data={"query": query},
+            headers=headers,
             timeout=1000
         )
         response.raise_for_status()
@@ -21,10 +32,13 @@ def execute_sparql_on_endpoint(endpoint_url: str, query: str) -> list:
 
         return [{k: v["value"] for k, v in row.items()} for row in bindings]
     except requests.exceptions.RequestException as e:
+        resp = getattr(e, 'response', None)
+        status = resp.status_code if resp is not None else None
+        text = resp.text if resp is not None else str(e)
         print(f"Error executing SPARQL query on endpoint {endpoint_url}: {e}")
-        print(f"Response status: {e.response.status_code if getattr(e, 'response', None) is not None else 'N/A'}")
-        print(f"Response text: {e.response.text if getattr(e, 'response', None) is not None else 'N/A'}")
-        return []
+        print(f"Response status: {status if status is not None else 'N/A'}")
+        print(f"Response text: {text}")
+        raise SPARQLExecutionError(text, status_code=status) from e
     
 def get_void_description(endpoint_url: str) -> dict:
     """Get the VoID description of a SPARQL endpoint, including sample literal values and join-key candidates."""
@@ -84,7 +98,10 @@ def probe_class(endpoint_url: str, class_uri: str) -> int:
                 ?s a <{class_uri}> .
             }}
         """
-    results = execute_sparql_on_endpoint(endpoint_url, query)
+    try:
+        results = execute_sparql_on_endpoint(endpoint_url, query)
+    except SPARQLExecutionError:
+        return 0
     if results and "count" in results[0]:
         return int(results[0]["count"])
     return 0
@@ -97,9 +114,15 @@ def probe_property(endpoint_url: str, property_uri: str) -> list:
                     ?s <{property_uri}> ?val .
                 }} LIMIT 10
         """
-    results = execute_sparql_on_endpoint(endpoint_url, query)
-    return results
+    try:
+        return execute_sparql_on_endpoint(endpoint_url, query)
+    except SPARQLExecutionError:
+        return []
 
 def execute_sparql_query(query: str) -> list:
-    """Execute a federated SPARQL query on the local Fuseki federation endpoint."""
+    """Execute a federated SPARQL query on the local Fuseki federation endpoint.
+
+    Returns an empty list on empty results.
+    Raises SPARQLExecutionError on HTTP errors.
+    """
     return execute_sparql_on_endpoint(FEDERATED_ENDPOINT, query)
