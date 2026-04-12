@@ -33,7 +33,6 @@ class QueryBuilderAgent(dspy.Module):
                         if raw.startswith("json"):
                             raw = raw[4:]
                     json_ir = json.loads(raw)
-                print(json_ir)
             except (json.JSONDecodeError, IndexError) as e:
                 print(f"JSON decoding error: {e}")
                 previous_error = "Invalid JSON format in the generated query plan."
