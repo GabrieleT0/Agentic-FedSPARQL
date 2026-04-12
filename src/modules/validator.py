@@ -10,7 +10,12 @@ class Validator(dspy.Module):
         self.diagnose = dspy.Predict(DiagnoseEmptyResult)
 
     def forward(self, question: str, sparql_query: str, candidate_endpoints: list, json_ir: dict) -> dspy.Prediction:
-        query_results = sparql_utils.execute_sparql_query(sparql_query)
+        try:
+            query_results = sparql_utils.execute_sparql_query(sparql_query)
+        except sparql_utils.SPARQLExecutionError as e:
+            error_msg = f"SPARQL execution error (status {e.status_code}): {e}"
+            print(error_msg)
+            return dspy.Prediction(is_valid=False, diagnosis=error_msg, query_results=None, wrong_endpoints=[])
         if len(query_results) > 0:
             return dspy.Prediction(is_valid=True, diagnosis=None, query_results=query_results)
         
