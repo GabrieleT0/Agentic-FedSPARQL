@@ -24,7 +24,7 @@ def evaluate(pipeline, benchmark_path: str, mode: str = 'full', output_path: str
     results, processed_questions = load_existing_results(output_path)
 
     for example in examples:
-        if example['validation']['valid'] == True:
+        if example['validation']['valid'] == True and example['validation']['original_count'] > 0:
             question = example['question']
 
             if question in processed_questions:
