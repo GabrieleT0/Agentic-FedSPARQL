@@ -2,7 +2,12 @@ import dspy
 from signatures import FilterSchema, IdentifyJoins
 import sparql_utils
 import json
+from functools import lru_cache
 from config import SCHEMA_SUMMARY_RETRY_LIMIT
+
+@lru_cache(maxsize=None)
+def _get_void_description_cached(endpoint: str):
+    return sparql_utils.get_void_description(endpoint)
 
 # Agent 2: Schema Agent
 class Schema(dspy.Module):
@@ -15,7 +20,7 @@ class Schema(dspy.Module):
         void_descriptions = {}
 
         for endpoint in candidate_endpoints:
-            void_descriptions[endpoint] = sparql_utils.get_void_description(endpoint)
+            void_descriptions[endpoint] = _get_void_description_cached(endpoint)
 
         void_descriptions_str = json.dumps(void_descriptions)
         schema_summary_str = None
