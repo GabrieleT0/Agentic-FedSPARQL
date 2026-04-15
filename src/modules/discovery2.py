@@ -9,7 +9,7 @@ import nltk
 nltk.download('punkt', quiet=True)
 nltk.download('punkt_tab', quiet=True)
 from config import ENDPOINTS_FILE_PATH, BATCH_SIZE
-from signatures import EvaluateEndpoints
+from signatures import EvaluateEndpoints, ExpandQuery
 
 
 def _cosine(a, b):
@@ -31,6 +31,7 @@ class Discovery2(dspy.Module):
     def __init__(self, model_name: str = 'nomic-ai/nomic-embed-text-v1.5'):
         super().__init__()
         self.model = SentenceTransformer(model_name, device='cpu', trust_remote_code=True)
+        self.expand_query = dspy.Predict(ExpandQuery)
         self.evaluate = dspy.ChainOfThought(EvaluateEndpoints)
         self.index = {}
         self.static_descriptions = {}
@@ -57,16 +58,25 @@ class Discovery2(dspy.Module):
             classes = el.get('classes', [])
             properties = el.get('properties', [])
             description = el.get('description', '')
+            examples = el.get('examples', [])
 
             endpoint_label = url.rstrip('/').split('/')[-2].replace('__', ' ').replace('_', ' ')
             class_names = [self._local_name(c) for c in classes if 'rdf-syntax-ns' not in c]
             prop_names = [self._local_name(p) for p in properties if 'rdf-syntax-ns' not in p]
+            # Extract readable tokens from example SPARQL queries
+            example_text = ' '.join(
+                self._local_name(token)
+                for ex in examples
+                for token in ex.replace('\n', ' ').split()
+                if token.startswith('<') or '/' in token or '#' in token
+            )
 
             self.static_descriptions[url] = {
                 'endpoint': endpoint_label,
                 'classes': class_names,
                 'properties': prop_names,
                 'description': description,
+                'examples': examples,
             }
 
             self.index[url] = {
@@ -74,14 +84,22 @@ class Discovery2(dspy.Module):
                 'properties':  self.model.encode(' '.join(prop_names))  if prop_names  else np.zeros(dim),
                 'description': self.model.encode(description)           if description  else np.zeros(dim),
                 'label':       self.model.encode(endpoint_label),
+                'examples':    self.model.encode(example_text)          if example_text else np.zeros(dim),
             }
 
     def _build_bm25(self):
         for url, desc in self.static_descriptions.items():
+            example_tokens = ' '.join(
+                self._local_name(token)
+                for ex in desc.get('examples', [])
+                for token in ex.replace('\n', ' ').split()
+                if token.startswith('<') or '/' in token or '#' in token
+            )
             text = (desc['endpoint'] + ' '
                     + ' '.join(desc['classes']) + ' '
                     + ' '.join(desc['properties']) + ' '
-                    + desc['description'])
+                    + desc['description'] + ' '
+                    + example_tokens)
             self.bm25_docs.append(word_tokenize(text.lower()))
             self.bm25_urls.append(url)
         self.bm25_model = BM25Okapi(self.bm25_docs)
@@ -90,9 +108,10 @@ class Discovery2(dspy.Module):
         """Weighted cosine similarity across per-field embeddings."""
         return {
             url: (0.10 * _cosine(fields['label'],       q_emb)
-                + 0.30 * _cosine(fields['classes'],     q_emb)
-                + 0.40 * _cosine(fields['properties'],  q_emb)
-                + 0.20 * _cosine(fields['description'], q_emb))
+                + 0.25 * _cosine(fields['classes'],     q_emb)
+                + 0.30 * _cosine(fields['properties'],  q_emb)
+                + 0.20 * _cosine(fields['description'], q_emb)
+                + 0.15 * _cosine(fields['examples'],    q_emb))
             for url, fields in self.index.items()
         }
 
@@ -103,8 +122,9 @@ class Discovery2(dspy.Module):
     def forward(self, question: str, discovery_attempts: int = 0, failed_endpoints: list = None) -> dspy.Prediction:
         failed = set(failed_endpoints or [])
 
-        q_emb = self.model.encode(question)
-        q_tokens = word_tokenize(question.lower())
+        expanded = self.expand_query(question=question).expanded_question
+        q_emb = self.model.encode(expanded)
+        q_tokens = word_tokenize(expanded.lower())
 
         # Stage 1 — retrieval: dense + BM25, exclude already-failed endpoints
         dense_ranked = [url for url, _ in sorted(self._dense_scores(q_emb).items(),
