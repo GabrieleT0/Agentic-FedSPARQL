@@ -3,13 +3,13 @@ from modules.schema import Schema
 from modules.query_builder import QueryBuilderAgent
 from modules.validator import Validator
 import dspy
-from config import MAX_RETRIES
+from config import MAX_RETRIES, QUERY_BUILDER_RETRIES
 class FederatedSPARQLPipeline(dspy.Module):
     def __init__(self):
         super().__init__()
         self.discovery = Discovery2()
         self.schema = Schema()
-        self.query_builder = QueryBuilderAgent()
+        self.query_builder = QueryBuilderAgent(QUERY_BUILDER_RETRIES)
         self.validator = Validator()
 
     def forward(self, question: str) -> dspy.Prediction:
@@ -18,7 +18,7 @@ class FederatedSPARQLPipeline(dspy.Module):
         retry_from = "discovery"
         error = None
         failed_endpoints = set()
-        while refinement_attempts <= MAX_RETRIES:
+        while refinement_attempts < MAX_RETRIES:
 
             if retry_from == "discovery":
                 discovery_result = self.discovery(question=question, discovery_attempts=discovery_attempts, failed_endpoints=list(failed_endpoints))
@@ -26,8 +26,16 @@ class FederatedSPARQLPipeline(dspy.Module):
                 retry_from = "schema"
 
             if retry_from == 'schema':
-                schema_result = self.schema(question=question, candidate_endpoints=candidate_endpoints)
-                retry_from = "query_builder"
+                try:
+                    schema_result = self.schema(question=question, candidate_endpoints=candidate_endpoints)
+                    retry_from = "query_builder"
+                except ValueError as e:
+                    error = str(e)
+                    print(f"Schema agent failed: {error}. Retrying from discovery.")
+                    retry_from = 'discovery'
+                    discovery_attempts += 1
+                    refinement_attempts += 1
+                    continue
 
             if retry_from == 'query_builder':
                 query_builder_result = self.query_builder(question=question, schema_summary=schema_result.schema_summary, join_candidates=schema_result.join_candidates, previous_error=error)
@@ -58,6 +66,9 @@ class FederatedSPARQLPipeline(dspy.Module):
                 elif error == "wrong_schema":
                     refinement_attempts += 1
                     retry_from = 'schema'
+                elif error == "wrong_query" or (error and error.startswith("SPARQL execution error")):
+                    refinement_attempts += 1
+                    retry_from = 'query_builder'
             print(f"Refinement attempt {refinement_attempts} failed with error: {error}")
             print("Generated SPARQL Query Results:")
             print(validator_result.query_results)
