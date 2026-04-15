@@ -65,16 +65,35 @@ def validate_ir(ir: dict, schema_summary: dict) -> tuple[bool, Optional[str]]:
             return False, f"Selected variable {select_var} is not used in any triple pattern." # Unused variable
 
     # If GROUP BY is present, every non-aggregate SELECT variable must appear in it.
+    # Variables inside non-aggregate expressions (COALESCE, CONCAT, IF, …) must also be in GROUP BY.
+    _AGGREGATE_EXPR = re.compile(
+        r'^\(\s*(COUNT|SUM|AVG|MIN|MAX|SAMPLE|GROUP_CONCAT)\s*\(', re.IGNORECASE
+    )
     group_by_vars = ir.get("group_by", [])
     if group_by_vars:
         for select_var in ir.get("select", []):
-            if select_var.startswith("("):
-                continue
-            if select_var not in group_by_vars:
-                return False, (
-                    f"Selected variable {select_var} is not in GROUP BY. "
-                    "Add it to 'group_by' or wrap it in an aggregate expression."
-                )
+            if not select_var.startswith("("):
+                # Plain variable
+                if select_var not in group_by_vars:
+                    return False, (
+                        f"Selected variable {select_var} is not in GROUP BY. "
+                        "Add it to 'group_by' or wrap it in an aggregate expression."
+                    )
+            elif not _AGGREGATE_EXPR.match(select_var):
+                # Non-aggregate expression like (COALESCE(...) AS ?alias) —
+                # every ?var referenced inside must be in GROUP BY (excluding the alias itself).
+                as_match = re.search(r'\bAS\s+\?(\w+)\s*\)\s*$', select_var, re.IGNORECASE)
+                alias = f"?{as_match.group(1)}" if as_match else None
+                for var_name in re.findall(r'\?(\w+)', select_var):
+                    full_var = f"?{var_name}"
+                    if full_var == alias:
+                        continue
+                    if full_var not in group_by_vars:
+                        return False, (
+                            f"Variable {full_var} inside a non-aggregate SELECT expression "
+                            f"({select_var!r}) is not in GROUP BY. "
+                            "Add it to 'group_by', or use SAMPLE(?var) to pick an arbitrary value per group."
+                        )
 
     for f in ir.get("filters", []):
         if re.match(r'^FILTER\s*\(', f.strip(), re.IGNORECASE):
