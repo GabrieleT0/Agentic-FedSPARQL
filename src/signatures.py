@@ -1,16 +1,29 @@
 import dspy
 from typing import Literal
 
+class ExpandQuery(dspy.Signature):
+    """Expand a natural language question with synonyms and related database/schema terms
+    to improve retrieval of relevant SPARQL endpoints.
+    Add domain-specific vocabulary: table names, column names, entity types, and
+    alternative phrasings that a database schema might use to represent the concepts
+    in the question. Keep the output concise (1-2 sentences)."""
+    question: str = dspy.InputField()
+    expanded_question: str = dspy.OutputField(desc="The original question enriched with relevant database/schema synonyms and related terms. Must stay semantically faithful to the original.")
+
 class EvaluateEndpoints(dspy.Signature):
     """Given a natural language question, a set of new SPARQL endpoint descriptions to evaluate, and the endpoints
     already selected in previous iterations, determine which new endpoints are relevant and whether the full set
     (already selected + newly relevant) is now sufficient to answer the question completely.
-    If some required data still appears to be missing, mark as insufficient so more endpoints can be retrieved."""
+    If some required data still appears to be missing, mark as insufficient so more endpoints can be retrieved.
+
+    IMPORTANT: favour recall over precision. If an endpoint MIGHT contain data needed to answer the question,
+    include it. It is much cheaper to include a false positive than to miss a required endpoint.
+    Only exclude an endpoint when you are certain it cannot contribute any data to the answer."""
     question: str = dspy.InputField()
-    already_selected_descriptions: str = dspy.InputField(desc='JSON: {endpoint_url: {classes: [...], properties: [...]}} — endpoints already chosen in previous batches. Empty object if this is the first batch.')
-    candidate_descriptions: str = dspy.InputField(desc='JSON: {endpoint_url: {classes: [...], properties: [...]}} — new endpoints to evaluate in this batch.')
-    relevant_endpoints: list = dspy.OutputField(desc="List of endpoint URLs from candidate_descriptions that are relevant to answering the question. Empty list if none are relevant.")
-    is_sufficient: bool = dspy.OutputField(desc="True if already_selected + relevant_endpoints collectively contain all data needed to fully answer the question. False if more endpoints are likely needed.")
+    already_selected_descriptions: str = dspy.InputField(desc='JSON: {endpoint_url: {classes: [...], properties: [...], examples: [...]}} — endpoints already chosen in previous batches. Empty object if this is the first batch.')
+    candidate_descriptions: str = dspy.InputField(desc='JSON: {endpoint_url: {classes: [...], properties: [...], examples: [...]}} — new endpoints to evaluate in this batch. When in doubt, include the endpoint.')
+    relevant_endpoints: list = dspy.OutputField(desc="List of endpoint URLs from candidate_descriptions that are relevant or potentially relevant to answering the question. Prefer to include rather than exclude when uncertain.")
+    is_sufficient: bool = dspy.OutputField(desc="True if already_selected + relevant_endpoints collectively contain all data needed to fully answer the question. False if more endpoints might be needed.")
 
 class FilterSchema(dspy.Signature):
     """Given in input a natural language question, and different VoID descriptions for the SPARQL endpoint that must contain the answers, create
@@ -30,25 +43,34 @@ class IdentifyJoins(dspy.Signature):
 class QueryBuilder(dspy.Signature):
     """Given a natural language question, the relevant schema for each SPARQL endpoint (including sample values showing how data is stored),
        and the identified join candidates, create a JSON query plan for a federated SPARQL query.
-
+       
        Rules:
        - Use SERVICE clauses for every endpoint whose data is needed.
        - If join_candidates is non-empty, always produce a multi-endpoint federated query using the join variables.
        - When the question mentions specific names, values, or entities, always add FILTER clauses using the sample_values
          to understand the correct property and value format (e.g. FILTER(?fname = "Michael" && ?lname = "Goodrich")).
        - Use full URIs for all classes and properties (no angle brackets in the JSON values).
-       - Declare all namespace prefixes used."""
+       - Declare all namespace prefixes used.
+       - If the question asks for a count, sum, max, min, or average, include an aggregate expression in 'select' using the form "(COUNT(?x) AS ?alias)".
+       - Every variable in 'select' that is NOT an aggregate expression MUST appear in 'group_by'.
+       - Variables used INSIDE non-aggregate expressions such as COALESCE, CONCAT, IF, STR, LANG, etc.
+         (e.g. "(COALESCE(?upName, ?dmName) AS ?name)") must ALSO appear in 'group_by'.
+         If you cannot add all such variables to GROUP BY, use SAMPLE(?var) instead of a bare variable
+         (e.g. "(COALESCE(SAMPLE(?upName), SAMPLE(?dmName)) AS ?name)").
+       - 'order_by' may reference an aggregate alias (e.g. "DESC(?count)") defined in 'select'.
+       - Never reference an alias in 'order_by' that is not defined as an aggregate in 'select'.
+       """
     question: str = dspy.InputField()
     schema_summary: str = dspy.InputField(desc='JSON string: {endpoint: {classes: [...], properties: [...], sample_values: {property_uri: "example_value"}, join_keys: [{property: "", links_to_class: ""}]}}')
     join_candidates: str = dspy.InputField(desc='JSON string structured as: [{"endpoint_a": "", "endpoint_b": "", "property_a": "", "property_b": "", "join_variable": ""}...]')
     previous_error: str = dspy.InputField(desc="Error message from the previous execution of the generated SPARQL query, if any. \"none\" otherwise.")
-    query_plan: str = dspy.OutputField(desc="""{"prefixes": {"foaf": "http://xmlns.com/foaf/0.1/", "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"},
-                                        "select": ["?var1", "?var2"],
+    query_plan: str = dspy.OutputField(desc="""JSON string structured as: {"prefixes": {"foaf": "http://xmlns.com/foaf/0.1/", "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"},
+                                        "select": ["?var1", "?var2", "(COUNT(?var3) AS ?count)"],
                                         "distinct": false,
                                         "endpoints": [{"url": "...", "patterns": [{"subject": "", "predicate": "", "object": ""}]}],
                                         "join_variables": ["?var"],
                                         "filters": ["?fname = \\"Michael\\" && ?lname = \\"Goodrich\\""],
-                                        "group_by": ["?var1"],
+                                        "group_by": ["?var1", "?var2"],
                                         "having": ["COUNT(*) >= 2"],
                                         "order_by": null,
                                         "limit": null
