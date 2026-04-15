@@ -1,0 +1,19 @@
+services:
+  fuseki:
+    image: stain/jena-fuseki:latest
+    platform: linux/amd64
+    container_name: agentic-fedsparql-fuseki
+    ports:
+      - "3030:3030"
+    environment:
+      - JVM_ARGS=-Xms4g -Xmx16g -XX:+UseG1GC -XX:MaxGCPauseMillis=200
+      - FUSEKI_ARGS=--uploadLimit=0 --timeout=30000,120000
+      - JAVA_OPTIONS=-Djena.tdb.store.txn.maxReaders=100
+    volumes:
+      - fuseki_data:/fuseki
+    mem_limit: 18g
+    mem_reservation: 4g
+    restart: unless-stopped
+
+volumes:
+  fuseki_data:
