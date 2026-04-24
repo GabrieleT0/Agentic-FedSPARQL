@@ -27,7 +27,7 @@ def f1_score(predicted: list, gold: list) -> float:
     return 2 * (precision * recall) / (precision + recall)
 
 def discovery_accuracy(predicted_endpoints: list, gold_endpoints: list) -> float:
-    """Calculate the discovery accuracy between the predicted and gold endpoints."""
+    """Calculate exact-match discovery accuracy between predicted and gold endpoints."""
     predicted_set = set(predicted_endpoints)
     gold_set = set(gold_endpoints)
-    return 1.0 if gold_set.issubset(predicted_set) else 0.0
+    return 1.0 if predicted_set == gold_set else 0.0
