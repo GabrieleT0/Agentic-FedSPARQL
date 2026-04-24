@@ -40,7 +40,7 @@ class QueryBuilderAgent(dspy.Module):
             is_valid, error_message = ir_validator.validate_ir(json_ir, schema_summary)
             if is_valid:
                 compiled_query = ir_validator.compile_ir_to_sparql(json_ir)
-                return dspy.Prediction(sparql_query=compiled_query, json_ir=json_ir, success=True)
+                return dspy.Prediction(sparql_query=compiled_query, json_ir=json_ir, success=True, internal_retries=attempt + 1)
             previous_error = error_message
-        return dspy.Prediction(sparql_query=None, json_ir=None, success=False, error_type=previous_error)
+        return dspy.Prediction(sparql_query=None, json_ir=None, success=False, error_type=previous_error, internal_retries=self.max_retries)
                 
