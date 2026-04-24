@@ -3,6 +3,7 @@ import requests
 from functools import lru_cache
 
 FEDERATED_ENDPOINT = "http://host.docker.internal:3030/fkgqa_federation/sparql"
+TRANSIENT_STATUS_CODES = {408, 429, 500, 502, 503, 504}
 
 
 class SPARQLExecutionError(Exception):
@@ -17,8 +18,8 @@ def execute_sparql_on_endpoint(endpoint_url: str, query: str, retries: int = 5, 
 
     Returns an empty list when the query succeeds but has no results.
     Raises SPARQLExecutionError on HTTP errors (e.g. 400 parse errors).
-    Retries on connection-level errors (e.g. RemoteDisconnected) which can
-    occur with federated queries that trigger sub-queries to remote endpoints.
+    Retries on transient transport and server errors which can occur with
+    federated queries that trigger sub-queries to remote endpoints.
     """
     headers = {
         "Accept": "application/sparql-results+json",
@@ -37,16 +38,28 @@ def execute_sparql_on_endpoint(endpoint_url: str, query: str, retries: int = 5, 
             response_json = response.json()
             bindings = response_json.get("results", {}).get("bindings", [])
             return [{k: v["value"] for k, v in row.items()} for row in bindings]
-        except requests.exceptions.ConnectionError as e:
+        except (requests.exceptions.ConnectionError, requests.exceptions.Timeout) as e:
             last_exc = e
             if attempt < retries - 1:
-                print(f"Connection error on attempt {attempt + 1}/{retries}, retrying in {retry_delay}s: {e}")
+                print(
+                    f"Transient SPARQL error on attempt {attempt + 1}/{retries}, "
+                    f"retrying in {retry_delay}s: {e}"
+                )
                 time.sleep(retry_delay)
                 continue
         except requests.exceptions.RequestException as e:
             resp = getattr(e, 'response', None)
             status = resp.status_code if resp is not None else None
             text = resp.text if resp is not None else str(e)
+            if status in TRANSIENT_STATUS_CODES:
+                last_exc = e
+                if attempt < retries - 1:
+                    print(
+                        f"Transient SPARQL HTTP error {status} on attempt {attempt + 1}/{retries}, "
+                        f"retrying in {retry_delay}s."
+                    )
+                    time.sleep(retry_delay)
+                    continue
             print(f"Error executing SPARQL query on endpoint {endpoint_url}: {e}")
             print(f"Response status: {status if status is not None else 'N/A'}")
             print(f"Response text: {text}")
