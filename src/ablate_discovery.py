@@ -4,15 +4,18 @@ Examples:
   python3 src/ablate_discovery.py
   python3 src/ablate_discovery.py --split dev --limit 50 --label-weight 0.2 --properties-weight 0.35
   python3 src/ablate_discovery.py --grid-config data/discovery_grid.json --output data/discovery_ablation.csv
+  python3 src/ablate_discovery.py --output data/discovery_ablation.csv  # resumes from data/discovery_ablation.checkpoint.json
 """
 
 import argparse
 import csv
+import hashlib
 import itertools
 import json
 import os
+import tempfile
 from pathlib import Path
-from typing import Any
+from typing import Any, Callable
 
 from config import BENCHMARK_DATA_PATH
 from metrics import discovery_accuracy
@@ -39,6 +42,28 @@ def discovery_f1(predicted_endpoints: list[str], gold_endpoints: list[str]) -> f
 
 def mean(values: list[float]) -> float:
     return sum(values) / len(values) if values else 0.0
+
+
+def atomic_write_json(output_path: str | Path, payload: dict[str, Any]) -> None:
+    """Persist JSON atomically so an interruption cannot corrupt the checkpoint."""
+    output = Path(output_path)
+    output.parent.mkdir(parents=True, exist_ok=True)
+
+    with tempfile.NamedTemporaryFile("w", dir=output.parent, delete=False) as tmp:
+        json.dump(payload, tmp, indent=2)
+        tmp_path = tmp.name
+
+    os.replace(tmp_path, output)
+
+
+def default_checkpoint_path(output_path: str) -> str:
+    output = Path(output_path)
+    return str(output.with_name(f"{output.stem}.checkpoint.json"))
+
+
+def stable_hash(payload: Any) -> str:
+    encoded = json.dumps(payload, sort_keys=True, separators=(",", ":"), default=str).encode("utf-8")
+    return hashlib.sha256(encoded).hexdigest()
 
 
 def load_examples(benchmark_path: str, split: str, limit: int | None) -> list[dict[str, Any]]:
@@ -78,10 +103,34 @@ def gold_endpoints_for_example(example: dict[str, Any], use_service_endpoints: b
     return [ep["url"] for ep in example.get("endpoints", [])]
 
 
-def evaluate_config(
-    examples: list[dict[str, Any]],
+def evaluate_example(
+    discovery: Discovery2,
+    example: dict[str, Any],
+    example_index: int,
+    use_service_endpoints: bool,
+) -> dict[str, Any]:
+    gold_endpoints = gold_endpoints_for_example(example, use_service_endpoints=use_service_endpoints)
+    prediction = discovery(question=example["question"])
+    predicted_endpoints = prediction.candidate_endpoints or []
+    accuracy = discovery_accuracy(predicted_endpoints, gold_endpoints)
+    f1 = discovery_f1(predicted_endpoints, gold_endpoints)
+
+    return {
+        "example_index": example_index,
+        "question": example["question"],
+        "gold_endpoints": gold_endpoints,
+        "predicted_endpoints": predicted_endpoints,
+        "discovery_accuracy": accuracy,
+        "discovery_f1": f1,
+        "predicted_size": len(set(predicted_endpoints)),
+        "gold_size": len(set(gold_endpoints)),
+        "discovery_internal_retries": prediction.internal_retries or 0,
+    }
+
+
+def summarize_example_results(
+    example_results: list[dict[str, Any]],
     *,
-    model_name: str,
     dense_weights: dict[str, float],
     bm25_k1: float,
     bm25_b: float,
@@ -89,50 +138,15 @@ def evaluate_config(
     batch_size: int,
     discovery_retry_limit: int,
     rrf_k: int,
-    use_service_endpoints: bool,
 ) -> dict[str, Any]:
-    discovery = Discovery2(
-        model_name=model_name,
-        dense_weights=dense_weights,
-        bm25_k1=bm25_k1,
-        bm25_b=bm25_b,
-        bm25_epsilon=bm25_epsilon,
-        batch_size=batch_size,
-        discovery_retry_limit=discovery_retry_limit,
-        rrf_k=rrf_k,
-    )
-
-    accuracy_values = []
-    f1_values = []
-    predicted_sizes = []
-    gold_sizes = []
-    retry_values = []
-
-    for idx, example in enumerate(examples, start=1):
-        gold_endpoints = gold_endpoints_for_example(example, use_service_endpoints=use_service_endpoints)
-        prediction = discovery(question=example["question"])
-        predicted_endpoints = prediction.candidate_endpoints or []
-
-        accuracy_values.append(discovery_accuracy(predicted_endpoints, gold_endpoints))
-        f1_values.append(discovery_f1(predicted_endpoints, gold_endpoints))
-        predicted_sizes.append(len(set(predicted_endpoints)))
-        gold_sizes.append(len(set(gold_endpoints)))
-        retry_values.append(prediction.internal_retries or 0)
-
-        print(
-            f"[{idx}/{len(examples)}] "
-            f"acc={accuracy_values[-1]:.0f} f1={f1_values[-1]:.4f} "
-            f"pred={len(set(predicted_endpoints))} gold={len(set(gold_endpoints))}"
-        )
-
     normalized_weights = Discovery2._resolve_dense_weights(dense_weights)
     return {
-        "n_examples": len(examples),
-        "discovery_accuracy_mean": round(mean(accuracy_values), 4),
-        "discovery_f1_mean": round(mean(f1_values), 4),
-        "avg_predicted_endpoints": round(mean(predicted_sizes), 4),
-        "avg_gold_endpoints": round(mean(gold_sizes), 4),
-        "avg_discovery_internal_retries": round(mean(retry_values), 4),
+        "n_examples": len(example_results),
+        "discovery_accuracy_mean": round(mean([r["discovery_accuracy"] for r in example_results]), 4),
+        "discovery_f1_mean": round(mean([r["discovery_f1"] for r in example_results]), 4),
+        "avg_predicted_endpoints": round(mean([r["predicted_size"] for r in example_results]), 4),
+        "avg_gold_endpoints": round(mean([r["gold_size"] for r in example_results]), 4),
+        "avg_discovery_internal_retries": round(mean([r["discovery_internal_retries"] for r in example_results]), 4),
         "bm25_k1": bm25_k1,
         "bm25_b": bm25_b,
         "bm25_epsilon": bm25_epsilon,
@@ -145,6 +159,85 @@ def evaluate_config(
         "description_weight": round(normalized_weights["description"], 6),
         "examples_weight": round(normalized_weights["examples"], 6),
     }
+
+
+def evaluate_config(
+    examples: list[dict[str, Any]],
+    *,
+    model_name: str,
+    dense_weights: dict[str, float],
+    bm25_k1: float,
+    bm25_b: float,
+    bm25_epsilon: float,
+    batch_size: int,
+    discovery_retry_limit: int,
+    rrf_k: int,
+    use_service_endpoints: bool,
+    saved_example_results: list[dict[str, Any]] | None = None,
+    on_example_saved: Callable[[dict[str, Any]], None] | None = None,
+) -> dict[str, Any]:
+    example_results = sorted(saved_example_results or [], key=lambda row: row["example_index"])
+    completed_indexes = {row["example_index"] for row in example_results}
+
+    if completed_indexes:
+        print(f"Resuming run: {len(completed_indexes)}/{len(examples)} example(s) already saved.")
+
+    if len(completed_indexes) == len(examples):
+        return summarize_example_results(
+            example_results,
+            dense_weights=dense_weights,
+            bm25_k1=bm25_k1,
+            bm25_b=bm25_b,
+            bm25_epsilon=bm25_epsilon,
+            batch_size=batch_size,
+            discovery_retry_limit=discovery_retry_limit,
+            rrf_k=rrf_k,
+        )
+
+    discovery = Discovery2(
+        model_name=model_name,
+        dense_weights=dense_weights,
+        bm25_k1=bm25_k1,
+        bm25_b=bm25_b,
+        bm25_epsilon=bm25_epsilon,
+        batch_size=batch_size,
+        discovery_retry_limit=discovery_retry_limit,
+        rrf_k=rrf_k,
+    )
+
+    for idx, example in enumerate(examples, start=1):
+        example_index = idx - 1
+        if example_index in completed_indexes:
+            continue
+
+        example_result = evaluate_example(
+            discovery,
+            example,
+            example_index,
+            use_service_endpoints=use_service_endpoints,
+        )
+        example_results.append(example_result)
+        completed_indexes.add(example_index)
+
+        if on_example_saved is not None:
+            on_example_saved(example_result)
+
+        print(
+            f"[{idx}/{len(examples)}] "
+            f"acc={example_result['discovery_accuracy']:.0f} f1={example_result['discovery_f1']:.4f} "
+            f"pred={example_result['predicted_size']} gold={example_result['gold_size']} saved"
+        )
+
+    return summarize_example_results(
+        example_results,
+        dense_weights=dense_weights,
+        bm25_k1=bm25_k1,
+        bm25_b=bm25_b,
+        bm25_epsilon=bm25_epsilon,
+        batch_size=batch_size,
+        discovery_retry_limit=discovery_retry_limit,
+        rrf_k=rrf_k,
+    )
 
 
 def load_grid_configs(path: str, base_config: dict[str, Any]) -> list[dict[str, Any]]:
@@ -175,6 +268,77 @@ def write_results(rows: list[dict[str, Any]], output_path: str) -> None:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)
+
+
+def sorted_result_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return sorted(
+        rows,
+        key=lambda row: (row["discovery_accuracy_mean"], row["discovery_f1_mean"]),
+        reverse=True,
+    )
+
+
+def checkpoint_fingerprint(
+    args: argparse.Namespace,
+    configs: list[dict[str, Any]],
+    examples: list[dict[str, Any]],
+) -> str:
+    example_signature = [
+        {
+            "question": example.get("question"),
+            "gold_endpoints": gold_endpoints_for_example(
+                example,
+                use_service_endpoints=args.use_service_endpoints,
+            ),
+        }
+        for example in examples
+    ]
+    return stable_hash(
+        {
+            "benchmark": str(Path(args.benchmark).resolve()),
+            "split": args.split,
+            "limit": args.limit,
+            "use_service_endpoints": args.use_service_endpoints,
+            "configs": configs,
+            "examples": example_signature,
+        }
+    )
+
+
+def load_checkpoint(checkpoint_path: str, fingerprint: str, fresh: bool) -> dict[str, Any] | None:
+    if fresh:
+        return None
+
+    path = Path(checkpoint_path)
+    if not path.exists():
+        return None
+
+    try:
+        with open(path, "r") as f:
+            checkpoint = json.load(f)
+    except json.JSONDecodeError as exc:
+        print(f"Warning: could not parse checkpoint {checkpoint_path}: {exc}. Starting fresh.")
+        return None
+
+    if checkpoint.get("schema_version") != 1:
+        print(f"Warning: ignoring checkpoint {checkpoint_path} with unsupported schema.")
+        return None
+
+    if checkpoint.get("fingerprint") != fingerprint:
+        print(f"Warning: checkpoint {checkpoint_path} does not match this run. Starting fresh.")
+        return None
+
+    return checkpoint
+
+
+def completed_rows_from_checkpoint(checkpoint: dict[str, Any]) -> list[dict[str, Any]]:
+    runs = checkpoint.get("runs", {})
+    rows = []
+    for run_key in sorted(runs, key=lambda value: int(value)):
+        run_state = runs[run_key]
+        if run_state.get("status") == "completed" and run_state.get("summary"):
+            rows.append(run_state["summary"])
+    return rows
 
 
 def main() -> None:
@@ -209,6 +373,16 @@ def main() -> None:
         default=os.path.join(os.path.dirname(BENCHMARK_DATA_PATH), "..", "discovery_ablation_results.csv"),
         help="CSV file for ablation results.",
     )
+    parser.add_argument(
+        "--checkpoint",
+        default=None,
+        help="JSON checkpoint for resumable progress. Defaults to <output-stem>.checkpoint.json.",
+    )
+    parser.add_argument(
+        "--fresh",
+        action="store_true",
+        help="Ignore any existing checkpoint and start this ablation from scratch.",
+    )
     args = parser.parse_args()
 
     examples = load_examples(args.benchmark, split=args.split, limit=args.limit)
@@ -231,10 +405,77 @@ def main() -> None:
     else:
         configs = [base_config]
 
-    rows = []
+    checkpoint_path = args.checkpoint or default_checkpoint_path(args.output)
+    fingerprint = checkpoint_fingerprint(args, configs, examples)
+    checkpoint = load_checkpoint(checkpoint_path, fingerprint=fingerprint, fresh=args.fresh)
+    if checkpoint is None:
+        checkpoint = {
+            "schema_version": 1,
+            "fingerprint": fingerprint,
+            "benchmark": str(Path(args.benchmark).resolve()),
+            "split": args.split,
+            "limit": args.limit,
+            "use_service_endpoints": args.use_service_endpoints,
+            "n_examples": len(examples),
+            "n_runs": len(configs),
+            "runs": {},
+        }
+        atomic_write_json(checkpoint_path, checkpoint)
+        print(f"Checkpointing progress to {checkpoint_path}")
+    else:
+        print(f"Resuming from checkpoint {checkpoint_path}")
+
+    existing_rows = completed_rows_from_checkpoint(checkpoint)
+    if existing_rows:
+        write_results(sorted_result_rows(existing_rows), args.output)
+
     for run_idx, config in enumerate(configs, start=1):
+        run_key = str(run_idx)
+        run_state = checkpoint["runs"].setdefault(
+            run_key,
+            {
+                "config": config,
+                "status": "pending",
+                "examples": [],
+                "summary": None,
+            },
+        )
+        run_state["config"] = config
+
+        if run_state.get("status") == "completed" and run_state.get("summary"):
+            row = run_state["summary"]
+            print(
+                f"\n=== Discovery Ablation Run {run_idx}/{len(configs)} already completed ==="
+            )
+            print(
+                f"Run {run_idx}: accuracy={row['discovery_accuracy_mean']:.4f}, "
+                f"f1={row['discovery_f1_mean']:.4f}"
+            )
+            continue
+
         print(f"\n=== Discovery Ablation Run {run_idx}/{len(configs)} ===")
         print(json.dumps(config, indent=2))
+
+        run_state["status"] = "in_progress"
+        atomic_write_json(checkpoint_path, checkpoint)
+
+        def save_example_checkpoint(example_result: dict[str, Any]) -> None:
+            results_by_index = {
+                row["example_index"]: row
+                for row in run_state.get("examples", [])
+            }
+            results_by_index[example_result["example_index"]] = example_result
+            run_state["examples"] = [
+                results_by_index[index]
+                for index in sorted(results_by_index)
+            ]
+            checkpoint["last_position"] = {
+                "run": run_idx,
+                "example_index": example_result["example_index"],
+                "completed_examples_in_run": len(run_state["examples"]),
+            }
+            atomic_write_json(checkpoint_path, checkpoint)
+
         row = evaluate_config(
             examples,
             model_name=config["model_name"],
@@ -246,20 +487,36 @@ def main() -> None:
             discovery_retry_limit=int(config["discovery_retry_limit"]),
             rrf_k=int(config["rrf_k"]),
             use_service_endpoints=args.use_service_endpoints,
+            saved_example_results=run_state.get("examples", []),
+            on_example_saved=save_example_checkpoint,
         )
         row["run"] = run_idx
         row["split"] = args.split
         row["service_gold"] = args.use_service_endpoints
-        rows.append(row)
+
+        run_state["summary"] = row
+        run_state["status"] = "completed"
+        checkpoint["last_position"] = {
+            "run": run_idx,
+            "example_index": len(examples) - 1,
+            "completed_examples_in_run": len(run_state.get("examples", [])),
+        }
+        atomic_write_json(checkpoint_path, checkpoint)
+
+        completed_rows = completed_rows_from_checkpoint(checkpoint)
+        write_results(sorted_result_rows(completed_rows), args.output)
+
         print(
             f"Run {run_idx}: accuracy={row['discovery_accuracy_mean']:.4f}, "
             f"f1={row['discovery_f1_mean']:.4f}"
         )
 
-    rows.sort(key=lambda row: (row["discovery_accuracy_mean"], row["discovery_f1_mean"]), reverse=True)
-    write_results(rows, args.output)
+    rows = sorted_result_rows(completed_rows_from_checkpoint(checkpoint))
+    if rows:
+        write_results(rows, args.output)
 
     print(f"\nSaved {len(rows)} run(s) to {args.output}")
+    print(f"Checkpoint saved at {checkpoint_path}")
     print("Top configurations:")
     for row in rows[:5]:
         print(
