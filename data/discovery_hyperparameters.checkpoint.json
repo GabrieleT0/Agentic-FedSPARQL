@@ -282824,6 +282824,493 @@
           "predicted_size": 7,
           "gold_size": 4,
           "discovery_internal_retries": 2
+        },
+        {
+          "example_index": 7,
+          "question": "What is the name of the different car makers who produced a car in 1970?",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_makers/sparql",
+            "http://host.docker.internal:3030/car_1__model_list/sparql",
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__cars_data/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__cars_data/sparql",
+            "http://host.docker.internal:3030/car_1__model_list/sparql",
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__car_makers/sparql"
+          ],
+          "discovery_accuracy": 1.0,
+          "discovery_f1": 1.0,
+          "predicted_size": 4,
+          "gold_size": 4,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 8,
+          "question": "Which distinct car models are the produced after 1980?",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__model_list/sparql",
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__cars_data/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__cars_data/sparql",
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__model_list/sparql"
+          ],
+          "discovery_accuracy": 1.0,
+          "discovery_f1": 1.0,
+          "predicted_size": 3,
+          "gold_size": 3,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 9,
+          "question": "What are the different models for the cards produced after 1980?",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__model_list/sparql",
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__cars_data/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/products_gen_characteristics__products/sparql",
+            "http://host.docker.internal:3030/manufactory_1__products/sparql",
+            "http://host.docker.internal:3030/products_for_hire__products_for_hire/sparql",
+            "http://host.docker.internal:3030/car_1__model_list/sparql",
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/phone_1__phone/sparql",
+            "http://host.docker.internal:3030/phone_1__chip_model/sparql",
+            "http://host.docker.internal:3030/device__device/sparql",
+            "http://host.docker.internal:3030/machine_repair__machine/sparql",
+            "http://host.docker.internal:3030/railway__railway/sparql",
+            "http://host.docker.internal:3030/driving_school__vehicles/sparql",
+            "http://host.docker.internal:3030/product_catalog__catalog_contents/sparql",
+            "http://host.docker.internal:3030/tracking_orders__products/sparql",
+            "http://host.docker.internal:3030/tracking_orders__order_items/sparql",
+            "http://host.docker.internal:3030/cre_drama_workshop_groups__invoice_items/sparql",
+            "http://host.docker.internal:3030/manufacturer__furniture_manufacte/sparql",
+            "http://host.docker.internal:3030/shop_membership__member/sparql",
+            "http://host.docker.internal:3030/coffee_shop__member/sparql",
+            "http://host.docker.internal:3030/car_1__cars_data/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.2727272727272727,
+          "predicted_size": 19,
+          "gold_size": 3,
+          "discovery_internal_retries": 5
+        },
+        {
+          "example_index": 10,
+          "question": "How many car makers are there in each continents? List the continent name and the count.",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__continents/sparql",
+            "http://host.docker.internal:3030/car_1__countries/sparql",
+            "http://host.docker.internal:3030/car_1__car_makers/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_makers/sparql",
+            "http://host.docker.internal:3030/car_1__countries/sparql",
+            "http://host.docker.internal:3030/car_1__continents/sparql",
+            "http://host.docker.internal:3030/world_1__country/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.8571428571428571,
+          "predicted_size": 4,
+          "gold_size": 3,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 11,
+          "question": "What is the name of each continent and how many car makers are there in each one?",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__continents/sparql",
+            "http://host.docker.internal:3030/car_1__countries/sparql",
+            "http://host.docker.internal:3030/car_1__car_makers/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__continents/sparql",
+            "http://host.docker.internal:3030/car_1__car_makers/sparql",
+            "http://host.docker.internal:3030/car_1__countries/sparql"
+          ],
+          "discovery_accuracy": 1.0,
+          "discovery_f1": 1.0,
+          "predicted_size": 3,
+          "gold_size": 3,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 12,
+          "question": "Which of the countries has the most car makers? List the country name.",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__countries/sparql",
+            "http://host.docker.internal:3030/car_1__car_makers/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_makers/sparql",
+            "http://host.docker.internal:3030/car_1__countries/sparql",
+            "http://host.docker.internal:3030/world_1__country/sparql",
+            "http://host.docker.internal:3030/hr_1__countries/sparql",
+            "http://host.docker.internal:3030/match_season__country/sparql",
+            "http://host.docker.internal:3030/soccer_1__country/sparql",
+            "http://host.docker.internal:3030/sakila_1__country/sparql",
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/manufactory_1__manufacturers/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.3636363636363636,
+          "predicted_size": 9,
+          "gold_size": 2,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 13,
+          "question": "What is the name of the country with the most car makers?",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__countries/sparql",
+            "http://host.docker.internal:3030/car_1__car_makers/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_makers/sparql",
+            "http://host.docker.internal:3030/car_1__countries/sparql",
+            "http://host.docker.internal:3030/world_1__country/sparql",
+            "http://host.docker.internal:3030/soccer_1__country/sparql",
+            "http://host.docker.internal:3030/hr_1__countries/sparql",
+            "http://host.docker.internal:3030/manufactory_1__manufacturers/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.5,
+          "predicted_size": 6,
+          "gold_size": 2,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 14,
+          "question": "How many car models are produced by each maker ? Only list the count and the maker full name .",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_makers/sparql",
+            "http://host.docker.internal:3030/car_1__model_list/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_makers/sparql",
+            "http://host.docker.internal:3030/car_1__model_list/sparql",
+            "http://host.docker.internal:3030/car_1__car_names/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.8,
+          "predicted_size": 3,
+          "gold_size": 2,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 15,
+          "question": "What is the number of car models that are produced by each maker and what is the id and full name of each maker?",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_makers/sparql",
+            "http://host.docker.internal:3030/car_1__model_list/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_makers/sparql",
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__model_list/sparql",
+            "http://host.docker.internal:3030/car_1__cars_data/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.6666666666666666,
+          "predicted_size": 4,
+          "gold_size": 2,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 16,
+          "question": "What is the accelerate of the car make amc hornet sportabout (sw)?",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__cars_data/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__cars_data/sparql",
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__model_list/sparql",
+            "http://host.docker.internal:3030/car_1__car_makers/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.6666666666666666,
+          "predicted_size": 4,
+          "gold_size": 2,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 17,
+          "question": "How much does the car accelerate that makes amc hornet sportabout (sw)?",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__cars_data/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__cars_data/sparql",
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__model_list/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.8,
+          "predicted_size": 3,
+          "gold_size": 2,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 18,
+          "question": "How many car makers are there in france?",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__countries/sparql",
+            "http://host.docker.internal:3030/car_1__car_makers/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_makers/sparql",
+            "http://host.docker.internal:3030/car_1__model_list/sparql",
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__cars_data/sparql",
+            "http://host.docker.internal:3030/manufactory_1__manufacturers/sparql",
+            "http://host.docker.internal:3030/manufacturer__manufacturer/sparql",
+            "http://host.docker.internal:3030/company_office__companies/sparql",
+            "http://host.docker.internal:3030/company_employee__company/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.2,
+          "predicted_size": 8,
+          "gold_size": 2,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 19,
+          "question": "What is the number of makers of care in France?",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__countries/sparql",
+            "http://host.docker.internal:3030/car_1__car_makers/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_makers/sparql",
+            "http://host.docker.internal:3030/hr_1__countries/sparql",
+            "http://host.docker.internal:3030/company_office__companies/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.4,
+          "predicted_size": 3,
+          "gold_size": 2,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 20,
+          "question": "How many car models are produced in the usa?",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_makers/sparql",
+            "http://host.docker.internal:3030/car_1__countries/sparql",
+            "http://host.docker.internal:3030/car_1__model_list/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__model_list/sparql",
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__cars_data/sparql",
+            "http://host.docker.internal:3030/driving_school__vehicles/sparql",
+            "http://host.docker.internal:3030/company_employee__company/sparql",
+            "http://host.docker.internal:3030/assets_maintenance__assets/sparql",
+            "http://host.docker.internal:3030/city_record__city/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.2,
+          "predicted_size": 7,
+          "gold_size": 3,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 21,
+          "question": "What is the count of the car models produced in the United States?",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_makers/sparql",
+            "http://host.docker.internal:3030/car_1__countries/sparql",
+            "http://host.docker.internal:3030/car_1__model_list/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__model_list/sparql",
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__cars_data/sparql",
+            "http://host.docker.internal:3030/company_employee__company/sparql",
+            "http://host.docker.internal:3030/world_1__country/sparql",
+            "http://host.docker.internal:3030/manufacturer__manufacturer/sparql",
+            "http://host.docker.internal:3030/company_office__companies/sparql",
+            "http://host.docker.internal:3030/flight_company__operate_company/sparql",
+            "http://host.docker.internal:3030/manufactory_1__products/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.16666666666666666,
+          "predicted_size": 9,
+          "gold_size": 3,
+          "discovery_internal_retries": 3
+        },
+        {
+          "example_index": 22,
+          "question": "What are the countries having at least one car maker? List name and id.",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__countries/sparql",
+            "http://host.docker.internal:3030/car_1__car_makers/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_makers/sparql",
+            "http://host.docker.internal:3030/car_1__countries/sparql"
+          ],
+          "discovery_accuracy": 1.0,
+          "discovery_f1": 1.0,
+          "predicted_size": 2,
+          "gold_size": 2,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 23,
+          "question": "What are the names and ids of all countries with at least one car maker?",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__countries/sparql",
+            "http://host.docker.internal:3030/car_1__car_makers/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_makers/sparql",
+            "http://host.docker.internal:3030/world_1__country/sparql",
+            "http://host.docker.internal:3030/soccer_1__country/sparql",
+            "http://host.docker.internal:3030/hr_1__countries/sparql",
+            "http://host.docker.internal:3030/match_season__country/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.28571428571428575,
+          "predicted_size": 5,
+          "gold_size": 2,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 24,
+          "question": "Which countries in europe have at least 3 car manufacturers?",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__countries/sparql",
+            "http://host.docker.internal:3030/car_1__continents/sparql",
+            "http://host.docker.internal:3030/car_1__car_makers/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_makers/sparql",
+            "http://host.docker.internal:3030/car_1__countries/sparql",
+            "http://host.docker.internal:3030/car_1__continents/sparql",
+            "http://host.docker.internal:3030/world_1__country/sparql",
+            "http://host.docker.internal:3030/manufactory_1__manufacturers/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.7499999999999999,
+          "predicted_size": 5,
+          "gold_size": 3,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 25,
+          "question": "What are the names of all European countries with at least 3 manufacturers?",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__countries/sparql",
+            "http://host.docker.internal:3030/car_1__continents/sparql",
+            "http://host.docker.internal:3030/car_1__car_makers/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/world_1__country/sparql",
+            "http://host.docker.internal:3030/car_1__countries/sparql",
+            "http://host.docker.internal:3030/car_1__continents/sparql",
+            "http://host.docker.internal:3030/manufactory_1__manufacturers/sparql",
+            "http://host.docker.internal:3030/manufacturer__manufacturer/sparql",
+            "http://host.docker.internal:3030/car_1__model_list/sparql",
+            "http://host.docker.internal:3030/phone_1__phone/sparql",
+            "http://host.docker.internal:3030/flight_company__operate_company/sparql",
+            "http://host.docker.internal:3030/soccer_1__country/sparql",
+            "http://host.docker.internal:3030/match_season__country/sparql",
+            "http://host.docker.internal:3030/sakila_1__country/sparql",
+            "http://host.docker.internal:3030/company_office__companies/sparql",
+            "http://host.docker.internal:3030/company_employee__company/sparql",
+            "http://host.docker.internal:3030/railway__railway/sparql",
+            "http://host.docker.internal:3030/aircraft__aircraft/sparql",
+            "http://host.docker.internal:3030/car_1__car_makers/sparql",
+            "http://host.docker.internal:3030/assets_maintenance__assets/sparql",
+            "http://host.docker.internal:3030/culture_company__culture_company/sparql",
+            "http://host.docker.internal:3030/flight_4__airlines/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.2727272727272727,
+          "predicted_size": 19,
+          "gold_size": 3,
+          "discovery_internal_retries": 4
+        },
+        {
+          "example_index": 26,
+          "question": "What is the maximum horsepower and the make of the car models with 3 cylinders?",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__cars_data/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__cars_data/sparql",
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__model_list/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.8,
+          "predicted_size": 3,
+          "gold_size": 2,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 27,
+          "question": "What is the largest amount of horsepower for the models with 3 cylinders and what make is it?",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__cars_data/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__cars_data/sparql",
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__model_list/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.8,
+          "predicted_size": 3,
+          "gold_size": 2,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 28,
+          "question": "Which model saves the most gasoline? That is to say, have the maximum miles per gallon.",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__cars_data/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__cars_data/sparql",
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__model_list/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.8,
+          "predicted_size": 3,
+          "gold_size": 2,
+          "discovery_internal_retries": 1
+        },
+        {
+          "example_index": 29,
+          "question": "What is the car model with the highest mpg ?",
+          "gold_endpoints": [
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__cars_data/sparql"
+          ],
+          "predicted_endpoints": [
+            "http://host.docker.internal:3030/car_1__cars_data/sparql",
+            "http://host.docker.internal:3030/car_1__car_names/sparql",
+            "http://host.docker.internal:3030/car_1__model_list/sparql"
+          ],
+          "discovery_accuracy": 0.0,
+          "discovery_f1": 0.8,
+          "predicted_size": 3,
+          "gold_size": 2,
+          "discovery_internal_retries": 1
         }
       ],
       "summary": null
@@ -282831,7 +283318,7 @@
   },
   "last_position": {
     "run": 277,
-    "example_index": 6,
-    "completed_examples_in_run": 7
+    "example_index": 29,
+    "completed_examples_in_run": 30
   }
 }
