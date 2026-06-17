@@ -5,6 +5,7 @@ Examples:
   python3 src/ablate_discovery.py --split dev --limit 50 --label-weight 0.2 --properties-weight 0.35
   python3 src/ablate_discovery.py --grid-config data/discovery_grid.json --output data/discovery_ablation.csv
   python3 src/ablate_discovery.py --output data/discovery_ablation.csv  # resumes from data/discovery_ablation.checkpoint.json
+  python3 ablate_discovery.py --grid-config small_grid.json --split dev --limit 50 --use-service-endpoints --output ../data/discovery_hyperparameters.csv
 """
 
 import argparse
