@@ -852,7 +852,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 2,
       "schema_summary_retries": 1,
@@ -931,7 +931,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -969,7 +969,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -1059,7 +1059,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -1094,7 +1094,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -1129,7 +1129,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -2245,7 +2245,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -2309,7 +2309,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -2384,7 +2384,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -2428,7 +2428,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -2489,7 +2489,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 2,
       "schema_summary_retries": 1,
@@ -2551,7 +2551,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -3004,7 +3004,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -3311,7 +3311,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -3780,7 +3780,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 2,
@@ -3852,7 +3852,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -3883,7 +3883,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 2,
@@ -3974,7 +3974,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -4057,7 +4057,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -4101,7 +4101,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -4311,7 +4311,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -4350,7 +4350,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -4714,7 +4714,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -4794,7 +4794,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -5382,7 +5382,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -5755,7 +5755,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -5834,7 +5834,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -5871,7 +5871,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -6299,7 +6299,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 2,
@@ -6337,7 +6337,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -6416,7 +6416,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -6454,7 +6454,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -6920,7 +6920,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -6957,7 +6957,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -6993,7 +6993,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -7030,7 +7030,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -7277,7 +7277,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -7782,7 +7782,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -8098,7 +8098,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -8131,7 +8131,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -8364,7 +8364,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -8397,7 +8397,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -8430,7 +8430,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -8468,7 +8468,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -8539,7 +8539,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 2,
       "schema_summary_retries": 1,
@@ -8575,7 +8575,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -8680,7 +8680,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 2,
       "schema_summary_retries": 1,
@@ -8715,7 +8715,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -8748,7 +8748,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -8781,7 +8781,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -8826,7 +8826,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -8861,7 +8861,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -8900,7 +8900,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -8939,7 +8939,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -8980,7 +8980,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -9013,7 +9013,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -9056,7 +9056,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -9097,7 +9097,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -9195,7 +9195,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -9233,7 +9233,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -9266,7 +9266,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -9299,7 +9299,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -9333,7 +9333,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -9458,7 +9458,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -9501,7 +9501,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -9634,7 +9634,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -10404,7 +10404,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 2,
@@ -10513,7 +10513,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -10963,7 +10963,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 2,
       "schema_summary_retries": 1,
@@ -11171,7 +11171,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 2,
       "schema_summary_retries": 1,
@@ -11295,7 +11295,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -11341,7 +11341,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -11480,7 +11480,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -11527,7 +11527,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -11568,7 +11568,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -11652,7 +11652,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -11699,7 +11699,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -11837,7 +11837,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -11877,7 +11877,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -11971,7 +11971,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -12009,7 +12009,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -13229,7 +13229,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -13265,7 +13265,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -27862,7 +27862,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -29343,7 +29343,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -29383,7 +29383,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -32989,7 +32989,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -33147,7 +33147,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -33237,7 +33237,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -33853,7 +33853,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -33982,7 +33982,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -34018,7 +34018,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -34106,7 +34106,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 2,
       "schema_summary_retries": 1,
@@ -34194,7 +34194,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -35297,7 +35297,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -35375,7 +35375,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -35503,7 +35503,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -35549,7 +35549,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -35668,7 +35668,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -35745,7 +35745,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -35855,7 +35855,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -35998,7 +35998,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -36032,7 +36032,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -36090,7 +36090,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -36148,7 +36148,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -36301,7 +36301,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -36338,7 +36338,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -36374,7 +36374,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -36420,7 +36420,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -36666,7 +36666,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -37013,7 +37013,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -37508,7 +37508,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -37680,7 +37680,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -37987,7 +37987,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -38244,7 +38244,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 2,
       "schema_summary_retries": 1,
@@ -38314,7 +38314,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -38398,7 +38398,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -38800,7 +38800,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -38970,7 +38970,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -39101,7 +39101,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -39168,7 +39168,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -39234,7 +39234,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -39287,7 +39287,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -39341,7 +39341,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -39390,7 +39390,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -40174,7 +40174,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 2,
       "schema_summary_retries": 1,
@@ -40222,7 +40222,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 2,
       "schema_summary_retries": 1,
@@ -40270,7 +40270,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 2,
       "schema_summary_retries": 1,
@@ -40318,7 +40318,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 2,
       "schema_summary_retries": 1,
@@ -40455,7 +40455,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 2,
       "schema_summary_retries": 1,
@@ -40593,7 +40593,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -40641,7 +40641,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -40877,7 +40877,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -40922,7 +40922,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -41871,7 +41871,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -41928,7 +41928,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -42082,7 +42082,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -42137,7 +42137,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -42234,7 +42234,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -42306,7 +42306,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -42378,7 +42378,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -42754,7 +42754,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -43164,7 +43164,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 2,
@@ -43233,7 +43233,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -43308,7 +43308,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -43383,7 +43383,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -44050,7 +44050,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -44140,7 +44140,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -44493,7 +44493,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -44570,7 +44570,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -44603,7 +44603,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -44809,7 +44809,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -44962,7 +44962,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -45374,7 +45374,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -45427,7 +45427,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -45612,7 +45612,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -45917,7 +45917,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -46021,7 +46021,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -46070,7 +46070,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -46196,7 +46196,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -46231,7 +46231,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -46369,7 +46369,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -46410,7 +46410,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -46488,7 +46488,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -46570,7 +46570,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -46608,7 +46608,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -46645,7 +46645,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -46931,7 +46931,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -46970,7 +46970,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -47515,7 +47515,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -47834,7 +47834,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -48515,7 +48515,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -48666,7 +48666,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -48705,7 +48705,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -48744,7 +48744,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -49096,7 +49096,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -49224,7 +49224,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -49308,7 +49308,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -49438,7 +49438,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -50132,7 +50132,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 2,
@@ -50167,7 +50167,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -50226,7 +50226,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -50285,7 +50285,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -50344,7 +50344,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -50403,7 +50403,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -50440,7 +50440,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -50477,7 +50477,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -50672,7 +50672,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -50753,7 +50753,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -50829,7 +50829,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -50909,7 +50909,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 2,
@@ -50958,7 +50958,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 2,
@@ -51012,7 +51012,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -51213,7 +51213,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -51262,7 +51262,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "query_builder_internal_retries": 1,
       "schema_summary_retries": 1,
@@ -51377,7 +51377,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -51412,7 +51412,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -51447,7 +51447,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -51482,7 +51482,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -51548,7 +51548,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 2,
       "query_builder_internal_retries": 2,
@@ -51583,7 +51583,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -51618,7 +51618,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -51653,7 +51653,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -51688,7 +51688,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -51765,7 +51765,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -51800,7 +51800,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -52126,7 +52126,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -52237,7 +52237,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -52314,7 +52314,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -52373,7 +52373,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -52432,7 +52432,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -52482,7 +52482,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -52532,7 +52532,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -52949,7 +52949,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -53366,7 +53366,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -53404,7 +53404,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -53443,7 +53443,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -53481,7 +53481,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -53699,7 +53699,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -54307,7 +54307,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -55234,7 +55234,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -55729,7 +55729,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -55779,7 +55779,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -55835,7 +55835,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -55891,7 +55891,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -55947,7 +55947,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -56014,7 +56014,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -56092,7 +56092,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -56554,7 +56554,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 3,
       "query_builder_internal_retries": 1,
@@ -56863,7 +56863,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 2,
       "query_builder_internal_retries": 1,
@@ -57046,7 +57046,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 3,
       "query_builder_internal_retries": 1,
@@ -57181,7 +57181,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -57230,7 +57230,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -57472,7 +57472,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -57504,7 +57504,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -57602,7 +57602,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -57700,7 +57700,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -57750,7 +57750,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -57801,7 +57801,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -57940,7 +57940,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -57976,7 +57976,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -58014,7 +58014,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -58121,7 +58121,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -58156,7 +58156,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -58308,7 +58308,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -58423,7 +58423,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -58461,7 +58461,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -58537,7 +58537,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -59172,7 +59172,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -59244,7 +59244,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -59310,7 +59310,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -65070,7 +65070,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -66938,7 +66938,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -73728,7 +73728,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -73984,7 +73984,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 2,
       "query_builder_internal_retries": 1,
@@ -74040,7 +74040,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -74072,7 +74072,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -74305,7 +74305,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -74448,7 +74448,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -74518,7 +74518,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -74586,7 +74586,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -74696,7 +74696,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -74760,7 +74760,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -74797,7 +74797,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -75407,7 +75407,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -75452,7 +75452,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -75498,7 +75498,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -75544,7 +75544,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -75609,7 +75609,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -75890,7 +75890,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -76559,7 +76559,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -76640,7 +76640,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -76721,7 +76721,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -78447,7 +78447,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 2,
       "query_builder_internal_retries": 1,
@@ -78581,7 +78581,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 2,
       "query_builder_internal_retries": 1,
@@ -78762,7 +78762,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -78943,7 +78943,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -79356,7 +79356,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -79433,7 +79433,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -79566,7 +79566,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 2,
       "query_builder_internal_retries": 2,
@@ -79600,7 +79600,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -79634,7 +79634,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -79705,7 +79705,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -79747,7 +79747,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 2,
       "query_builder_internal_retries": 1,
@@ -79783,7 +79783,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -79855,7 +79855,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -79931,7 +79931,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 3,
       "query_builder_internal_retries": 1,
@@ -80052,7 +80052,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 2,
       "query_builder_internal_retries": 1,
@@ -80098,7 +80098,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -80144,7 +80144,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -80214,7 +80214,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -80319,7 +80319,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -80354,7 +80354,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -80388,7 +80388,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -80492,7 +80492,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -80561,7 +80561,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -80601,7 +80601,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -80641,7 +80641,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -80681,7 +80681,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -80721,7 +80721,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 2,
@@ -81538,7 +81538,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -82342,7 +82342,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -82425,7 +82425,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -82522,7 +82522,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -82662,7 +82662,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -82728,7 +82728,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -82793,7 +82793,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -82845,7 +82845,7 @@
       ],
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
-      "f1_score": .0,
+      "f1_score": 1.0,
       "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
@@ -82929,7 +82929,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -82961,7 +82961,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -83063,7 +83063,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -83095,7 +83095,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -83164,7 +83164,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -83203,7 +83203,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -83242,7 +83242,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -83275,7 +83275,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -83307,7 +83307,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -83371,7 +83371,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -83496,7 +83496,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -84171,7 +84171,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -84231,7 +84231,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 5,
       "query_builder_internal_retries": 1,
@@ -84385,7 +84385,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -84446,7 +84446,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -84509,7 +84509,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -86123,7 +86123,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -86474,7 +86474,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 3,
       "query_builder_internal_retries": 1,
@@ -86519,7 +86519,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -86660,7 +86660,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -86701,7 +86701,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -86741,7 +86741,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -86934,7 +86934,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -87250,7 +87250,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -87290,7 +87290,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -87371,7 +87371,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -87576,7 +87576,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -87613,7 +87613,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -87944,7 +87944,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -88000,7 +88000,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -88079,7 +88079,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -88138,7 +88138,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -88302,7 +88302,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -88341,7 +88341,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -88881,7 +88881,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -88933,7 +88933,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -88985,7 +88985,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -89109,7 +89109,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -89141,7 +89141,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -89174,7 +89174,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -89238,7 +89238,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -89667,7 +89667,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -89744,7 +89744,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 2,
       "query_builder_internal_retries": 1,
@@ -90175,7 +90175,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -90207,7 +90207,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -90243,7 +90243,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 2,
       "query_builder_internal_retries": 1,
@@ -90326,7 +90326,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -90620,7 +90620,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -90903,7 +90903,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -91091,7 +91091,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -91245,7 +91245,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -91300,7 +91300,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -91398,7 +91398,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 2,
       "query_builder_internal_retries": 1,
@@ -91438,7 +91438,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -91534,7 +91534,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -91632,7 +91632,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -91685,7 +91685,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -91908,7 +91908,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -92249,7 +92249,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -92280,7 +92280,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -92323,7 +92323,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -92548,7 +92548,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -92593,7 +92593,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -92632,7 +92632,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -92708,7 +92708,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -92750,7 +92750,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -92783,7 +92783,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -92947,7 +92947,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -93022,7 +93022,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -93062,7 +93062,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -93237,7 +93237,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -93274,7 +93274,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -93311,7 +93311,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -93601,7 +93601,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -93632,7 +93632,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -93796,7 +93796,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -93842,7 +93842,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -94143,7 +94143,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -94220,7 +94220,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -94398,7 +94398,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -94488,7 +94488,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -94524,7 +94524,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -94560,7 +94560,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -94708,7 +94708,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -94747,7 +94747,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -94785,7 +94785,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -94823,7 +94823,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -94877,7 +94877,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -94925,7 +94925,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95043,7 +95043,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95085,7 +95085,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95123,7 +95123,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95161,7 +95161,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95197,7 +95197,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95239,7 +95239,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95276,7 +95276,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95313,7 +95313,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95349,7 +95349,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95392,7 +95392,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95429,7 +95429,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95504,7 +95504,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95543,7 +95543,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95615,7 +95615,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95670,7 +95670,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95723,7 +95723,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95793,7 +95793,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95838,7 +95838,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95883,7 +95883,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -95919,7 +95919,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -96151,7 +96151,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -97468,7 +97468,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -97510,7 +97510,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -97706,7 +97706,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -98248,7 +98248,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -98290,7 +98290,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -98358,7 +98358,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -100219,7 +100219,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -100316,7 +100316,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -100413,7 +100413,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -100474,7 +100474,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -100537,7 +100537,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 2,
@@ -100582,7 +100582,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -101004,7 +101004,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -101036,7 +101036,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -101068,7 +101068,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -101100,7 +101100,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -102282,7 +102282,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -102325,7 +102325,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -102369,7 +102369,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -102459,7 +102459,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 3,
       "query_builder_internal_retries": 1,
@@ -102491,7 +102491,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -102525,7 +102525,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -102557,7 +102557,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -102594,7 +102594,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -103743,7 +103743,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -103777,7 +103777,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -103813,7 +103813,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -103849,7 +103849,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -104061,7 +104061,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -104099,7 +104099,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -104514,7 +104514,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -104590,7 +104590,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -104651,7 +104651,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -104772,7 +104772,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -104944,7 +104944,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -104977,7 +104977,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -105010,7 +105010,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -105043,7 +105043,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -105217,7 +105217,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -105250,7 +105250,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -105583,7 +105583,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -105639,7 +105639,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -105686,7 +105686,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -105735,7 +105735,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -106439,7 +106439,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -106480,7 +106480,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -106952,7 +106952,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -107097,7 +107097,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -107802,7 +107802,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -108451,7 +108451,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -109001,7 +109001,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -109043,7 +109043,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -109295,7 +109295,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -109720,7 +109720,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 2,
@@ -110190,7 +110190,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 2,
@@ -110448,7 +110448,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 2,
@@ -111013,7 +111013,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 2,
@@ -111128,7 +111128,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 2,
@@ -111335,7 +111335,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 2,
@@ -111407,7 +111407,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -111706,7 +111706,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -111744,7 +111744,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -111973,7 +111973,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -112005,7 +112005,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -112043,7 +112043,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -112081,7 +112081,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -112113,7 +112113,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -112152,7 +112152,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -112190,7 +112190,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -112231,7 +112231,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -112331,7 +112331,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -112365,7 +112365,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -112560,7 +112560,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -112602,7 +112602,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -112652,7 +112652,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -112684,7 +112684,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -112754,7 +112754,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -112968,7 +112968,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -113035,7 +113035,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -113069,7 +113069,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -113211,7 +113211,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -113243,7 +113243,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -113314,7 +113314,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -115815,7 +115815,7 @@
       "discovery_accuracy": 0.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -115888,7 +115888,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
@@ -115961,7 +115961,7 @@
       "discovery_accuracy": 1.0,
       "execution_accuracy": 1.0,
       "f1_score": 1.0,
-      "manually_check": false
+      "manually_check": false,
       "refinement_attempts": 0,
       "discovery_internal_retries": 1,
       "query_builder_internal_retries": 1,
