@@ -4,6 +4,7 @@ Examples:
   python3 src/ablate_discovery.py
   python3 src/ablate_discovery.py --split dev --limit 50 --label-weight 0.2 --properties-weight 0.35
   python3 src/ablate_discovery.py --grid-config data/discovery_grid.json --output data/discovery_ablation.csv
+  python3 src/ablate_discovery.py --grid-config data/discovery_grid.json --search-method random --max-configs 50
   python3 src/ablate_discovery.py --output data/discovery_ablation.csv  # resumes from data/discovery_ablation.checkpoint.json
   python3 ablate_discovery.py --grid-config small_grid.json --split dev --limit 50 --use-service-endpoints --output ../data/discovery_hyperparameters.csv
 """
@@ -14,6 +15,7 @@ import hashlib
 import itertools
 import json
 import os
+import random
 import tempfile
 from pathlib import Path
 from typing import Any, Callable
@@ -22,6 +24,10 @@ from config import BENCHMARK_DATA_PATH
 from metrics import discovery_accuracy
 from modules.discovery2 import DEFAULT_DENSE_WEIGHTS, Discovery2
 from recalculate_discovery_metrics import extract_service_endpoints
+
+
+SEARCH_CONTROL_KEYS = {"search_method", "max_configs", "seed", "search_space"}
+DEFAULT_RANDOM_SEED = 20240624
 
 
 def discovery_f1(predicted_endpoints: list[str], gold_endpoints: list[str]) -> float:
@@ -241,13 +247,51 @@ def evaluate_config(
     )
 
 
-def load_grid_configs(path: str, base_config: dict[str, Any]) -> list[dict[str, Any]]:
-    with open(path, "r") as f:
-        search_space = json.load(f)
+def normalize_search_definition(raw: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Support either a raw search space or a JSON object with search controls."""
+    if "search_space" in raw:
+        unknown_keys = set(raw) - SEARCH_CONTROL_KEYS
+        if unknown_keys:
+            raise ValueError(
+                "Unknown top-level search config field(s): "
+                + ", ".join(sorted(unknown_keys))
+            )
+        search_space = raw["search_space"]
+    else:
+        search_space = {
+            key: value
+            for key, value in raw.items()
+            if key not in SEARCH_CONTROL_KEYS
+        }
 
+    if not isinstance(search_space, dict) or not search_space:
+        raise ValueError("Grid config must define a non-empty search space.")
+
+    search_options = {
+        key: raw[key]
+        for key in ["search_method", "max_configs", "seed"]
+        if key in raw and raw[key] is not None
+    }
+    return search_space, search_options
+
+
+def load_grid_configs(path: str, base_config: dict[str, Any]) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    with open(path, "r") as f:
+        raw_search_definition = json.load(f)
+
+    search_space, search_options = normalize_search_definition(raw_search_definition)
+    search_space = search_space.copy()
     dense_weight_configs = search_space.pop("dense_weights", [base_config["dense_weights"]])
+    if not isinstance(dense_weight_configs, list) or not dense_weight_configs:
+        raise ValueError("Grid field `dense_weights` must be a non-empty list.")
+
     scalar_keys = sorted(search_space.keys())
-    scalar_value_lists = [search_space[key] for key in scalar_keys]
+    scalar_value_lists = []
+    for key in scalar_keys:
+        values = search_space[key]
+        if not isinstance(values, list) or not values:
+            raise ValueError(f"Grid field `{key}` must be a non-empty list.")
+        scalar_value_lists.append(values)
 
     configs = []
     for dense_weights in dense_weight_configs:
@@ -257,7 +301,30 @@ def load_grid_configs(path: str, base_config: dict[str, Any]) -> list[dict[str, 
             for key, value in zip(scalar_keys, values):
                 config[key] = value
             configs.append(config)
-    return configs
+    return configs, search_options
+
+
+def choose_configs(
+    configs: list[dict[str, Any]],
+    *,
+    method: str,
+    max_configs: int | None,
+    seed: int,
+) -> list[dict[str, Any]]:
+    if method not in {"grid", "random"}:
+        raise ValueError("--search-method must be either `grid` or `random`.")
+    if max_configs is not None and max_configs < 1:
+        raise ValueError("--max-configs must be positive when provided.")
+    if max_configs is None or max_configs >= len(configs):
+        return configs
+    if method == "grid":
+        return configs[:max_configs]
+
+    rng = random.Random(seed)
+    indexed_configs = list(enumerate(configs))
+    rng.shuffle(indexed_configs)
+    selected = sorted(indexed_configs[:max_configs], key=lambda item: item[0])
+    return [config for _, config in selected]
 
 
 def write_results(rows: list[dict[str, Any]], output_path: str) -> None:
@@ -370,6 +437,24 @@ def main() -> None:
         help="Optional JSON file defining a grid search. Scalars should be arrays; dense_weights should be a list of weight dicts.",
     )
     parser.add_argument(
+        "--search-method",
+        default=None,
+        choices=["grid", "random"],
+        help="How to select configs from the JSON search space. Overrides search_method in the JSON.",
+    )
+    parser.add_argument(
+        "--max-configs",
+        type=int,
+        default=None,
+        help="Evaluate at most this many configs. Overrides max_configs in the JSON.",
+    )
+    parser.add_argument(
+        "--seed",
+        type=int,
+        default=None,
+        help="Seed for reproducible random config selection. Overrides seed in the JSON.",
+    )
+    parser.add_argument(
         "--output",
         default=os.path.join(os.path.dirname(BENCHMARK_DATA_PATH), "..", "discovery_ablation_results.csv"),
         help="CSV file for ablation results.",
@@ -401,10 +486,28 @@ def main() -> None:
         "rrf_k": args.rrf_k,
     }
 
+    search_options: dict[str, Any] = {}
     if args.grid_config:
-        configs = load_grid_configs(args.grid_config, base_config=base_config)
+        all_configs, search_options = load_grid_configs(args.grid_config, base_config=base_config)
     else:
-        configs = [base_config]
+        all_configs = [base_config]
+
+    search_method = args.search_method or search_options.get("search_method", "grid")
+    max_configs = args.max_configs
+    if max_configs is None:
+        max_configs = search_options.get("max_configs")
+    if max_configs is not None:
+        max_configs = int(max_configs)
+    seed = args.seed
+    if seed is None:
+        seed = int(search_options.get("seed", DEFAULT_RANDOM_SEED))
+
+    configs = choose_configs(
+        all_configs,
+        method=search_method,
+        max_configs=max_configs,
+        seed=seed,
+    )
 
     checkpoint_path = args.checkpoint or default_checkpoint_path(args.output)
     fingerprint = checkpoint_fingerprint(args, configs, examples)
@@ -418,6 +521,10 @@ def main() -> None:
             "limit": args.limit,
             "use_service_endpoints": args.use_service_endpoints,
             "n_examples": len(examples),
+            "search_method": search_method,
+            "seed": seed,
+            "max_configs": max_configs,
+            "n_total_configs": len(all_configs),
             "n_runs": len(configs),
             "runs": {},
         }
@@ -429,6 +536,11 @@ def main() -> None:
     existing_rows = completed_rows_from_checkpoint(checkpoint)
     if existing_rows:
         write_results(sorted_result_rows(existing_rows), args.output)
+
+    print(
+        f"Selected {len(configs)}/{len(all_configs)} discovery config(s) "
+        f"with search_method={search_method}, seed={seed}, max_configs={max_configs}"
+    )
 
     for run_idx, config in enumerate(configs, start=1):
         run_key = str(run_idx)
