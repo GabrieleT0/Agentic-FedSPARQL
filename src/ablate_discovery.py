@@ -282,15 +282,19 @@ def load_grid_configs(path: str, base_config: dict[str, Any]) -> tuple[list[dict
     search_space, search_options = normalize_search_definition(raw_search_definition)
     search_space = search_space.copy()
     dense_weight_configs = search_space.pop("dense_weights", [base_config["dense_weights"]])
+    if isinstance(dense_weight_configs, dict):
+        dense_weight_configs = [dense_weight_configs]
     if not isinstance(dense_weight_configs, list) or not dense_weight_configs:
-        raise ValueError("Grid field `dense_weights` must be a non-empty list.")
+        raise ValueError("Grid field `dense_weights` must be a dict or non-empty list.")
 
     scalar_keys = sorted(search_space.keys())
     scalar_value_lists = []
     for key in scalar_keys:
         values = search_space[key]
-        if not isinstance(values, list) or not values:
-            raise ValueError(f"Grid field `{key}` must be a non-empty list.")
+        if not isinstance(values, list):
+            values = [values]
+        if not values:
+            raise ValueError(f"Grid field `{key}` must be non-empty.")
         scalar_value_lists.append(values)
 
     configs = []
