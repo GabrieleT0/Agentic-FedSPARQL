@@ -87,3 +87,11 @@ class DiagnoseEmptyResult(dspy.Signature):
     probe_results: str = dspy.InputField(desc='{"endpoint_url": {"classes": {"ClassName": 42}, "properties": {"propName": true}}}')
     diagnosis: Literal['wrong_endpoints', 'wrong_schema'] = dspy.OutputField()
     wrong_endpoints: list = dspy.OutputField(desc="List of objects [{\"url\": \"http://...\", \"confidence\": 0.95}] for endpoints likely wrong and to be replaced in the next discovery iteration. confidence is a float 0.0–1.0 reflecting how clearly the probe results support excluding that endpoint. Empty list if diagnosis is 'wrong_schema'.")
+
+class ZeroShotQuery(dspy.Signature):
+    """
+    Given a natural language question, and the schema for each SPARQL endpoint (including sample values showing how data is stored) that potentially should contain the answer, generate a federated SPARQL query that can be executed against the relevant endpoints to answer the question.
+    """
+    question: str = dspy.InputField()
+    void_descriptions: str = dspy.InputField(desc='JSON string: {endpoint: {classes: [...], properties: [...], sample_values: {property_uri: "example_value"}, join_keys: [{property: "", links_to_class: ""}]}}')
+    sparql_query: str = dspy.OutputField(desc="SPARQL query generated from the natural language question. Must be syntactically correct and executable against the relevant SPARQL endpoints.")
