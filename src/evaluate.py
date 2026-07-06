@@ -3,41 +3,14 @@ import math
 import os
 import tempfile
 import sparql_utils
-from metrics import execution_accuracy, f1_score, discovery_accuracy
+from metrics import discovery_accuracy, execution_accuracy, f1_score, precision_score, recall_score
+from recalculate_discovery_metrics import extract_service_endpoints
 
 DEFAULT_RESULT_FIELDS = {
     "discovery_internal_retries": 0,
     "query_builder_internal_retries": 0,
     "schema_summary_retries": 0,
 }
-
-def _row_key(row: dict) -> tuple:
-    """Normalize a result row to its values only, ignoring variable names."""
-    return tuple(row.values())
-
-def precision_score(predicted: list, gold: list) -> float:
-    """Calculate answer precision between the predicted and gold answers."""
-    predicted_set = {_row_key(row) for row in predicted}
-    gold_set = {_row_key(row) for row in gold}
-
-    if not predicted_set and not gold_set:
-        return 1.0
-    if not predicted_set:
-        return 0.0
-
-    return len(predicted_set & gold_set) / len(predicted_set)
-
-def recall_score(predicted: list, gold: list) -> float:
-    """Calculate answer recall between the predicted and gold answers."""
-    predicted_set = {_row_key(row) for row in predicted}
-    gold_set = {_row_key(row) for row in gold}
-
-    if not predicted_set and not gold_set:
-        return 1.0
-    if not gold_set:
-        return 0.0
-
-    return len(predicted_set & gold_set) / len(gold_set)
 
 def ensure_result_defaults(row: dict) -> None:
     row.pop("discovery_attempts", None)
@@ -93,8 +66,8 @@ def evaluate(pipeline, benchmark_path: str, mode: str = 'full', output_path: str
             if question in processed_questions:
                 continue
 
-            gold_endpoints = [ep['url'] for ep in example['endpoints']]
             gold_sparql = example['federated_sparql']
+            gold_endpoints = extract_service_endpoints(gold_sparql) or [ep['url'] for ep in example['endpoints']]
             try:
                 gold_answers = sparql_utils.execute_sparql_query(gold_sparql)
             except sparql_utils.SPARQLExecutionError as e:
