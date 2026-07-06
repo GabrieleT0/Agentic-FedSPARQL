@@ -32,6 +32,8 @@ METRICS = [
     "query_builder_internal_retries",
 ]
 
+ANSWER_RESULT_METRICS = {"execution_accuracy", "f1_score"}
+
 
 def mean(values):
     return sum(values) / len(values) if values else float("nan")
@@ -43,6 +45,10 @@ def std(values):
     m = mean(values)
     variance = sum((v - m) ** 2 for v in values) / (len(values) - 1)
     return math.sqrt(variance)
+
+
+def has_empty_gold_answer_placeholder(result):
+    return result.get("gold_answers") == [{}]
 
 
 def summarize_file(path):
@@ -75,7 +81,15 @@ def summarize_file(path):
     }
 
     for metric in METRICS:
-        values = [r[metric] for r in results if metric in r]
+        values = [
+            r[metric]
+            for r in results
+            if metric in r
+            and not (
+                metric in ANSWER_RESULT_METRICS
+                and has_empty_gold_answer_placeholder(r)
+            )
+        ]
         if not values:
             row[f"{metric}_mean"] = ""
             row[f"{metric}_std"] = ""
