@@ -11,6 +11,45 @@ DEFAULT_RESULT_FIELDS = {
     "schema_summary_retries": 0,
 }
 
+def _row_key(row: dict) -> tuple:
+    """Normalize a result row to its values only, ignoring variable names."""
+    return tuple(row.values())
+
+def precision_score(predicted: list, gold: list) -> float:
+    """Calculate answer precision between the predicted and gold answers."""
+    predicted_set = {_row_key(row) for row in predicted}
+    gold_set = {_row_key(row) for row in gold}
+
+    if not predicted_set and not gold_set:
+        return 1.0
+    if not predicted_set:
+        return 0.0
+
+    return len(predicted_set & gold_set) / len(predicted_set)
+
+def recall_score(predicted: list, gold: list) -> float:
+    """Calculate answer recall between the predicted and gold answers."""
+    predicted_set = {_row_key(row) for row in predicted}
+    gold_set = {_row_key(row) for row in gold}
+
+    if not predicted_set and not gold_set:
+        return 1.0
+    if not gold_set:
+        return 0.0
+
+    return len(predicted_set & gold_set) / len(gold_set)
+
+def ensure_result_defaults(row: dict) -> None:
+    row.pop("discovery_attempts", None)
+    for field, default in DEFAULT_RESULT_FIELDS.items():
+        row.setdefault(field, default)
+    if "precision" not in row and "predicted_answers" in row and "gold_answers" in row:
+        row["precision"] = precision_score(row["predicted_answers"], row["gold_answers"])
+    if "recall" not in row and "predicted_answers" in row and "gold_answers" in row:
+        row["recall"] = recall_score(row["predicted_answers"], row["gold_answers"])
+    if row.get("execution_accuracy") == 1.0:
+        row["manually_check"] = False
+
 def load_benchmark(benchmark_path: str) -> list:
     """Load the benchmark dataset from a JSON file."""
     with open(benchmark_path, 'r') as f:
@@ -24,9 +63,7 @@ def load_existing_results(output_path: str) -> tuple[list, set]:
         # Support both new format {"config": ..., "results": [...]} and legacy flat array
         results = data.get("results", data) if isinstance(data, dict) else data
         for row in results:
-            row.pop("discovery_attempts", None)
-            for field, default in DEFAULT_RESULT_FIELDS.items():
-                row.setdefault(field, default)
+            ensure_result_defaults(row)
         processed = {r['question'] for r in results}
         print(f"Resuming: found {len(results)} previously processed question(s), skipping them.")
         return results, processed
@@ -56,7 +93,6 @@ def evaluate(pipeline, benchmark_path: str, mode: str = 'full', output_path: str
             if question in processed_questions:
                 continue
 
-            manually_check = False
             gold_endpoints = [ep['url'] for ep in example['endpoints']]
             gold_sparql = example['federated_sparql']
             try:
@@ -76,25 +112,28 @@ def evaluate(pipeline, benchmark_path: str, mode: str = 'full', output_path: str
             query_builder_internal_retries = prediction.query_builder_internal_retries or 0
             schema_summary_retries = prediction.schema_summary_retries or 0
 
-            # I.e. the case of first name instead of last name, to check if
-            # there's error in the benchmark or if the LLM is making a mistake in the query generation
-            if len(predicted_answers) == len(gold_answers):
-                manually_check = True
-
             discovery_acc = discovery_accuracy(predicted_endpoints, gold_endpoints)
             exec_acc = execution_accuracy(predicted_answers, gold_answers)
+            precision = precision_score(predicted_answers, gold_answers)
+            recall = recall_score(predicted_answers, gold_answers)
             f1 = f1_score(predicted_answers, gold_answers)
+
+            # I.e. the case of first name instead of last name, to check if
+            # there's error in the benchmark or if the LLM is making a mistake in the query generation.
+            manually_check = len(predicted_answers) == len(gold_answers) and exec_acc != 1.0
                                                                     
             result = {
                 "question": question,
                 "predicted_endpoints": predicted_endpoints,
                 "gold_endpoints": gold_endpoints,
                 "predicted_sparql": predicted_sparql,
-                "gold:sparql": gold_sparql,
+                "gold_sparql": gold_sparql,
                 "predicted_answers": predicted_answers,
                 "gold_answers": gold_answers,
                 "discovery_accuracy": discovery_acc,
                 "execution_accuracy": exec_acc,
+                "precision": precision,
+                "recall": recall,
                 "f1_score": f1,
                 "manually_check": manually_check,
                 "refinement_attempts": refinement_attempts,
@@ -121,6 +160,8 @@ def evaluate(pipeline, benchmark_path: str, mode: str = 'full', output_path: str
 
         print(f"Average Discovery Accuracy: {mean('discovery_accuracy'):.4f}")
         print(f"Average Execution Accuracy: {mean('execution_accuracy'):.4f}")
+        print(f"Average Precision:          {mean('precision'):.4f}")
+        print(f"Average Recall:             {mean('recall'):.4f}")
         print(f"Average F1 Score:           {mean('f1_score'):.4f}")
         print(f"Avg Refinement Attempts:           {mean('refinement_attempts'):.4f}  (std: {std('refinement_attempts'):.4f})")
         print(f"Avg Discovery Internal Retries:    {mean('discovery_internal_retries'):.4f}  (std: {std('discovery_internal_retries'):.4f})")
