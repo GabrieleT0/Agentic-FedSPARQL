@@ -214,3 +214,5 @@ data/fuseki
 data/SPIDER4FedSPARQL/shards/
 shards/
 .codex
+.vscode
+.kilo
