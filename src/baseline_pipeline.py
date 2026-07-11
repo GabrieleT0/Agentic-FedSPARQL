@@ -1,5 +1,5 @@
 from modules.zero_shot import ZeroShotQuery
-from modules.discovery2 import Discovery2
+from modules.discovery import Discovery2
 import dspy
 from config import MAX_RETRIES, QUERY_BUILDER_RETRIES, SCHEMA_SUMMARY_RETRY_LIMIT
 import sparql_utils

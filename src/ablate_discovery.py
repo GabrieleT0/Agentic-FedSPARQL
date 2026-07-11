@@ -22,7 +22,7 @@ from typing import Any, Callable
 
 from config import BENCHMARK_DATA_PATH
 from metrics import discovery_accuracy
-from modules.discovery2 import DEFAULT_DENSE_WEIGHTS, Discovery2
+from modules.discovery import DEFAULT_DENSE_WEIGHTS, Discovery2
 from recalculate_discovery_metrics import extract_service_endpoints
 
 

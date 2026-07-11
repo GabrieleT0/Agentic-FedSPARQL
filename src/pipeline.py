@@ -1,4 +1,4 @@
-from modules.discovery2 import Discovery2
+from modules.discovery import Discovery2
 from modules.schema import Schema
 from modules.query_builder import QueryBuilderAgent
 from modules.validator import Validator
