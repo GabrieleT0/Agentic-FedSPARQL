@@ -1,0 +1,2064 @@
+{
+  "protocol": "Hyperparameters were selected by a pre-specified deterministic search over 288 configuration(s) on the dev split (50 validated examples, sampled with seed 20240624). Each configuration was evaluated on the same examples. The primary selection criterion was mean execution accuracy, with mean answer F1 and discovery F1 as tie-breakers, followed by a lower retry-cost proxy. Rows whose gold_answers field was the placeholder [{}] were excluded from answer-metric denominators. Bootstrap confidence intervals were computed over examples using 1000 resamples.",
+  "benchmark_path": "/workspaces/Agentic-FedSPARQL/data/SPIDER4FedSPARQL/class-sharding/SPIDER4FedSPARQL_benchmark.json",
+  "selected_benchmark_path": "/workspaces/Agentic-FedSPARQL/data/pipeline_search_focused_grid/selected_benchmark.json",
+  "split": "dev",
+  "limit": 50,
+  "seed": 20240624,
+  "search_method": "grid",
+  "search_space": {
+    "max_retries": [
+      5,
+      7,
+      9
+    ],
+    "discovery_retry_limit": [
+      2,
+      4,
+      6,
+      9
+    ],
+    "query_builder_retries": [
+      2,
+      5,
+      6,
+      9
+    ],
+    "schema_summary_retry_limit": [
+      6,
+      8,
+      9
+    ],
+    "batch_size": [
+      20,
+      40
+    ]
+  },
+  "configs": [
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    }
+  ],
+  "primary_metric": "execution_accuracy_mean",
+  "tie_breakers": [
+    "f1_score_mean",
+    "discovery_f1_mean",
+    "retry_cost_proxy (lower is better)"
+  ],
+  "placeholder_rule": "Exclude rows with gold_answers == [{}] from answer metrics.",
+  "bootstrap_samples": 1000,
+  "confidence": 0.95
+}

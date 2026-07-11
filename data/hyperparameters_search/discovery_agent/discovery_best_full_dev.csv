@@ -1,0 +1,2 @@
+n_examples,discovery_accuracy_mean,discovery_f1_mean,avg_predicted_endpoints,avg_gold_endpoints,avg_discovery_internal_retries,bm25_k1,bm25_b,bm25_epsilon,batch_size,discovery_retry_limit,rrf_k,label_weight,classes_weight,properties_weight,description_weight,examples_weight,run,split,service_gold
+245,0.3592,0.7473,4.4327,2.1673,1.0245,1.5,0.6,0.25,80,9,60,0.1,0.25,0.3,0.2,0.15,1,dev,True

@@ -1,0 +1,3141 @@
+{
+  "config": {
+    "llm_model": "azure/gpt-5-mini",
+    "max_retries": 7,
+    "discovery_retry_limit": 2,
+    "query_builder_retries": 9,
+    "schema_summary_retry_limit": 9,
+    "batch_size": 40,
+    "timestamp": "2026-07-04T16:54:12.031202+00:00"
+  },
+  "results": [
+    {
+      "question": "How many countries has more than 2 car makers ?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/car_1__car_makers/sparql",
+        "http://host.docker.internal:3030/car_1__countries/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/car_1__cars_data/sparql",
+        "http://host.docker.internal:3030/car_1__car_names/sparql",
+        "http://host.docker.internal:3030/car_1__model_list/sparql",
+        "http://host.docker.internal:3030/car_1__countries/sparql",
+        "http://host.docker.internal:3030/car_1__car_makers/sparql",
+        "http://host.docker.internal:3030/car_1__continents/sparql"
+      ],
+      "predicted_sparql": "PREFIX v: <http://valuenet/ontop/>\nSELECT (COUNT(DISTINCT ?country) AS ?numCountries) WHERE {\n  SERVICE <http://host.docker.internal:3030/car_1__car_makers/sparql> { ?rec1 <http://valuenet/ontop/car_makers#country> ?country . ?rec1 <http://valuenet/ontop/car_makers#maker> ?makerName1 . ?rec2 <http://valuenet/ontop/car_makers#country> ?country . ?rec2 <http://valuenet/ontop/car_makers#maker> ?makerName2 . ?rec3 <http://valuenet/ontop/car_makers#country> ?country . ?rec3 <http://valuenet/ontop/car_makers#maker> ?makerName3 }\n  SERVICE <http://host.docker.internal:3030/car_1__countries/sparql> { ?countryNode <http://valuenet/ontop/countries#countryid> ?country . ?countryNode <http://valuenet/ontop/countries#countryname> ?countryName }\n  FILTER(?rec1 != ?rec2 && ?rec1 != ?rec3 && ?rec2 != ?rec3)\n}",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect (count(*) as ?aggregation) WHERE {\n  {\n    SELECT ?t1 ?t1_countryid ?t2 WHERE {\n  SERVICE <http://host.docker.internal:3030/car_1__countries/sparql> {\n    SELECT DISTINCT ?t1 ?t1_countryid WHERE {\n      ?t1 a :countries .\n      ?t1 :countries\\#countryid ?t1_countryid\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/car_1__car_makers/sparql> {\n    ?t2 a :car_makers .\n      ?t2 :car_makers\\#ref-country ?t1\n  }\n    }\n  }\n}\ngroup by ?t1_countryid having (count(*)>2)",
+      "predicted_answers": [
+        {
+          "numCountries": "4"
+        }
+      ],
+      "gold_answers": [
+        {
+          "aggregation": "3"
+        },
+        {
+          "aggregation": "6"
+        },
+        {
+          "aggregation": "4"
+        },
+        {
+          "aggregation": "4"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "f1_score": 0.5,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 0.3333333333333333
+    },
+    {
+      "question": "What is the total number of countries where Spanish is spoken by the largest percentage of people?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/world_1__countrylanguage/sparql",
+        "http://host.docker.internal:3030/world_1__country/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/world_1__city/sparql",
+        "http://host.docker.internal:3030/world_1__country/sparql",
+        "http://host.docker.internal:3030/world_1__countrylanguage/sparql"
+      ],
+      "predicted_sparql": "PREFIX cl: <http://valuenet/ontop/countrylanguage#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (COUNT(DISTINCT ?countrycode) AS ?count) WHERE {\n  SERVICE <http://host.docker.internal:3030/world_1__countrylanguage/sparql> { ?s <http://valuenet/ontop/countrylanguage#countrycode> ?countrycode . ?s <http://valuenet/ontop/countrylanguage#language> ?language . ?s <http://valuenet/ontop/countrylanguage#percentage> ?percentage }\n  FILTER(regex(lcase(str(?language)), \"^\\\\s*spanish\\\\s*$\"))\n}",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT (count( *) as ?aggregation_all) (max( ?T2_percentage) as ?aggregation_T2_percentage_156 ) WHERE {\n  {\n    SELECT ?T1 ?T2 ?T2_language ?T2_percentage WHERE {\n  SERVICE <http://host.docker.internal:3030/world_1__country/sparql> {\n    SELECT DISTINCT ?T1 WHERE {\n      ?T1 a :country\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/world_1__countrylanguage/sparql> {\n    ?T2 a :countrylanguage .\n      ?T2 :countrylanguage\\#ref-countrycode ?T1 .\n      ?T2 :countrylanguage\\#percentage ?T2_percentage .\n      ?T2 :countrylanguage\\#language ?T2_language\n      FILTER(?T2_language = 'Spanish')\n  }\n    }\n  }\n}",
+      "predicted_answers": [
+        {
+          "count": "28"
+        }
+      ],
+      "gold_answers": [
+        {
+          "aggregation_all": "0"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "f1_score": 0.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    {
+      "question": "What are all the course names of the courses which ever have students enrolled in?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/student_transcripts_tracking__courses/sparql",
+        "http://host.docker.internal:3030/student_assessment__courses/sparql",
+        "http://host.docker.internal:3030/e_learning__courses/sparql",
+        "http://host.docker.internal:3030/college_2__course/sparql",
+        "http://host.docker.internal:3030/college_3__course/sparql",
+        "http://host.docker.internal:3030/course_teach__course/sparql",
+        "http://host.docker.internal:3030/course_teach__course_arrange/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__sections/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__transcript_contents/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__student_enrolment/sparql",
+        "http://host.docker.internal:3030/college_2__section/sparql",
+        "http://host.docker.internal:3030/college_1__class/sparql",
+        "http://host.docker.internal:3030/college_1__course/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__students/sparql",
+        "http://host.docker.internal:3030/e_learning__students/sparql",
+        "http://host.docker.internal:3030/student_assessment__students/sparql",
+        "http://host.docker.internal:3030/activity_1__participates_in/sparql",
+        "http://host.docker.internal:3030/club_1__member_of_club/sparql",
+        "http://host.docker.internal:3030/college_3__student/sparql",
+        "http://host.docker.internal:3030/dorm_1__student/sparql",
+        "http://host.docker.internal:3030/game_1__student/sparql",
+        "http://host.docker.internal:3030/college_2__student/sparql",
+        "http://host.docker.internal:3030/e_learning__student_tests_taken/sparql",
+        "http://host.docker.internal:3030/college_3__minor_in/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/student_transcripts_tracking__departments/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__addresses/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__sections/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__courses/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__degree_programs/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__students/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__student_enrolment_courses/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__student_enrolment/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__transcripts/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__transcript_contents/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__semesters/sparql"
+      ],
+      "predicted_sparql": "PREFIX courses: <http://valuenet/ontop/courses#>\nPREFIX course: <http://valuenet/ontop/course#>\nPREFIX sections: <http://valuenet/ontop/sections#>\nPREFIX transcript: <http://valuenet/ontop/transcript_contents#>\nPREFIX enrol: <http://valuenet/ontop/student_enrolment#>\nPREFIX students: <http://valuenet/ontop/students#>\nSELECT (COALESCE(SAMPLE(?courseName1), SAMPLE(?courseName2), SAMPLE(?courseName3), SAMPLE(?courseTitle), SAMPLE(?courseLabel)) AS ?courseName) WHERE {\n  SERVICE <http://host.docker.internal:3030/student_transcripts_tracking__transcript_contents/sparql> { ?tc <http://valuenet/ontop/transcript_contents#ref-transcript_id> ?student_enrolment_id . ?tc <http://valuenet/ontop/transcript_contents#student_course_id> ?section_id }\n  SERVICE <http://host.docker.internal:3030/student_transcripts_tracking__student_enrolment/sparql> { ?enrol <http://valuenet/ontop/student_enrolment#student_enrolment_id> ?student_enrolment_id }\n  SERVICE <http://host.docker.internal:3030/student_transcripts_tracking__sections/sparql> { ?section <http://valuenet/ontop/sections#section_id> ?section_id . ?section <http://valuenet/ontop/sections#course_id> ?course_id }\n  SERVICE <http://host.docker.internal:3030/student_transcripts_tracking__courses/sparql> { ?course_ct <http://valuenet/ontop/courses#course_id> ?course_id . ?course_ct <http://valuenet/ontop/courses#course_name> ?courseName1 }\n  SERVICE <http://host.docker.internal:3030/e_learning__courses/sparql> { ?course_el <http://valuenet/ontop/courses#course_id> ?course_id . ?course_el <http://valuenet/ontop/courses#course_name> ?courseName2 }\n  SERVICE <http://host.docker.internal:3030/student_assessment__courses/sparql> { ?course_sa <http://valuenet/ontop/courses#course_id> ?course_id . ?course_sa <http://valuenet/ontop/courses#course_name> ?courseName3 }\n  SERVICE <http://host.docker.internal:3030/college_2__course/sparql> { ?course_c2 <http://valuenet/ontop/course#course_id> ?course_id . ?course_c2 <http://valuenet/ontop/course#title> ?courseTitle }\n  SERVICE <http://host.docker.internal:3030/course_teach__course/sparql> { ?course_cteach <http://valuenet/ontop/course#course_id> ?course_id . ?course_cteach <http://valuenet/ontop/course#course> ?courseLabel }\n}",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect distinct ?t1_course_name WHERE {\n  SERVICE <http://host.docker.internal:3030/student_transcripts_tracking__courses/sparql> {\n    SELECT DISTINCT ?t1 ?t1_course_id ?t1_course_name WHERE {\n      ?t1 a :courses .\n      ?t1 :courses\\#course_name ?t1_course_name .\n      ?t1 :courses\\#course_id ?t1_course_id\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/student_transcripts_tracking__student_enrolment_courses/sparql> {\n    ?t2 a :student_enrolment_courses .\n      ?t2 :student_enrolment_courses\\#ref-course_id ?t1\n  }\n}",
+      "predicted_answers": [
+        {}
+      ],
+      "gold_answers": [
+        {
+          "t1_course_name": "ml"
+        },
+        {
+          "t1_course_name": "ai"
+        },
+        {
+          "t1_course_name": "db"
+        },
+        {
+          "t1_course_name": "rs"
+        },
+        {
+          "t1_course_name": "pl"
+        },
+        {
+          "t1_course_name": "math"
+        },
+        {
+          "t1_course_name": "os"
+        },
+        {
+          "t1_course_name": "en"
+        },
+        {
+          "t1_course_name": "la"
+        },
+        {
+          "t1_course_name": "nlp"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "f1_score": 0.0,
+      "manually_check": false,
+      "refinement_attempts": 2,
+      "discovery_internal_retries": 3,
+      "query_builder_internal_retries": 3,
+      "schema_summary_retries": 3,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    {
+      "question": "Return the owner id, first name and last name of the owner who has the most dogs.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql",
+        "http://host.docker.internal:3030/dog_kennels__owners/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__treatments/sparql",
+        "http://host.docker.internal:3030/dog_kennels__sizes/sparql",
+        "http://host.docker.internal:3030/dog_kennels__charges/sparql",
+        "http://host.docker.internal:3030/dog_kennels__professionals/sparql",
+        "http://host.docker.internal:3030/dog_kennels__owners/sparql",
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql",
+        "http://host.docker.internal:3030/dog_kennels__breeds/sparql",
+        "http://host.docker.internal:3030/dog_kennels__treatment_types/sparql"
+      ],
+      "predicted_sparql": "PREFIX dogs: <http://valuenet/ontop/dogs#>\nPREFIX owners: <http://valuenet/ontop/owners#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT ?owner_id ?first_name ?last_name (COUNT(?dogId) AS ?count) WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__dogs/sparql> { ?dog <http://valuenet/ontop/dogs#dog_id> ?dogId . ?dog <http://valuenet/ontop/dogs#owner_id> ?owner_id }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__owners/sparql> { ?owner <http://valuenet/ontop/owners#owner_id> ?owner_id . ?owner <http://valuenet/ontop/owners#first_name> ?first_name . ?owner <http://valuenet/ontop/owners#last_name> ?last_name }\n}\nGROUP BY ?owner_id ?first_name ?last_name\nORDER BY DESC(?count)\nLIMIT 1",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT ?T1_owner_id (count( *) as ?aggregation_all) ?T2_first_name ?T2_last_name WHERE {\n  {\n    SELECT ?T1 ?T1_owner_id ?T2 ?T2_first_name ?T2_last_name WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__owners/sparql> {\n    SELECT DISTINCT ?T2 ?T2_first_name ?T2_last_name WHERE {\n      ?T2 a :owners .\n      ?T2 :owners\\#first_name ?T2_first_name .\n      ?T2 :owners\\#last_name ?T2_last_name\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__dogs/sparql> {\n    ?T1 a :dogs .\n      ?T1 :dogs\\#ref-owner_id ?T2 .\n      ?T1 :dogs\\#owner_id ?T1_owner_id\n  }\n    }\n  }\n}\nGROUP BY ?T1_owner_id ?T2_first_name ?T2_last_name  ORDER BY DESC (?aggregation_all) LIMIT 1",
+      "predicted_answers": [
+        {
+          "owner_id": "14",
+          "first_name": "Rachelle",
+          "last_name": "Funk",
+          "count": "3"
+        }
+      ],
+      "gold_answers": [
+        {
+          "T1_owner_id": "14",
+          "aggregation_all": "3",
+          "T2_first_name": "Rachelle",
+          "T2_last_name": "Funk"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "What are flight numbers of flights departing from City 'Aberdeen '?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/flight_2__flights/sparql",
+        "http://host.docker.internal:3030/flight_2__airports/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/flight_2__flights/sparql",
+        "http://host.docker.internal:3030/flight_2__airports/sparql",
+        "http://host.docker.internal:3030/flight_2__airlines/sparql"
+      ],
+      "predicted_sparql": "PREFIX fn: <http://valuenet/ontop/flights#>\nPREFIX ap: <http://valuenet/ontop/airports#>\nSELECT ?flightNo WHERE {\n  SERVICE <http://host.docker.internal:3030/flight_2__flights/sparql> { ?flight <http://valuenet/ontop/flights#flightno> ?flightNo . ?flight <http://valuenet/ontop/flights#sourceairport> ?airportCode }\n  SERVICE <http://host.docker.internal:3030/flight_2__airports/sparql> { ?airport <http://valuenet/ontop/airports#airportcode> ?airportCode . ?airport <http://valuenet/ontop/airports#city> ?city }\n  FILTER(STR(?city) = \"Aberdeen\" || STR(?city) = \"Aberdeen \")\n}\nGROUP BY ?flightNo",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_flightno WHERE {\n  SERVICE <http://host.docker.internal:3030/flight_2__airports/sparql> {\n    SELECT DISTINCT ?t2 ?t2_city WHERE {\n      ?t2 a :airports .\n      ?t2 :airports\\#city ?t2_city\n      FILTER(?t2_city = 'Aberdeen')\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/flight_2__flights/sparql> {\n    ?t1 a :flights .\n      ?t1 :flights\\#ref-destairport ?t2 .\n      ?t1 :flights\\#flightno ?t1_flightno\n  }\n}",
+      "predicted_answers": [
+        {
+          "flightNo": "1172"
+        },
+        {
+          "flightNo": "28"
+        },
+        {
+          "flightNo": "1248"
+        },
+        {
+          "flightNo": "29"
+        },
+        {
+          "flightNo": "743"
+        },
+        {
+          "flightNo": "754"
+        },
+        {
+          "flightNo": "101"
+        },
+        {
+          "flightNo": "1275"
+        },
+        {
+          "flightNo": "45"
+        },
+        {
+          "flightNo": "909"
+        },
+        {
+          "flightNo": "513"
+        },
+        {
+          "flightNo": "143"
+        },
+        {
+          "flightNo": "382"
+        },
+        {
+          "flightNo": "1071"
+        },
+        {
+          "flightNo": "1138"
+        },
+        {
+          "flightNo": "478"
+        },
+        {
+          "flightNo": "489"
+        },
+        {
+          "flightNo": "91"
+        },
+        {
+          "flightNo": "842"
+        },
+        {
+          "flightNo": "401"
+        },
+        {
+          "flightNo": "1377"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_flightno": "512"
+        },
+        {
+          "t1_flightno": "843"
+        },
+        {
+          "t1_flightno": "90"
+        },
+        {
+          "t1_flightno": "1139"
+        },
+        {
+          "t1_flightno": "1249"
+        },
+        {
+          "t1_flightno": "1070"
+        },
+        {
+          "t1_flightno": "400"
+        },
+        {
+          "t1_flightno": "44"
+        },
+        {
+          "t1_flightno": "755"
+        },
+        {
+          "t1_flightno": "908"
+        },
+        {
+          "t1_flightno": "1173"
+        },
+        {
+          "t1_flightno": "383"
+        },
+        {
+          "t1_flightno": "142"
+        },
+        {
+          "t1_flightno": "1274"
+        },
+        {
+          "t1_flightno": "29"
+        },
+        {
+          "t1_flightno": "1376"
+        },
+        {
+          "t1_flightno": "488"
+        },
+        {
+          "t1_flightno": "100"
+        },
+        {
+          "t1_flightno": "742"
+        },
+        {
+          "t1_flightno": "28"
+        },
+        {
+          "t1_flightno": "479"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "f1_score": 0.09523809523809523,
+      "manually_check": true,
+      "refinement_attempts": 2,
+      "discovery_internal_retries": 2,
+      "query_builder_internal_retries": 4,
+      "schema_summary_retries": 3,
+      "precision": 0.09523809523809523,
+      "recall": 0.09523809523809523
+    },
+    {
+      "question": "What are the cost and treatment type description of each treatment?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__treatments/sparql",
+        "http://host.docker.internal:3030/dog_kennels__treatment_types/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__treatments/sparql",
+        "http://host.docker.internal:3030/dog_kennels__sizes/sparql",
+        "http://host.docker.internal:3030/dog_kennels__charges/sparql",
+        "http://host.docker.internal:3030/dog_kennels__professionals/sparql",
+        "http://host.docker.internal:3030/dog_kennels__owners/sparql",
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql",
+        "http://host.docker.internal:3030/dog_kennels__breeds/sparql",
+        "http://host.docker.internal:3030/dog_kennels__treatment_types/sparql"
+      ],
+      "predicted_sparql": "PREFIX treat: <http://valuenet/ontop/treatments#>\nPREFIX tt: <http://valuenet/ontop/treatment_types#>\nPREFIX val: <http://valuenet/ontop/>\nSELECT ?treatment_id ?cost ?treatment_type_description WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__treatments/sparql> { ?treatment <http://valuenet/ontop/treatments#treatment_id> ?treatment_id . ?treatment <http://valuenet/ontop/treatments#cost_of_treatment> ?cost . ?treatment <http://valuenet/ontop/treatments#treatment_type_code> ?treatment_type_code }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__treatment_types/sparql> { ?type <http://valuenet/ontop/treatment_types#treatment_type_code> ?treatment_type_code . ?type <http://valuenet/ontop/treatment_types#treatment_type_description> ?treatment_type_description }\n}\nGROUP BY ?treatment_id ?cost ?treatment_type_description",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_cost_of_treatment ?t2_treatment_type_description WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__treatment_types/sparql> {\n    SELECT DISTINCT ?t2 ?t2_treatment_type_description WHERE {\n      ?t2 a :treatment_types .\n      ?t2 :treatment_types\\#treatment_type_description ?t2_treatment_type_description\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__treatments/sparql> {\n    ?t1 a :treatments .\n      ?t1 :treatments\\#ref-treatment_type_code ?t2 .\n      ?t1 :treatments\\#cost_of_treatment ?t1_cost_of_treatment\n  }\n}",
+      "predicted_answers": [
+        {
+          "treatment_id": "8",
+          "cost": "407.0",
+          "treatment_type_description": "Physical examination"
+        },
+        {
+          "treatment_id": "10",
+          "cost": "681.0",
+          "treatment_type_description": "Take for a Walk"
+        },
+        {
+          "treatment_id": "9",
+          "cost": "139.0",
+          "treatment_type_description": "Take for a Walk"
+        },
+        {
+          "treatment_id": "1",
+          "cost": "567.0",
+          "treatment_type_description": "Take for a Walk"
+        },
+        {
+          "treatment_id": "14",
+          "cost": "349.0",
+          "treatment_type_description": "Take for a Walk"
+        },
+        {
+          "treatment_id": "15",
+          "cost": "656.0",
+          "treatment_type_description": "Take for a Walk"
+        },
+        {
+          "treatment_id": "4",
+          "cost": "266.0",
+          "treatment_type_description": "Vaccination"
+        },
+        {
+          "treatment_id": "3",
+          "cost": "429.0",
+          "treatment_type_description": "Physical examination"
+        },
+        {
+          "treatment_id": "2",
+          "cost": "147.0",
+          "treatment_type_description": "Vaccination"
+        },
+        {
+          "treatment_id": "13",
+          "cost": "945.0",
+          "treatment_type_description": "Vaccination"
+        },
+        {
+          "treatment_id": "5",
+          "cost": "668.0",
+          "treatment_type_description": "Vaccination"
+        },
+        {
+          "treatment_id": "7",
+          "cost": "852.0",
+          "treatment_type_description": "Physical examination"
+        },
+        {
+          "treatment_id": "12",
+          "cost": "428.0",
+          "treatment_type_description": "Physical examination"
+        },
+        {
+          "treatment_id": "11",
+          "cost": "514.0",
+          "treatment_type_description": "Vaccination"
+        },
+        {
+          "treatment_id": "6",
+          "cost": "313.0",
+          "treatment_type_description": "Physical examination"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_cost_of_treatment": "428.0",
+          "t2_treatment_type_description": "Physical examination"
+        },
+        {
+          "t1_cost_of_treatment": "429.0",
+          "t2_treatment_type_description": "Physical examination"
+        },
+        {
+          "t1_cost_of_treatment": "313.0",
+          "t2_treatment_type_description": "Physical examination"
+        },
+        {
+          "t1_cost_of_treatment": "852.0",
+          "t2_treatment_type_description": "Physical examination"
+        },
+        {
+          "t1_cost_of_treatment": "407.0",
+          "t2_treatment_type_description": "Physical examination"
+        },
+        {
+          "t1_cost_of_treatment": "514.0",
+          "t2_treatment_type_description": "Vaccination"
+        },
+        {
+          "t1_cost_of_treatment": "945.0",
+          "t2_treatment_type_description": "Vaccination"
+        },
+        {
+          "t1_cost_of_treatment": "147.0",
+          "t2_treatment_type_description": "Vaccination"
+        },
+        {
+          "t1_cost_of_treatment": "266.0",
+          "t2_treatment_type_description": "Vaccination"
+        },
+        {
+          "t1_cost_of_treatment": "668.0",
+          "t2_treatment_type_description": "Vaccination"
+        },
+        {
+          "t1_cost_of_treatment": "567.0",
+          "t2_treatment_type_description": "Take for a Walk"
+        },
+        {
+          "t1_cost_of_treatment": "681.0",
+          "t2_treatment_type_description": "Take for a Walk"
+        },
+        {
+          "t1_cost_of_treatment": "349.0",
+          "t2_treatment_type_description": "Take for a Walk"
+        },
+        {
+          "t1_cost_of_treatment": "656.0",
+          "t2_treatment_type_description": "Take for a Walk"
+        },
+        {
+          "t1_cost_of_treatment": "139.0",
+          "t2_treatment_type_description": "Take for a Walk"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "List the Episode of all  TV series showed on TV Channel with series name 'Sky Radio'.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/tvshow__tv_series/sparql",
+        "http://host.docker.internal:3030/tvshow__tv_channel/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/tvshow__tv_series/sparql",
+        "http://host.docker.internal:3030/tvshow__tv_channel/sparql",
+        "http://host.docker.internal:3030/tvshow__cartoon/sparql"
+      ],
+      "predicted_sparql": "PREFIX tvseries: <http://valuenet/ontop/tv_series#>\nPREFIX tvchannel: <http://valuenet/ontop/tv_channel#>\nSELECT DISTINCT ?episode WHERE {\n  SERVICE <http://host.docker.internal:3030/tvshow__tv_channel/sparql> { ?channelRes <http://valuenet/ontop/tv_channel#id> ?channelId . ?channelRes <http://valuenet/ontop/tv_channel#series_name> ?seriesName }\n  SERVICE <http://host.docker.internal:3030/tvshow__tv_series/sparql> { ?series <http://valuenet/ontop/tv_series#channel> ?channelId . ?series <http://valuenet/ontop/tv_series#episode> ?episode }\n  FILTER(?seriesName = \"Sky Radio\")\n}\nGROUP BY ?episode",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_episode WHERE {\n  SERVICE <http://host.docker.internal:3030/tvshow__tv_channel/sparql> {\n    SELECT DISTINCT ?t2 ?t2_series_name WHERE {\n      ?t2 a :tv_channel .\n      ?t2 :tv_channel\\#series_name ?t2_series_name\n      FILTER(?t2_series_name = 'Sky Radio')\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/tvshow__tv_series/sparql> {\n    ?t1 a :tv_series .\n      ?t1 :tv_series\\#ref-channel ?t2 .\n      ?t1 :tv_series\\#episode ?t1_episode\n  }\n}",
+      "predicted_answers": [
+        {
+          "episode": "A Love of a Lifetime"
+        },
+        {
+          "episode": "Keepers"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_episode": "A Love of a Lifetime"
+        },
+        {
+          "t1_episode": "Keepers"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "What are the names of high schoolers who both have friends and are liked?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/network_1__highschooler/sparql",
+        "http://host.docker.internal:3030/network_1__friend/sparql",
+        "http://host.docker.internal:3030/network_1__likes/sparql",
+        "http://host.docker.internal:3030/network_2__personfriend/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/network_1__highschooler/sparql",
+        "http://host.docker.internal:3030/network_1__friend/sparql",
+        "http://host.docker.internal:3030/network_1__likes/sparql"
+      ],
+      "predicted_sparql": "PREFIX hs: <http://valuenet/ontop/highschooler#>\nPREFIX fr: <http://valuenet/ontop/friend#>\nPREFIX lk: <http://valuenet/ontop/likes#>\nSELECT DISTINCT ?name WHERE {\n  SERVICE <http://host.docker.internal:3030/network_1__friend/sparql> { ?fr <http://valuenet/ontop/friend#student_id> ?hs_id . ?fr <http://valuenet/ontop/friend#friend_id> ?friend_id }\n  SERVICE <http://host.docker.internal:3030/network_1__likes/sparql> { ?lk <http://valuenet/ontop/likes#liked_id> ?hs_id . ?lk <http://valuenet/ontop/likes#student_id> ?liker_id }\n  SERVICE <http://host.docker.internal:3030/network_1__highschooler/sparql> { ?hs <http://valuenet/ontop/highschooler#id> ?hs_id . ?hs <http://valuenet/ontop/highschooler#name> ?name }\n}\nGROUP BY ?name",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT DISTINCT ?T1_name WHERE {\n  SERVICE <http://host.docker.internal:3030/network_1__highschooler/sparql> {\n    SELECT DISTINCT ?T1 ?T1_name ?T2 ?T2_id ?T2_name WHERE {\n      ?T1 a :highschooler .\n      ?T1 :highschooler\\#name ?T1_name .\n      ?T2 a :highschooler .\n      ?T2 :highschooler\\#name ?T2_name .\n      ?T2 :highschooler\\#id ?T2_id\n      FILTER (?T1_name in (?T2_name))\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/network_1__friend/sparql> {\n    ?T4 a :friend .\n      ?T4 :friend\\#ref-student_id ?T1\n  }\n  SERVICE <http://host.docker.internal:3030/network_1__likes/sparql> {\n    ?T3 a :likes .\n      ?T3 :likes\\#ref-liked_id ?T2\n  }\n}",
+      "predicted_answers": [
+        {
+          "name": "Kyle"
+        },
+        {
+          "name": "Kris"
+        },
+        {
+          "name": "Jessica"
+        },
+        {
+          "name": "Cassandra"
+        },
+        {
+          "name": "Jordan"
+        },
+        {
+          "name": "Gabriel"
+        },
+        {
+          "name": "Alexis"
+        },
+        {
+          "name": "Haley"
+        }
+      ],
+      "gold_answers": [
+        {
+          "T1_name": "Haley"
+        },
+        {
+          "T1_name": "Alexis"
+        },
+        {
+          "T1_name": "Jordan"
+        },
+        {
+          "T1_name": "Kris"
+        },
+        {
+          "T1_name": "Jessica"
+        },
+        {
+          "T1_name": "Gabriel"
+        },
+        {
+          "T1_name": "Cassandra"
+        },
+        {
+          "T1_name": "Kyle"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "What are the names of the teachers and how many courses do they teach?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/course_teach__teacher/sparql",
+        "http://host.docker.internal:3030/course_teach__course_arrange/sparql",
+        "http://host.docker.internal:3030/course_teach__course/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/course_teach__teacher/sparql",
+        "http://host.docker.internal:3030/course_teach__course/sparql",
+        "http://host.docker.internal:3030/course_teach__course_arrange/sparql"
+      ],
+      "predicted_sparql": "PREFIX vt: <http://valuenet/ontop/teacher#>\nPREFIX vc: <http://valuenet/ontop/course_arrange#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT ?teacherName (COUNT(?course_id) AS ?courseCount) WHERE {\n  SERVICE <http://host.docker.internal:3030/course_teach__teacher/sparql> { ?t <http://valuenet/ontop/teacher#teacher_id> ?teacher_id . ?t <http://valuenet/ontop/teacher#name> ?teacherName }\n  SERVICE <http://host.docker.internal:3030/course_teach__course_arrange/sparql> { ?ca <http://valuenet/ontop/course_arrange#teacher_id> ?teacher_id . ?ca <http://valuenet/ontop/course_arrange#course_id> ?course_id }\n}\nGROUP BY ?teacherName",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_name (count( *) as ?aggregation_all) WHERE {\n  {\n    SELECT ?t1 ?t13 ?t1_name WHERE {\n  SERVICE <http://host.docker.internal:3030/course_teach__teacher/sparql> {\n    SELECT DISTINCT ?t1 ?t1_name WHERE {\n      ?t1 a :teacher .\n      ?t1 :teacher\\#name ?t1_name\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/course_teach__course_arrange/sparql> {\n    ?t13 a :course_arrange .\n      ?t13 :course_arrange\\#ref-teacher_id ?t1\n  }\n    }\n  }\n}\ngroup by ?t1_name",
+      "predicted_answers": [
+        {
+          "teacherName": "Kearsley Brown",
+          "courseCount": "1"
+        },
+        {
+          "teacherName": "Lucy Wong",
+          "courseCount": "1"
+        },
+        {
+          "teacherName": "Anne Walker",
+          "courseCount": "2"
+        },
+        {
+          "teacherName": "Gustaaf Deloor",
+          "courseCount": "1"
+        },
+        {
+          "teacherName": "Vicente Carretero",
+          "courseCount": "1"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_name": "Lucy Wong",
+          "aggregation_all": "1"
+        },
+        {
+          "t1_name": "Kearsley Brown",
+          "aggregation_all": "1"
+        },
+        {
+          "t1_name": "Vicente Carretero",
+          "aggregation_all": "1"
+        },
+        {
+          "t1_name": "Gustaaf Deloor",
+          "aggregation_all": "1"
+        },
+        {
+          "t1_name": "Anne Walker",
+          "aggregation_all": "2"
+        }
+      ],
+      "discovery_accuracy": 1.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 1,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 2,
+      "schema_summary_retries": 2,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "Find the first name of students who have both cat and dog pets .",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql",
+        "http://host.docker.internal:3030/dog_kennels__owners/sparql",
+        "http://host.docker.internal:3030/pets_1__student/sparql",
+        "http://host.docker.internal:3030/dorm_1__student/sparql",
+        "http://host.docker.internal:3030/college_3__student/sparql",
+        "http://host.docker.internal:3030/activity_1__student/sparql",
+        "http://host.docker.internal:3030/game_1__student/sparql",
+        "http://host.docker.internal:3030/college_2__student/sparql",
+        "http://host.docker.internal:3030/e_learning__students/sparql",
+        "http://host.docker.internal:3030/student_assessment__students/sparql",
+        "http://host.docker.internal:3030/candidate_poll__people/sparql",
+        "http://host.docker.internal:3030/debate__people/sparql",
+        "http://host.docker.internal:3030/cre_drama_workshop_groups__clients/sparql",
+        "http://host.docker.internal:3030/sakila_1__customer/sparql",
+        "http://host.docker.internal:3030/small_bank_1__accounts/sparql",
+        "http://host.docker.internal:3030/inn_1__reservations/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/pets_1__student/sparql",
+        "http://host.docker.internal:3030/pets_1__has_pet/sparql",
+        "http://host.docker.internal:3030/pets_1__pets/sparql"
+      ],
+      "predicted_sparql": null,
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect distinct ?t1_fname WHERE {\n  SERVICE <http://host.docker.internal:3030/pets_1__student/sparql> {\n    SELECT DISTINCT ?t1 ?t1_fname ?t1_stuid WHERE {\n      ?t1 a :student .\n      ?t1 :student\\#fname ?t1_fname .\n      ?t1 :student\\#stuid ?t1_stuid .\n      ?t1 :student\\#fname ?t1_fname .\n      ?t1 :student\\#stuid ?t1_stuid\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/pets_1__pets/sparql> {\n    SELECT DISTINCT ?t3 ?t3_pettype WHERE {\n      ?t3 :pets\\#pettype ?t3_pettype .\n      ?t3 :pets\\#pettype ?t3_pettype .\n      ?t3 a :pets .\n      ?t3 :pets\\#pettype ?t3_pettype .\n      ?t3 :pets\\#pettype ?t3_pettype\n      FILTER(?t3_pettype = 'cat' || ?t3_pettype = 'dog')\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/pets_1__has_pet/sparql> {\n    ?t2 a :has_pet .\n      ?t2 :has_pet\\#ref-stuid ?t1 .\n      ?t2 :has_pet\\#ref-petid ?t3\n  }\n}",
+      "predicted_answers": [],
+      "gold_answers": [
+        {
+          "t1_fname": "Linda"
+        },
+        {
+          "t1_fname": "Tracy"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "f1_score": 0.0,
+      "manually_check": false,
+      "refinement_attempts": 7,
+      "discovery_internal_retries": 4,
+      "query_builder_internal_retries": 8,
+      "schema_summary_retries": 5,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    {
+      "question": "What is the average age of the dogs who have gone through any treatments?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql",
+        "http://host.docker.internal:3030/dog_kennels__treatments/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__treatments/sparql",
+        "http://host.docker.internal:3030/dog_kennels__sizes/sparql",
+        "http://host.docker.internal:3030/dog_kennels__charges/sparql",
+        "http://host.docker.internal:3030/dog_kennels__professionals/sparql",
+        "http://host.docker.internal:3030/dog_kennels__owners/sparql",
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql",
+        "http://host.docker.internal:3030/dog_kennels__breeds/sparql",
+        "http://host.docker.internal:3030/dog_kennels__treatment_types/sparql"
+      ],
+      "predicted_sparql": "PREFIX dogs: <http://valuenet/ontop/dogs#>\nPREFIX treat: <http://valuenet/ontop/treatments#>\nSELECT (AVG(?age) AS ?avgAge) WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__dogs/sparql> { ?dog <http://valuenet/ontop/dogs#dog_id> ?dog_id . ?dog <http://valuenet/ontop/dogs#age> ?age }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__treatments/sparql> { ?treatment <http://valuenet/ontop/treatments#dog_id> ?dog_id }\n}",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect (avg( ?t1_age) as ?aggregation_t1_age_5 ) WHERE {\n  {\n    SELECT ?t1 ?t1_age ?t1_dog_id ?t2 WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__dogs/sparql> {\n    SELECT DISTINCT ?t1 ?t1_age WHERE {\n      ?t1 a :dogs .\n      ?t1 :dogs\\#age ?t1_age .\n      ?t1 :dogs\\#dog_id ?t1_dog_id\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__treatments/sparql> {\n    ?t2 a :treatments .\n      ?t2 :treatments\\#ref-dog_id ?t1\n  }\n    }\n  }\n}",
+      "predicted_answers": [
+        {
+          "avgAge": "5.466666666666666666666667"
+        }
+      ],
+      "gold_answers": [
+        {
+          "aggregation_t1_age_5": "5.466666666666666666666667"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "Give me the description of the treatment type whose total cost is the lowest.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__treatments/sparql",
+        "http://host.docker.internal:3030/dog_kennels__treatment_types/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__treatments/sparql",
+        "http://host.docker.internal:3030/dog_kennels__sizes/sparql",
+        "http://host.docker.internal:3030/dog_kennels__charges/sparql",
+        "http://host.docker.internal:3030/dog_kennels__professionals/sparql",
+        "http://host.docker.internal:3030/dog_kennels__owners/sparql",
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql",
+        "http://host.docker.internal:3030/dog_kennels__breeds/sparql",
+        "http://host.docker.internal:3030/dog_kennels__treatment_types/sparql"
+      ],
+      "predicted_sparql": "PREFIX treat: <http://valuenet/ontop/treatments#>\nPREFIX tt: <http://valuenet/ontop/treatment_types#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT ?description (SUM(?cost) AS ?totalCost) WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__treatments/sparql> { ?treatment <http://valuenet/ontop/treatments#treatment_type_code> ?treatment_type_code . ?treatment <http://valuenet/ontop/treatments#cost_of_treatment> ?cost }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__treatment_types/sparql> { ?type <http://valuenet/ontop/treatment_types#treatment_type_code> ?treatment_type_code . ?type <http://valuenet/ontop/treatment_types#treatment_type_description> ?description }\n}\nGROUP BY ?description ?treatment_type_code\nORDER BY ASC(?totalCost)\nLIMIT 1",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_treatment_type_description WHERE {\n  {\n    SELECT ?t1 ?t1_treatment_type_description ?t2 ?t2_cost_of_treatment WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__treatment_types/sparql> {\n    SELECT DISTINCT ?t1 ?t1_treatment_type_description WHERE {\n      ?t1 a :treatment_types .\n      ?t1 :treatment_types\\#treatment_type_description ?t1_treatment_type_description\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__treatments/sparql> {\n    ?t2 a :treatments .\n      ?t2 :treatments\\#ref-treatment_type_code ?t1 .\n      ?t2 :treatments\\#cost_of_treatment ?t2_cost_of_treatment\n  }\n    }\n  }\n}\ngroup by ?t1_treatment_type_description  order by asc (sum( ?t2_cost_of_treatment) ) limit 1",
+      "predicted_answers": [
+        {
+          "description": "Take for a Walk",
+          "totalCost": "2392.0"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_treatment_type_description": "Take for a Walk"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "Show names of teachers and the number of courses they teach.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/course_teach__teacher/sparql",
+        "http://host.docker.internal:3030/course_teach__course_arrange/sparql",
+        "http://host.docker.internal:3030/college_2__instructor/sparql",
+        "http://host.docker.internal:3030/college_2__teaches/sparql",
+        "http://host.docker.internal:3030/college_3__course/sparql",
+        "http://host.docker.internal:3030/college_1__professor/sparql",
+        "http://host.docker.internal:3030/college_1__class/sparql",
+        "http://host.docker.internal:3030/student_1__teachers/sparql",
+        "http://host.docker.internal:3030/course_teach__course/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__courses/sparql",
+        "http://host.docker.internal:3030/e_learning__courses/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/course_teach__teacher/sparql",
+        "http://host.docker.internal:3030/course_teach__course/sparql",
+        "http://host.docker.internal:3030/course_teach__course_arrange/sparql"
+      ],
+      "predicted_sparql": "PREFIX ontop: <http://valuenet/ontop/>\nSELECT ?name (COUNT(?course_id) AS ?courseCount) WHERE {\n  SERVICE <http://host.docker.internal:3030/course_teach__teacher/sparql> { ?teacher <http://valuenet/ontop/teacher#teacher_id> ?teacher_id . ?teacher <http://valuenet/ontop/teacher#name> ?name }\n  SERVICE <http://host.docker.internal:3030/course_teach__course_arrange/sparql> { ?arr <http://valuenet/ontop/course_arrange#teacher_id> ?teacher_id . ?arr <http://valuenet/ontop/course_arrange#course_id> ?course_id }\n}\nGROUP BY ?name",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_name (count( *) as ?aggregation_all) WHERE {\n  {\n    SELECT ?t1 ?t13 ?t1_name WHERE {\n  SERVICE <http://host.docker.internal:3030/course_teach__teacher/sparql> {\n    SELECT DISTINCT ?t1 ?t1_name WHERE {\n      ?t1 a :teacher .\n      ?t1 :teacher\\#name ?t1_name\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/course_teach__course_arrange/sparql> {\n    ?t13 a :course_arrange .\n      ?t13 :course_arrange\\#ref-teacher_id ?t1\n  }\n    }\n  }\n}\ngroup by ?t1_name",
+      "predicted_answers": [
+        {
+          "name": "Anne Walker",
+          "courseCount": "2"
+        },
+        {
+          "name": "Gustaaf Deloor",
+          "courseCount": "1"
+        },
+        {
+          "name": "Vicente Carretero",
+          "courseCount": "1"
+        },
+        {
+          "name": "Kearsley Brown",
+          "courseCount": "1"
+        },
+        {
+          "name": "Lucy Wong",
+          "courseCount": "1"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_name": "Lucy Wong",
+          "aggregation_all": "1"
+        },
+        {
+          "t1_name": "Kearsley Brown",
+          "aggregation_all": "1"
+        },
+        {
+          "t1_name": "Vicente Carretero",
+          "aggregation_all": "1"
+        },
+        {
+          "t1_name": "Gustaaf Deloor",
+          "aggregation_all": "1"
+        },
+        {
+          "t1_name": "Anne Walker",
+          "aggregation_all": "2"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "For a volvo model, how many cylinders does the version with least accelerate have?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/car_1__cars_data/sparql",
+        "http://host.docker.internal:3030/car_1__car_names/sparql",
+        "http://host.docker.internal:3030/car_1__car_makers/sparql",
+        "http://host.docker.internal:3030/car_1__model_list/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/car_1__cars_data/sparql",
+        "http://host.docker.internal:3030/car_1__car_names/sparql",
+        "http://host.docker.internal:3030/car_1__model_list/sparql",
+        "http://host.docker.internal:3030/car_1__countries/sparql",
+        "http://host.docker.internal:3030/car_1__car_makers/sparql",
+        "http://host.docker.internal:3030/car_1__continents/sparql"
+      ],
+      "predicted_sparql": "PREFIX car_names: <http://valuenet/ontop/car_names#>\nPREFIX cars_data: <http://valuenet/ontop/cars_data#>\nSELECT ?cyl WHERE {\n  SERVICE <http://host.docker.internal:3030/car_1__car_names/sparql> { ?nameEntry <http://valuenet/ontop/car_names#make> ?makeString . ?nameEntry <http://valuenet/ontop/car_names#makeid> ?makeid }\n  SERVICE <http://host.docker.internal:3030/car_1__cars_data/sparql> { ?car <http://valuenet/ontop/cars_data#id> ?makeid . ?car <http://valuenet/ontop/cars_data#accelerate> ?accel . ?car <http://valuenet/ontop/cars_data#cylinders> ?cyl }\n  FILTER(CONTAINS(LCASE(?makeString), \"volvo\"))\n}\nORDER BY ASC(?accel)\nLIMIT 1",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_cylinders WHERE {\n  SERVICE <http://host.docker.internal:3030/car_1__car_names/sparql> {\n    SELECT DISTINCT ?t2 ?t2_model WHERE {\n      ?t2 a :car_names .\n      ?t2 :car_names\\#model ?t2_model\n      FILTER(?t2_model = 'volvo')\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/car_1__cars_data/sparql> {\n    ?t1 a :cars_data .\n      ?t1 :cars_data\\#ref-id ?t2 .\n      ?t1 :cars_data\\#cylinders ?t1_cylinders .\n      ?t1 :cars_data\\#accelerate ?t1_accelerate\n  }\n}\norder by asc (?t1_accelerate) limit 1",
+      "predicted_answers": [
+        {
+          "cyl": "6"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_cylinders": "6"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "What is the average edispl of the cars of model volvo?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/car_1__cars_data/sparql",
+        "http://host.docker.internal:3030/car_1__car_names/sparql",
+        "http://host.docker.internal:3030/car_1__model_list/sparql",
+        "http://host.docker.internal:3030/car_1__car_makers/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/car_1__cars_data/sparql",
+        "http://host.docker.internal:3030/car_1__car_names/sparql",
+        "http://host.docker.internal:3030/car_1__model_list/sparql",
+        "http://host.docker.internal:3030/car_1__countries/sparql",
+        "http://host.docker.internal:3030/car_1__car_makers/sparql",
+        "http://host.docker.internal:3030/car_1__continents/sparql"
+      ],
+      "predicted_sparql": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX cars_data: <http://valuenet/ontop/cars_data#>\nPREFIX car_names: <http://valuenet/ontop/car_names#>\nSELECT (AVG(?edispl) AS ?avgEdispl) WHERE {\n  SERVICE <http://host.docker.internal:3030/car_1__car_names/sparql> { ?nameRecord <http://valuenet/ontop/car_names#model> ?model . ?nameRecord <http://valuenet/ontop/car_names#makeid> ?refid }\n  SERVICE <http://host.docker.internal:3030/car_1__cars_data/sparql> { ?carRecord <http://valuenet/ontop/cars_data#edispl> ?edispl . ?carRecord <http://valuenet/ontop/cars_data#ref-id> ?refid }\n  FILTER(?model = \"volvo\")\n}",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect (avg( ?t1_edispl) as ?aggregation_t1_edispl_65 ) WHERE {\n  {\n    SELECT ?t1 ?t1_edispl ?t2 ?t2_model WHERE {\n  SERVICE <http://host.docker.internal:3030/car_1__car_names/sparql> {\n    SELECT DISTINCT ?t2 WHERE {\n      ?t2 a :car_names .\n      ?t2 :car_names\\#model ?t2_model\n      FILTER(?t2_model = 'volvo')\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/car_1__cars_data/sparql> {\n    ?t1 a :cars_data .\n      ?t1 :cars_data\\#ref-id ?t2 .\n      ?t1 :cars_data\\#edispl ?t1_edispl\n  }\n    }\n  }\n}",
+      "predicted_answers": [
+        {
+          "avgEdispl": "0"
+        }
+      ],
+      "gold_answers": [
+        {
+          "aggregation_t1_edispl_65": "133.5e0"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "f1_score": 0.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    {
+      "question": "Which breed do the most dogs have? Give me the breed name.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql",
+        "http://host.docker.internal:3030/dog_kennels__breeds/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__treatments/sparql",
+        "http://host.docker.internal:3030/dog_kennels__sizes/sparql",
+        "http://host.docker.internal:3030/dog_kennels__charges/sparql",
+        "http://host.docker.internal:3030/dog_kennels__professionals/sparql",
+        "http://host.docker.internal:3030/dog_kennels__owners/sparql",
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql",
+        "http://host.docker.internal:3030/dog_kennels__breeds/sparql",
+        "http://host.docker.internal:3030/dog_kennels__treatment_types/sparql"
+      ],
+      "predicted_sparql": "PREFIX ontop: <http://valuenet/ontop/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT ?breed_name (COUNT(?dog) AS ?count) WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__dogs/sparql> { ?dog <http://valuenet/ontop/dogs#breed_code> ?breed_code }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__breeds/sparql> { ?breed <http://valuenet/ontop/breeds#breed_code> ?breed_code . ?breed <http://valuenet/ontop/breeds#breed_name> ?breed_name }\n}\nGROUP BY ?breed_name\nORDER BY DESC(?count)\nLIMIT 1",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT ?T1_breed_name (count( *) as ?aggregation_all) WHERE {\n  {\n    SELECT ?T1 ?T1_breed_code ?T1_breed_name ?T3 WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__breeds/sparql> {\n    SELECT DISTINCT ?T1 ?T1_breed_name WHERE {\n      ?T1 a :breeds .\n      ?T1 :breeds\\#breed_name ?T1_breed_name .\n      ?T1 :breeds\\#breed_code ?T1_breed_code\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__dogs/sparql> {\n    ?T3 a :dogs .\n      ?T3 :dogs\\#ref-breed_code ?T1\n  }\n    }\n  }\n}\nGROUP BY ?T1_breed_name  ORDER BY DESC (?aggregation_all) LIMIT 1",
+      "predicted_answers": [
+        {
+          "breed_name": "Bulldog",
+          "count": "7"
+        }
+      ],
+      "gold_answers": [
+        {
+          "T1_breed_name": "Bulldog",
+          "aggregation_all": "7"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "What is the average earnings of poker players with height higher than 200?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/poker_player__poker_player/sparql",
+        "http://host.docker.internal:3030/poker_player__people/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/poker_player__people/sparql",
+        "http://host.docker.internal:3030/poker_player__poker_player/sparql"
+      ],
+      "predicted_sparql": "PREFIX pp: <http://valuenet/ontop/poker_player#>\nPREFIX people: <http://valuenet/ontop/people#>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT (AVG(?earnings) AS ?avgEarnings) WHERE {\n  SERVICE <http://host.docker.internal:3030/poker_player__poker_player/sparql> { ?player <http://valuenet/ontop/poker_player#people_id> ?people_id . ?player <http://valuenet/ontop/poker_player#earnings> ?earnings }\n  SERVICE <http://host.docker.internal:3030/poker_player__people/sparql> { ?person <http://valuenet/ontop/people#people_id> ?people_id . ?person <http://valuenet/ontop/people#height> ?height }\n  FILTER(?height > 200.0e0)\n}",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect (avg( ?t1_earnings) as ?aggregation_t1_earnings_12 ) WHERE {\n  {\n    SELECT ?t1 ?t1_earnings ?t2 ?t2_height WHERE {\n  SERVICE <http://host.docker.internal:3030/poker_player__people/sparql> {\n    SELECT DISTINCT ?t2 WHERE {\n      ?t2 a :people .\n      ?t2 :people\\#height ?t2_height\n      FILTER(?t2_height > 200)\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/poker_player__poker_player/sparql> {\n    ?t1 a :poker_player .\n      ?t1 :poker_player\\#ref-people_id ?t2 .\n      ?t1 :poker_player\\#earnings ?t1_earnings\n  }\n    }\n  }\n}",
+      "predicted_answers": [
+        {
+          "avgEarnings": "309445.0e0"
+        }
+      ],
+      "gold_answers": [
+        {
+          "aggregation_t1_earnings_12": "309445.0e0"
+        }
+      ],
+      "discovery_accuracy": 1.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "Which employee received the most awards in evaluations? Give me the employee name.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/employee_hire_evaluation__evaluation/sparql",
+        "http://host.docker.internal:3030/employee_hire_evaluation__employee/sparql",
+        "http://host.docker.internal:3030/cre_doc_tracking_db__employees/sparql",
+        "http://host.docker.internal:3030/cre_doc_control_systems__employees/sparql",
+        "http://host.docker.internal:3030/hr_1__employees/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/employee_hire_evaluation__shop/sparql",
+        "http://host.docker.internal:3030/employee_hire_evaluation__evaluation/sparql",
+        "http://host.docker.internal:3030/employee_hire_evaluation__employee/sparql",
+        "http://host.docker.internal:3030/employee_hire_evaluation__hiring/sparql"
+      ],
+      "predicted_sparql": "PREFIX evaluation: <http://valuenet/ontop/evaluation#>\nPREFIX employee: <http://valuenet/ontop/employee#>\nSELECT ?employee_id ?name (COUNT(?eval) AS ?awardCount) WHERE {\n  SERVICE <http://host.docker.internal:3030/employee_hire_evaluation__evaluation/sparql> { ?eval <http://valuenet/ontop/evaluation#employee_id> ?employee_id }\n  SERVICE <http://host.docker.internal:3030/employee_hire_evaluation__employee/sparql> { ?emp <http://valuenet/ontop/employee#employee_id> ?employee_id . ?emp <http://valuenet/ontop/employee#name> ?name }\n}\nGROUP BY ?employee_id ?name\nORDER BY DESC(?awardCount)\nLIMIT 1",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT ?T1_name (count( *) as ?aggregation_all) WHERE {\n  {\n    SELECT ?T1 ?T1_employee_id ?T1_name ?T3 WHERE {\n  SERVICE <http://host.docker.internal:3030/employee_hire_evaluation__employee/sparql> {\n    SELECT DISTINCT ?T1 ?T1_name WHERE {\n      ?T1 a :employee .\n      ?T1 :employee\\#name ?T1_name .\n      ?T1 :employee\\#employee_id ?T1_employee_id\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/employee_hire_evaluation__evaluation/sparql> {\n    ?T3 a :evaluation .\n      ?T3 :evaluation\\#ref-employee_id ?T1\n  }\n    }\n  }\n}\nGROUP BY ?T1_name  ORDER BY DESC (?aggregation_all) LIMIT 1",
+      "predicted_answers": [
+        {
+          "employee_id": "1",
+          "name": "George Chuter",
+          "awardCount": "2"
+        }
+      ],
+      "gold_answers": [
+        {
+          "T1_name": "George Chuter",
+          "aggregation_all": "2"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "What is the semester which most student registered in? Show both the name and the id.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/student_transcripts_tracking__student_enrolment/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__semesters/sparql",
+        "http://host.docker.internal:3030/college_2__takes/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/student_transcripts_tracking__departments/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__addresses/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__sections/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__courses/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__degree_programs/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__students/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__student_enrolment_courses/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__student_enrolment/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__transcripts/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__transcript_contents/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__semesters/sparql"
+      ],
+      "predicted_sparql": "PREFIX enrol: <http://valuenet/ontop/student_enrolment#>\nPREFIX sem: <http://valuenet/ontop/semesters#>\nSELECT ?semester_id ?semester_name (COUNT(DISTINCT ?student_id) AS ?studentCount) WHERE {\n  SERVICE <http://host.docker.internal:3030/student_transcripts_tracking__student_enrolment/sparql> { ?enrol <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://valuenet/ontop/student_enrolment> . ?enrol <http://valuenet/ontop/student_enrolment#semester_id> ?semester_id . ?enrol <http://valuenet/ontop/student_enrolment#student_id> ?student_id }\n  SERVICE <http://host.docker.internal:3030/student_transcripts_tracking__semesters/sparql> { ?sem <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://valuenet/ontop/semesters> . ?sem <http://valuenet/ontop/semesters#semester_id> ?semester_id . ?sem <http://valuenet/ontop/semesters#semester_name> ?semester_name }\n}\nGROUP BY ?semester_id ?semester_name\nORDER BY DESC(?studentCount)\nLIMIT 1",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT ?T1_semester_name (count( *) as ?aggregation_all) ?T1_semester_id WHERE {\n  {\n    SELECT ?T1 ?T1_semester_id ?T1_semester_name ?T3 WHERE {\n  SERVICE <http://host.docker.internal:3030/student_transcripts_tracking__semesters/sparql> {\n    SELECT DISTINCT ?T1 ?T1_semester_id ?T1_semester_name WHERE {\n      ?T1 a :semesters .\n      ?T1 :semesters\\#semester_name ?T1_semester_name .\n      ?T1 :semesters\\#semester_id ?T1_semester_id .\n      ?T1 :semesters\\#semester_id ?T1_semester_id\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/student_transcripts_tracking__student_enrolment/sparql> {\n    ?T3 a :student_enrolment .\n      ?T3 :student_enrolment\\#ref-semester_id ?T1\n  }\n    }\n  }\n}\nGROUP BY ?T1_semester_name ?T1_semester_id  ORDER BY DESC (?aggregation_all) LIMIT 1",
+      "predicted_answers": [
+        {
+          "semester_id": "13",
+          "semester_name": "fall 2018",
+          "studentCount": "3"
+        }
+      ],
+      "gold_answers": [
+        {
+          "T1_semester_name": "summer 2010",
+          "aggregation_all": "4",
+          "T1_semester_id": "2"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "f1_score": 0.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    {
+      "question": "What are the ids and texts of paragraphs in the document titled 'Welcome to NY'?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__paragraphs/sparql",
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__documents/sparql",
+        "http://host.docker.internal:3030/document_management__documents/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__documents/sparql",
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__templates/sparql",
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__paragraphs/sparql",
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__ref_template_types/sparql"
+      ],
+      "predicted_sparql": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX doc: <http://valuenet/ontop/documents#>\nPREFIX para: <http://valuenet/ontop/paragraphs#>\nPREFIX vd: <http://valuenet/ontop/>\nSELECT DISTINCT ?paragraph_id ?paragraph_text WHERE {\n  SERVICE <http://host.docker.internal:3030/cre_Doc_Template_Mgt__documents/sparql> { ?doc <http://valuenet/ontop/documents#document_id> ?document_id . ?doc <http://valuenet/ontop/documents#document_name> ?docName }\n  SERVICE <http://host.docker.internal:3030/cre_Doc_Template_Mgt__paragraphs/sparql> { ?para <http://valuenet/ontop/paragraphs#paragraph_id> ?paragraph_id . ?para <http://valuenet/ontop/paragraphs#paragraph_text> ?paragraph_text . ?para <http://valuenet/ontop/paragraphs#document_id> ?document_id }\n  FILTER(?docName = \"Welcome to NY\")\n}\nGROUP BY ?paragraph_id ?paragraph_text",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_paragraph_id ?t1_paragraph_text WHERE {\n  SERVICE <http://host.docker.internal:3030/cre_Doc_Template_Mgt__documents/sparql> {\n    SELECT DISTINCT ?t2 ?t2_document_name WHERE {\n      ?t2 a :documents .\n      ?t2 :documents\\#document_name ?t2_document_name\n      FILTER(?t2_document_name = 'Welcome to NY')\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/cre_Doc_Template_Mgt__paragraphs/sparql> {\n    ?t1 a :paragraphs .\n      ?t1 :paragraphs\\#ref-document_id ?t2 .\n      ?t1 :paragraphs\\#paragraph_id ?t1_paragraph_id .\n      ?t1 :paragraphs\\#paragraph_text ?t1_paragraph_text\n  }\n}",
+      "predicted_answers": [
+        {
+          "paragraph_id": "608931827",
+          "paragraph_text": "Micronesia"
+        },
+        {
+          "paragraph_id": "16615",
+          "paragraph_text": "Japan"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_paragraph_id": "16615",
+          "t1_paragraph_text": "Japan"
+        },
+        {
+          "t1_paragraph_id": "608931827",
+          "t1_paragraph_text": "Micronesia"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "Find the first name and age of students who have a pet.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/pets_1__has_pet/sparql",
+        "http://host.docker.internal:3030/pets_1__student/sparql",
+        "http://host.docker.internal:3030/pets_1__pets/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__students/sparql",
+        "http://host.docker.internal:3030/club_1__student/sparql",
+        "http://host.docker.internal:3030/allergy_1__student/sparql",
+        "http://host.docker.internal:3030/activity_1__student/sparql",
+        "http://host.docker.internal:3030/dorm_1__student/sparql",
+        "http://host.docker.internal:3030/game_1__student/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/pets_1__student/sparql",
+        "http://host.docker.internal:3030/pets_1__has_pet/sparql",
+        "http://host.docker.internal:3030/pets_1__pets/sparql"
+      ],
+      "predicted_sparql": "PREFIX vn_student: <http://valuenet/ontop/student#>\nPREFIX vn_has_pet: <http://valuenet/ontop/has_pet#>\nPREFIX vn: <http://valuenet/ontop/>\nSELECT DISTINCT ?fname ?age WHERE {\n  SERVICE <http://host.docker.internal:3030/pets_1__has_pet/sparql> { ?petRecord <http://valuenet/ontop/has_pet#stuid> ?stuid }\n  SERVICE <http://host.docker.internal:3030/pets_1__student/sparql> { ?student <http://valuenet/ontop/student#stuid> ?stuid . ?student <http://valuenet/ontop/student#fname> ?fname . ?student <http://valuenet/ontop/student#age> ?age }\n}\nGROUP BY ?fname ?age",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect distinct ?t1_fname ?t1_age WHERE {\n  SERVICE <http://host.docker.internal:3030/pets_1__student/sparql> {\n    SELECT DISTINCT ?t1 ?t1_age ?t1_fname ?t1_stuid WHERE {\n      ?t1 a :student .\n      ?t1 :student\\#fname ?t1_fname .\n      ?t1 :student\\#age ?t1_age .\n      ?t1 :student\\#stuid ?t1_stuid\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/pets_1__has_pet/sparql> {\n    ?t2 a :has_pet .\n      ?t2 :has_pet\\#ref-stuid ?t1\n  }\n}",
+      "predicted_answers": [
+        {
+          "fname": "Tracy",
+          "age": "19"
+        },
+        {
+          "fname": "Linda",
+          "age": "18"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_fname": "Linda",
+          "t1_age": "18"
+        },
+        {
+          "t1_fname": "Tracy",
+          "t1_age": "19"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "Show the names of students who have a grade higher than 5 and have at least 2 friends.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/network_1__highschooler/sparql",
+        "http://host.docker.internal:3030/student_1__list/sparql",
+        "http://host.docker.internal:3030/twitter_1__follows/sparql",
+        "http://host.docker.internal:3030/twitter_1__user_profiles/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/network_1__highschooler/sparql",
+        "http://host.docker.internal:3030/network_1__friend/sparql",
+        "http://host.docker.internal:3030/network_1__likes/sparql"
+      ],
+      "predicted_sparql": null,
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT ?T1_name WHERE {\n  {\n    SELECT ?T1 ?T1_grade ?T1_id ?T1_name ?T2 ?T2_student_id WHERE {\n  SERVICE <http://host.docker.internal:3030/network_1__highschooler/sparql> {\n    SELECT DISTINCT ?T1 ?T1_name WHERE {\n      ?T1 a :highschooler .\n      ?T1 :highschooler\\#name ?T1_name .\n      ?T1 :highschooler\\#id ?T1_id .\n      ?T1 :highschooler\\#grade ?T1_grade\n      FILTER(?T1_grade > 5)\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/network_1__friend/sparql> {\n    ?T2 a :friend .\n      ?T2 :friend\\#ref-student_id ?T1 .\n      ?T2 :friend\\#student_id ?T2_student_id\n  }\n    }\n  }\n}\nGROUP BY ?T2_student_id ?T1_name   HAVING(count( *)  >= 2)",
+      "predicted_answers": [],
+      "gold_answers": [
+        {
+          "T1_name": "Kris"
+        },
+        {
+          "T1_name": "Andrew"
+        },
+        {
+          "T1_name": "Alexis"
+        },
+        {
+          "T1_name": "Gabriel"
+        },
+        {
+          "T1_name": "Jordan"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "f1_score": 0.0,
+      "manually_check": false,
+      "refinement_attempts": 7,
+      "discovery_internal_retries": 5,
+      "query_builder_internal_retries": 8,
+      "schema_summary_retries": 7,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    {
+      "question": "What are the arriving date and the departing date of the dogs who have gone through a treatment?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__treatments/sparql",
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__treatments/sparql",
+        "http://host.docker.internal:3030/dog_kennels__sizes/sparql",
+        "http://host.docker.internal:3030/dog_kennels__charges/sparql",
+        "http://host.docker.internal:3030/dog_kennels__professionals/sparql",
+        "http://host.docker.internal:3030/dog_kennels__owners/sparql",
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql",
+        "http://host.docker.internal:3030/dog_kennels__breeds/sparql",
+        "http://host.docker.internal:3030/dog_kennels__treatment_types/sparql"
+      ],
+      "predicted_sparql": "PREFIX vn: <http://valuenet/ontop/>\nSELECT DISTINCT ?dog_id ?date_arrived ?date_departed WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__treatments/sparql> { ?treatment <http://valuenet/ontop/treatments#dog_id> ?dog_id . ?treatment <http://valuenet/ontop/treatments#date_of_treatment> ?treatment_date }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__dogs/sparql> { ?dog <http://valuenet/ontop/dogs#dog_id> ?dog_id . ?dog <http://valuenet/ontop/dogs#date_arrived> ?date_arrived . ?dog <http://valuenet/ontop/dogs#date_departed> ?date_departed }\n}",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect distinct ?t1_date_arrived ?t1_date_departed WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__dogs/sparql> {\n    SELECT DISTINCT ?t1 ?t1_date_arrived ?t1_date_departed ?t1_dog_id WHERE {\n      ?t1 a :dogs .\n      ?t1 :dogs\\#date_arrived ?t1_date_arrived .\n      ?t1 :dogs\\#date_departed ?t1_date_departed .\n      ?t1 :dogs\\#dog_id ?t1_dog_id\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__treatments/sparql> {\n    ?t2 a :treatments .\n      ?t2 :treatments\\#ref-dog_id ?t1\n  }\n}",
+      "predicted_answers": [
+        {
+          "dog_id": "1",
+          "date_arrived": "2017-09-08T20:10:13",
+          "date_departed": "2018-03-25T06:58:44"
+        },
+        {
+          "dog_id": "2",
+          "date_arrived": "2017-12-22T05:02:02",
+          "date_departed": "2018-03-25T02:11:32"
+        },
+        {
+          "dog_id": "4",
+          "date_arrived": "2017-04-20T00:58:55",
+          "date_departed": "2018-03-24T19:12:22"
+        },
+        {
+          "dog_id": "7",
+          "date_arrived": "2017-05-06T08:03:52",
+          "date_departed": "2018-03-25T06:29:10"
+        },
+        {
+          "dog_id": "10",
+          "date_arrived": "2017-12-29T06:08:26",
+          "date_departed": "2018-03-25T04:42:14"
+        },
+        {
+          "dog_id": "12",
+          "date_arrived": "2017-10-24T04:45:13",
+          "date_departed": "2018-03-25T14:15:41"
+        },
+        {
+          "dog_id": "13",
+          "date_arrived": "2018-01-02T03:15:29",
+          "date_departed": "2018-03-25T05:07:47"
+        },
+        {
+          "dog_id": "14",
+          "date_arrived": "2017-06-18T19:45:38",
+          "date_departed": "2018-03-24T23:48:59"
+        },
+        {
+          "dog_id": "15",
+          "date_arrived": "2017-12-29T23:24:13",
+          "date_departed": "2018-03-24T19:36:59"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_date_arrived": "2017-09-08T20:10:13",
+          "t1_date_departed": "2018-03-25T06:58:44"
+        },
+        {
+          "t1_date_arrived": "2017-12-29T06:08:26",
+          "t1_date_departed": "2018-03-25T04:42:14"
+        },
+        {
+          "t1_date_arrived": "2017-10-24T04:45:13",
+          "t1_date_departed": "2018-03-25T14:15:41"
+        },
+        {
+          "t1_date_arrived": "2018-01-02T03:15:29",
+          "t1_date_departed": "2018-03-25T05:07:47"
+        },
+        {
+          "t1_date_arrived": "2017-06-18T19:45:38",
+          "t1_date_departed": "2018-03-24T23:48:59"
+        },
+        {
+          "t1_date_arrived": "2017-12-29T23:24:13",
+          "t1_date_departed": "2018-03-24T19:36:59"
+        },
+        {
+          "t1_date_arrived": "2017-12-22T05:02:02",
+          "t1_date_departed": "2018-03-25T02:11:32"
+        },
+        {
+          "t1_date_arrived": "2017-04-20T00:58:55",
+          "t1_date_departed": "2018-03-24T19:12:22"
+        },
+        {
+          "t1_date_arrived": "2017-05-06T08:03:52",
+          "t1_date_departed": "2018-03-25T06:29:10"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "What are the names of poker players, ordered ascending by the number of final tables they have made?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/poker_player__poker_player/sparql",
+        "http://host.docker.internal:3030/poker_player__people/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/poker_player__people/sparql",
+        "http://host.docker.internal:3030/poker_player__poker_player/sparql"
+      ],
+      "predicted_sparql": "PREFIX vp_poker: <http://valuenet/ontop/poker_player#>\nPREFIX vp_people: <http://valuenet/ontop/people#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT ?name (MAX(?final_table_made) AS ?finalTableCount) WHERE {\n  SERVICE <http://host.docker.internal:3030/poker_player__poker_player/sparql> { ?pp <http://valuenet/ontop/poker_player#people_id> ?people_id . ?pp <http://valuenet/ontop/poker_player#final_table_made> ?final_table_made }\n  SERVICE <http://host.docker.internal:3030/poker_player__people/sparql> { ?person <http://valuenet/ontop/people#people_id> ?people_id . ?person <http://valuenet/ontop/people#name> ?name }\n}\nGROUP BY ?name\nORDER BY ASC(?finalTableCount)",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_name WHERE {\n  SERVICE <http://host.docker.internal:3030/poker_player__people/sparql> {\n    SELECT DISTINCT ?t1 ?t1_name WHERE {\n      ?t1 a :people .\n      ?t1 :people\\#name ?t1_name\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/poker_player__poker_player/sparql> {\n    ?t2 a :poker_player .\n      ?t2 :poker_player\\#ref-people_id ?t1 .\n      ?t2 :poker_player\\#final_table_made ?t2_final_table_made\n  }\n}\norder by asc (?t2_final_table_made)",
+      "predicted_answers": [
+        {
+          "name": "Teodor Salparov",
+          "finalTableCount": "10.0e0"
+        },
+        {
+          "name": "Maksim Botin",
+          "finalTableCount": "19.0e0"
+        },
+        {
+          "name": "Yevgeni Sivozhelez",
+          "finalTableCount": "21.0e0"
+        },
+        {
+          "name": "Semen Poltavskiy",
+          "finalTableCount": "26.0e0"
+        },
+        {
+          "name": "Aleksey Ostapenko",
+          "finalTableCount": "42.0e0"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_name": "Teodor Salparov"
+        },
+        {
+          "t1_name": "Maksim Botin"
+        },
+        {
+          "t1_name": "Yevgeni Sivozhelez"
+        },
+        {
+          "t1_name": "Semen Poltavskiy"
+        },
+        {
+          "t1_name": "Aleksey Ostapenko"
+        }
+      ],
+      "discovery_accuracy": 1.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "For the cars with 4 cylinders, which model has the largest horsepower?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/car_1__cars_data/sparql",
+        "http://host.docker.internal:3030/car_1__car_names/sparql",
+        "http://host.docker.internal:3030/car_1__model_list/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/car_1__cars_data/sparql",
+        "http://host.docker.internal:3030/car_1__car_names/sparql",
+        "http://host.docker.internal:3030/car_1__model_list/sparql",
+        "http://host.docker.internal:3030/car_1__countries/sparql",
+        "http://host.docker.internal:3030/car_1__car_makers/sparql",
+        "http://host.docker.internal:3030/car_1__continents/sparql"
+      ],
+      "predicted_sparql": null,
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_model WHERE {\n  SERVICE <http://host.docker.internal:3030/car_1__car_names/sparql> {\n    SELECT DISTINCT ?t1 ?t1_model WHERE {\n      ?t1 a :car_names .\n      ?t1 :car_names\\#model ?t1_model\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/car_1__cars_data/sparql> {\n    ?t2 a :cars_data .\n      ?t2 :cars_data\\#ref-id ?t1 .\n      ?t2 :cars_data\\#horsepower ?t2_horsepower .\n      ?t2 :cars_data\\#cylinders ?t2_cylinders\n      FILTER(?t2_cylinders = 4)\n  }\n}\norder by desc (?t2_horsepower) limit 1",
+      "predicted_answers": [],
+      "gold_answers": [
+        {
+          "t1_model": "volvo"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "f1_score": 0.0,
+      "manually_check": false,
+      "refinement_attempts": 7,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 7,
+      "schema_summary_retries": 7,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    {
+      "question": "List each owner's first name, last name, and the size of his for her dog.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__owners/sparql",
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql",
+        "http://host.docker.internal:3030/dog_kennels__sizes/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__treatments/sparql",
+        "http://host.docker.internal:3030/dog_kennels__sizes/sparql",
+        "http://host.docker.internal:3030/dog_kennels__charges/sparql",
+        "http://host.docker.internal:3030/dog_kennels__professionals/sparql",
+        "http://host.docker.internal:3030/dog_kennels__owners/sparql",
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql",
+        "http://host.docker.internal:3030/dog_kennels__breeds/sparql",
+        "http://host.docker.internal:3030/dog_kennels__treatment_types/sparql"
+      ],
+      "predicted_sparql": "PREFIX owners: <http://valuenet/ontop/owners#>\nPREFIX dogs: <http://valuenet/ontop/dogs#>\nPREFIX sizes: <http://valuenet/ontop/sizes#>\nSELECT ?first_name ?last_name ?size_description WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__owners/sparql> { ?owner <http://valuenet/ontop/owners#first_name> ?first_name . ?owner <http://valuenet/ontop/owners#last_name> ?last_name . ?owner <http://valuenet/ontop/owners#owner_id> ?owner_id }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__dogs/sparql> { ?dog <http://valuenet/ontop/dogs#owner_id> ?owner_id . ?dog <http://valuenet/ontop/dogs#size_code> ?size_code }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__sizes/sparql> { ?size <http://valuenet/ontop/sizes#size_code> ?size_code . ?size <http://valuenet/ontop/sizes#size_description> ?size_description }\n}\nGROUP BY ?first_name ?last_name ?size_description",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_first_name ?t1_last_name ?t2_size_code WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__owners/sparql> {\n    SELECT DISTINCT ?t1 ?t1_first_name ?t1_last_name WHERE {\n      ?t1 a :owners .\n      ?t1 :owners\\#first_name ?t1_first_name .\n      ?t1 :owners\\#last_name ?t1_last_name\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__dogs/sparql> {\n    ?t2 a :dogs .\n      ?t2 :dogs\\#ref-owner_id ?t1 .\n      ?t2 :dogs\\#size_code ?t2_size_code\n  }\n}",
+      "predicted_answers": [
+        {
+          "first_name": "Rachelle",
+          "last_name": "Funk",
+          "size_description": "Medium"
+        },
+        {
+          "first_name": "Melisa",
+          "last_name": "DuBuque",
+          "size_description": "Medium"
+        },
+        {
+          "first_name": "Rolando",
+          "last_name": "Prohaska",
+          "size_description": "Small"
+        },
+        {
+          "first_name": "Emelie",
+          "last_name": "Mertz",
+          "size_description": "Medium"
+        },
+        {
+          "first_name": "Lorenz",
+          "last_name": "Nicolas",
+          "size_description": "Medium"
+        },
+        {
+          "first_name": "Rachelle",
+          "last_name": "Funk",
+          "size_description": "Large"
+        },
+        {
+          "first_name": "Cindy",
+          "last_name": "Schmitt",
+          "size_description": "Large"
+        },
+        {
+          "first_name": "Orlando",
+          "last_name": "Price",
+          "size_description": "Medium"
+        },
+        {
+          "first_name": "Johann",
+          "last_name": "Fisher",
+          "size_description": "Medium"
+        },
+        {
+          "first_name": "Jaclyn",
+          "last_name": "Stoltenberg",
+          "size_description": "Medium"
+        },
+        {
+          "first_name": "Nora",
+          "last_name": "Haley",
+          "size_description": "Medium"
+        },
+        {
+          "first_name": "Gay",
+          "last_name": "Feil",
+          "size_description": "Large"
+        },
+        {
+          "first_name": "Jaclyn",
+          "last_name": "Stoltenberg",
+          "size_description": "Large"
+        },
+        {
+          "first_name": "Kade",
+          "last_name": "Rippin",
+          "size_description": "Medium"
+        },
+        {
+          "first_name": "Rachelle",
+          "last_name": "Funk",
+          "size_description": "Small"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_first_name": "Nora",
+          "t1_last_name": "Haley",
+          "t2_size_code": "MED"
+        },
+        {
+          "t1_first_name": "Lorenz",
+          "t1_last_name": "Nicolas",
+          "t2_size_code": "MED"
+        },
+        {
+          "t1_first_name": "Gay",
+          "t1_last_name": "Feil",
+          "t2_size_code": "LGE"
+        },
+        {
+          "t1_first_name": "Orlando",
+          "t1_last_name": "Price",
+          "t2_size_code": "MED"
+        },
+        {
+          "t1_first_name": "Cindy",
+          "t1_last_name": "Schmitt",
+          "t2_size_code": "LGE"
+        },
+        {
+          "t1_first_name": "Rachelle",
+          "t1_last_name": "Funk",
+          "t2_size_code": "MED"
+        },
+        {
+          "t1_first_name": "Rachelle",
+          "t1_last_name": "Funk",
+          "t2_size_code": "LGE"
+        },
+        {
+          "t1_first_name": "Rachelle",
+          "t1_last_name": "Funk",
+          "t2_size_code": "SML"
+        },
+        {
+          "t1_first_name": "Melisa",
+          "t1_last_name": "DuBuque",
+          "t2_size_code": "MED"
+        },
+        {
+          "t1_first_name": "Jaclyn",
+          "t1_last_name": "Stoltenberg",
+          "t2_size_code": "LGE"
+        },
+        {
+          "t1_first_name": "Jaclyn",
+          "t1_last_name": "Stoltenberg",
+          "t2_size_code": "MED"
+        },
+        {
+          "t1_first_name": "Johann",
+          "t1_last_name": "Fisher",
+          "t2_size_code": "MED"
+        },
+        {
+          "t1_first_name": "Kade",
+          "t1_last_name": "Rippin",
+          "t2_size_code": "MED"
+        },
+        {
+          "t1_first_name": "Emelie",
+          "t1_last_name": "Mertz",
+          "t2_size_code": "MED"
+        },
+        {
+          "t1_first_name": "Rolando",
+          "t1_last_name": "Prohaska",
+          "t2_size_code": "SML"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "What is the first, middle, and last name, along with the id and number of enrollments, for the student who enrolled the most in any program?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/student_transcripts_tracking__student_enrolment/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__students/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/student_transcripts_tracking__departments/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__addresses/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__sections/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__courses/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__degree_programs/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__students/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__student_enrolment_courses/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__student_enrolment/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__transcripts/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__transcript_contents/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__semesters/sparql"
+      ],
+      "predicted_sparql": "PREFIX ontop: <http://valuenet/ontop/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT ?student_id ?first_name ?middle_name ?last_name (COUNT(?enr) AS ?enrollments) WHERE {\n  SERVICE <http://host.docker.internal:3030/student_transcripts_tracking__student_enrolment/sparql> { ?enr <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://valuenet/ontop/student_enrolment> . ?enr <http://valuenet/ontop/student_enrolment#student_id> ?student_id }\n  SERVICE <http://host.docker.internal:3030/student_transcripts_tracking__students/sparql> { ?student <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://valuenet/ontop/students> . ?student <http://valuenet/ontop/students#student_id> ?student_id . ?student <http://valuenet/ontop/students#first_name> ?first_name . ?student <http://valuenet/ontop/students#middle_name> ?middle_name . ?student <http://valuenet/ontop/students#last_name> ?last_name }\n}\nGROUP BY ?student_id ?first_name ?middle_name ?last_name\nORDER BY DESC(?enrollments)\nLIMIT 1",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT ?T1_student_id ?T1_first_name ?T1_middle_name ?T1_last_name (count(*) as ?agg) ?T2_student_enrolment_id WHERE {\n  {\n    SELECT ?T1 ?T1_first_name ?T1_last_name ?T1_middle_name ?T1_student_id ?T2 ?T2_student_enrolment_id WHERE {\n  SERVICE <http://host.docker.internal:3030/student_transcripts_tracking__students/sparql> {\n    SELECT DISTINCT ?T1 ?T1_first_name ?T1_last_name ?T1_middle_name ?T1_student_id WHERE {\n      ?T1 a :students .\n      ?T1 :students\\#student_id ?T1_student_id .\n      ?T1 :students\\#first_name ?T1_first_name .\n      ?T1 :students\\#middle_name ?T1_middle_name .\n      ?T1 :students\\#last_name ?T1_last_name\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/student_transcripts_tracking__student_enrolment/sparql> {\n    ?T2 a :student_enrolment .\n      ?T2 :student_enrolment\\#ref-student_id ?T1 .\n      ?T2 :student_enrolment\\#student_enrolment_id ?T2_student_enrolment_id\n  }\n    }\n  }\n}\nGROUP BY ?T1_student_id ?T1_first_name ?T1_middle_name ?T1_last_name ?T2_student_enrolment_id ORDER BY DESC (?agg)  LIMIT 1",
+      "predicted_answers": [
+        {
+          "student_id": "7",
+          "first_name": "Frida",
+          "middle_name": "Aisha",
+          "last_name": "Huel",
+          "enrollments": "3"
+        }
+      ],
+      "gold_answers": [
+        {
+          "T1_student_id": "7",
+          "T1_first_name": "Frida",
+          "T1_middle_name": "Aisha",
+          "T1_last_name": "Huel",
+          "agg": "1",
+          "T2_student_enrolment_id": "10"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "What are the create dates, states, and phone numbers of the votes that were for the contestant named 'Tabatha Gehling'?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/voter_1__votes/sparql",
+        "http://host.docker.internal:3030/voter_1__contestants/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/voter_1__area_code_state/sparql",
+        "http://host.docker.internal:3030/voter_1__contestants/sparql",
+        "http://host.docker.internal:3030/voter_1__votes/sparql"
+      ],
+      "predicted_sparql": "PREFIX v: <http://valuenet/ontop/votes#>\nPREFIX c: <http://valuenet/ontop/contestants#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT ?created ?state ?phone WHERE {\n  SERVICE <http://host.docker.internal:3030/voter_1__votes/sparql> { ?vote <http://valuenet/ontop/votes#contestant_number> ?contestant_number . ?vote <http://valuenet/ontop/votes#created> ?created . ?vote <http://valuenet/ontop/votes#state> ?state . ?vote <http://valuenet/ontop/votes#phone_number> ?phone }\n  SERVICE <http://host.docker.internal:3030/voter_1__contestants/sparql> { ?contestant <http://valuenet/ontop/contestants#contestant_number> ?contestant_number . ?contestant <http://valuenet/ontop/contestants#contestant_name> ?contestant_name }\n  FILTER(?contestant_name = \"Tabatha Gehling\")\n}\nGROUP BY ?created ?state ?phone",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT ?T1_created ?T1_state ?T1_phone_number WHERE {\n  SERVICE <http://host.docker.internal:3030/voter_1__contestants/sparql> {\n    SELECT DISTINCT ?T2 ?T2_contestant_name WHERE {\n      ?T2 a :contestants .\n      ?T2 :contestants\\#contestant_name ?T2_contestant_name\n      FILTER(?T2_contestant_name = 'Tabatha Gehling')\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/voter_1__votes/sparql> {\n    ?T1 a :votes .\n      ?T1 :votes\\#ref-contestant_number ?T2 .\n      ?T1 :votes\\#created ?T1_created .\n      ?T1 :votes\\#state ?T1_state .\n      ?T1 :votes\\#phone_number ?T1_phone_number\n  }\n}",
+      "predicted_answers": [
+        {
+          "created": "2018-03-09T19:03:21",
+          "state": "NY",
+          "phone": "7182887233"
+        }
+      ],
+      "gold_answers": [
+        {
+          "T1_created": "2018-03-09T19:03:21",
+          "T1_state": "NY",
+          "T1_phone_number": "7182887233"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "Find the number of employees hired in each shop; show the shop name as well.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/employee_hire_evaluation__hiring/sparql",
+        "http://host.docker.internal:3030/employee_hire_evaluation__shop/sparql",
+        "http://host.docker.internal:3030/device__shop/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/employee_hire_evaluation__shop/sparql",
+        "http://host.docker.internal:3030/employee_hire_evaluation__evaluation/sparql",
+        "http://host.docker.internal:3030/employee_hire_evaluation__employee/sparql",
+        "http://host.docker.internal:3030/employee_hire_evaluation__hiring/sparql"
+      ],
+      "predicted_sparql": "PREFIX hiring: <http://valuenet/ontop/hiring#>\nPREFIX shop: <http://valuenet/ontop/shop#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT ?shopName (COUNT(?employee) AS ?employeeCount) WHERE {\n  SERVICE <http://host.docker.internal:3030/employee_hire_evaluation__hiring/sparql> { ?hireRecord <http://valuenet/ontop/hiring#employee_id> ?employee . ?hireRecord <http://valuenet/ontop/hiring#shop_id> ?shop_id }\n  SERVICE <http://host.docker.internal:3030/employee_hire_evaluation__shop/sparql> { ?shopRes <http://valuenet/ontop/shop#shop_id> ?shop_id . ?shopRes <http://valuenet/ontop/shop#name> ?shopName }\n}\nGROUP BY ?shopName ?shop_id",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect (count( *) as ?aggregation_all) ?t2_name WHERE {\n  {\n    SELECT ?t13 ?t2 ?t2_name WHERE {\n  SERVICE <http://host.docker.internal:3030/employee_hire_evaluation__shop/sparql> {\n    SELECT DISTINCT ?t2 ?t2_name WHERE {\n      ?t2 a :shop .\n      ?t2 :shop\\#name ?t2_name\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/employee_hire_evaluation__hiring/sparql> {\n    ?t13 a :hiring .\n      ?t13 :hiring\\#ref-shop_id ?t2\n  }\n    }\n  }\n}\ngroup by ?t2_name",
+      "predicted_answers": [
+        {
+          "shopName": "FC Haka",
+          "employeeCount": "2"
+        },
+        {
+          "shopName": "HJK",
+          "employeeCount": "1"
+        },
+        {
+          "shopName": "FC Inter",
+          "employeeCount": "1"
+        },
+        {
+          "shopName": "FC KooTeePee",
+          "employeeCount": "1"
+        },
+        {
+          "shopName": "FC Lahti",
+          "employeeCount": "1"
+        },
+        {
+          "shopName": "FF Jaro",
+          "employeeCount": "1"
+        }
+      ],
+      "gold_answers": [
+        {
+          "aggregation_all": "1",
+          "t2_name": "FF Jaro"
+        },
+        {
+          "aggregation_all": "1",
+          "t2_name": "FC Lahti"
+        },
+        {
+          "aggregation_all": "1",
+          "t2_name": "FC KooTeePee"
+        },
+        {
+          "aggregation_all": "2",
+          "t2_name": "FC Haka"
+        },
+        {
+          "aggregation_all": "1",
+          "t2_name": "HJK"
+        },
+        {
+          "aggregation_all": "1",
+          "t2_name": "FC Inter"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 2,
+      "schema_summary_retries": 2,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "List pairs of the owner's first name and the dogs's name.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql",
+        "http://host.docker.internal:3030/dog_kennels__owners/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__treatments/sparql",
+        "http://host.docker.internal:3030/dog_kennels__sizes/sparql",
+        "http://host.docker.internal:3030/dog_kennels__charges/sparql",
+        "http://host.docker.internal:3030/dog_kennels__professionals/sparql",
+        "http://host.docker.internal:3030/dog_kennels__owners/sparql",
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql",
+        "http://host.docker.internal:3030/dog_kennels__breeds/sparql",
+        "http://host.docker.internal:3030/dog_kennels__treatment_types/sparql"
+      ],
+      "predicted_sparql": "PREFIX dogs: <http://valuenet/ontop/dogs#>\nPREFIX owners: <http://valuenet/ontop/owners#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT ?ownerFirstName ?dogName WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__dogs/sparql> { ?dog <http://valuenet/ontop/dogs#name> ?dogName . ?dog <http://valuenet/ontop/dogs#owner_id> ?owner_id }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__owners/sparql> { ?owner <http://valuenet/ontop/owners#owner_id> ?owner_id . ?owner <http://valuenet/ontop/owners#first_name> ?ownerFirstName }\n}\nGROUP BY ?ownerFirstName ?dogName",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_first_name ?t2_name WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__owners/sparql> {\n    SELECT DISTINCT ?t1 ?t1_first_name WHERE {\n      ?t1 a :owners .\n      ?t1 :owners\\#first_name ?t1_first_name\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__dogs/sparql> {\n    ?t2 a :dogs .\n      ?t2 :dogs\\#ref-owner_id ?t1 .\n      ?t2 :dogs\\#name ?t2_name\n  }\n}",
+      "predicted_answers": [
+        {
+          "ownerFirstName": "Orlando",
+          "dogName": "Holden"
+        },
+        {
+          "ownerFirstName": "Lorenz",
+          "dogName": "Evangeline"
+        },
+        {
+          "ownerFirstName": "Rolando",
+          "dogName": "Jesus"
+        },
+        {
+          "ownerFirstName": "Nora",
+          "dogName": "Mavis"
+        },
+        {
+          "ownerFirstName": "Melisa",
+          "dogName": "Bessie"
+        },
+        {
+          "ownerFirstName": "Gay",
+          "dogName": "Hipolito"
+        },
+        {
+          "ownerFirstName": "Johann",
+          "dogName": "Merritt"
+        },
+        {
+          "ownerFirstName": "Rachelle",
+          "dogName": "Houston"
+        },
+        {
+          "ownerFirstName": "Emelie",
+          "dogName": "Jeffrey"
+        },
+        {
+          "ownerFirstName": "Jaclyn",
+          "dogName": "Narciso"
+        },
+        {
+          "ownerFirstName": "Jaclyn",
+          "dogName": "Kacey"
+        },
+        {
+          "ownerFirstName": "Rachelle",
+          "dogName": "George"
+        },
+        {
+          "ownerFirstName": "Kade",
+          "dogName": "Troy"
+        },
+        {
+          "ownerFirstName": "Cindy",
+          "dogName": "Betty"
+        },
+        {
+          "ownerFirstName": "Rachelle",
+          "dogName": "Lyric"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_first_name": "Nora",
+          "t2_name": "Mavis"
+        },
+        {
+          "t1_first_name": "Lorenz",
+          "t2_name": "Evangeline"
+        },
+        {
+          "t1_first_name": "Gay",
+          "t2_name": "Hipolito"
+        },
+        {
+          "t1_first_name": "Orlando",
+          "t2_name": "Holden"
+        },
+        {
+          "t1_first_name": "Cindy",
+          "t2_name": "Betty"
+        },
+        {
+          "t1_first_name": "Rachelle",
+          "t2_name": "Lyric"
+        },
+        {
+          "t1_first_name": "Rachelle",
+          "t2_name": "Houston"
+        },
+        {
+          "t1_first_name": "Rachelle",
+          "t2_name": "George"
+        },
+        {
+          "t1_first_name": "Melisa",
+          "t2_name": "Bessie"
+        },
+        {
+          "t1_first_name": "Jaclyn",
+          "t2_name": "Kacey"
+        },
+        {
+          "t1_first_name": "Jaclyn",
+          "t2_name": "Narciso"
+        },
+        {
+          "t1_first_name": "Johann",
+          "t2_name": "Merritt"
+        },
+        {
+          "t1_first_name": "Kade",
+          "t2_name": "Troy"
+        },
+        {
+          "t1_first_name": "Emelie",
+          "t2_name": "Jeffrey"
+        },
+        {
+          "t1_first_name": "Rolando",
+          "t2_name": "Jesus"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "How many flights arriving in Aberdeen city?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/flight_2__flights/sparql",
+        "http://host.docker.internal:3030/flight_company__flight/sparql",
+        "http://host.docker.internal:3030/flight_4__routes/sparql",
+        "http://host.docker.internal:3030/flight_company__airport/sparql",
+        "http://host.docker.internal:3030/flight_4__airports/sparql",
+        "http://host.docker.internal:3030/flight_2__airports/sparql",
+        "http://host.docker.internal:3030/aircraft__airport/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/flight_2__flights/sparql",
+        "http://host.docker.internal:3030/flight_2__airports/sparql",
+        "http://host.docker.internal:3030/flight_2__airlines/sparql"
+      ],
+      "predicted_sparql": "PREFIX flights: <http://valuenet/ontop/flights#>\nPREFIX airports: <http://valuenet/ontop/airports#>\nSELECT (COUNT(?flight) AS ?flightCount) WHERE {\n  SERVICE <http://host.docker.internal:3030/flight_2__flights/sparql> { ?flight <http://valuenet/ontop/flights#destairport> ?airportCode }\n  SERVICE <http://host.docker.internal:3030/flight_2__airports/sparql> { ?airport <http://valuenet/ontop/airports#airportcode> ?airportCode . ?airport <http://valuenet/ontop/airports#city> ?city }\n  FILTER(?city = \"Aberdeen\")\n}",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect (count( *) as ?aggregation_all) WHERE {\n  {\n    SELECT ?t1 ?t2 ?t2_city WHERE {\n  SERVICE <http://host.docker.internal:3030/flight_2__airports/sparql> {\n    SELECT DISTINCT ?t2 WHERE {\n      ?t2 a :airports .\n      ?t2 :airports\\#city ?t2_city\n      FILTER(?t2_city = 'Aberdeen')\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/flight_2__flights/sparql> {\n    ?t1 a :flights .\n      ?t1 :flights\\#ref-destairport ?t2\n  }\n    }\n  }\n}",
+      "predicted_answers": [
+        {
+          "flightCount": "21"
+        }
+      ],
+      "gold_answers": [
+        {
+          "aggregation_all": "21"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "Which dogs are owned by someone who lives in Virginia? List the owner's first name and the dog's name.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql",
+        "http://host.docker.internal:3030/dog_kennels__owners/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__treatments/sparql",
+        "http://host.docker.internal:3030/dog_kennels__sizes/sparql",
+        "http://host.docker.internal:3030/dog_kennels__charges/sparql",
+        "http://host.docker.internal:3030/dog_kennels__professionals/sparql",
+        "http://host.docker.internal:3030/dog_kennels__owners/sparql",
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql",
+        "http://host.docker.internal:3030/dog_kennels__breeds/sparql",
+        "http://host.docker.internal:3030/dog_kennels__treatment_types/sparql"
+      ],
+      "predicted_sparql": "PREFIX ontop: <http://valuenet/ontop/>\nPREFIX dogs: <http://valuenet/ontop/dogs#>\nPREFIX owners: <http://valuenet/ontop/owners#>\nSELECT ?firstName ?dogName WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__dogs/sparql> { ?dog <http://valuenet/ontop/dogs#name> ?dogName . ?dog <http://valuenet/ontop/dogs#owner_id> ?owner_id }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__owners/sparql> { ?owner <http://valuenet/ontop/owners#owner_id> ?owner_id . ?owner <http://valuenet/ontop/owners#first_name> ?firstName . ?owner <http://valuenet/ontop/owners#state> ?state }\n  FILTER(?state = \"Virginia\")\n}\nGROUP BY ?firstName ?dogName",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_first_name ?t2_name WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__owners/sparql> {\n    SELECT DISTINCT ?t1 ?t1_first_name ?t1_state WHERE {\n      ?t1 a :owners .\n      ?t1 :owners\\#first_name ?t1_first_name .\n      ?t1 :owners\\#state ?t1_state\n      FILTER(?t1_state = 'Virginia')\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__dogs/sparql> {\n    ?t2 a :dogs .\n      ?t2 :dogs\\#ref-owner_id ?t1 .\n      ?t2 :dogs\\#name ?t2_name\n  }\n}",
+      "predicted_answers": [
+        {
+          "firstName": "Melisa",
+          "dogName": "Bessie"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_first_name": "Melisa",
+          "t2_name": "Bessie"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "What is the name of the shop that is hiring the largest number of employees?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/employee_hire_evaluation__hiring/sparql",
+        "http://host.docker.internal:3030/employee_hire_evaluation__shop/sparql",
+        "http://host.docker.internal:3030/coffee_shop__shop/sparql",
+        "http://host.docker.internal:3030/cre_theme_park__shops/sparql",
+        "http://host.docker.internal:3030/cre_drama_workshop_groups__stores/sparql",
+        "http://host.docker.internal:3030/store_product__store/sparql",
+        "http://host.docker.internal:3030/device__stock/sparql",
+        "http://host.docker.internal:3030/shop_membership__branch/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/employee_hire_evaluation__shop/sparql",
+        "http://host.docker.internal:3030/employee_hire_evaluation__evaluation/sparql",
+        "http://host.docker.internal:3030/employee_hire_evaluation__employee/sparql",
+        "http://host.docker.internal:3030/employee_hire_evaluation__hiring/sparql"
+      ],
+      "predicted_sparql": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX hiring: <http://valuenet/ontop/hiring#>\nPREFIX shop: <http://valuenet/ontop/shop#>\nSELECT ?shopName (COUNT(?employee_id) AS ?employeeCount) WHERE {\n  SERVICE <http://host.docker.internal:3030/employee_hire_evaluation__hiring/sparql> { ?hiring <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://valuenet/ontop/hiring> . ?hiring <http://valuenet/ontop/hiring#employee_id> ?employee_id . ?hiring <http://valuenet/ontop/hiring#shop_id> ?shop_id }\n  SERVICE <http://host.docker.internal:3030/employee_hire_evaluation__shop/sparql> { ?shop <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://valuenet/ontop/shop> . ?shop <http://valuenet/ontop/shop#shop_id> ?shop_id . ?shop <http://valuenet/ontop/shop#name> ?shopName }\n}\nGROUP BY ?shopName\nORDER BY DESC(?employeeCount)\nLIMIT 1",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT ?T1_name (count( *) as ?aggregation_all) WHERE {\n  {\n    SELECT ?T1 ?T1_name ?T1_shop_id ?T3 WHERE {\n  SERVICE <http://host.docker.internal:3030/employee_hire_evaluation__shop/sparql> {\n    SELECT DISTINCT ?T1 ?T1_name WHERE {\n      ?T1 a :shop .\n      ?T1 :shop\\#name ?T1_name .\n      ?T1 :shop\\#shop_id ?T1_shop_id\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/employee_hire_evaluation__hiring/sparql> {\n    ?T3 a :hiring .\n      ?T3 :hiring\\#ref-shop_id ?T1\n  }\n    }\n  }\n}\nGROUP BY ?T1_name  ORDER BY DESC (?aggregation_all) LIMIT 1",
+      "predicted_answers": [
+        {
+          "shopName": "FC Haka",
+          "employeeCount": "2"
+        }
+      ],
+      "gold_answers": [
+        {
+          "T1_name": "FC Haka",
+          "aggregation_all": "2"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "What are the names of the singers and number of concerts for each person?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/singer__singer/sparql",
+        "http://host.docker.internal:3030/concert_singer__singer_in_concert/sparql",
+        "http://host.docker.internal:3030/concert_singer__singer/sparql",
+        "http://host.docker.internal:3030/concert_singer__concert/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/concert_singer__singer_in_concert/sparql",
+        "http://host.docker.internal:3030/concert_singer__singer/sparql",
+        "http://host.docker.internal:3030/concert_singer__stadium/sparql",
+        "http://host.docker.internal:3030/concert_singer__concert/sparql"
+      ],
+      "predicted_sparql": "PREFIX singer: <http://valuenet/ontop/singer#>\nPREFIX sic: <http://valuenet/ontop/singer_in_concert#>\nPREFIX concert: <http://valuenet/ontop/concert#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT ?singerName (COUNT(?concert_id) AS ?concertCount) WHERE {\n  SERVICE <http://host.docker.internal:3030/singer__singer/sparql> { ?singerNode <http://valuenet/ontop/singer#singer_id> ?singer_id . ?singerNode <http://valuenet/ontop/singer#name> ?singerName }\n  SERVICE <http://host.docker.internal:3030/concert_singer__singer_in_concert/sparql> { ?assocNode <http://valuenet/ontop/singer_in_concert#singer_id> ?singer_id . ?assocNode <http://valuenet/ontop/singer_in_concert#concert_id> ?concert_id }\n  SERVICE <http://host.docker.internal:3030/concert_singer__concert/sparql> { ?concertNode <http://valuenet/ontop/concert#concert_id> ?concert_id }\n}\nGROUP BY ?singerName",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_name (count( *) as ?aggregation_all) WHERE {\n  {\n    SELECT ?t1 ?t13 ?t1_name WHERE {\n  SERVICE <http://host.docker.internal:3030/concert_singer__singer/sparql> {\n    SELECT DISTINCT ?t1 ?t1_name WHERE {\n      ?t1 a :singer .\n      ?t1 :singer\\#name ?t1_name\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/concert_singer__singer_in_concert/sparql> {\n    ?t13 a :singer_in_concert .\n      ?t13 :singer_in_concert\\#ref-singer_id ?t1\n  }\n    }\n  }\n}\ngroup by ?t1_name",
+      "predicted_answers": [
+        {
+          "singerName": "Iris Fontbona",
+          "concertCount": "1"
+        },
+        {
+          "singerName": "Christy Walton",
+          "concertCount": "2"
+        },
+        {
+          "singerName": "Gina Rinehart",
+          "concertCount": "2"
+        },
+        {
+          "singerName": "Alice Walton",
+          "concertCount": "3"
+        },
+        {
+          "singerName": "Jacqueline Mars",
+          "concertCount": "2"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_name": "Tribal King",
+          "aggregation_all": "2"
+        },
+        {
+          "t1_name": "Timbaland",
+          "aggregation_all": "2"
+        },
+        {
+          "t1_name": "Rose White",
+          "aggregation_all": "1"
+        },
+        {
+          "t1_name": "Justin Brown",
+          "aggregation_all": "3"
+        },
+        {
+          "t1_name": "John Nizinik",
+          "aggregation_all": "2"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "f1_score": 0.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 2,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    {
+      "question": "How many official languages are spoken in Afghanistan?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/world_1__countrylanguage/sparql",
+        "http://host.docker.internal:3030/match_season__country/sparql",
+        "http://host.docker.internal:3030/world_1__country/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/world_1__city/sparql",
+        "http://host.docker.internal:3030/world_1__country/sparql",
+        "http://host.docker.internal:3030/world_1__countrylanguage/sparql"
+      ],
+      "predicted_sparql": "PREFIX vncountry: <http://valuenet/ontop/country#>\nPREFIX vncl: <http://valuenet/ontop/countrylanguage#>\nPREFIX vnc: <http://valuenet/ontop/>\nSELECT (COUNT(DISTINCT ?language) AS ?officialLanguageCount) WHERE {\n  SERVICE <http://host.docker.internal:3030/world_1__countrylanguage/sparql> { ?cl <http://valuenet/ontop/countrylanguage#countrycode> ?country_code . ?cl <http://valuenet/ontop/countrylanguage#isofficial> ?isofficial . ?cl <http://valuenet/ontop/countrylanguage#language> ?language }\n  SERVICE <http://host.docker.internal:3030/world_1__country/sparql> { ?c <http://valuenet/ontop/country#code> ?country_code . ?c <http://valuenet/ontop/country#name> ?country_name }\n  FILTER(?isofficial = \"T\")\n  FILTER(?country_name = \"Afghanistan\")\n}",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect (count( *) as ?aggregation_all) WHERE {\n  {\n    SELECT ?t1 ?t1_name ?t2 ?t2_isofficial WHERE {\n  SERVICE <http://host.docker.internal:3030/world_1__country/sparql> {\n    SELECT DISTINCT ?t1 ?t2_isofficial WHERE {\n      ?t1 a :country .\n      ?t1 :country\\#name ?t1_name\n      FILTER(?t1_name = 'Afghanistan' && ?t2_isofficial = 'T')\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/world_1__countrylanguage/sparql> {\n    ?t2 a :countrylanguage .\n      ?t2 :countrylanguage\\#ref-countrycode ?t1 .\n      ?t2 :countrylanguage\\#isofficial ?t2_isofficial\n  }\n    }\n  }\n}",
+      "predicted_answers": [
+        {
+          "officialLanguageCount": "0"
+        }
+      ],
+      "gold_answers": [
+        {
+          "aggregation_all": "0"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "What is the code of airport that has the highest number of flights?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/flight_company__flight/sparql",
+        "http://host.docker.internal:3030/flight_2__flights/sparql",
+        "http://host.docker.internal:3030/flight_company__airport/sparql",
+        "http://host.docker.internal:3030/flight_2__airports/sparql",
+        "http://host.docker.internal:3030/flight_4__airports/sparql",
+        "http://host.docker.internal:3030/aircraft__airport/sparql",
+        "http://host.docker.internal:3030/flight_4__routes/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/flight_2__flights/sparql",
+        "http://host.docker.internal:3030/flight_2__airports/sparql",
+        "http://host.docker.internal:3030/flight_2__airlines/sparql"
+      ],
+      "predicted_sparql": "PREFIX val: <http://valuenet/ontop/airport#>\nSELECT ?iata (MAX(?movements) AS ?maxFlights) WHERE {\n  SERVICE <http://host.docker.internal:3030/aircraft__airport/sparql> { ?airportA <http://valuenet/ontop/airport#airport_id> ?airport_id . ?airportA <http://valuenet/ontop/airport#aircraft_movements> ?movements }\n  SERVICE <http://host.docker.internal:3030/flight_company__airport/sparql> { ?airportB <http://valuenet/ontop/airport#id> ?airport_id . ?airportB <http://valuenet/ontop/airport#iata> ?iata }\n}\nGROUP BY ?iata\nORDER BY DESC(?maxFlights)\nLIMIT 1",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT ?T1_airportcode (count( *) as ?aggregation_all) WHERE {\n  {\n    SELECT ?T1 ?T1_airportcode ?T3 WHERE {\n  SERVICE <http://host.docker.internal:3030/flight_2__airports/sparql> {\n    SELECT DISTINCT ?T1 ?T1_airportcode WHERE {\n      ?T1 a :airports .\n      ?T1 :airports\\#airportcode ?T1_airportcode .\n      ?T1 :airports\\#airportcode ?T1_airportcode\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/flight_2__flights/sparql> {\n    ?T3 a :flights .\n      ?T3 :flights\\#ref-destairport ?T1\n  }\n    }\n  }\n}\nGROUP BY ?T1_airportcode  ORDER BY DESC (?aggregation_all) LIMIT 1",
+      "predicted_answers": [
+        {
+          "iata": "AEY",
+          "maxFlights": "478693.0e0"
+        }
+      ],
+      "gold_answers": [
+        {
+          "T1_airportcode": "AAF",
+          "aggregation_all": "20"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "f1_score": 0.0,
+      "manually_check": false,
+      "refinement_attempts": 1,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 3,
+      "schema_summary_retries": 2,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    {
+      "question": "For each shop, return the number of employees working there and the name of the shop.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/coffee_shop__shop/sparql",
+        "http://host.docker.internal:3030/employee_hire_evaluation__shop/sparql",
+        "http://host.docker.internal:3030/device__shop/sparql",
+        "http://host.docker.internal:3030/employee_hire_evaluation__hiring/sparql",
+        "http://host.docker.internal:3030/employee_hire_evaluation__employee/sparql",
+        "http://host.docker.internal:3030/cre_theme_park__shops/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/employee_hire_evaluation__shop/sparql",
+        "http://host.docker.internal:3030/employee_hire_evaluation__evaluation/sparql",
+        "http://host.docker.internal:3030/employee_hire_evaluation__employee/sparql",
+        "http://host.docker.internal:3030/employee_hire_evaluation__hiring/sparql"
+      ],
+      "predicted_sparql": "PREFIX vn: <http://valuenet/ontop/>\nSELECT ?name ?numStaff WHERE {\n  SERVICE <http://host.docker.internal:3030/coffee_shop__shop/sparql> { ?shop1 <http://valuenet/ontop/shop#shop_id> ?shop_id . ?shop1 <http://valuenet/ontop/shop#num_of_staff> ?numStaff }\n  SERVICE <http://host.docker.internal:3030/employee_hire_evaluation__shop/sparql> { ?shop2 <http://valuenet/ontop/shop#shop_id> ?shop_id . ?shop2 <http://valuenet/ontop/shop#name> ?name }\n}\nGROUP BY ?name ?numStaff",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect (count( *) as ?aggregation_all) ?t2_name WHERE {\n  {\n    SELECT ?t13 ?t2 ?t2_name WHERE {\n  SERVICE <http://host.docker.internal:3030/employee_hire_evaluation__shop/sparql> {\n    SELECT DISTINCT ?t2 ?t2_name WHERE {\n      ?t2 a :shop .\n      ?t2 :shop\\#name ?t2_name\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/employee_hire_evaluation__hiring/sparql> {\n    ?t13 a :hiring .\n      ?t13 :hiring\\#ref-shop_id ?t2\n  }\n    }\n  }\n}\ngroup by ?t2_name",
+      "predicted_answers": [
+        {
+          "name": "FC Honka",
+          "numStaff": "42"
+        },
+        {
+          "name": "FF Jaro",
+          "numStaff": "24"
+        },
+        {
+          "name": "FC Haka",
+          "numStaff": "13"
+        },
+        {
+          "name": "FC Lahti",
+          "numStaff": "28"
+        },
+        {
+          "name": "FC Inter",
+          "numStaff": "27"
+        },
+        {
+          "name": "FC KooTeePee",
+          "numStaff": "34"
+        },
+        {
+          "name": "KuPS",
+          "numStaff": "425"
+        },
+        {
+          "name": "IFK Mariehamn",
+          "numStaff": "23"
+        },
+        {
+          "name": "HJK",
+          "numStaff": "19"
+        }
+      ],
+      "gold_answers": [
+        {
+          "aggregation_all": "1",
+          "t2_name": "FF Jaro"
+        },
+        {
+          "aggregation_all": "1",
+          "t2_name": "FC Lahti"
+        },
+        {
+          "aggregation_all": "1",
+          "t2_name": "FC KooTeePee"
+        },
+        {
+          "aggregation_all": "2",
+          "t2_name": "FC Haka"
+        },
+        {
+          "aggregation_all": "1",
+          "t2_name": "HJK"
+        },
+        {
+          "aggregation_all": "1",
+          "t2_name": "FC Inter"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "f1_score": 0.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    {
+      "question": "What are the ids and names of each document, as well as the number of paragraphs in each?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__paragraphs/sparql",
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__documents/sparql",
+        "http://host.docker.internal:3030/cre_docs_and_epenses__documents/sparql",
+        "http://host.docker.internal:3030/cre_doc_tracking_db__all_documents/sparql",
+        "http://host.docker.internal:3030/document_management__documents/sparql",
+        "http://host.docker.internal:3030/cre_doc_control_systems__documents/sparql",
+        "http://host.docker.internal:3030/tracking_grants_for_research__documents/sparql",
+        "http://host.docker.internal:3030/insurance_and_eclaims__claims_documents/sparql",
+        "http://host.docker.internal:3030/cre_docs_and_epenses__documents_with_expenses/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__documents/sparql",
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__templates/sparql",
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__paragraphs/sparql",
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__ref_template_types/sparql"
+      ],
+      "predicted_sparql": "PREFIX vn: <http://valuenet/ontop/>\nSELECT ?document_id ?document_name (COUNT(?para) AS ?paragraphCount) WHERE {\n  SERVICE <http://host.docker.internal:3030/cre_Doc_Template_Mgt__documents/sparql> { ?doc <http://valuenet/ontop/documents#document_id> ?document_id . ?doc <http://valuenet/ontop/documents#document_name> ?document_name }\n  SERVICE <http://host.docker.internal:3030/cre_Doc_Template_Mgt__paragraphs/sparql> { ?para <http://valuenet/ontop/paragraphs#document_id> ?document_id }\n}\nGROUP BY ?document_id ?document_name",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT ?T1_document_id ?T2_document_name (count( *) as ?aggregation_all) WHERE {\n  {\n    SELECT ?T1 ?T1_document_id ?T2 ?T2_document_name WHERE {\n  SERVICE <http://host.docker.internal:3030/cre_Doc_Template_Mgt__documents/sparql> {\n    SELECT DISTINCT ?T2 ?T2_document_name WHERE {\n      ?T2 a :documents .\n      ?T2 :documents\\#document_name ?T2_document_name\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/cre_Doc_Template_Mgt__paragraphs/sparql> {\n    ?T1 a :paragraphs .\n      ?T1 :paragraphs\\#ref-document_id ?T2 .\n      ?T1 :paragraphs\\#document_id ?T1_document_id\n  }\n    }\n  }\n}\nGROUP BY ?T1_document_id ?T2_document_name",
+      "predicted_answers": [
+        {
+          "document_id": "3830",
+          "document_name": "Do not panic",
+          "paragraphCount": "1"
+        },
+        {
+          "document_id": "3540024",
+          "document_name": "Palm reading",
+          "paragraphCount": "1"
+        },
+        {
+          "document_id": "385906526",
+          "document_name": "About Korea",
+          "paragraphCount": "1"
+        },
+        {
+          "document_id": "80",
+          "document_name": "Welcome to NY",
+          "paragraphCount": "2"
+        },
+        {
+          "document_id": "16514113",
+          "document_name": "A history of Arts",
+          "paragraphCount": "2"
+        },
+        {
+          "document_id": "3",
+          "document_name": "Summer Show",
+          "paragraphCount": "1"
+        },
+        {
+          "document_id": "33930",
+          "document_name": "How Google people work",
+          "paragraphCount": "1"
+        },
+        {
+          "document_id": "50123",
+          "document_name": "Learning French",
+          "paragraphCount": "1"
+        },
+        {
+          "document_id": "2394",
+          "document_name": "Customer reviews",
+          "paragraphCount": "3"
+        },
+        {
+          "document_id": "651512",
+          "document_name": "How to write a CV",
+          "paragraphCount": "2"
+        }
+      ],
+      "gold_answers": [
+        {
+          "T1_document_id": "3830",
+          "T2_document_name": "Do not panic",
+          "aggregation_all": "1"
+        },
+        {
+          "T1_document_id": "3540024",
+          "T2_document_name": "Palm reading",
+          "aggregation_all": "1"
+        },
+        {
+          "T1_document_id": "385906526",
+          "T2_document_name": "About Korea",
+          "aggregation_all": "1"
+        },
+        {
+          "T1_document_id": "16514113",
+          "T2_document_name": "A history of Arts",
+          "aggregation_all": "2"
+        },
+        {
+          "T1_document_id": "80",
+          "T2_document_name": "Welcome to NY",
+          "aggregation_all": "2"
+        },
+        {
+          "T1_document_id": "3",
+          "T2_document_name": "Summer Show",
+          "aggregation_all": "1"
+        },
+        {
+          "T1_document_id": "33930",
+          "T2_document_name": "How Google people work",
+          "aggregation_all": "1"
+        },
+        {
+          "T1_document_id": "50123",
+          "T2_document_name": "Learning French",
+          "aggregation_all": "1"
+        },
+        {
+          "T1_document_id": "2394",
+          "T2_document_name": "Customer reviews",
+          "aggregation_all": "3"
+        },
+        {
+          "T1_document_id": "651512",
+          "T2_document_name": "How to write a CV",
+          "aggregation_all": "2"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "What is the car model with the highest mpg ?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/car_1__cars_data/sparql",
+        "http://host.docker.internal:3030/car_1__car_names/sparql",
+        "http://host.docker.internal:3030/car_1__model_list/sparql",
+        "http://host.docker.internal:3030/car_1__car_makers/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/car_1__cars_data/sparql",
+        "http://host.docker.internal:3030/car_1__car_names/sparql",
+        "http://host.docker.internal:3030/car_1__model_list/sparql",
+        "http://host.docker.internal:3030/car_1__countries/sparql",
+        "http://host.docker.internal:3030/car_1__car_makers/sparql",
+        "http://host.docker.internal:3030/car_1__continents/sparql"
+      ],
+      "predicted_sparql": "PREFIX v: <http://valuenet/ontop/>\nPREFIX xsd: <http://www.w3.org/2001/XMLSchema#>\nSELECT ?model (MAX(?mpg) AS ?maxMpg) WHERE {\n  SERVICE <http://host.docker.internal:3030/car_1__cars_data/sparql> { ?car <http://valuenet/ontop/cars_data#mpg> ?mpg . ?car <http://valuenet/ontop/cars_data#id> ?id }\n  SERVICE <http://host.docker.internal:3030/car_1__car_names/sparql> { ?name <http://valuenet/ontop/car_names#makeid> ?id . ?name <http://valuenet/ontop/car_names#model> ?model }\n}\nGROUP BY ?model\nORDER BY DESC(?maxMpg)\nLIMIT 1",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_model WHERE {\n  SERVICE <http://host.docker.internal:3030/car_1__car_names/sparql> {\n    SELECT DISTINCT ?t1 ?t1_model WHERE {\n      ?t1 a :car_names .\n      ?t1 :car_names\\#model ?t1_model\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/car_1__cars_data/sparql> {\n    ?t2 a :cars_data .\n      ?t2 :cars_data\\#ref-id ?t1 .\n      ?t2 :cars_data\\#mpg ?t2_mpg\n  }\n}\norder by desc (?t2_mpg) limit 1",
+      "predicted_answers": [
+        {
+          "model": "mazda",
+          "maxMpg": "46.6e0"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_model": "mazda"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "Which makers designed more than 3 car models? List full name and the id.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/car_1__car_makers/sparql",
+        "http://host.docker.internal:3030/car_1__model_list/sparql",
+        "http://host.docker.internal:3030/car_1__car_names/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/car_1__cars_data/sparql",
+        "http://host.docker.internal:3030/car_1__car_names/sparql",
+        "http://host.docker.internal:3030/car_1__model_list/sparql",
+        "http://host.docker.internal:3030/car_1__countries/sparql",
+        "http://host.docker.internal:3030/car_1__car_makers/sparql",
+        "http://host.docker.internal:3030/car_1__continents/sparql"
+      ],
+      "predicted_sparql": "PREFIX voc: <http://valuenet/ontop/>\nSELECT ?maker_id ?fullname (COUNT(?modelid) AS ?count) WHERE {\n  SERVICE <http://host.docker.internal:3030/car_1__model_list/sparql> { ?modelEntry <http://valuenet/ontop/model_list#maker> ?maker_id . ?modelEntry <http://valuenet/ontop/model_list#modelid> ?modelid }\n  SERVICE <http://host.docker.internal:3030/car_1__car_makers/sparql> { ?makerURI <http://valuenet/ontop/car_makers#id> ?maker_id . ?makerURI <http://valuenet/ontop/car_makers#fullname> ?fullname }\n}\nGROUP BY ?maker_id ?fullname\nHAVING ((COUNT(?modelid) > 3))",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_fullname ?t1_id WHERE {\n  {\n    SELECT ?t1 ?t1_fullname ?t1_id ?t2 WHERE {\n  SERVICE <http://host.docker.internal:3030/car_1__car_makers/sparql> {\n    SELECT DISTINCT ?t1 ?t1_fullname ?t1_id WHERE {\n      ?t1 a :car_makers .\n      ?t1 :car_makers\\#fullname ?t1_fullname .\n      ?t1 :car_makers\\#id ?t1_id .\n      ?t1 :car_makers\\#id ?t1_id\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/car_1__model_list/sparql> {\n    ?t2 a :model_list .\n      ?t2 :model_list\\#ref-maker ?t1\n  }\n    }\n  }\n}\ngroup by ?t1_fullname ?t1_id   having(count( *)  > 3)",
+      "predicted_answers": [
+        {
+          "maker_id": "6",
+          "fullname": "Chrysler",
+          "count": "4"
+        },
+        {
+          "maker_id": "4",
+          "fullname": "General Motors",
+          "count": "5"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_fullname": "General Motors",
+          "t1_id": "4"
+        },
+        {
+          "t1_fullname": "Chrysler",
+          "t1_id": "6"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "What is the episode for the TV series named 'Sky Radio'?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/tvshow__tv_series/sparql",
+        "http://host.docker.internal:3030/program_share__program/sparql",
+        "http://host.docker.internal:3030/program_share__broadcast/sparql",
+        "http://host.docker.internal:3030/tvshow__tv_channel/sparql",
+        "http://host.docker.internal:3030/program_share__broadcast_share/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/tvshow__tv_series/sparql",
+        "http://host.docker.internal:3030/tvshow__tv_channel/sparql",
+        "http://host.docker.internal:3030/tvshow__cartoon/sparql"
+      ],
+      "predicted_sparql": "PREFIX vn: <http://valuenet/ontop/>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT ?episode WHERE {\n  SERVICE <http://host.docker.internal:3030/tvshow__tv_channel/sparql> { ?ch <http://valuenet/ontop/tv_channel#id> ?channel . ?ch <http://valuenet/ontop/tv_channel#series_name> ?series_name }\n  SERVICE <http://host.docker.internal:3030/tvshow__tv_series/sparql> { ?series <http://valuenet/ontop/tv_series#channel> ?channel . ?series <http://valuenet/ontop/tv_series#episode> ?episode }\n  FILTER(?series_name = \"Sky Radio\")\n}\nGROUP BY ?episode",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_episode WHERE {\n  SERVICE <http://host.docker.internal:3030/tvshow__tv_channel/sparql> {\n    SELECT DISTINCT ?t2 ?t2_series_name WHERE {\n      ?t2 a :tv_channel .\n      ?t2 :tv_channel\\#series_name ?t2_series_name\n      FILTER(?t2_series_name = 'Sky Radio')\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/tvshow__tv_series/sparql> {\n    ?t1 a :tv_series .\n      ?t1 :tv_series\\#ref-channel ?t2 .\n      ?t1 :tv_series\\#episode ?t1_episode\n  }\n}",
+      "predicted_answers": [
+        {
+          "episode": "A Love of a Lifetime"
+        },
+        {
+          "episode": "Keepers"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_episode": "A Love of a Lifetime"
+        },
+        {
+          "t1_episode": "Keepers"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "What is the maximum horsepower and the make of the car models with 3 cylinders?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/product_catalog__catalog_contents/sparql",
+        "http://host.docker.internal:3030/product_catalog__catalogs/sparql",
+        "http://host.docker.internal:3030/products_gen_characteristics__products/sparql",
+        "http://host.docker.internal:3030/store_product__product/sparql",
+        "http://host.docker.internal:3030/machine_repair__machine/sparql",
+        "http://host.docker.internal:3030/aircraft__aircraft/sparql",
+        "http://host.docker.internal:3030/assets_maintenance__assets/sparql",
+        "http://host.docker.internal:3030/department_store__products/sparql",
+        "http://host.docker.internal:3030/tracking_orders__products/sparql",
+        "http://host.docker.internal:3030/cre_drama_workshop_groups__products/sparql",
+        "http://host.docker.internal:3030/solvency_ii__products/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/car_1__cars_data/sparql",
+        "http://host.docker.internal:3030/car_1__car_names/sparql",
+        "http://host.docker.internal:3030/car_1__model_list/sparql",
+        "http://host.docker.internal:3030/car_1__countries/sparql",
+        "http://host.docker.internal:3030/car_1__car_makers/sparql",
+        "http://host.docker.internal:3030/car_1__continents/sparql"
+      ],
+      "predicted_sparql": null,
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_horsepower ?t2_make WHERE {\n  SERVICE <http://host.docker.internal:3030/car_1__car_names/sparql> {\n    SELECT DISTINCT ?t2 ?t2_make WHERE {\n      ?t2 a :car_names .\n      ?t2 :car_names\\#make ?t2_make\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/car_1__cars_data/sparql> {\n    ?t1 a :cars_data .\n      ?t1 :cars_data\\#ref-id ?t2 .\n      ?t1 :cars_data\\#horsepower ?t1_horsepower .\n      ?t1 :cars_data\\#horsepower ?t1_horsepower .\n      ?t1 :cars_data\\#cylinders ?t1_cylinders\n      FILTER(?t1_cylinders = 3)\n  }\n}\norder by desc (?t1_horsepower) limit 1",
+      "predicted_answers": [],
+      "gold_answers": [
+        {
+          "t1_horsepower": "97",
+          "t2_make": "mazda rx2 coupe"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "f1_score": 0.0,
+      "manually_check": false,
+      "refinement_attempts": 7,
+      "discovery_internal_retries": 5,
+      "query_builder_internal_retries": 7,
+      "schema_summary_retries": 7,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    {
+      "question": "Which owner owns the most dogs? List the owner id, first name and last name.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql",
+        "http://host.docker.internal:3030/dog_kennels__owners/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/dog_kennels__treatments/sparql",
+        "http://host.docker.internal:3030/dog_kennels__sizes/sparql",
+        "http://host.docker.internal:3030/dog_kennels__charges/sparql",
+        "http://host.docker.internal:3030/dog_kennels__professionals/sparql",
+        "http://host.docker.internal:3030/dog_kennels__owners/sparql",
+        "http://host.docker.internal:3030/dog_kennels__dogs/sparql",
+        "http://host.docker.internal:3030/dog_kennels__breeds/sparql",
+        "http://host.docker.internal:3030/dog_kennels__treatment_types/sparql"
+      ],
+      "predicted_sparql": "PREFIX val: <http://valuenet/ontop/>\nPREFIX dogs: <http://valuenet/ontop/dogs#>\nPREFIX owners: <http://valuenet/ontop/owners#>\nSELECT ?owner_id ?first_name ?last_name (COUNT(?dog) AS ?dogCount) WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__dogs/sparql> { ?dog <http://valuenet/ontop/dogs#owner_id> ?owner_id }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__owners/sparql> { ?owner <http://valuenet/ontop/owners#owner_id> ?owner_id . ?owner <http://valuenet/ontop/owners#first_name> ?first_name . ?owner <http://valuenet/ontop/owners#last_name> ?last_name }\n}\nGROUP BY ?owner_id ?first_name ?last_name\nORDER BY DESC(?dogCount)\nLIMIT 1",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT ?T1_owner_id (count( *) as ?aggregation_all) ?T2_first_name ?T2_last_name WHERE {\n  {\n    SELECT ?T1 ?T1_owner_id ?T2 ?T2_first_name ?T2_last_name WHERE {\n  SERVICE <http://host.docker.internal:3030/dog_kennels__owners/sparql> {\n    SELECT DISTINCT ?T2 ?T2_first_name ?T2_last_name WHERE {\n      ?T2 a :owners .\n      ?T2 :owners\\#first_name ?T2_first_name .\n      ?T2 :owners\\#last_name ?T2_last_name\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/dog_kennels__dogs/sparql> {\n    ?T1 a :dogs .\n      ?T1 :dogs\\#ref-owner_id ?T2 .\n      ?T1 :dogs\\#owner_id ?T1_owner_id\n  }\n    }\n  }\n}\nGROUP BY ?T1_owner_id ?T2_first_name ?T2_last_name  ORDER BY DESC (?aggregation_all) LIMIT 1",
+      "predicted_answers": [
+        {
+          "owner_id": "14",
+          "first_name": "Rachelle",
+          "last_name": "Funk",
+          "dogCount": "3"
+        }
+      ],
+      "gold_answers": [
+        {
+          "T1_owner_id": "14",
+          "aggregation_all": "3",
+          "T2_first_name": "Rachelle",
+          "T2_last_name": "Funk"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "Show all document names using templates with template type code BK.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__templates/sparql",
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__documents/sparql",
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__ref_template_types/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__documents/sparql",
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__templates/sparql",
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__paragraphs/sparql",
+        "http://host.docker.internal:3030/cre_Doc_Template_Mgt__ref_template_types/sparql"
+      ],
+      "predicted_sparql": "PREFIX ontop_templates: <http://valuenet/ontop/templates#>\nPREFIX ontop_documents: <http://valuenet/ontop/documents#>\nSELECT ?document_name WHERE {\n  SERVICE <http://host.docker.internal:3030/cre_Doc_Template_Mgt__documents/sparql> { ?doc <http://valuenet/ontop/documents#document_name> ?document_name . ?doc <http://valuenet/ontop/documents#template_id> ?template_id }\n  SERVICE <http://host.docker.internal:3030/cre_Doc_Template_Mgt__templates/sparql> { ?t <http://valuenet/ontop/templates#template_id> ?template_id . ?t <http://valuenet/ontop/templates#template_type_code> ?template_type_code }\n  FILTER(?template_type_code = \"BK\")\n}\nGROUP BY ?document_name",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_document_name WHERE {\n  SERVICE <http://host.docker.internal:3030/cre_Doc_Template_Mgt__templates/sparql> {\n    SELECT DISTINCT ?t2 ?t2_template_type_code WHERE {\n      ?t2 a :templates .\n      ?t2 :templates\\#template_type_code ?t2_template_type_code\n      FILTER(?t2_template_type_code = 'BK')\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/cre_Doc_Template_Mgt__documents/sparql> {\n    ?t1 a :documents .\n      ?t1 :documents\\#ref-template_id ?t2 .\n      ?t1 :documents\\#document_name ?t1_document_name\n  }\n}",
+      "predicted_answers": [
+        {
+          "document_name": "About Korea"
+        },
+        {
+          "document_name": "Palm reading"
+        },
+        {
+          "document_name": "Data base"
+        },
+        {
+          "document_name": "How to read a book"
+        },
+        {
+          "document_name": "Robbin CV"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_document_name": "About Korea"
+        },
+        {
+          "t1_document_name": "Data base"
+        },
+        {
+          "t1_document_name": "Robbin CV"
+        },
+        {
+          "t1_document_name": "How to read a book"
+        },
+        {
+          "t1_document_name": "Palm reading"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "What is the largest amount of horsepower for the models with 3 cylinders and what make is it?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/car_1__cars_data/sparql",
+        "http://host.docker.internal:3030/car_1__car_names/sparql",
+        "http://host.docker.internal:3030/car_1__model_list/sparql",
+        "http://host.docker.internal:3030/car_1__car_makers/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/car_1__cars_data/sparql",
+        "http://host.docker.internal:3030/car_1__car_names/sparql",
+        "http://host.docker.internal:3030/car_1__model_list/sparql",
+        "http://host.docker.internal:3030/car_1__countries/sparql",
+        "http://host.docker.internal:3030/car_1__car_makers/sparql",
+        "http://host.docker.internal:3030/car_1__continents/sparql"
+      ],
+      "predicted_sparql": null,
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_horsepower ?t2_make WHERE {\n  SERVICE <http://host.docker.internal:3030/car_1__car_names/sparql> {\n    SELECT DISTINCT ?t2 ?t2_make WHERE {\n      ?t2 a :car_names .\n      ?t2 :car_names\\#make ?t2_make\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/car_1__cars_data/sparql> {\n    ?t1 a :cars_data .\n      ?t1 :cars_data\\#ref-id ?t2 .\n      ?t1 :cars_data\\#horsepower ?t1_horsepower .\n      ?t1 :cars_data\\#horsepower ?t1_horsepower .\n      ?t1 :cars_data\\#cylinders ?t1_cylinders\n      FILTER(?t1_cylinders = 3)\n  }\n}\norder by desc (?t1_horsepower) limit 1",
+      "predicted_answers": [],
+      "gold_answers": [
+        {
+          "t1_horsepower": "97",
+          "t2_make": "mazda rx2 coupe"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "f1_score": 0.0,
+      "manually_check": false,
+      "refinement_attempts": 7,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 8,
+      "schema_summary_retries": 8,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    {
+      "question": "What is the money rank of the tallest poker player?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/poker_player__people/sparql",
+        "http://host.docker.internal:3030/poker_player__poker_player/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/poker_player__people/sparql",
+        "http://host.docker.internal:3030/poker_player__poker_player/sparql"
+      ],
+      "predicted_sparql": "PREFIX people: <http://valuenet/ontop/people#>\nPREFIX poker: <http://valuenet/ontop/poker_player#>\nSELECT ?money_rank WHERE {\n  SERVICE <http://host.docker.internal:3030/poker_player__people/sparql> { ?person <http://valuenet/ontop/people#people_id> ?people_id . ?person <http://valuenet/ontop/people#height> ?height }\n  SERVICE <http://host.docker.internal:3030/poker_player__poker_player/sparql> { ?player <http://valuenet/ontop/poker_player#people_id> ?people_id . ?player <http://valuenet/ontop/poker_player#money_rank> ?money_rank }\n}\nGROUP BY ?money_rank",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_money_rank WHERE {\n  SERVICE <http://host.docker.internal:3030/poker_player__people/sparql> {\n    SELECT DISTINCT ?t2 ?t2_height WHERE {\n      ?t2 a :people .\n      ?t2 :people\\#height ?t2_height\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/poker_player__poker_player/sparql> {\n    ?t1 a :poker_player .\n      ?t1 :poker_player\\#ref-people_id ?t2 .\n      ?t1 :poker_player\\#money_rank ?t1_money_rank\n  }\n}\norder by desc (?t2_height) limit 1",
+      "predicted_answers": [
+        {
+          "money_rank": "154.0e0"
+        },
+        {
+          "money_rank": "68.0e0"
+        },
+        {
+          "money_rank": "141.0e0"
+        },
+        {
+          "money_rank": "166.0e0"
+        },
+        {
+          "money_rank": "58.0e0"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_money_rank": "68.0e0"
+        }
+      ],
+      "discovery_accuracy": 1.0,
+      "execution_accuracy": 0.0,
+      "f1_score": 0.33333333333333337,
+      "manually_check": false,
+      "refinement_attempts": 2,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 3,
+      "schema_summary_retries": 3,
+      "precision": 0.2,
+      "recall": 1.0
+    },
+    {
+      "question": "Find the name of the makers that produced some cars in the year of 1970?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/car_1__car_makers/sparql",
+        "http://host.docker.internal:3030/car_1__model_list/sparql",
+        "http://host.docker.internal:3030/car_1__car_names/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/car_1__cars_data/sparql",
+        "http://host.docker.internal:3030/car_1__car_names/sparql",
+        "http://host.docker.internal:3030/car_1__model_list/sparql",
+        "http://host.docker.internal:3030/car_1__countries/sparql",
+        "http://host.docker.internal:3030/car_1__car_makers/sparql",
+        "http://host.docker.internal:3030/car_1__continents/sparql"
+      ],
+      "predicted_sparql": null,
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT DISTINCT ?T1_maker WHERE {\n  SERVICE <http://host.docker.internal:3030/car_1__car_makers/sparql> {\n    SELECT DISTINCT ?T1 ?T1_maker WHERE {\n      ?T1 a :car_makers .\n      ?T1 :car_makers\\#maker ?T1_maker .\n      ?T1 :car_makers\\#maker ?T1_maker .\n      ?T1 :car_makers\\#maker ?T1_maker\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/car_1__model_list/sparql> {\n    SELECT DISTINCT ?T1 ?T13 WHERE {\n      ?T13 a :model_list .\n      ?T13 :model_list\\#ref-maker ?T1\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/car_1__car_names/sparql> {\n    SELECT DISTINCT ?T13 ?T14 WHERE {\n      ?T14 a :car_names .\n      ?T14 :car_names\\#ref-model ?T13\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/car_1__cars_data/sparql> {\n    ?T2 :cars_data\\#year ?T2_year .\n      ?T2 :cars_data\\#year ?T2_year .\n      ?T2 a :cars_data .\n      ?T2 :cars_data\\#ref-id ?T14 .\n      ?T2 :cars_data\\#year ?T2_year\n      FILTER(?T2_year = 1970)\n  }\n}",
+      "predicted_answers": [],
+      "gold_answers": [
+        {
+          "T1_maker": "amc"
+        },
+        {
+          "T1_maker": "datsun"
+        },
+        {
+          "T1_maker": "peugeaut"
+        },
+        {
+          "T1_maker": "saab"
+        },
+        {
+          "T1_maker": "toyota"
+        },
+        {
+          "T1_maker": "volkswagen"
+        },
+        {
+          "T1_maker": "bmw"
+        },
+        {
+          "T1_maker": "gm"
+        },
+        {
+          "T1_maker": "ford"
+        },
+        {
+          "T1_maker": "chrysler"
+        },
+        {
+          "T1_maker": "citroen"
+        },
+        {
+          "T1_maker": "nissan"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "f1_score": 0.0,
+      "manually_check": false,
+      "refinement_attempts": 7,
+      "discovery_internal_retries": 5,
+      "query_builder_internal_retries": 8,
+      "schema_summary_retries": 8,
+      "precision": 0.0,
+      "recall": 0.0
+    },
+    {
+      "question": "What are the names of the teachers and the courses they teach in ascending alphabetical order by the name of the teacher?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/course_teach__teacher/sparql",
+        "http://host.docker.internal:3030/course_teach__course/sparql",
+        "http://host.docker.internal:3030/course_teach__course_arrange/sparql",
+        "http://host.docker.internal:3030/student_1__teachers/sparql",
+        "http://host.docker.internal:3030/college_2__teaches/sparql",
+        "http://host.docker.internal:3030/college_3__course/sparql",
+        "http://host.docker.internal:3030/e_learning__courses/sparql",
+        "http://host.docker.internal:3030/e_learning__course_authors_and_tutors/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/course_teach__teacher/sparql",
+        "http://host.docker.internal:3030/course_teach__course/sparql",
+        "http://host.docker.internal:3030/course_teach__course_arrange/sparql"
+      ],
+      "predicted_sparql": "PREFIX vt: <http://valuenet/ontop/>\nSELECT DISTINCT ?teacherName ?courseName WHERE {\n  SERVICE <http://host.docker.internal:3030/course_teach__course_arrange/sparql> { ?arrange <http://valuenet/ontop/course_arrange#teacher_id> ?teacher_id . ?arrange <http://valuenet/ontop/course_arrange#course_id> ?course_id }\n  SERVICE <http://host.docker.internal:3030/course_teach__teacher/sparql> { ?teacher <http://valuenet/ontop/teacher#teacher_id> ?teacher_id . ?teacher <http://valuenet/ontop/teacher#name> ?teacherName }\n  SERVICE <http://host.docker.internal:3030/course_teach__course/sparql> { ?course <http://valuenet/ontop/course#course_id> ?course_id . ?course <http://valuenet/ontop/course#course> ?courseName }\n}\nGROUP BY ?teacherName ?courseName\nORDER BY ASC(?teacherName)",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_name ?t2_course WHERE {\n  SERVICE <http://host.docker.internal:3030/course_teach__teacher/sparql> {\n    SELECT DISTINCT ?t1 ?t1_name WHERE {\n      ?t1 a :teacher .\n      ?t1 :teacher\\#name ?t1_name .\n      ?t1 :teacher\\#name ?t1_name .\n      ?t1 :teacher\\#name ?t1_name .\n      ?t1 :teacher\\#name ?t1_name\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/course_teach__course/sparql> {\n    SELECT DISTINCT ?t2 ?t2_course ?t2_course_id WHERE {\n      ?t2 :course\\#course ?t2_course .\n      ?t2 :course\\#course_id ?t2_course_id .\n      ?t2 a :course .\n      ?t2 :course\\#course ?t2_course .\n      ?t2 :course\\#course_id ?t2_course_id\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/course_teach__course_arrange/sparql> {\n    ?t3 a :course_arrange .\n      ?t3 :course_arrange\\#ref-teacher_id ?t1 .\n      ?t3 :course_arrange\\#ref-course_id ?t2\n  }\n}\norder by asc (?t1_name)",
+      "predicted_answers": [
+        {
+          "teacherName": "Anne Walker",
+          "courseName": "Bible"
+        },
+        {
+          "teacherName": "Anne Walker",
+          "courseName": "History"
+        },
+        {
+          "teacherName": "Gustaaf Deloor",
+          "courseName": "Science"
+        },
+        {
+          "teacherName": "Kearsley Brown",
+          "courseName": "Math"
+        },
+        {
+          "teacherName": "Lucy Wong",
+          "courseName": "Music"
+        },
+        {
+          "teacherName": "Vicente Carretero",
+          "courseName": "Math"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_name": "Anne Walker",
+          "t2_course": "History"
+        },
+        {
+          "t1_name": "Anne Walker",
+          "t2_course": "Bible"
+        },
+        {
+          "t1_name": "Gustaaf Deloor",
+          "t2_course": "Science"
+        },
+        {
+          "t1_name": "Kearsley Brown",
+          "t2_course": "Math"
+        },
+        {
+          "t1_name": "Lucy Wong",
+          "t2_course": "Music"
+        },
+        {
+          "t1_name": "Vicente Carretero",
+          "t2_course": "Math"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 1,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 2,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "List the title of all  Cartoons showed on TV Channel with series name 'Sky Radio'.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/tvshow__cartoon/sparql",
+        "http://host.docker.internal:3030/tvshow__tv_channel/sparql",
+        "http://host.docker.internal:3030/program_share__broadcast/sparql",
+        "http://host.docker.internal:3030/program_share__channel/sparql",
+        "http://host.docker.internal:3030/program_share__program/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/tvshow__tv_series/sparql",
+        "http://host.docker.internal:3030/tvshow__tv_channel/sparql",
+        "http://host.docker.internal:3030/tvshow__cartoon/sparql"
+      ],
+      "predicted_sparql": "PREFIX cartoon: <http://valuenet/ontop/cartoon#>\nPREFIX tv_channel: <http://valuenet/ontop/tv_channel#>\nPREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nSELECT DISTINCT ?title WHERE {\n  SERVICE <http://host.docker.internal:3030/tvshow__cartoon/sparql> { ?cartoon <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://valuenet/ontop/cartoon> . ?cartoon <http://valuenet/ontop/cartoon#title> ?title . ?cartoon <http://valuenet/ontop/cartoon#channel> ?channel_id }\n  SERVICE <http://host.docker.internal:3030/tvshow__tv_channel/sparql> { ?channel <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://valuenet/ontop/tv_channel> . ?channel <http://valuenet/ontop/tv_channel#id> ?channel_id . ?channel <http://valuenet/ontop/tv_channel#series_name> ?series_name }\n  FILTER(?series_name = \"Sky Radio\")\n}\nGROUP BY ?title",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect ?t1_title WHERE {\n  SERVICE <http://host.docker.internal:3030/tvshow__tv_channel/sparql> {\n    SELECT DISTINCT ?t2 ?t2_series_name WHERE {\n      ?t2 a :tv_channel .\n      ?t2 :tv_channel\\#series_name ?t2_series_name\n      FILTER(?t2_series_name = 'Sky Radio')\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/tvshow__cartoon/sparql> {\n    ?t1 a :cartoon .\n      ?t1 :cartoon\\#ref-channel ?t2 .\n      ?t1 :cartoon\\#title ?t1_title\n  }\n}",
+      "predicted_answers": [
+        {
+          "title": "Return of the Fearsome Fangs!"
+        },
+        {
+          "title": "The Rise of the Blue Beetle!"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_title": "The Rise of the Blue Beetle!"
+        },
+        {
+          "t1_title": "Return of the Fearsome Fangs!"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    {
+      "question": "What are the different first names and ages of the students who do have pets?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/pets_1__has_pet/sparql",
+        "http://host.docker.internal:3030/pets_1__student/sparql",
+        "http://host.docker.internal:3030/pets_1__pets/sparql",
+        "http://host.docker.internal:3030/club_1__student/sparql",
+        "http://host.docker.internal:3030/allergy_1__student/sparql",
+        "http://host.docker.internal:3030/activity_1__student/sparql",
+        "http://host.docker.internal:3030/dorm_1__student/sparql",
+        "http://host.docker.internal:3030/game_1__student/sparql",
+        "http://host.docker.internal:3030/college_3__student/sparql",
+        "http://host.docker.internal:3030/college_1__student/sparql",
+        "http://host.docker.internal:3030/student_transcripts_tracking__students/sparql",
+        "http://host.docker.internal:3030/student_assessment__people/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/pets_1__student/sparql",
+        "http://host.docker.internal:3030/pets_1__has_pet/sparql",
+        "http://host.docker.internal:3030/pets_1__pets/sparql"
+      ],
+      "predicted_sparql": "PREFIX student: <http://valuenet/ontop/student#>\nPREFIX has_pet: <http://valuenet/ontop/has_pet#>\nPREFIX ontop: <http://valuenet/ontop/>\nSELECT DISTINCT ?fname ?age WHERE {\n  SERVICE <http://host.docker.internal:3030/pets_1__has_pet/sparql> { ?hp <http://valuenet/ontop/has_pet#stuid> ?stuid }\n  SERVICE <http://host.docker.internal:3030/pets_1__student/sparql> { ?student <http://valuenet/ontop/student#stuid> ?stuid . ?student <http://valuenet/ontop/student#fname> ?fname . ?student <http://valuenet/ontop/student#age> ?age }\n}\nGROUP BY ?fname ?age",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nselect distinct ?t1_fname ?t1_age WHERE {\n  SERVICE <http://host.docker.internal:3030/pets_1__student/sparql> {\n    SELECT DISTINCT ?t1 ?t1_age ?t1_fname ?t1_stuid WHERE {\n      ?t1 a :student .\n      ?t1 :student\\#fname ?t1_fname .\n      ?t1 :student\\#age ?t1_age .\n      ?t1 :student\\#stuid ?t1_stuid\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/pets_1__has_pet/sparql> {\n    ?t2 a :has_pet .\n      ?t2 :has_pet\\#ref-stuid ?t1\n  }\n}",
+      "predicted_answers": [
+        {
+          "fname": "Tracy",
+          "age": "19"
+        },
+        {
+          "fname": "Linda",
+          "age": "18"
+        }
+      ],
+      "gold_answers": [
+        {
+          "t1_fname": "Linda",
+          "t1_age": "18"
+        },
+        {
+          "t1_fname": "Tracy",
+          "t1_age": "19"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 1.0,
+      "f1_score": 1.0,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 1,
+      "schema_summary_retries": 1,
+      "precision": 1.0,
+      "recall": 1.0
+    }
+  ]
+}

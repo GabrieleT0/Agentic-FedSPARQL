@@ -1,0 +1,428 @@
+{
+  "protocol": "Hyperparameters were selected by a pre-specified deterministic search over 50 configuration(s) on the dev split (50 validated examples, sampled with seed 20240624). Each configuration was evaluated on the same examples. The primary selection criterion was mean execution accuracy, with mean answer F1 and discovery F1 as tie-breakers, followed by a lower retry-cost proxy. Rows whose gold_answers field was the placeholder [{}] were excluded from answer-metric denominators. Bootstrap confidence intervals were computed over examples using 1000 resamples.",
+  "benchmark_path": "/workspaces/Agentic-FedSPARQL/data/SPIDER4FedSPARQL/class-sharding/SPIDER4FedSPARQL_benchmark.json",
+  "selected_benchmark_path": "/workspaces/Agentic-FedSPARQL/data/pipeline_search_random_50/selected_benchmark.json",
+  "split": "dev",
+  "limit": 50,
+  "seed": 20240624,
+  "search_method": "random",
+  "search_space": {
+    "max_retries": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "discovery_retry_limit": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "schema_summary_retry_limit": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "query_builder_retries": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "batch_size": [
+      5,
+      10,
+      20,
+      40,
+      80,
+      100
+    ]
+  },
+  "configs": [
+    {
+      "max_retries": 1,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 1,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 1,
+      "discovery_retry_limit": 3,
+      "query_builder_retries": 10,
+      "schema_summary_retry_limit": 2,
+      "batch_size": 5
+    },
+    {
+      "max_retries": 1,
+      "discovery_retry_limit": 7,
+      "query_builder_retries": 4,
+      "schema_summary_retry_limit": 5,
+      "batch_size": 100
+    },
+    {
+      "max_retries": 1,
+      "discovery_retry_limit": 8,
+      "query_builder_retries": 7,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 100
+    },
+    {
+      "max_retries": 1,
+      "discovery_retry_limit": 8,
+      "query_builder_retries": 10,
+      "schema_summary_retry_limit": 10,
+      "batch_size": 10
+    },
+    {
+      "max_retries": 1,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 1,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 10,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 2,
+      "discovery_retry_limit": 1,
+      "query_builder_retries": 3,
+      "schema_summary_retry_limit": 1,
+      "batch_size": 100
+    },
+    {
+      "max_retries": 2,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 10,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 10
+    },
+    {
+      "max_retries": 2,
+      "discovery_retry_limit": 7,
+      "query_builder_retries": 4,
+      "schema_summary_retry_limit": 5,
+      "batch_size": 100
+    },
+    {
+      "max_retries": 2,
+      "discovery_retry_limit": 8,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 5,
+      "batch_size": 5
+    },
+    {
+      "max_retries": 2,
+      "discovery_retry_limit": 8,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 4,
+      "batch_size": 100
+    },
+    {
+      "max_retries": 2,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 7,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 80
+    },
+    {
+      "max_retries": 2,
+      "discovery_retry_limit": 10,
+      "query_builder_retries": 3,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 100
+    },
+    {
+      "max_retries": 2,
+      "discovery_retry_limit": 10,
+      "query_builder_retries": 8,
+      "schema_summary_retry_limit": 7,
+      "batch_size": 5
+    },
+    {
+      "max_retries": 3,
+      "discovery_retry_limit": 1,
+      "query_builder_retries": 3,
+      "schema_summary_retry_limit": 2,
+      "batch_size": 5
+    },
+    {
+      "max_retries": 3,
+      "discovery_retry_limit": 8,
+      "query_builder_retries": 3,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 100
+    },
+    {
+      "max_retries": 4,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 10,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 4,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 1,
+      "schema_summary_retry_limit": 5,
+      "batch_size": 5
+    },
+    {
+      "max_retries": 4,
+      "discovery_retry_limit": 8,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 5,
+      "batch_size": 10
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 1,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 1,
+      "batch_size": 100
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 4,
+      "schema_summary_retry_limit": 4,
+      "batch_size": 100
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 5,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 1,
+      "schema_summary_retry_limit": 5,
+      "batch_size": 80
+    },
+    {
+      "max_retries": 6,
+      "discovery_retry_limit": 1,
+      "query_builder_retries": 1,
+      "schema_summary_retry_limit": 4,
+      "batch_size": 5
+    },
+    {
+      "max_retries": 6,
+      "discovery_retry_limit": 1,
+      "query_builder_retries": 7,
+      "schema_summary_retry_limit": 3,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 6,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 3,
+      "schema_summary_retry_limit": 1,
+      "batch_size": 100
+    },
+    {
+      "max_retries": 6,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 3,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 5,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 100
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 7,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 10,
+      "batch_size": 80
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 10,
+      "batch_size": 10
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 3,
+      "schema_summary_retry_limit": 4,
+      "batch_size": 5
+    },
+    {
+      "max_retries": 7,
+      "discovery_retry_limit": 9,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 4,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 8,
+      "discovery_retry_limit": 1,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 10,
+      "batch_size": 80
+    },
+    {
+      "max_retries": 8,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 10,
+      "schema_summary_retry_limit": 1,
+      "batch_size": 100
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 4,
+      "schema_summary_retry_limit": 3,
+      "batch_size": 10
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 7,
+      "schema_summary_retry_limit": 4,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 7,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 1,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 7,
+      "query_builder_retries": 10,
+      "schema_summary_retry_limit": 1,
+      "batch_size": 100
+    },
+    {
+      "max_retries": 9,
+      "discovery_retry_limit": 8,
+      "query_builder_retries": 5,
+      "schema_summary_retry_limit": 9,
+      "batch_size": 10
+    },
+    {
+      "max_retries": 10,
+      "discovery_retry_limit": 2,
+      "query_builder_retries": 9,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 10,
+      "discovery_retry_limit": 3,
+      "query_builder_retries": 6,
+      "schema_summary_retry_limit": 5,
+      "batch_size": 10
+    },
+    {
+      "max_retries": 10,
+      "discovery_retry_limit": 3,
+      "query_builder_retries": 8,
+      "schema_summary_retry_limit": 5,
+      "batch_size": 5
+    },
+    {
+      "max_retries": 10,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 6,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 10,
+      "discovery_retry_limit": 4,
+      "query_builder_retries": 8,
+      "schema_summary_retry_limit": 3,
+      "batch_size": 100
+    },
+    {
+      "max_retries": 10,
+      "discovery_retry_limit": 5,
+      "query_builder_retries": 2,
+      "schema_summary_retry_limit": 3,
+      "batch_size": 20
+    },
+    {
+      "max_retries": 10,
+      "discovery_retry_limit": 6,
+      "query_builder_retries": 7,
+      "schema_summary_retry_limit": 1,
+      "batch_size": 40
+    },
+    {
+      "max_retries": 10,
+      "discovery_retry_limit": 10,
+      "query_builder_retries": 3,
+      "schema_summary_retry_limit": 2,
+      "batch_size": 100
+    },
+    {
+      "max_retries": 10,
+      "discovery_retry_limit": 10,
+      "query_builder_retries": 4,
+      "schema_summary_retry_limit": 8,
+      "batch_size": 10
+    }
+  ],
+  "primary_metric": "execution_accuracy_mean",
+  "tie_breakers": [
+    "f1_score_mean",
+    "discovery_f1_mean",
+    "retry_cost_proxy (lower is better)"
+  ],
+  "placeholder_rule": "Exclude rows with gold_answers == [{}] from answer metrics.",
+  "bootstrap_samples": 1000,
+  "confidence": 0.95
+}

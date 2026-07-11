@@ -1,0 +1,7 @@
+{
+  "max_retries": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  "discovery_retry_limit": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  "schema_summary_retry_limit": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  "query_builder_retries": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+  "batch_size": [5, 10, 20, 40, 80, 100]
+}
