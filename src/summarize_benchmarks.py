@@ -23,16 +23,18 @@ SUMMARY_CSV_PATH = os.path.join(PROJECT_ROOT, "data", "benchmark_summary.csv")
 
 METRICS = [
     "execution_accuracy",
+    "precision",
+    "recall",
+    "f1_score",
     "discovery_accuracy",
     "discovery_f1",
-    "f1_score",
     "refinement_attempts",
     "discovery_internal_retries",
     "schema_summary_retries",
     "query_builder_internal_retries",
 ]
 
-ANSWER_RESULT_METRICS = {"execution_accuracy", "f1_score"}
+ANSWER_RESULT_METRICS = {"execution_accuracy", "precision", "recall", "f1_score"}
 
 
 def mean(values):
