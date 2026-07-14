@@ -1,5 +1,5 @@
 import re
-from typing import Optional
+from typing import Any, Optional
 
 # SPARQL keywords that must not appear as standalone words inside a triple pattern token.
 _SPARQL_KEYWORDS = re.compile(
@@ -7,8 +7,13 @@ _SPARQL_KEYWORDS = re.compile(
     re.IGNORECASE,
 )
 
-def _validate_token(key: str, val: str):
+def _validate_token(key: str, val: Any):
     """Return an error string if *val* is not a valid single triple-pattern token, else None."""
+    if not isinstance(val, str):
+        return (
+            f"Pattern '{key}' must be a single string token, got {type(val).__name__}: {val!r}. "
+            "Use one triple pattern per subject/predicate/object combination."
+        )
     if "[" in val or "]" in val:
         return (
             f"Pattern '{key}' contains blank node syntax which is not allowed in the IR: {val!r}. "
@@ -33,18 +38,61 @@ def _validate_token(key: str, val: str):
         )
     return None
 
+def _schema_contains_endpoint(schema_summary: Any, url: str) -> bool:
+    if isinstance(schema_summary, dict):
+        return url in schema_summary
+    if isinstance(schema_summary, str):
+        return url in schema_summary
+    return False
+
+def _validate_string_list(ir: dict, field: str) -> tuple[bool, Optional[str]]:
+    value = _list_field(ir, field)
+    if not isinstance(value, list):
+        return False, f"IR field '{field}' must be a list, got {type(value).__name__}: {value!r}."
+    for item in value:
+        if not isinstance(item, str):
+            return False, f"IR field '{field}' must contain only strings, got {type(item).__name__}: {item!r}."
+    return True, None
+
+def _list_field(ir: dict, field: str) -> Any:
+    value = ir.get(field, [])
+    return [] if value is None else value
+
+def _endpoint_patterns(endpoint: dict) -> Any:
+    patterns = endpoint.get("patterns", [])
+    return [] if patterns is None else patterns
+
 def validate_ir(ir: dict, schema_summary: dict) -> tuple[bool, Optional[str]]:
     """Validate the intermediate representation (IR) of a SPARQL query against the schema summary of the endpoints."""
-    if not ir.get("endpoints"):
+    if not isinstance(ir, dict):
+        return False, f"IR must be a dict, got {type(ir).__name__}: {ir!r}."
+
+    endpoints = ir.get("endpoints")
+    if not endpoints:
         return False, "IR must contain at least one endpoint."
+    if not isinstance(endpoints, list):
+        return False, f"IR field 'endpoints' must be a list, got {type(endpoints).__name__}: {endpoints!r}."
+
+    for field in ("select", "filters", "group_by", "having", "join_variables"):
+        is_valid, err = _validate_string_list(ir, field)
+        if not is_valid:
+            return False, err
 
     all_pattern_vars = set()
-    for endpoint in ir["endpoints"]:
+    for endpoint in endpoints:
+        if not isinstance(endpoint, dict):
+            return False, f"Each endpoint must be a dict, got {type(endpoint).__name__}: {endpoint!r}."
         url = endpoint.get("url")
-        if not url in schema_summary:
+        if not isinstance(url, str):
+            return False, f"Endpoint 'url' must be a string, got {type(url).__name__}: {url!r}."
+        if not _schema_contains_endpoint(schema_summary, url):
             return False, f"Endpoint {url} in IR is not in the schema summary." # Hallucinated endpoint
 
-        for pattern in endpoint.get("patterns", []):
+        patterns = _endpoint_patterns(endpoint)
+        if not isinstance(patterns, list):
+            return False, f"Endpoint {url} field 'patterns' must be a list, got {type(patterns).__name__}: {patterns!r}."
+
+        for pattern in patterns:
             if not isinstance(pattern, dict):
                 return False, "Each pattern must be a dict with 'subject', 'predicate', and 'object' keys."
             if not all(k in pattern for k in ("subject", "predicate", "object")):
@@ -57,7 +105,7 @@ def validate_ir(ir: dict, schema_summary: dict) -> tuple[bool, Optional[str]]:
                 if token.startswith("?"):
                     all_pattern_vars.add(token)
 
-    for select_var in ir.get("select", []):
+    for select_var in _list_field(ir, "select"):
         # Aggregate expressions like "(COUNT(?x) AS ?alias)" are not pattern vars — skip them.
         if select_var.startswith("("):
             continue
@@ -69,9 +117,9 @@ def validate_ir(ir: dict, schema_summary: dict) -> tuple[bool, Optional[str]]:
     _AGGREGATE_EXPR = re.compile(
         r'^\(\s*(COUNT|SUM|AVG|MIN|MAX|SAMPLE|GROUP_CONCAT)\s*\(', re.IGNORECASE
     )
-    group_by_vars = ir.get("group_by", [])
+    group_by_vars = _list_field(ir, "group_by")
     if group_by_vars:
-        for select_var in ir.get("select", []):
+        for select_var in _list_field(ir, "select"):
             if not select_var.startswith("("):
                 # Plain variable
                 if select_var not in group_by_vars:
@@ -95,7 +143,7 @@ def validate_ir(ir: dict, schema_summary: dict) -> tuple[bool, Optional[str]]:
                             "Add it to 'group_by', or use SAMPLE(?var) to pick an arbitrary value per group."
                         )
 
-    for f in ir.get("filters", []):
+    for f in _list_field(ir, "filters"):
         if re.match(r'^FILTER\s*\(', f.strip(), re.IGNORECASE):
             return False, (
                 f"Filter expression already contains a FILTER() wrapper: {f!r}. "
@@ -103,10 +151,10 @@ def validate_ir(ir: dict, schema_summary: dict) -> tuple[bool, Optional[str]]:
                 "not the full FILTER(...) clause — the compiler adds that automatically."
             )
 
-    for join_var in ir.get("join_variables", []):
+    for join_var in _list_field(ir, "join_variables"):
         appearances = sum(
             1 for ep in ir["endpoints"]
-            if any(isinstance(p, dict) and join_var in [p.get("subject"), p.get("object")] for p in ep.get("patterns", []))
+            if any(isinstance(p, dict) and join_var in [p.get("subject"), p.get("object")] for p in _endpoint_patterns(ep))
         )
         if appearances < 2:
             return False, f"Join variable {join_var} appears in only one endpoint."
@@ -144,19 +192,21 @@ def compile_ir_to_sparql(ir: dict) -> str:
     """Compile the intermediate representation (IR) into a SPARQL query string."""
     prefix_clauses = "\n".join(f"PREFIX {alias}: <{uri.strip('<>')}>" for alias, uri in ir.get("prefixes", {}).items())
     distinct = "DISTINCT " if ir.get("distinct") else ""
-    select_clause = "SELECT " + distinct + " ".join(ir.get("select", []))
+    select_clause = "SELECT " + distinct + " ".join(_list_field(ir, "select"))
     service_clauses = []
 
     for endpoint in ir.get("endpoints", []):
-        patterns = endpoint.get("patterns", [])
+        patterns = _endpoint_patterns(endpoint)
         if patterns:
             url = endpoint['url'].strip("<>")
             triples = " . ".join(f"{_sparql_term(p['subject'])} {_sparql_term(p['predicate'])} {_sparql_term(p['object'])}" for p in patterns)
             service_clauses.append(f"SERVICE <{url}> {{ {triples} }}")
 
-    filters = "\n  ".join(_build_filter(f) for f in ir.get("filters", []))
-    group_by = f"GROUP BY {' '.join(ir['group_by'])}" if ir.get("group_by") else ""
-    having = "HAVING (" + " && ".join(ir["having"]) + ")" if ir.get("having") else ""
+    filters = "\n  ".join(_build_filter(f) for f in _list_field(ir, "filters"))
+    group_by_vars = _list_field(ir, "group_by")
+    having_exprs = _list_field(ir, "having")
+    group_by = f"GROUP BY {' '.join(group_by_vars)}" if group_by_vars else ""
+    having = "HAVING (" + " && ".join(having_exprs) + ")" if having_exprs else ""
     order_by = f"ORDER BY {ir['order_by']}" if ir.get("order_by") else ""
     limit = f"LIMIT {ir['limit']}" if ir.get("limit") else ""
     where_body = "\n  ".join(service_clauses)
@@ -176,4 +226,3 @@ def compile_ir_to_sparql(ir: dict) -> str:
         query += f"\n{limit}"
 
     return query
-
