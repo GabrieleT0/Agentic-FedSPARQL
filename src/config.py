@@ -35,7 +35,7 @@ if llm_model.startswith(("ollama/", "ollama_chat/")):
         api_base=os.getenv("OLLAMA_API_BASE", "http://host.docker.internal:11434"),
     )
 elif "deepseek" in llm_model:
-    lm = dspy.LM(model=llm_model,
+    lm = dspy.LM(model=f"openai/{llm_model}",
         api_key=os.getenv("DEEPSEEK_API_KEY"),
         base_url="https://api.deepseek.com",
         )
