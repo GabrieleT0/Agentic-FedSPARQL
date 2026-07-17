@@ -14,6 +14,7 @@ class ZeroShotQuery(dspy.Module):
         if isinstance(void_descriptions, dict):
             void_descriptions = json.dumps(void_descriptions)
         sparql_query = self.zero_shot_query(question=question, void_descriptions=void_descriptions).sparql_query
+        sparql_query = sparql_utils.strip_sparql_code_fence(sparql_query)
         try:
             results = sparql_utils.execute_sparql_query(sparql_query)
         except Exception as e:

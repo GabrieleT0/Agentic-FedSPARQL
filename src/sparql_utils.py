@@ -6,6 +6,20 @@ FEDERATED_ENDPOINT = "http://host.docker.internal:3030/fkgqa_federation/sparql"
 TRANSIENT_STATUS_CODES = {408, 429, 500, 502, 503, 504}
 
 
+def strip_sparql_code_fence(query: str) -> str:
+    """Remove a wrapping SPARQL markdown code fence when an LLM includes one."""
+    if not isinstance(query, str):
+        return query
+
+    stripped = query.strip()
+    for fence in ("```", "'''"):
+        opening = f"{fence}sparql"
+        if stripped.lower().startswith(opening) and stripped.endswith(fence):
+            inner = stripped[len(opening):-len(fence)]
+            return inner.strip()
+    return query
+
+
 class SPARQLExecutionError(Exception):
     """Raised when a SPARQL endpoint returns an error response (e.g. 400 parse error)."""
     def __init__(self, message: str, status_code: int = None):
