@@ -223,3 +223,4 @@ src/analyze_service_endpoints.py
 src/SPIDER4SPARQL_sharding
 !src/SPIDER4SPARQL_sharding/class-sharding.py
 !src/SPIDER4SPARQL_sharding/docker-compose.yml
+data/class_analysis/
