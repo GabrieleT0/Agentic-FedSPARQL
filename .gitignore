@@ -216,3 +216,10 @@ shards/
 .codex
 .vscode
 .kilo
+notebooks/*
+class_analysis/*
+src/recalculate_answer_metrics.py
+src/analyze_service_endpoints.py
+src/SPIDER4SPARQL_sharding
+!src/SPIDER4SPARQL_sharding/class-sharding.py
+!src/SPIDER4SPARQL_sharding/docker-compose.yml
