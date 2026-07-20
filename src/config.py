@@ -1,11 +1,25 @@
 import dspy
 import os
+import time
 from datetime import datetime, timezone
 from dotenv import load_dotenv
 import mlflow
 load_dotenv()
 
 DEFAULT_LLM_MODEL = "lightning-ai/gemma-4-31B-it"
+
+
+class DelayedLM(dspy.LM):
+    """Add lightweight request spacing while retaining DSPy/LiteLLM retries."""
+
+    def __init__(self, *args, request_delay: float = 0.0, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.request_delay = request_delay
+
+    def forward(self, *args, **kwargs):
+        if self.request_delay > 0:
+            time.sleep(self.request_delay)
+        return super().forward(*args, **kwargs)
 
 ollama_model = os.getenv("OLLAMA_MODEL")
 llm_model = os.getenv("LLM_MODEL")
@@ -18,6 +32,8 @@ if not llm_model and ollama_model:
     )
 
 llm_model = llm_model or DEFAULT_LLM_MODEL
+lightning_request_delay = float(os.getenv("LIGHTNING_REQUEST_DELAY_SECONDS", "2"))
+lightning_lm_retries = int(os.getenv("LIGHTNING_LM_RETRIES", "5"))
 
 # mlflow.set_tracking_uri("http://127.0.0.1:5000")
 # mlflow.set_experiment("DSPy")
@@ -45,10 +61,12 @@ elif "azure" in llm_model:  # openai / azure
         api_base=os.getenv("AZURE_OPENAI_ENDPOINT"),  # e.g. https://<your-resource>.openai.azure.com/
         api_version=os.getenv("AZURE_OPENAI_API_VERSION", "2024-02-01"),
         )
-elif "lightning" in llm_model:
-    lm = dspy.LM(model=f"openai/{llm_model}",
+elif "lightning" in llm_model or 'google' in llm_model:
+    lm = DelayedLM(model=f"openai/{llm_model}",
         api_key=os.getenv("LIGHTNING_API_KEY"),
         api_base=os.getenv("LIGHTNING_API_ENDPOINT"),
+        request_delay=lightning_request_delay,
+        num_retries=lightning_lm_retries,
         )
 
 # elif "gpt" in llm_model:
@@ -94,5 +112,7 @@ def get_config_snapshot() -> dict:
         "query_builder_retries": QUERY_BUILDER_RETRIES,
         "schema_summary_retry_limit": SCHEMA_SUMMARY_RETRY_LIMIT,
         "batch_size": BATCH_SIZE,
+        "lightning_request_delay_seconds": lightning_request_delay,
+        "lightning_lm_retries": lightning_lm_retries,
         "timestamp": datetime.now(timezone.utc).isoformat(),
     }
