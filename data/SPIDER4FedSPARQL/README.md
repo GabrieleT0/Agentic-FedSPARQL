@@ -35,7 +35,6 @@ federated rewrite over local shard endpoints.
 | Class-shard endpoint records | 661 |
 | Unique class URIs in endpoint records | 519 |
 | RDF/Turtle shard files | 661 |
-| Class-sharding shard size | about 557 MB |
 
 ### Files
 
@@ -132,7 +131,6 @@ split files are empty arrays.
 | Unique class URIs in endpoint records | 498 |
 | Predicate groups | 1,857 |
 | RDF/Turtle shard files | 4,197 |
-| Class+predicate shard size | about 1.6 GB |
 
 Files in this configuration:
 
