@@ -22,7 +22,7 @@ from typing import Any, Callable
 
 from config import BENCHMARK_DATA_PATH
 from metrics import discovery_accuracy
-from modules.discovery import DEFAULT_DENSE_WEIGHTS, Discovery2
+from modules.discovery import DEFAULT_DENSE_WEIGHTS, Discovery
 from recalculate_discovery_metrics import extract_service_endpoints
 
 
@@ -111,7 +111,7 @@ def gold_endpoints_for_example(example: dict[str, Any], use_service_endpoints: b
 
 
 def evaluate_example(
-    discovery: Discovery2,
+    discovery: Discovery,
     example: dict[str, Any],
     example_index: int,
     use_service_endpoints: bool,
@@ -146,7 +146,7 @@ def summarize_example_results(
     discovery_retry_limit: int,
     rrf_k: int,
 ) -> dict[str, Any]:
-    normalized_weights = Discovery2._resolve_dense_weights(dense_weights)
+    normalized_weights = Discovery._resolve_dense_weights(dense_weights)
     return {
         "n_examples": len(example_results),
         "discovery_accuracy_mean": round(mean([r["discovery_accuracy"] for r in example_results]), 4),
@@ -201,7 +201,7 @@ def evaluate_config(
             rrf_k=rrf_k,
         )
 
-    discovery = Discovery2(
+    discovery = Discovery(
         model_name=model_name,
         dense_weights=dense_weights,
         bm25_k1=bm25_k1,

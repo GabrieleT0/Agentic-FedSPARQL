@@ -299,7 +299,7 @@ def print_recommended_command(row: dict[str, Any]) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Rank Discovery2 hyperparameter results from a CSV or JSON file."
+        description="Rank Discovery hyperparameter results from a CSV or JSON file."
     )
     parser.add_argument("input", help="CSV summary or JSON checkpoint/results file.")
     parser.add_argument("--top", type=int, default=5, help="Number of ranked rows to print.")

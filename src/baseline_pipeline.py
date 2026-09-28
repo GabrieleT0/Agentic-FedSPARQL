@@ -1,5 +1,5 @@
 from modules.zero_shot import ZeroShotQuery
-from modules.discovery import Discovery2
+from modules.discovery import Discovery
 import dspy
 from config import MAX_RETRIES, QUERY_BUILDER_RETRIES, SCHEMA_SUMMARY_RETRY_LIMIT
 import sparql_utils
@@ -12,7 +12,7 @@ def _get_void_description_cached(endpoint: str):
 class Baseline(dspy.Module):
     def __init__(self):
         super().__init__()
-        self.discovery = Discovery2()
+        self.discovery = Discovery()
         self.zero_shot_query = ZeroShotQuery()
     
     def forward(self, question: str) -> dspy.Prediction:

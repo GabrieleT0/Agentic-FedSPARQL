@@ -35,7 +35,7 @@ def _rrf_fusion(rankings: list, k: int = 60) -> dict:
     return scores
 
 
-class Discovery2(dspy.Module):
+class Discovery(dspy.Module):
 
     def __init__(
         self,

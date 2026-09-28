@@ -1,4 +1,4 @@
-from modules.discovery import Discovery2
+from modules.discovery import Discovery
 from modules.schema import Schema
 from modules.query_builder import QueryBuilderAgent
 from modules.validator import Validator
@@ -7,7 +7,7 @@ from config import MAX_RETRIES, QUERY_BUILDER_RETRIES, SCHEMA_SUMMARY_RETRY_LIMI
 class FederatedSPARQLPipeline(dspy.Module):
     def __init__(self):
         super().__init__()
-        self.discovery = Discovery2()
+        self.discovery = Discovery()
         self.schema = Schema()
         self.query_builder = QueryBuilderAgent(QUERY_BUILDER_RETRIES)
         self.validator = Validator()
