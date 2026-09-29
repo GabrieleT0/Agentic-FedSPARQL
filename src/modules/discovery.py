@@ -47,6 +47,7 @@ class Discovery(dspy.Module):
         batch_size: int = BATCH_SIZE,
         discovery_retry_limit: int = DISCOVERY_RETRY_LIMIT,
         rrf_k: int = 60,
+        use_llm_selection: bool = True,
     ):
         super().__init__()
         self.model = SentenceTransformer(model_name, device='cpu', trust_remote_code=True)
@@ -59,6 +60,7 @@ class Discovery(dspy.Module):
         self.batch_size = batch_size
         self.discovery_retry_limit = discovery_retry_limit
         self.rrf_k = rrf_k
+        self.use_llm_selection = use_llm_selection
         self.index = {}
         self.static_descriptions = {}
         self.bm25_docs = []
@@ -208,6 +210,12 @@ class Discovery(dspy.Module):
         # Stage 2 — fusion: Reciprocal Rank Fusion combines both ranked lists
         fused_scores = _rrf_fusion([dense_ranked, bm25_ranked], k=self.rrf_k)
         sorted_urls  = sorted(fused_scores, key=fused_scores.get, reverse=True)
+
+        if not self.use_llm_selection:
+            return dspy.Prediction(
+                candidate_endpoints=sorted_urls[:self.batch_size],
+                internal_retries=0,
+            )
 
         # Stage 3 — LLM reranking: batch evaluation with is_sufficient early stopping
         selected = []
