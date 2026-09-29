@@ -81,7 +81,7 @@ dspy.configure(lm=lm)
 
 MAX_RETRIES = int(os.getenv("MAX_RETRIES", "9")) # Maximum number of retries for the entire pipeline
 DISCOVERY_RETRY_LIMIT = int(os.getenv("DISCOVERY_RETRY_LIMIT", "6")) # Maximum retries inside Discovery per evaluated batch
-xQUERY_BUILDER_RETRIES = int(os.getenv("QUERY_BUILDER_RETRIES", "6")) # Maximum retries inside QueryBuilderAgent per pipeline attempt
+QUERY_BUILDER_RETRIES = int(os.getenv("QUERY_BUILDER_RETRIES", "6")) # Maximum retries inside QueryBuilderAgent per pipeline attempt
 SCHEMA_SUMMARY_RETRY_LIMIT = int(os.getenv("SCHEMA_SUMMARY_RETRY_LIMIT", "9")) # Maximum retries for schema summary generation
 ENDPOINTS_FILE_PATH = os.path.abspath(os.path.join(os.path.dirname(__file__), '../data/SPIDER4FedSPARQL/class-sharding/endpoints_metadata.json'))
 FEDERATED_SPARQL_ENDPOINT = "http://host.docker.internal:3030/federated/sparql"
