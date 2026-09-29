@@ -1,5 +1,5 @@
 from pipeline import FederatedSPARQLPipeline
-from config import MODE, BENCHMARK_DATA_PATH, BENCHMARK_RESULT_PATH, get_config_snapshot
+from config import MODE, BENCHMARK_DATA_PATH, BENCHMARK_RESULT_PATH, EXCLUDED_AGENT,get_config_snapshot
 from evaluate import evaluate
 
 questions = [
@@ -28,3 +28,7 @@ elif MODE == "baseline":
     from baseline_pipeline import Baseline
     baseline_pipeline = Baseline()
     evaluate(baseline_pipeline, BENCHMARK_DATA_PATH, mode='full', output_path=BENCHMARK_RESULT_PATH, config=get_config_snapshot())
+elif MODE == "ablation":
+    from ablation_pipeline import AblationPipeline
+    ablation_pipeline = AblationPipeline(excluded_agent=EXCLUDED_AGENT)
+    evaluate(ablation_pipeline, BENCHMARK_DATA_PATH, mode='full', output_path=BENCHMARK_RESULT_PATH, config=get_config_snapshot())
