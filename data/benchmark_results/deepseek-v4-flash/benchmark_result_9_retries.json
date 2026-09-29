@@ -1,0 +1,611 @@
+{
+  "config": {
+    "llm_model": "deepseek-v4-flash",
+    "max_retries": 9,
+    "discovery_retry_limit": 6,
+    "query_builder_retries": 6,
+    "schema_summary_retry_limit": 9,
+    "batch_size": 20,
+    "timestamp": "2026-07-13T15:57:58.982391+00:00"
+  },
+  "results": [
+    {
+      "question": "What are the first name and last name of Linda Smith's advisor?",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/club_1__student/sparql",
+        "http://host.docker.internal:3030/activity_1__student/sparql",
+        "http://host.docker.internal:3030/dorm_1__student/sparql",
+        "http://host.docker.internal:3030/pets_1__student/sparql",
+        "http://host.docker.internal:3030/allergy_1__student/sparql",
+        "http://host.docker.internal:3030/game_1__student/sparql",
+        "http://host.docker.internal:3030/college_3__student/sparql",
+        "http://host.docker.internal:3030/activity_1__faculty/sparql",
+        "http://host.docker.internal:3030/college_3__faculty/sparql",
+        "http://host.docker.internal:3030/college_2__advisor/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/activity_1__faculty/sparql",
+        "http://host.docker.internal:3030/activity_1__student/sparql",
+        "http://host.docker.internal:3030/activity_1__activity/sparql",
+        "http://host.docker.internal:3030/activity_1__faculty_participates_in/sparql",
+        "http://host.docker.internal:3030/activity_1__participates_in/sparql"
+      ],
+      "predicted_sparql": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX onto: <http://valuenet/ontop/>\nPREFIX stu: <http://valuenet/ontop/student#>\nPREFIX fac: <http://valuenet/ontop/faculty#>\nSELECT ?fname ?lname WHERE {\n  SERVICE <http://host.docker.internal:3030/activity_1__student/sparql> { ?student rdf:type onto:student . ?student stu:fname ?fname_student . ?student stu:lname ?lname_student . ?student stu:advisor ?advisor_id }\n  SERVICE <http://host.docker.internal:3030/activity_1__faculty/sparql> { ?faculty rdf:type onto:faculty . ?faculty fac:facid ?advisor_id . ?faculty fac:fname ?fname . ?faculty fac:lname ?lname }\n  FILTER(?fname_student = \"Linda\" && ?lname_student = \"Smith\")\n}",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT ?T1_fname ?T1_lname WHERE {\n  SERVICE <http://host.docker.internal:3030/activity_1__faculty/sparql> {\n    SELECT DISTINCT ?T1 ?T1_fname ?T1_lname WHERE {\n      ?T1 a :faculty .\n      ?T1 :faculty\\#fname ?T1_fname .\n      ?T1 :faculty\\#lname ?T1_lname .\n      ?T1 :faculty\\#fname ?T1_fname .\n      ?T1 :faculty\\#lname ?T1_lname .\n      ?T1 :faculty\\#fname ?T1_fname .\n      ?T1 :faculty\\#lname ?T1_lname .\n      ?T1 :faculty\\#fname ?T1_fname .\n      ?T1 :faculty\\#lname ?T1_lname\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__student/sparql> {\n    SELECT DISTINCT ?T2 ?T2_fname ?T2_lname WHERE {\n      ?T2 :student\\#fname ?T2_fname .\n      ?T2 :student\\#lname ?T2_lname .\n      ?T2 :student\\#fname ?T2_fname .\n      ?T2 :student\\#lname ?T2_lname .\n      ?T2 :student\\#fname ?T2_fname .\n      ?T2 :student\\#lname ?T2_lname .\n      ?T2 a :student .\n      ?T2 :student\\#fname ?T2_fname .\n      ?T2 :student\\#lname ?T2_lname\n      FILTER(?T2_fname = 'Linda' && ?T2_lname = 'Smith')\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__activity/sparql> {\n    SELECT DISTINCT ?T14 WHERE {\n      ?T14 a :activity\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__faculty_participates_in/sparql> {\n    ?T13 a :faculty_participates_in .\n      ?T13 :faculty_participates_in\\#ref-facid ?T1 .\n      ?T13 :faculty_participates_in\\#ref-actid ?T14\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__participates_in/sparql> {\n    ?T15 a :participates_in .\n      ?T15 :participates_in\\#ref-actid ?T14 .\n      ?T15 :participates_in\\#ref-stuid ?T2\n  }\n}",
+      "predicted_answers": [
+        {
+          "fname": "Michael",
+          "lname": "Goodrich"
+        }
+      ],
+      "gold_answers": [
+        {
+          "T1_fname": "Michael",
+          "T1_lname": "Goodrich"
+        },
+        {
+          "T1_fname": "Michael",
+          "T1_lname": "Goodrich"
+        },
+        {
+          "T1_fname": "Michael",
+          "T1_lname": "Goodrich"
+        },
+        {
+          "T1_fname": "Daniel",
+          "T1_lname": "Naiman"
+        },
+        {
+          "T1_fname": "Scott",
+          "T1_lname": "Smith"
+        },
+        {
+          "T1_fname": "Luigi",
+          "T1_lname": "Burzio"
+        },
+        {
+          "T1_fname": "Luigi",
+          "T1_lname": "Burzio"
+        },
+        {
+          "T1_fname": "Russell",
+          "T1_lname": "Taylor"
+        },
+        {
+          "T1_fname": "Lawrence",
+          "T1_lname": "Wolff"
+        },
+        {
+          "T1_fname": "Yair",
+          "T1_lname": "Amir"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "precision": 1.0,
+      "recall": 0.14285714285714285,
+      "f1_score": 0.25,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 2,
+      "query_builder_internal_retries": 2,
+      "schema_summary_retries": 1
+    },
+    {
+      "question": "Who is the advisor of Linda Smith? Give me the first name and last name.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/club_1__student/sparql",
+        "http://host.docker.internal:3030/activity_1__student/sparql",
+        "http://host.docker.internal:3030/allergy_1__student/sparql",
+        "http://host.docker.internal:3030/pets_1__student/sparql",
+        "http://host.docker.internal:3030/game_1__student/sparql",
+        "http://host.docker.internal:3030/dorm_1__student/sparql",
+        "http://host.docker.internal:3030/college_3__student/sparql",
+        "http://host.docker.internal:3030/activity_1__faculty/sparql",
+        "http://host.docker.internal:3030/college_3__faculty/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/activity_1__faculty/sparql",
+        "http://host.docker.internal:3030/activity_1__student/sparql",
+        "http://host.docker.internal:3030/activity_1__activity/sparql",
+        "http://host.docker.internal:3030/activity_1__faculty_participates_in/sparql",
+        "http://host.docker.internal:3030/activity_1__participates_in/sparql"
+      ],
+      "predicted_sparql": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX student: <http://valuenet/ontop/student#>\nPREFIX faculty: <http://valuenet/ontop/faculty#>\nPREFIX ontop: <http://valuenet/ontop/>\nSELECT ?first ?last WHERE {\n  SERVICE <http://host.docker.internal:3030/club_1__student/sparql> { ?s rdf:type ontop:student . ?s student:fname ?s_fname . ?s student:lname ?s_lname . ?s student:advisor ?advisor }\n  SERVICE <http://host.docker.internal:3030/activity_1__faculty/sparql> { ?fac rdf:type ontop:faculty . ?fac faculty:facid ?advisor . ?fac faculty:fname ?first . ?fac faculty:lname ?last }\n  FILTER(?s_fname = \"Linda\" && ?s_lname = \"Smith\")\n}",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT ?T1_fname ?T1_lname WHERE {\n  SERVICE <http://host.docker.internal:3030/activity_1__faculty/sparql> {\n    SELECT DISTINCT ?T1 ?T1_fname ?T1_lname WHERE {\n      ?T1 a :faculty .\n      ?T1 :faculty\\#fname ?T1_fname .\n      ?T1 :faculty\\#lname ?T1_lname .\n      ?T1 :faculty\\#fname ?T1_fname .\n      ?T1 :faculty\\#lname ?T1_lname .\n      ?T1 :faculty\\#fname ?T1_fname .\n      ?T1 :faculty\\#lname ?T1_lname .\n      ?T1 :faculty\\#fname ?T1_fname .\n      ?T1 :faculty\\#lname ?T1_lname\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__student/sparql> {\n    SELECT DISTINCT ?T2 ?T2_fname ?T2_lname WHERE {\n      ?T2 :student\\#fname ?T2_fname .\n      ?T2 :student\\#lname ?T2_lname .\n      ?T2 :student\\#fname ?T2_fname .\n      ?T2 :student\\#lname ?T2_lname .\n      ?T2 :student\\#fname ?T2_fname .\n      ?T2 :student\\#lname ?T2_lname .\n      ?T2 a :student .\n      ?T2 :student\\#fname ?T2_fname .\n      ?T2 :student\\#lname ?T2_lname\n      FILTER(?T2_fname = 'Linda' && ?T2_lname = 'Smith')\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__activity/sparql> {\n    SELECT DISTINCT ?T14 WHERE {\n      ?T14 a :activity\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__faculty_participates_in/sparql> {\n    ?T13 a :faculty_participates_in .\n      ?T13 :faculty_participates_in\\#ref-facid ?T1 .\n      ?T13 :faculty_participates_in\\#ref-actid ?T14\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__participates_in/sparql> {\n    ?T15 a :participates_in .\n      ?T15 :participates_in\\#ref-actid ?T14 .\n      ?T15 :participates_in\\#ref-stuid ?T2\n  }\n}",
+      "predicted_answers": [
+        {
+          "first": "Michael",
+          "last": "Goodrich"
+        }
+      ],
+      "gold_answers": [
+        {
+          "T1_fname": "Michael",
+          "T1_lname": "Goodrich"
+        },
+        {
+          "T1_fname": "Michael",
+          "T1_lname": "Goodrich"
+        },
+        {
+          "T1_fname": "Michael",
+          "T1_lname": "Goodrich"
+        },
+        {
+          "T1_fname": "Daniel",
+          "T1_lname": "Naiman"
+        },
+        {
+          "T1_fname": "Scott",
+          "T1_lname": "Smith"
+        },
+        {
+          "T1_fname": "Luigi",
+          "T1_lname": "Burzio"
+        },
+        {
+          "T1_fname": "Luigi",
+          "T1_lname": "Burzio"
+        },
+        {
+          "T1_fname": "Russell",
+          "T1_lname": "Taylor"
+        },
+        {
+          "T1_fname": "Lawrence",
+          "T1_lname": "Wolff"
+        },
+        {
+          "T1_fname": "Yair",
+          "T1_lname": "Amir"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "precision": 1.0,
+      "recall": 0.14285714285714285,
+      "f1_score": 0.25,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 4,
+      "schema_summary_retries": 1
+    },
+    {
+      "question": "Show first name and last name for all the students advised by Michael Goodrich.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/club_1__student/sparql",
+        "http://host.docker.internal:3030/allergy_1__student/sparql",
+        "http://host.docker.internal:3030/pets_1__student/sparql",
+        "http://host.docker.internal:3030/dorm_1__student/sparql",
+        "http://host.docker.internal:3030/college_3__student/sparql",
+        "http://host.docker.internal:3030/game_1__student/sparql",
+        "http://host.docker.internal:3030/activity_1__student/sparql",
+        "http://host.docker.internal:3030/college_2__advisor/sparql",
+        "http://host.docker.internal:3030/activity_1__faculty/sparql",
+        "http://host.docker.internal:3030/college_3__faculty/sparql",
+        "http://host.docker.internal:3030/csu_1__faculty/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/activity_1__student/sparql",
+        "http://host.docker.internal:3030/activity_1__faculty/sparql",
+        "http://host.docker.internal:3030/activity_1__activity/sparql",
+        "http://host.docker.internal:3030/activity_1__participates_in/sparql",
+        "http://host.docker.internal:3030/activity_1__faculty_participates_in/sparql"
+      ],
+      "predicted_sparql": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX student: <http://valuenet/ontop/student#>\nPREFIX faculty: <http://valuenet/ontop/faculty#>\nSELECT ?s_fname ?s_lname WHERE {\n  SERVICE <http://host.docker.internal:3030/activity_1__student/sparql> { ?student <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://valuenet/ontop/student> . ?student <http://valuenet/ontop/student#advisor> ?facultyId . ?student <http://valuenet/ontop/student#fname> ?s_fname . ?student <http://valuenet/ontop/student#lname> ?s_lname }\n  SERVICE <http://host.docker.internal:3030/activity_1__faculty/sparql> { ?faculty <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://valuenet/ontop/faculty> . ?faculty <http://valuenet/ontop/faculty#facid> ?facultyId . ?faculty <http://valuenet/ontop/faculty#fname> ?f_fname . ?faculty <http://valuenet/ontop/faculty#lname> ?f_lname }\n  FILTER(?f_fname = \"Michael\" && ?f_lname = \"Goodrich\")\n}",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT ?T1_fname ?T1_lname WHERE {\n  SERVICE <http://host.docker.internal:3030/activity_1__student/sparql> {\n    SELECT DISTINCT ?T1 ?T1_fname ?T1_lname WHERE {\n      ?T1 a :student .\n      ?T1 :student\\#fname ?T1_fname .\n      ?T1 :student\\#lname ?T1_lname .\n      ?T1 :student\\#fname ?T1_fname .\n      ?T1 :student\\#lname ?T1_lname .\n      ?T1 :student\\#fname ?T1_fname .\n      ?T1 :student\\#lname ?T1_lname .\n      ?T1 :student\\#fname ?T1_fname .\n      ?T1 :student\\#lname ?T1_lname\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__faculty/sparql> {\n    SELECT DISTINCT ?T2 ?T2_fname ?T2_lname WHERE {\n      ?T2 :faculty\\#fname ?T2_fname .\n      ?T2 :faculty\\#lname ?T2_lname .\n      ?T2 :faculty\\#fname ?T2_fname .\n      ?T2 :faculty\\#lname ?T2_lname .\n      ?T2 :faculty\\#fname ?T2_fname .\n      ?T2 :faculty\\#lname ?T2_lname .\n      ?T2 a :faculty .\n      ?T2 :faculty\\#fname ?T2_fname .\n      ?T2 :faculty\\#lname ?T2_lname\n      FILTER(?T2_fname = 'Michael' && ?T2_lname = 'Goodrich')\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__activity/sparql> {\n    SELECT DISTINCT ?T14 WHERE {\n      ?T14 a :activity\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__participates_in/sparql> {\n    ?T13 a :participates_in .\n      ?T13 :participates_in\\#ref-stuid ?T1 .\n      ?T13 :participates_in\\#ref-actid ?T14\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__faculty_participates_in/sparql> {\n    ?T15 a :faculty_participates_in .\n      ?T15 :faculty_participates_in\\#ref-actid ?T14 .\n      ?T15 :faculty_participates_in\\#ref-facid ?T2\n  }\n}",
+      "predicted_answers": [
+        {
+          "s_fname": "Linda",
+          "s_lname": "Smith"
+        },
+        {
+          "s_fname": "Paul",
+          "s_lname": "Gompers"
+        },
+        {
+          "s_fname": "Michael",
+          "s_lname": "Leighton"
+        }
+      ],
+      "gold_answers": [
+        {
+          "T1_fname": "Linda",
+          "T1_lname": "Smith"
+        },
+        {
+          "T1_fname": "Linda",
+          "T1_lname": "Smith"
+        },
+        {
+          "T1_fname": "Linda",
+          "T1_lname": "Smith"
+        },
+        {
+          "T1_fname": "Tracy",
+          "T1_lname": "Kim"
+        },
+        {
+          "T1_fname": "Dinesh",
+          "T1_lname": "Kumar"
+        },
+        {
+          "T1_fname": "Paul",
+          "T1_lname": "Gompers"
+        },
+        {
+          "T1_fname": "Eric",
+          "T1_lname": "Tai"
+        },
+        {
+          "T1_fname": "Charles",
+          "T1_lname": "Norris"
+        },
+        {
+          "T1_fname": "Charles",
+          "T1_lname": "Norris"
+        },
+        {
+          "T1_fname": "Bruce",
+          "T1_lname": "Wilson"
+        },
+        {
+          "T1_fname": "Bruce",
+          "T1_lname": "Wilson"
+        },
+        {
+          "T1_fname": "Michael",
+          "T1_lname": "Leighton"
+        },
+        {
+          "T1_fname": "Michael",
+          "T1_lname": "Leighton"
+        },
+        {
+          "T1_fname": "Stacy",
+          "T1_lname": "Prater"
+        },
+        {
+          "T1_fname": "Mark",
+          "T1_lname": "Goldman"
+        },
+        {
+          "T1_fname": "Mark",
+          "T1_lname": "Goldman"
+        },
+        {
+          "T1_fname": "Eric",
+          "T1_lname": "Epp"
+        },
+        {
+          "T1_fname": "Eric",
+          "T1_lname": "Epp"
+        },
+        {
+          "T1_fname": "Sarah",
+          "T1_lname": "Schmidt"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "precision": 1.0,
+      "recall": 0.25,
+      "f1_score": 0.4,
+      "manually_check": false,
+      "refinement_attempts": 0,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 2,
+      "schema_summary_retries": 1
+    },
+    {
+      "question": "Which students are advised by Michael Goodrich? Give me their first and last names.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/allergy_1__student/sparql",
+        "http://host.docker.internal:3030/activity_1__student/sparql",
+        "http://host.docker.internal:3030/dorm_1__student/sparql",
+        "http://host.docker.internal:3030/game_1__student/sparql",
+        "http://host.docker.internal:3030/college_3__student/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/activity_1__student/sparql",
+        "http://host.docker.internal:3030/activity_1__faculty/sparql",
+        "http://host.docker.internal:3030/activity_1__activity/sparql",
+        "http://host.docker.internal:3030/activity_1__participates_in/sparql",
+        "http://host.docker.internal:3030/activity_1__faculty_participates_in/sparql"
+      ],
+      "predicted_sparql": null,
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT ?T1_fname ?T1_lname WHERE {\n  SERVICE <http://host.docker.internal:3030/activity_1__student/sparql> {\n    SELECT DISTINCT ?T1 ?T1_fname ?T1_lname WHERE {\n      ?T1 a :student .\n      ?T1 :student\\#fname ?T1_fname .\n      ?T1 :student\\#lname ?T1_lname .\n      ?T1 :student\\#fname ?T1_fname .\n      ?T1 :student\\#lname ?T1_lname .\n      ?T1 :student\\#fname ?T1_fname .\n      ?T1 :student\\#lname ?T1_lname .\n      ?T1 :student\\#fname ?T1_fname .\n      ?T1 :student\\#lname ?T1_lname\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__faculty/sparql> {\n    SELECT DISTINCT ?T2 ?T2_fname ?T2_lname WHERE {\n      ?T2 :faculty\\#fname ?T2_fname .\n      ?T2 :faculty\\#lname ?T2_lname .\n      ?T2 :faculty\\#fname ?T2_fname .\n      ?T2 :faculty\\#lname ?T2_lname .\n      ?T2 :faculty\\#fname ?T2_fname .\n      ?T2 :faculty\\#lname ?T2_lname .\n      ?T2 a :faculty .\n      ?T2 :faculty\\#fname ?T2_fname .\n      ?T2 :faculty\\#lname ?T2_lname\n      FILTER(?T2_fname = 'Michael' && ?T2_lname = 'Goodrich')\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__activity/sparql> {\n    SELECT DISTINCT ?T14 WHERE {\n      ?T14 a :activity\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__participates_in/sparql> {\n    ?T13 a :participates_in .\n      ?T13 :participates_in\\#ref-stuid ?T1 .\n      ?T13 :participates_in\\#ref-actid ?T14\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__faculty_participates_in/sparql> {\n    ?T15 a :faculty_participates_in .\n      ?T15 :faculty_participates_in\\#ref-actid ?T14 .\n      ?T15 :faculty_participates_in\\#ref-facid ?T2\n  }\n}",
+      "predicted_answers": [],
+      "gold_answers": [
+        {
+          "T1_fname": "Linda",
+          "T1_lname": "Smith"
+        },
+        {
+          "T1_fname": "Linda",
+          "T1_lname": "Smith"
+        },
+        {
+          "T1_fname": "Linda",
+          "T1_lname": "Smith"
+        },
+        {
+          "T1_fname": "Tracy",
+          "T1_lname": "Kim"
+        },
+        {
+          "T1_fname": "Dinesh",
+          "T1_lname": "Kumar"
+        },
+        {
+          "T1_fname": "Paul",
+          "T1_lname": "Gompers"
+        },
+        {
+          "T1_fname": "Eric",
+          "T1_lname": "Tai"
+        },
+        {
+          "T1_fname": "Charles",
+          "T1_lname": "Norris"
+        },
+        {
+          "T1_fname": "Charles",
+          "T1_lname": "Norris"
+        },
+        {
+          "T1_fname": "Bruce",
+          "T1_lname": "Wilson"
+        },
+        {
+          "T1_fname": "Bruce",
+          "T1_lname": "Wilson"
+        },
+        {
+          "T1_fname": "Michael",
+          "T1_lname": "Leighton"
+        },
+        {
+          "T1_fname": "Michael",
+          "T1_lname": "Leighton"
+        },
+        {
+          "T1_fname": "Stacy",
+          "T1_lname": "Prater"
+        },
+        {
+          "T1_fname": "Mark",
+          "T1_lname": "Goldman"
+        },
+        {
+          "T1_fname": "Mark",
+          "T1_lname": "Goldman"
+        },
+        {
+          "T1_fname": "Eric",
+          "T1_lname": "Epp"
+        },
+        {
+          "T1_fname": "Eric",
+          "T1_lname": "Epp"
+        },
+        {
+          "T1_fname": "Sarah",
+          "T1_lname": "Schmidt"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "manually_check": false,
+      "refinement_attempts": 9,
+      "discovery_internal_retries": 5,
+      "query_builder_internal_retries": 14,
+      "schema_summary_retries": 8
+    },
+    {
+      "question": "Show the ids for all the faculty members who have at least 2 students.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/college_1__student/sparql",
+        "http://host.docker.internal:3030/college_1__professor/sparql",
+        "http://host.docker.internal:3030/club_1__student/sparql",
+        "http://host.docker.internal:3030/allergy_1__student/sparql",
+        "http://host.docker.internal:3030/activity_1__faculty/sparql",
+        "http://host.docker.internal:3030/activity_1__faculty_participates_in/sparql",
+        "http://host.docker.internal:3030/activity_1__participates_in/sparql",
+        "http://host.docker.internal:3030/csu_1__faculty/sparql",
+        "http://host.docker.internal:3030/college_3__faculty/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/activity_1__faculty/sparql",
+        "http://host.docker.internal:3030/activity_1__activity/sparql",
+        "http://host.docker.internal:3030/activity_1__faculty_participates_in/sparql",
+        "http://host.docker.internal:3030/activity_1__participates_in/sparql"
+      ],
+      "predicted_sparql": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX ontop: <http://valuenet/ontop/>\nSELECT ?prof_num WHERE {\n  SERVICE <http://host.docker.internal:3030/college_1__student/sparql> { ?student <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://valuenet/ontop/student> . ?student <http://valuenet/ontop/student#prof_num> ?prof_num }\n  SERVICE <http://host.docker.internal:3030/college_1__professor/sparql> { ?prof <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://valuenet/ontop/professor> . ?prof <http://valuenet/ontop/professor#emp_num> ?prof_num }\n}\nGROUP BY ?prof_num\nHAVING (COUNT(?student) >= 2)",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT ?T1_facid WHERE {\n  {\n    SELECT ?T1 ?T13 ?T14 ?T15 ?T1_facid WHERE {\n  SERVICE <http://host.docker.internal:3030/activity_1__faculty/sparql> {\n    SELECT DISTINCT ?T1 ?T1_facid WHERE {\n      ?T1 a :faculty .\n      ?T1 :faculty\\#facid ?T1_facid .\n      ?T1 :faculty\\#facid ?T1_facid .\n      ?T1 :faculty\\#facid ?T1_facid\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__activity/sparql> {\n    SELECT DISTINCT ?T14 WHERE {\n      ?T14 a :activity\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__faculty_participates_in/sparql> {\n    ?T13 a :faculty_participates_in .\n      ?T13 :faculty_participates_in\\#ref-facid ?T1 .\n      ?T13 :faculty_participates_in\\#ref-actid ?T14\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__participates_in/sparql> {\n    ?T15 a :participates_in .\n      ?T15 :participates_in\\#ref-actid ?T14\n  }\n    }\n  }\n}\nGROUP BY ?T1_facid   HAVING(count( *)  >= 2)",
+      "predicted_answers": [
+        {
+          "prof_num": "228"
+        }
+      ],
+      "gold_answers": [
+        {
+          "T1_facid": "2192"
+        },
+        {
+          "T1_facid": "7723"
+        },
+        {
+          "T1_facid": "5718"
+        },
+        {
+          "T1_facid": "1193"
+        },
+        {
+          "T1_facid": "8721"
+        },
+        {
+          "T1_facid": "4432"
+        },
+        {
+          "T1_facid": "1121"
+        },
+        {
+          "T1_facid": "1177"
+        },
+        {
+          "T1_facid": "6182"
+        },
+        {
+          "T1_facid": "6112"
+        },
+        {
+          "T1_facid": "8741"
+        },
+        {
+          "T1_facid": "1082"
+        },
+        {
+          "T1_facid": "8114"
+        },
+        {
+          "T1_facid": "3457"
+        },
+        {
+          "T1_facid": "4230"
+        },
+        {
+          "T1_facid": "8918"
+        },
+        {
+          "T1_facid": "2881"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "manually_check": false,
+      "refinement_attempts": 1,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 3,
+      "schema_summary_retries": 1
+    },
+    {
+      "question": "Which faculty members advise two ore more students? Give me their faculty ids.",
+      "predicted_endpoints": [
+        "http://host.docker.internal:3030/pets_1__student/sparql",
+        "http://host.docker.internal:3030/club_1__student/sparql",
+        "http://host.docker.internal:3030/allergy_1__student/sparql",
+        "http://host.docker.internal:3030/activity_1__student/sparql",
+        "http://host.docker.internal:3030/college_1__student/sparql"
+      ],
+      "gold_endpoints": [
+        "http://host.docker.internal:3030/activity_1__faculty/sparql",
+        "http://host.docker.internal:3030/activity_1__activity/sparql",
+        "http://host.docker.internal:3030/activity_1__faculty_participates_in/sparql",
+        "http://host.docker.internal:3030/activity_1__participates_in/sparql"
+      ],
+      "predicted_sparql": "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\nPREFIX ontop: <http://valuenet/ontop/student#>\nSELECT ?advisor WHERE {\n  SERVICE <http://host.docker.internal:3030/pets_1__student/sparql> { ?student rdf:type <http://valuenet/ontop/student> . ?student ontop:advisor ?advisor }\n  SERVICE <http://host.docker.internal:3030/club_1__student/sparql> { ?student rdf:type <http://valuenet/ontop/student> . ?student ontop:advisor ?advisor }\n  SERVICE <http://host.docker.internal:3030/allergy_1__student/sparql> { ?student rdf:type <http://valuenet/ontop/student> . ?student ontop:advisor ?advisor }\n  SERVICE <http://host.docker.internal:3030/activity_1__student/sparql> { ?student rdf:type <http://valuenet/ontop/student> . ?student ontop:advisor ?advisor }\n}\nGROUP BY ?advisor\nHAVING (COUNT(?student) >= 2)",
+      "gold_sparql": "PREFIX : <http://valuenet/ontop/>\n\nSELECT ?T1_facid WHERE {\n  {\n    SELECT ?T1 ?T13 ?T14 ?T15 ?T1_facid WHERE {\n  SERVICE <http://host.docker.internal:3030/activity_1__faculty/sparql> {\n    SELECT DISTINCT ?T1 ?T1_facid WHERE {\n      ?T1 a :faculty .\n      ?T1 :faculty\\#facid ?T1_facid .\n      ?T1 :faculty\\#facid ?T1_facid .\n      ?T1 :faculty\\#facid ?T1_facid\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__activity/sparql> {\n    SELECT DISTINCT ?T14 WHERE {\n      ?T14 a :activity\n    }\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__faculty_participates_in/sparql> {\n    ?T13 a :faculty_participates_in .\n      ?T13 :faculty_participates_in\\#ref-facid ?T1 .\n      ?T13 :faculty_participates_in\\#ref-actid ?T14\n  }\n  SERVICE <http://host.docker.internal:3030/activity_1__participates_in/sparql> {\n    ?T15 a :participates_in .\n      ?T15 :participates_in\\#ref-actid ?T14\n  }\n    }\n  }\n}\nGROUP BY ?T1_facid   HAVING(count( *)  >= 2)",
+      "predicted_answers": [
+        {
+          "advisor": "8722"
+        },
+        {
+          "advisor": "7134"
+        },
+        {
+          "advisor": "2192"
+        },
+        {
+          "advisor": "2311"
+        },
+        {
+          "advisor": "5718"
+        },
+        {
+          "advisor": "7271"
+        },
+        {
+          "advisor": "1121"
+        },
+        {
+          "advisor": "1148"
+        },
+        {
+          "advisor": "8772"
+        }
+      ],
+      "gold_answers": [
+        {
+          "T1_facid": "2192"
+        },
+        {
+          "T1_facid": "7723"
+        },
+        {
+          "T1_facid": "5718"
+        },
+        {
+          "T1_facid": "1193"
+        },
+        {
+          "T1_facid": "8721"
+        },
+        {
+          "T1_facid": "4432"
+        },
+        {
+          "T1_facid": "1121"
+        },
+        {
+          "T1_facid": "1177"
+        },
+        {
+          "T1_facid": "6182"
+        },
+        {
+          "T1_facid": "6112"
+        },
+        {
+          "T1_facid": "8741"
+        },
+        {
+          "T1_facid": "1082"
+        },
+        {
+          "T1_facid": "8114"
+        },
+        {
+          "T1_facid": "3457"
+        },
+        {
+          "T1_facid": "4230"
+        },
+        {
+          "T1_facid": "8918"
+        },
+        {
+          "T1_facid": "2881"
+        }
+      ],
+      "discovery_accuracy": 0.0,
+      "execution_accuracy": 0.0,
+      "precision": 0.3333333333333333,
+      "recall": 0.17647058823529413,
+      "f1_score": 0.23076923076923078,
+      "manually_check": false,
+      "refinement_attempts": 1,
+      "discovery_internal_retries": 1,
+      "query_builder_internal_retries": 2,
+      "schema_summary_retries": 1
+    }
+  ]
+}
